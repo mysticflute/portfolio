@@ -1,0 +1,27 @@
+.container {
+  max-width: 778px;
+  padding: 34px 24px;
+  margin: 0 auto;
+}
+
+.header {
+  box-shadow: 7px 7px 0 0 #0b0b0b;
+  display: flex;
+  padding: 10px 14px;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #0b0b0b;
+  border-radius: 18px;
+  background-color: #fff;
+}
+
+.logoLink {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+}
