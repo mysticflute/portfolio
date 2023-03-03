@@ -1,5 +1,6 @@
 :root {
   --color-text-default: #393939;
+  --color-text-header-link: #0b0b0b;
   --color-background-default: #faf9f6;
 }
 
@@ -9,12 +10,6 @@
   html {
     color-scheme: dark;
   }
-} */
-
-/* * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 } */
 
 *,
@@ -32,11 +27,19 @@ body {
 body {
   color: var(--color-text-default);
   background: var(--color-background-default);
+  font-family: var(--font-regular), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.667em;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.lineRoundedIcons {
+  font-family: var(--font-icons-rounded), sans-serif;
 }
 
 /* @media (prefers-color-scheme: dark) {
