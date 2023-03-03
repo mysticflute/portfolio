@@ -2,6 +2,8 @@
   --color-text-default: #393939;
   --color-text-header-link: #0b0b0b;
   --color-background-default: #faf9f6;
+  --color-background-header: var(--color-text-header-link);
+  --color-background-highlight: #1c92ff;
 }
 
 /* @media (prefers-color-scheme: dark) { */

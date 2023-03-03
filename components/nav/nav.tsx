@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import styles from './nav.module.css';
 
@@ -10,17 +11,23 @@ const menu: { label: string; path: string }[] = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Portfolio', path: '/portfolio' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export default function Nav() {
   const { asPath: currentPage } = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function toggleHamburger() {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.contentLeft}>
-          <Link href="/" aria-label="home">
-            <Image src={logo} alt="Site logo" className={styles.logo} />
+          <Link href="/" aria-label="home" className={styles.logo}>
+            <Image src={logo} alt="Site logo" />
           </Link>
         </div>
 
@@ -45,9 +52,23 @@ export default function Nav() {
         </div>
 
         <div className={styles.contentRight}>
-          <Link href="/contact" className={styles.contact}>
+          <Link href="/contact" className={styles.contactButton}>
             <span className="lineRoundedIcons"></span>
           </Link>
+
+          <div
+            className={`${styles.hamburger} ${
+              isMenuOpen ? styles.open : styles.closed
+            }`}
+            aria-label="menu"
+            role="button"
+            aria-controls="nav-overlay"
+            aria-expanded="false"
+            onClick={toggleHamburger}
+          >
+            <div className={styles.hamburgerTop}></div>
+            <div className={styles.hamburgerBottom}></div>
+          </div>
         </div>
       </div>
     </div>
