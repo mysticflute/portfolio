@@ -10,11 +10,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <style jsx global>{`
         :root {
-          --font-regular: ${Onest.style.fontFamily};
+          --font-default: ${Onest.style.fontFamily};
           --font-icons-rounded: ${LineRoundedIcons.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

@@ -27,7 +27,7 @@ body {
 body {
   color: var(--color-text-default);
   background: var(--color-background-default);
-  font-family: var(--font-regular), system-ui, sans-serif;
+  font-family: var(--font-default), system-ui, sans-serif;
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 1.667em;
