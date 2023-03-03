@@ -9,4 +9,12 @@ module.exports = {
     quotes: ['error', 'single'],
     'no-trailing-spaces': 'warn',
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
 };
