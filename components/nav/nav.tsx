@@ -18,10 +18,6 @@ export default function Nav() {
   const { asPath: currentPage } = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  function toggleHamburger() {
-    setIsMenuOpen(!isMenuOpen);
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -64,7 +60,7 @@ export default function Nav() {
             role="button"
             aria-controls="nav-overlay"
             aria-expanded="false"
-            onClick={toggleHamburger}
+            onClick={() => setIsMenuOpen(isOpen => !isOpen)}
           >
             <div className={styles.hamburgerTop}></div>
             <div className={styles.hamburgerBottom}></div>

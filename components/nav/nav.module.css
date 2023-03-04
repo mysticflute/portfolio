@@ -124,6 +124,8 @@
 }
 
 .hamburger {
+  cursor: pointer;
+
   /* transform: translate3d(0px, 8px, 0px) scale3d(1, 1, 1) rotateX(0deg)
     rotateY(0deg) rotateZ(135deg) skew(0deg, 0deg);
   transform-style: preserve-3d; */
@@ -140,10 +142,20 @@
   margin: 12px 0;
   border-radius: 20px;
   background-color: var(--color-background-header);
+  transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
-
 .hamburger.open .hamburgerTop {
+  transform: translate3d(0px, 8px, 0px) rotateZ(135deg);
+}
+.hamburger.open .hamburgerBottom {
+  transform: translate3d(0px, -7px, 0px) rotateZ(45deg);
+}
+
+.hambuger.closed {
+}
+
+/* .hamburger.open .hamburgerTop {
   animation: ease-in-out 0.3s rotateTop forwards;
 }
 
@@ -157,9 +169,9 @@
 
 .hamburger.closed .hamburgerBottom {
   animation: ease-in-out 0.3s rotateBottom2 forwards;
-}
+} */
 
-.hambuger @media screen and (max-width: 991px) {
+@media screen and (max-width: 991px) {
   .container {
     padding-top: 28px;
     padding-bottom: 28px;
