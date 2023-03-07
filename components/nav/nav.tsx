@@ -56,7 +56,7 @@ export default function Nav() {
 
         <div className={styles.barRight}>
           <Link href="/contact" className={styles.contact}>
-            <span className="lineRoundedIcons"></span>
+            <span className="lineRoundedIcon"></span>
           </Link>
 
           <button

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/layout/layout';
+import Hero from '@/components/hero/hero';
 import { baseWebsiteTitle } from '@/lib/constants';
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
         <Head>
           <title>{baseWebsiteTitle}</title>
         </Head>
-        <h1>This is the home page</h1>
+        <Hero></Hero>
       </Layout>
     </>
   );

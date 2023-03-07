@@ -40,13 +40,57 @@ body {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-.lineRoundedIcons {
+.lineRoundedIcon {
   font-family: var(--font-icons-rounded), sans-serif;
+}
+
+.linkIconLeft {
+  display: inline-block;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.text-heading-large {
+  color: #0b0b0b;
+  font-size: 72px;
+  line-height: 1.181em;
+  font-weight: 700;
 }
 
 /* @media (prefers-color-scheme: dark) {
