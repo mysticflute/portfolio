@@ -1,8 +1,8 @@
 .container {
-  max-width: 778px;
-  padding: 34px 24px;
-  margin: 0 auto;
   position: relative;
+  margin: 0 auto;
+  padding: 34px 24px;
+  max-width: 778px;
 }
 
 .bar {
@@ -10,12 +10,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  background-color: #fff;
-  box-shadow: 7px 7px 0 0 #0b0b0b;
-  border: 2px solid #0b0b0b;
+  border: 2px solid var(--color-background-header);
   border-radius: 18px;
-  z-index: 1000;
-  position: relative;
+  background-color: #fff;
+  box-shadow: 7px 7px 0 0 var(--color-background-header);
 }
 
 .barLeft,
@@ -23,32 +21,6 @@
 .barRight {
   display: flex;
   align-items: center;
-}
-
-.list,
-.overlayList {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.list > li {
-  padding: 0 12px;
-  line-height: 1.111em;
-}
-
-.list a,
-.overlayList a {
-  color: var(--color-text-header-link);
-  font-weight: 700;
-  transition: color 300ms ease;
-}
-
-.list a:not([aria-current]):hover,
-.overlayList a:not([aria-current]):hover {
-  color: #1c92ff;
 }
 
 .logo {
@@ -67,13 +39,56 @@
   vertical-align: middle;
 }
 
-.contactButton {
+.list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list a {
+  color: var(--color-text-header-link);
+  font-weight: 700;
+  transition: color 300ms ease;
+}
+
+.list a:not([aria-current]):hover {
+  color: var(--color-text-header-link-highlight);
+}
+
+.bar .list > li {
+  padding: 0 12px;
+  line-height: 1.111em;
+}
+
+.overlay .list {
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px 24px;
+  border: 2px solid var(--color-background-header);
+  border-radius: 24px;
+  background: #fff;
+}
+
+.overlay .list > li {
+  margin: 0 0 24px 0;
+  padding: 0;
+  line-height: 1.111em;
+}
+.overlay .list > li:last-of-type {
+  margin-bottom: 0;
+}
+
+.contact {
   display: inline-block;
   margin-left: 24px;
   padding: 13px;
-  background-color: var(--color-background-header);
   border: 2px solid var(--color-background-header);
   border-radius: 12px;
+  background-color: var(--color-background-header);
   color: #fff;
   font-size: 24px;
   line-height: 24px;
@@ -82,7 +97,7 @@
     background-color 300ms ease, transform 300ms ease;
 }
 
-.contactButton:hover {
+.contact:hover {
   color: #fff;
   border-color: var(--color-background-highlight);
   background-color: var(--color-background-highlight);
@@ -91,6 +106,11 @@
 
 .hamburger {
   display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -114,56 +134,31 @@
 }
 
 .overlay {
-  /* display: none; */
   position: absolute;
   overflow: hidden;
-  left: 0;
-  right: 0;
-  width: 100%;
   top: 100%;
-  transition: max-height 200ms ease;
+  right: 0;
+  left: 0;
+  /* woudn't need this with display none... */
   max-height: 0;
+  transition: max-height 200ms ease;
 }
+
 .overlay.open {
   max-height: 1000px;
 }
 
-.overlay > nav {
-  max-width: 778px;
+.overlay nav {
   margin: 0 auto;
   padding: 24px;
+  max-width: 778px;
   transition: transform 400ms ease;
+  transform: translateY(-130%);
   transform-style: preserve-3d;
-  transform: translateY(-100%);
 }
 
-.overlay.open > nav {
+.overlay.open nav {
   transform: translateY(0);
-}
-
-.overlayList {
-  align-items: flex-start;
-  justify-content: flex-end;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 32px 24px;
-  border: 2px solid var(--color-background-header);
-  border-radius: 24px;
-  background: #fff;
-}
-
-.overlayList > li {
-  margin: 0 0 24px 0;
-  padding: 0;
-  line-height: 1.111em;
-}
-.overlayList > li:last-of-type {
-  margin-bottom: 0;
-}
-
-.overlayList a {
-  color: var(--color-text-header-link);
-  font-weight: 700;
 }
 
 /* tablet */
@@ -173,11 +168,11 @@
     padding-bottom: 28px;
   }
 
-  .list {
+  .bar .list {
     display: none;
   }
 
-  .contactButton {
+  .contact {
     margin-left: 0;
     margin-right: 24px;
   }
@@ -187,7 +182,7 @@
   }
 }
 
-/* tablet */
+/* phone */
 @media screen and (max-width: 767px) {
   .container {
     padding-top: 24px;
@@ -199,12 +194,12 @@
     margin: 0 auto;
   }
 
-  .bar img {
+  .logo img {
     max-width: 90%;
     height: auto;
   }
 
-  .contactButton {
+  .contact {
     padding: 9px;
   }
 }
