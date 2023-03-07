@@ -2,9 +2,10 @@
   max-width: 778px;
   padding: 34px 24px;
   margin: 0 auto;
+  position: relative;
 }
 
-.content {
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,16 +14,19 @@
   box-shadow: 7px 7px 0 0 #0b0b0b;
   border: 2px solid #0b0b0b;
   border-radius: 18px;
+  z-index: 1000;
+  position: relative;
 }
 
-.contentLeft,
-.contentMiddle,
-.contentRight {
+.barLeft,
+.barMiddle,
+.barRight {
   display: flex;
   align-items: center;
 }
 
-.list {
+.list,
+.overlayList {
   display: flex;
   align-items: center;
   list-style-type: none;
@@ -35,13 +39,15 @@
   line-height: 1.111em;
 }
 
-.list a {
+.list a,
+.overlayList a {
   color: var(--color-text-header-link);
   font-weight: 700;
   transition: color 300ms ease;
 }
 
-.list a:not([aria-current]):hover {
+.list a:not([aria-current]):hover,
+.overlayList a:not([aria-current]):hover {
   color: #1c92ff;
 }
 
@@ -83,56 +89,9 @@
   transform: translate3d(0px, -3px, 0.01px);
 }
 
-@keyframes rotateTop {
-  from {
-    transform: translate3d(0px, 0px, 0px) rotateZ(0);
-  }
-
-  to {
-    transform: translate3d(0px, 8px, 0px) rotateZ(135deg);
-  }
-}
-
-@keyframes rotateTop2 {
-  from {
-    transform: translate3d(0px, 8px, 0px) rotateZ(135deg);
-  }
-
-  to {
-    transform: translate3d(0px, 0px, 0px) rotateZ(0);
-  }
-}
-
-@keyframes rotateBottom {
-  from {
-    transform: translate3d(0px, 0px, 0px) rotateZ(0);
-  }
-
-  to {
-    transform: translate3d(0px, -7px, 0px) rotateZ(45deg);
-  }
-}
-
-@keyframes rotateBottom2 {
-  from {
-    transform: translate3d(0px, -7px, 0px) rotateZ(45deg);
-  }
-
-  to {
-    transform: translate3d(0px, 0px, 0px) rotateZ(0deg);
-  }
-}
-
 .hamburger {
+  display: none;
   cursor: pointer;
-
-  /* transform: translate3d(0px, 8px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-    rotateY(0deg) rotateZ(135deg) skew(0deg, 0deg);
-  transform-style: preserve-3d; */
-
-  /* transform: translate3d(0px, -7px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-    rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
-  transform-style: preserve-3d; */
 }
 
 .hamburgerTop,
@@ -145,32 +104,69 @@
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
+
 .hamburger.open .hamburgerTop {
   transform: translate3d(0px, 8px, 0px) rotateZ(135deg);
 }
+
 .hamburger.open .hamburgerBottom {
   transform: translate3d(0px, -7px, 0px) rotateZ(45deg);
 }
 
-.hambuger.closed {
+.overlay {
+  /* display: none; */
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 100%;
+  transition: max-height 200ms ease;
+  max-height: 0;
+}
+.overlay.open {
+  max-height: 1000px;
 }
 
-/* .hamburger.open .hamburgerTop {
-  animation: ease-in-out 0.3s rotateTop forwards;
+.overlay > nav {
+  max-width: 778px;
+  margin: 0 auto;
+  padding: 24px;
+  transition: transform 400ms ease;
+  transform-style: preserve-3d;
+  transform: translateY(-100%);
 }
 
-.hamburger.open .hamburgerBottom {
-  animation: ease-in-out 0.3s rotateBottom forwards;
+.overlay.open > nav {
+  transform: translateY(0);
 }
 
-.hamburger.closed .hamburgerTop {
-  animation: ease-in-out 0.3s rotateTop2 forwards;
+.overlayList {
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px 24px;
+  border: 2px solid var(--color-background-header);
+  border-radius: 24px;
+  background: #fff;
 }
 
-.hamburger.closed .hamburgerBottom {
-  animation: ease-in-out 0.3s rotateBottom2 forwards;
-} */
+.overlayList > li {
+  margin: 0 0 24px 0;
+  padding: 0;
+  line-height: 1.111em;
+}
+.overlayList > li:last-of-type {
+  margin-bottom: 0;
+}
 
+.overlayList a {
+  color: var(--color-text-header-link);
+  font-weight: 700;
+}
+
+/* tablet */
 @media screen and (max-width: 991px) {
   .container {
     padding-top: 28px;
@@ -184,5 +180,31 @@
   .contactButton {
     margin-left: 0;
     margin-right: 24px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* tablet */
+@media screen and (max-width: 767px) {
+  .container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .bar {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .bar img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .contactButton {
+    padding: 9px;
   }
 }

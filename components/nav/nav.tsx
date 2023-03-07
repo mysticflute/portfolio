@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { clsx } from 'clsx';
 
 import styles from './nav.module.css';
 
@@ -20,14 +21,14 @@ export default function Nav() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
-        <div className={styles.contentLeft}>
+      <div className={styles.bar}>
+        <div className={styles.barLeft}>
           <Link href="/" aria-label="home" className={styles.logo}>
-            <Image src={logo} alt="Site logo" />
+            <Image src={logo} alt="Site logo" priority />
           </Link>
         </div>
 
-        <div className={styles.contentMiddle}>
+        <div className={styles.barMiddle}>
           <nav role="navigation" aria-label="Main navigtion">
             <ul className={styles.list}>
               {menu.map(item => {
@@ -47,25 +48,46 @@ export default function Nav() {
           </nav>
         </div>
 
-        <div className={styles.contentRight}>
+        <div className={styles.barRight}>
           <Link href="/contact" className={styles.contactButton}>
             <span className="lineRoundedIcons"></span>
           </Link>
 
           <div
-            className={`${styles.hamburger} ${
-              isMenuOpen ? styles.open : styles.closed
-            }`}
-            aria-label="menu"
             role="button"
+            aria-label="menu"
+            aria-haspopup="menu"
             aria-controls="nav-overlay"
-            aria-expanded="false"
+            aria-expanded={isMenuOpen}
+            className={clsx(styles.hamburger, isMenuOpen && styles.open)}
             onClick={() => setIsMenuOpen(isOpen => !isOpen)}
           >
             <div className={styles.hamburgerTop}></div>
             <div className={styles.hamburgerBottom}></div>
           </div>
         </div>
+      </div>
+
+      <div className={clsx(styles.overlay, isMenuOpen && styles.open)}>
+        {true && (
+          <nav role="navigation" aria-label="Main navigtion">
+            <ul className={styles.overlayList}>
+              {menu.map(item => {
+                const isCurrentPage = item.path === currentPage;
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.path}
+                      aria-current={isCurrentPage ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        )}
       </div>
     </div>
   );
