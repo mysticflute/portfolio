@@ -1,22 +1,23 @@
 :root {
   --color-text-default: #393939;
   --color-text-header-link: #0b0b0b;
+  --color-text-header-link-highlight: #1c92ff;
   --color-background-default: #faf9f6;
+  --color-background-header: var(--color-text-header-link);
+  --color-background-highlight: var(--color-text-header-link-highlight);
 }
-
-/* @media (prefers-color-scheme: dark) { */
-/* } */
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
 
 *,
 ::before,
 ::after {
   box-sizing: border-box;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+} */
 
 /* html,
 body {
@@ -31,6 +32,12 @@ body {
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 1.667em;
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 1rem;
+  }
 }
 
 a {

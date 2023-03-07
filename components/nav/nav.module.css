@@ -1,30 +1,43 @@
 .container {
-  max-width: 778px;
-  padding: 34px 24px;
+  position: relative;
   margin: 0 auto;
+  padding: 34px 24px;
+  max-width: 778px;
 }
 
-.content {
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  background-color: #fff;
-  box-shadow: 7px 7px 0 0 #0b0b0b;
-  border: 2px solid #0b0b0b;
+  border: 2px solid var(--color-background-header);
   border-radius: 18px;
+  background-color: #fff;
+  box-shadow: 7px 7px 0 0 var(--color-background-header);
 }
 
-/* .contentLeft {
-}
-
-.contentMiddle {
+.barLeft,
+.barMiddle,
+.barRight {
   display: flex;
   align-items: center;
 }
 
-.contentRight {
-} */
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 300ms ease;
+  transform-style: preserve-3d;
+}
+
+.logo:hover {
+  transform: scale3d(0.96, 0.96, 1.01);
+}
+
+.logo > img {
+  display: inline-block;
+  vertical-align: middle;
+}
 
 .list {
   display: flex;
@@ -34,50 +47,159 @@
   padding: 0;
 }
 
-.list > li {
-  padding: 0 12px;
-  line-height: 1.111em;
-}
-
 .list a {
   color: var(--color-text-header-link);
   font-weight: 700;
   transition: color 300ms ease;
 }
 
-.list a:hover {
-  color: #1c92ff;
+.list a:not([aria-current]):hover {
+  color: var(--color-text-header-link-highlight);
 }
 
-.list a[aria-current]:hover {
-  color: var(--color-text-header-link);
+.bar .list > li {
+  padding: 0 12px;
+  line-height: 1.111em;
 }
 
-.logoLink {
-  display: inline-block;
-  vertical-align: middle;
+.overlay .list {
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px 24px;
+  border: 2px solid var(--color-background-header);
+  border-radius: 24px;
+  background: #fff;
 }
 
-.logo {
-  display: inline-block;
-  vertical-align: middle;
+.overlay .list > li {
+  margin: 0 0 24px 0;
+  padding: 0;
+  line-height: 1.111em;
+}
+.overlay .list > li:last-of-type {
+  margin-bottom: 0;
 }
 
 .contact {
+  display: inline-block;
   margin-left: 24px;
   padding: 13px;
+  border: 2px solid var(--color-background-header);
   border-radius: 12px;
+  background-color: var(--color-background-header);
+  color: #fff;
   font-size: 24px;
   line-height: 24px;
-  font-weight: 400;
-  display: inline-block;
-  color: #fff;
-  text-align: center;
   transform-style: preserve-3d;
-  transition: border-color 300ms ease, background-color 300ms ease,
-    transform 300ms ease, color 300ms ease, -webkit-transform 300ms ease;
-  background-color: var(--color-text-header-link);
-  border-color: var(--color-text-header-link);
-  border-width: 2px;
-  border-style: solid;
+  transition: color 300ms ease, border-color 300ms ease,
+    background-color 300ms ease, transform 300ms ease;
+}
+
+.contact:hover {
+  color: #fff;
+  border-color: var(--color-background-highlight);
+  background-color: var(--color-background-highlight);
+  transform: translate3d(0px, -3px, 0.01px);
+}
+
+.hamburger {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hamburgerTop,
+.hamburgerBottom {
+  width: 44px;
+  height: 3px;
+  margin: 12px 0;
+  border-radius: 20px;
+  background-color: var(--color-background-header);
+  transition: transform 300ms ease;
+  transform-style: preserve-3d;
+}
+
+.hamburger.open .hamburgerTop {
+  transform: translate3d(0px, 8px, 0px) rotateZ(135deg);
+}
+
+.hamburger.open .hamburgerBottom {
+  transform: translate3d(0px, -7px, 0px) rotateZ(45deg);
+}
+
+.overlay {
+  position: absolute;
+  overflow: hidden;
+  top: 100%;
+  right: 0;
+  left: 0;
+  /* woudn't need this with display none... */
+  max-height: 0;
+  transition: max-height 200ms ease;
+}
+
+.overlay.open {
+  max-height: 1000px;
+}
+
+.overlay nav {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 778px;
+  transition: transform 400ms ease;
+  transform: translateY(-130%);
+  transform-style: preserve-3d;
+}
+
+.overlay.open nav {
+  transform: translateY(0);
+}
+
+/* tablet */
+@media screen and (max-width: 991px) {
+  .container {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .bar .list {
+    display: none;
+  }
+
+  .contact {
+    margin-left: 0;
+    margin-right: 24px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* phone */
+@media screen and (max-width: 767px) {
+  .container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .bar {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .contact {
+    padding: 9px;
+  }
 }
