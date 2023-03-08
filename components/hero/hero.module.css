@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   padding: 93px 0 148px 0;
 }
 
@@ -38,7 +38,7 @@
 }
 
 @media screen and (max-width: 991px) {
-  .wrapper {
+  .container {
     padding: 78px 0 123px 0;
   }
 
@@ -69,7 +69,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .wrapper {
+  .container {
     padding: 60px 0 103px 0;
   }
 
@@ -87,7 +87,7 @@
 }
 
 @media screen and (max-width: 479px) {
-  .wrapper {
+  .container {
     padding: 50px 0 86px 0;
   }
 
