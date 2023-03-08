@@ -69,6 +69,7 @@
   margin: 0 0 24px 0;
   line-height: 1.111;
 }
+
 .overlay .list > li:last-of-type {
   margin-bottom: 0;
 }
@@ -103,6 +104,7 @@
   appearance: none;
   background: transparent;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburgerTop,
@@ -152,7 +154,7 @@
   transform: translateY(0);
 }
 
-/* tablet */
+/* TODO: should these media queries be inlined above? */
 @media screen and (max-width: 991px) {
   .container {
     padding-top: 28px;
@@ -173,7 +175,6 @@
   }
 }
 
-/* phone */
 @media screen and (max-width: 767px) {
   .container {
     padding-top: 24px;
@@ -192,5 +193,39 @@
 
   .contact {
     padding: 9px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* TODO cleanup */
+  .container {
+    padding: 20px;
+  }
+
+  .logo img {
+    max-width: 86%;
+  }
+
+  .contact {
+    display: none;
+  }
+
+  .hamburgerTop,
+  .hamburgerBottom {
+    width: 40px;
+  }
+
+  .overlay nav {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .overlay .list > li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .overlay .list a {
+    display: block;
   }
 }

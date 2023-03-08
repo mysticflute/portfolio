@@ -1,9 +1,31 @@
 /* Headings */
 .textHeadingLarge {
   color: #0b0b0b;
+  /* TODO: change this and below overrides to rem */
   font-size: 72px;
   font-weight: 700;
   line-height: 1.181;
+}
+
+@media screen and (max-width: 991px) {
+  .textHeadingLarge {
+    font-size: 64px;
+    line-height: 1.188;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .textHeadingLarge {
+    font-size: 40px;
+    line-height: 1.3em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .textHeadingLarge {
+    font-size: 34px;
+    line-height: 1.353em;
+  }
 }
 
 /* Text Highlight */
@@ -12,6 +34,14 @@
   padding: 0 4px;
   white-space: nowrap;
   color: #fff;
+}
+
+@media screen and (max-width: 479px) {
+  .textHighlight1,
+  .textHighlight2 {
+    /* TODO: is this needed? */
+    white-space: normal;
+  }
 }
 
 .textHighlight1 {
