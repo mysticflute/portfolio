@@ -37,7 +37,6 @@
   align-items: center;
 }
 
-/* TODO: should these be inlined? */
 @media screen and (max-width: 991px) {
   .wrapper {
     padding: 78px 0 123px 0;
@@ -76,7 +75,6 @@
 
   .content {
     max-width: 500px;
-    padding: 0 24px; /** FIXME redo these paddings, the padding should be on the wrapper */
   }
 
   .intro h1 {
@@ -94,6 +92,8 @@
   }
 
   .content {
+    /* XXX: this might look better, instead of the padding */
+    /* max-width: 325px; */
     padding: 0 20px;
   }
 

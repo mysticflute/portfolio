@@ -154,7 +154,6 @@
   transform: translateY(0);
 }
 
-/* TODO: should these media queries be inlined above? */
 @media screen and (max-width: 991px) {
   .container {
     padding-top: 28px;
@@ -197,7 +196,6 @@
 }
 
 @media screen and (max-width: 479px) {
-  /* TODO cleanup */
   .container {
     padding: 20px;
   }

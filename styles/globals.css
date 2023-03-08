@@ -1,6 +1,7 @@
 :root {
   --color-dark: #0b0b0b;
   --color-blue: #1c92ff;
+  --color-red: #ff4a60;
   --color-text-default: #393939;
   --color-text-dark: var(--color-dark);
   --color-text-header-link: var(--color-dark);
