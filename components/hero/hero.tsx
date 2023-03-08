@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import Icon from '@/components/icon/icon';
-import profileImage from '@/public/images/profile.svg';
+// XXX: for testing, remove (and the lorem ipsum text below)
+// import profileImage from '@/public/images/profile.svg';
+import profileImage from '@/public/images/profile2.jpg';
 import styles from './hero.module.css';
 
 export default function Hero() {
@@ -13,10 +15,17 @@ export default function Hero() {
             I&rsquo;m <span className="textHighlight1">Nathan</span>, a Music
             Composer from <span className="textHighlight2">Atlanta, GA</span>
           </h1>
-          <p>
+          {/* <p>
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
             montes augue donec cras turpis ultrices nulla sed doler.
+          </p> */}
+          <p>
+            I&apos;m Nathan David McWilliams, and I write music for games and
+            interactive media. I specialize in melodically-driven acoustic and
+            symphonic music, inspired by JRPG classics such as Final Fantasy,
+            Suikoden and Octopath Traveler.
           </p>
+
           <div className={styles.buttons}>
             <Button type="primary" href="/contact">
               <Icon name="mail" hasTextAfter={true} />
