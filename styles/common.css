@@ -1,0 +1,23 @@
+/* Headings */
+.textHeadingLarge {
+  color: #0b0b0b;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.181;
+}
+
+/* Text Highlight */
+.textHighlight1,
+.textHighlight2 {
+  padding: 0 4px;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.textHighlight1 {
+  background: linear-gradient(180deg, transparent 6%, #ff4a60 0);
+}
+
+.textHighlight2 {
+  background: linear-gradient(180deg, transparent 10%, #1c92ff 0);
+}

@@ -1,0 +1,17 @@
+.hasTextAfter {
+  display: inline-block;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.lineRounded {
+  font-family: var(--font-line-rounded-icons);
+}
+
+.lineRounded.mail::before {
+  content: '\E81E';
+}
+
+.lineRounded.briefcase::before {
+  content: '\E80A';
+}
