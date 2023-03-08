@@ -10,10 +10,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  border: 2px solid var(--color-background-header);
+  border: 2px solid var(--color-background-dark);
   border-radius: 18px;
   background-color: #fff;
-  box-shadow: 7px 7px 0 0 var(--color-background-header);
+  box-shadow: 7px 7px 0 0 var(--color-background-dark);
 }
 
 .barLeft,
@@ -34,17 +34,9 @@
   transform: scale3d(0.96, 0.96, 1.01);
 }
 
-.logo > img {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .list {
   display: flex;
   align-items: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 .list a {
@@ -59,7 +51,7 @@
 
 .bar .list > li {
   padding: 0 12px;
-  line-height: 1.111em;
+  line-height: 1.111;
 }
 
 .overlay .list {
@@ -68,16 +60,16 @@
   flex-direction: column;
   overflow: hidden;
   padding: 32px 24px;
-  border: 2px solid var(--color-background-header);
+  border: 2px solid var(--color-background-dark);
   border-radius: 24px;
   background: #fff;
 }
 
 .overlay .list > li {
   margin: 0 0 24px 0;
-  padding: 0;
-  line-height: 1.111em;
+  line-height: 1.111;
 }
+
 .overlay .list > li:last-of-type {
   margin-bottom: 0;
 }
@@ -86,9 +78,9 @@
   display: inline-block;
   margin-left: 24px;
   padding: 13px;
-  border: 2px solid var(--color-background-header);
+  border: 2px solid var(--color-background-dark);
   border-radius: 12px;
-  background-color: var(--color-background-header);
+  background-color: var(--color-background-dark);
   color: #fff;
   font-size: 24px;
   line-height: 24px;
@@ -112,6 +104,7 @@
   appearance: none;
   background: transparent;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburgerTop,
@@ -120,7 +113,7 @@
   height: 3px;
   margin: 12px 0;
   border-radius: 20px;
-  background-color: var(--color-background-header);
+  background-color: var(--color-background-dark);
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
@@ -161,7 +154,6 @@
   transform: translateY(0);
 }
 
-/* tablet */
 @media screen and (max-width: 991px) {
   .container {
     padding-top: 28px;
@@ -182,7 +174,6 @@
   }
 }
 
-/* phone */
 @media screen and (max-width: 767px) {
   .container {
     padding-top: 24px;
@@ -201,5 +192,38 @@
 
   .contact {
     padding: 9px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    padding: 20px;
+  }
+
+  .logo img {
+    max-width: 86%;
+  }
+
+  .contact {
+    display: none;
+  }
+
+  .hamburgerTop,
+  .hamburgerBottom {
+    width: 40px;
+  }
+
+  .overlay nav {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .overlay .list > li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .overlay .list a {
+    display: block;
   }
 }

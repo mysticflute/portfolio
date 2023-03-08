@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { clsx } from 'clsx';
+import Icon from '@/components/icon/icon';
+import logoImage from '@/public/images/logo.svg';
 import styles from './nav.module.css';
-import logoImage from '../../public/images/logo.svg';
 
 type NavItems = {
   label: string;
@@ -56,7 +57,7 @@ export default function Nav() {
 
         <div className={styles.barRight}>
           <Link href="/contact" className={styles.contact}>
-            <span className="lineRoundedIcons"></span>
+            <Icon name="mail" />
           </Link>
 
           <button

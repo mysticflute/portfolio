@@ -1,6 +1,5 @@
 import Head from 'next/head';
-
-import Nav from '../nav/nav';
+import Nav from '@/components/nav/nav';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
