@@ -16,14 +16,14 @@
 @media screen and (max-width: 767px) {
   .textHeadingLarge {
     font-size: 2.5rem;
-    line-height: 1.3em;
+    line-height: 1.3;
   }
 }
 
 @media screen and (max-width: 479px) {
   .textHeadingLarge {
     font-size: 2.125rem;
-    line-height: 1.353em;
+    line-height: 1.353;
   }
 }
 
