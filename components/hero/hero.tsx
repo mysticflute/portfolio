@@ -22,10 +22,9 @@ export default function Hero() {
             montes augue donec cras turpis ultrices nulla sed doler.
           </p> */}
           <p>
-            I&apos;m Nathan David McWilliams, and I write music for games and
-            interactive media. I specialize in melodically-driven acoustic and
-            symphonic music, inspired by JRPG classics such as Final Fantasy,
-            Suikoden and Octopath Traveler.
+            I write music for games and interactive media. I specialize in
+            melodically-driven acoustic and symphonic music, inspired by JRPG
+            classics such as Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
           <div className={styles.buttons}>
