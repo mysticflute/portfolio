@@ -8,7 +8,7 @@ import styles from './hero.module.css';
 
 export default function Hero() {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.content}>
         <div className={styles.intro}>
           <h1 className="textHeadingLarge">
@@ -48,6 +48,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,0 +1,19 @@
+.container {
+  padding: 200px 0 240px;
+}
+
+.content {
+  max-width: 1300px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.heading h1 {
+  margin-bottom: 48px;
+}

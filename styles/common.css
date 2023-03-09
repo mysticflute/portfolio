@@ -6,6 +6,20 @@
   line-height: 1.181;
 }
 
+.textHeadingMedium {
+  color: var(--color-text-dark);
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1.154;
+}
+
+.textHeadingSmall {
+  color: var(--color-text-dark);
+  font-size: 2.375rem;
+  font-weight: 700;
+  line-height: 1.368;
+}
+
 @media screen and (max-width: 991px) {
   .textHeadingLarge {
     font-size: 4rem;
@@ -29,7 +43,8 @@
 
 /* Text Highlight */
 .textHighlight1,
-.textHighlight2 {
+.textHighlight2,
+.textHighlight3 {
   padding: 0 4px;
   white-space: nowrap;
   color: #fff;
@@ -41,4 +56,13 @@
 
 .textHighlight2 {
   background: linear-gradient(180deg, transparent 10%, var(--color-blue) 0);
+}
+
+.textHighlight3 {
+  background-image: linear-gradient(
+    180deg,
+    transparent 10%,
+    var(--color-yellow) 0
+  );
+  color: inherit;
 }
