@@ -1,6 +1,8 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { logger } from '@/lib/logger';
+import { getString, getNumberArray } from '@/lib/decoder';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
 const allowedSlugPattern = /^[a-z0-9\\-]+$/;
@@ -9,11 +11,11 @@ const allowedSlugPattern = /^[a-z0-9\\-]+$/;
  * Metadata about a portfolio project.
  */
 export interface ProjectMetadata {
-  /** Unique, dash-delimited name for the project (used in URL). */
-  slug: string;
-
   /** Name of the project. */
   name: string;
+
+  /** Unique, dash-delimited name for the project (used in URL). */
+  slug: string;
 
   /** My primary role on the project. */
   role: string;
@@ -22,33 +24,16 @@ export interface ProjectMetadata {
   description: string;
 
   /** List of 10-digit SoundCloud track IDs. */
-  // soundcloudIDs: string[];
+  soundcloudIDs?: number[];
 
   /** The main image for the project. */
   image: string;
 
-  /** A link to an external project landing page. */
-  link?: string;
-
   /** The client's logo image. */
   logoImage?: string;
-}
 
-/**
- * Returns a string property from an object, or throws an error if undefined or the wrong type.
- *
- * @param obj The object.
- * @param key The property name.
- * @param filepath The path where the object's data was loaded from.
- * @returns The string value.
- */
-function getString(obj: any, key: string, filepath: string): string {
-  if (obj[key] === undefined || obj[key] === null) {
-    throw new Error(`The key '${key}' is missing in file ${filepath}`);
-  } else if (typeof obj[key] !== 'string') {
-    throw new Error(`The key '${key}' must be a string in file ${filepath}`);
-  }
-  return obj[key] as string;
+  /** A link to an external project landing page. */
+  link?: string;
 }
 
 /**
@@ -61,6 +46,8 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
   const projectFilenames = filenames
     .filter(filename => filename.endsWith('.yaml') || filename.endsWith('.yml'))
     .filter(filename => !filename.startsWith('_'));
+
+  logger.debug(projectFilenames, 'found project files');
 
   const projectMetadata = await Promise.all(
     projectFilenames.map(async (filename): Promise<ProjectMetadata> => {
@@ -79,7 +66,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         slug = getString(metadata, 'slug', filepath);
         if (!allowedSlugPattern.test(slug)) {
           throw new Error(
-            `The key 'slug' can only contain the characters a-z, 0-9 and hyphens, in file ${filepath}`
+            `The key 'slug' can only contain the characters a-z, 0-9 and hyphens, in ${filepath}`
           );
         }
       } else {
@@ -91,7 +78,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         }
       }
 
-      const validatedMetadata: ProjectMetadata = {
+      const validated: ProjectMetadata = {
         slug,
         name,
         role,
@@ -101,14 +88,23 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
 
       // optional fields
       if (metadata['link']) {
-        metadata.link = getString(metadata, 'link', filepath);
+        validated.link = getString(metadata, 'link', filepath);
       }
 
       if (metadata['logoImage']) {
-        metadata.logoImage = getString(metadata, 'logoImage', filepath);
+        validated.logoImage = getString(metadata, 'logoImage', filepath);
       }
 
-      return validatedMetadata;
+      if (metadata['soundcloudIDs']) {
+        validated.soundcloudIDs = getNumberArray(
+          metadata,
+          'soundcloudIDs',
+          filepath
+        );
+      }
+
+      logger.debug(validated, 'found project metadata');
+      return validated;
     })
   );
 

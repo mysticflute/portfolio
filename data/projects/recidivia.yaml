@@ -1,59 +1,74 @@
 # Name of the project.
 name: Recidivia
 
+### NOT CURRENTLY IMPLEMENTED ###
+# Unique, dash-delimited name for the project URL (optional).
+# If note specified, defaults to the filename.
+# slug: project-name
+
+### NOT CURRENTLY IMPLEMENTED ###
+# Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
+# type: Video Game
+
 # My primary role on the project.
 # Examples: Composer, Artist, Producer, Arranger.
 role: Composer
 
-# Short project description.
-description: >
-  In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl
-  pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
-
-# The main image for the project.
-# Must be a file under public/images/projects.
-# If an image is not available yet, use "placeholder.svg".
-
-image: stencil-computer.svg
-
-# A link to an external project landing page (optional).
-link: https://twitter.com/RecidiviaRPG
-
-# The client's logo image (optional).
-# Must be a file under public/images/logos.
-logo: twitch.svg
-
 ### NOT CURRENTLY IMPLEMENTED ###
-
-# Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
-# type: Video Game
-
-# URL path for the project detail page.
-# slug: project-name
-
-# Large image for the project detail page.
-# largeImage: placeholder-large.png
-
-# Long project description for the detail page.
-# longDescription: >
-#   In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl
-#   pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
-
-# Project's accent color (optional).
-# Must be one of: yellow, blue, purple, red, green, white, black, grey.
-# color: purple
-
 # My additional roles on the project (optional).
 # additionalRoles:
 #   - Composer
 #   - Producer
 #   - Arranger
 
+# Short project description.
+description: >
+  In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl
+  pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
+
+# List of 10-digit SoundCloud track IDs. (optional).
+# See the README.md file for how to find these.
+soundcloudIDs:
+  - 1272228361
+  - 1269466039
+
+# The main image for the project.
+# Must be a file under public/images/projects.
+# If an image is not available yet, use placeholder.svg.
+image: recidivia-onyx.jpg
+
+### NOT CURRENTLY IMPLEMENTED ###
+# Large image for the project detail page.
+# largeImage: placeholder-large.png
+
+# The client's logo image (optional).
+# Must be a file under public/images/logos.
+# logoImage: placeholder-logo.svg
+
+# A link to an external project landing page (optional).
+link: https://twitter.com/RecidiviaRPG
+
+### NOT CURRENTLY IMPLEMENTED ###
+# The date the project was or will be released (optional).
+# releaseDate: 1/1/2025
+
+### NOT CURRENTLY IMPLEMENTED ###
 # Platforms the project is released on (optional).
 # platforms:
 #   - Steam
 #   - Nintendo Switch
 #   - Playstation 5
+
+### NOT CURRENTLY IMPLEMENTED ###
+# Project's accent color (optional).
+# Must be one of: yellow, blue, purple, red, green, white, black, grey.
+# color: purple
+
+### NOT CURRENTLY IMPLEMENTED ###
+# Long project description for the detail page.
+# longDescription: >
+#   In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl
+#   pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
 
 # just here because of this bug:
 # https://github.com/prettier/prettier/issues/10922
