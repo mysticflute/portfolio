@@ -1,7 +1,15 @@
 import Project from '@/components/project/project';
 import styles from './projects.module.css';
+import { type ProjectMetadata } from '@/lib/projects';
 
-export default function Projects() {
+type Props = {
+  /**
+   * The metadata about all portfolio projects.
+   */
+  projectsMetadata: ProjectMetadata[];
+};
+
+export default function Projects({ projectsMetadata }: Props) {
   return (
     <section className={styles.container}>
       <div className={styles.content}>
@@ -11,7 +19,9 @@ export default function Projects() {
             <span className="textHighlight3">music portfolio</span>
           </h1>
         </div>
-        <Project></Project>
+        {projectsMetadata.map(project => (
+          <Project projectMetadata={project} key={project.slug}></Project>
+        ))}
       </div>
     </section>
   );

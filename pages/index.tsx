@@ -5,6 +5,7 @@ import Strip from '@/components/strip/strip';
 import Projects from '@/components/projects/projects';
 import { baseWebsiteTitle } from '@/lib/constants';
 import { getProjects } from '@/lib/projects';
+import type { InferGetStaticPropsType } from 'next';
 
 export async function getStaticProps() {
   const projects = await getProjects();
@@ -15,7 +16,9 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ projects }) {
+export default function Home({
+  projects,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Layout>
@@ -24,7 +27,7 @@ export default function Home({ projects }) {
         </Head>
         <Hero></Hero>
         <Strip></Strip>
-        <Projects></Projects>
+        <Projects projectsMetadata={projects}></Projects>
       </Layout>
     </>
   );

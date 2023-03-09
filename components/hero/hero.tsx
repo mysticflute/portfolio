@@ -11,9 +11,11 @@ export default function Hero() {
     <section className={styles.container}>
       <div className={styles.content}>
         <div className={styles.intro}>
+          {/* prettier-ignore */}
           <h1 className="textHeadingLarge">
-            I&rsquo;m <span className="textHighlight1">Nathan</span>, a Music
-            Composer from <span className="textHighlight2">Atlanta, GA</span>
+            I&rsquo;m <span className="textHighlight1" title="Because Nathan David McWilliams is too long to fit here!">
+              Nathan
+            </span>, a Music Composer from <span className="textHighlight2">Atlanta, GA</span>
           </h1>
           {/* <p>
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
