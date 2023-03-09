@@ -4,8 +4,18 @@ import Hero from '@/components/hero/hero';
 import Strip from '@/components/strip/strip';
 import Projects from '@/components/projects/projects';
 import { baseWebsiteTitle } from '@/lib/constants';
+import { getProjects } from '@/lib/projects';
 
-export default function Home() {
+export async function getStaticProps() {
+  const projects = await getProjects();
+  return {
+    props: {
+      projects,
+    },
+  };
+}
+
+export default function Home({ projects }) {
   return (
     <>
       <Layout>
