@@ -30,6 +30,18 @@ export default function Project({ projectMetadata: data }: Props) {
             </div>
             <h3 className="textHeadingSmall">{data.name}</h3>
             <p>{data.description}</p>
+            <div className={styles.soundcloud}>
+              {data.soundcloudIDs &&
+                data.soundcloudIDs.map(id => (
+                  <iframe
+                    key={id}
+                    width="100%"
+                    height="20"
+                    loading="lazy"
+                    src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}&color=%235c42fb&inverse=false&auto_play=true&show_user=false`}
+                  ></iframe>
+                ))}
+            </div>
           </div>
         </div>
         <div className={styles.imageContainer}>

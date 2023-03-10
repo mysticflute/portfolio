@@ -53,6 +53,10 @@
   margin-bottom: 32px;
 }
 
+.info img {
+  max-height: 35px;
+}
+
 .badge {
   padding: 14px 22px;
   border-radius: 12px;
@@ -69,6 +73,11 @@
 
 .description p {
   margin-bottom: 56px;
+}
+
+.description iframe {
+  border: 0;
+  margin: 5px 0;
 }
 
 @media screen and (max-width: 991px) {
