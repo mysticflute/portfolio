@@ -25,6 +25,16 @@
     font-size: 4rem;
     line-height: 1.188;
   }
+
+  .textHeadingMedium {
+    font-size: 3rem;
+    line-height: 1.25;
+  }
+
+  .textHeadingSmall {
+    font-size: 2rem;
+    line-height: 1.375;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -32,12 +42,32 @@
     font-size: 2.5rem;
     line-height: 1.3;
   }
+
+  .textHeadingMedium {
+    font-size: 2rem;
+    line-height: 1.375;
+  }
+
+  .textHeadingSmall {
+    font-size: 1.625rem;
+    line-height: 1.462;
+  }
 }
 
 @media screen and (max-width: 479px) {
   .textHeadingLarge {
     font-size: 2.125rem;
     line-height: 1.353;
+  }
+
+  .textHeadingMedium {
+    font-size: 1.75rem;
+    line-height: 1.429;
+  }
+
+  .textHeadingSmall {
+    font-size: 1.5rem;
+    line-height: 1.458;
   }
 }
 
