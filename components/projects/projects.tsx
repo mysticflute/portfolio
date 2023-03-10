@@ -19,7 +19,7 @@ export default function Projects({ projectsMetadata }: Props) {
             <span className="textHighlight3">music portfolio</span>
           </h1>
         </div>
-        <div className={styles.projectsList}>
+        <div className={styles.list}>
           {projectsMetadata.map(project => (
             <Project projectMetadata={project} key={project.slug}></Project>
           ))}

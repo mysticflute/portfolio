@@ -18,7 +18,7 @@
   margin-bottom: 48px;
 }
 
-.projectsList {
+.list {
   display: flex;
   flex-direction: column;
   row-gap: 32px;

@@ -14,24 +14,25 @@ type Props = {
 
 export default function Project({ projectMetadata: data }: Props) {
   return (
-    <article className={styles.project}>
+    <article className={styles.container}>
       <div className={styles.content}>
         <div className={styles.description}>
-          <div className={styles.descriptionInner}>
-            <div className={styles.tags}>
-              <img
-                src={`/images/logos/${data.logoImage}`}
-                alt="logo"
-                loading="lazy"
-              />
-
+          <div className={styles.descriptionFlexInner}>
+            <div className={styles.info}>
+              {data.logoImage && (
+                <img
+                  src={`/images/logos/${data.logoImage}`}
+                  alt="logo"
+                  loading="lazy"
+                />
+              )}
               <div className={styles.badge}>{data.role}</div>
             </div>
             <h3 className="textHeadingSmall">{data.name}</h3>
             <p>{data.description}</p>
           </div>
         </div>
-        <div className={styles.image}>
+        <div className={styles.imageContainer}>
           <img
             src={`/images/projects/${data.image}`}
             alt={`Illustration for ${data.name}`}
