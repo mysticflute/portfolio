@@ -14,7 +14,7 @@ export default function Projects({ projectsMetadata }: Props) {
     <section className={styles.container}>
       <div className={styles.content}>
         <div className={styles.heading}>
-          <h1 className="textHeadingMedium">
+          <h1 id="portfolio" className="textHeadingMedium">
             Take a look at my{' '}
             <span className="textHighlight3">music portfolio</span>
           </h1>

@@ -12,7 +12,7 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.intro}>
           {/* prettier-ignore */}
-          <h1 className="textHeadingLarge">
+          <h1 id="about" className="textHeadingLarge">
             I&rsquo;m <span className="textHighlight1" title="Because Nathan David McWilliams is too long to fit here!">
               Nathan
             </span>, a Music Composer from <span className="textHighlight2">Atlanta, GA</span>
@@ -33,7 +33,7 @@ export default function Hero() {
               Get in touch
             </Button>
 
-            <Button type="secondary" href="/portfolio">
+            <Button type="secondary" href="#portfolio">
               <Icon name="briefcase" hasTextAfter={true} />
               View portfolio
             </Button>
