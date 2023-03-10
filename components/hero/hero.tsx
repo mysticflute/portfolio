@@ -22,9 +22,10 @@ export default function Hero() {
             montes augue donec cras turpis ultrices nulla sed doler.
           </p> */}
           <p>
-            I write music for games and interactive media. I specialize in
-            melodically-driven acoustic and symphonic music, inspired by JRPG
-            classics such as Final Fantasy, Suikoden and Octopath Traveler.
+            I write music for games and interactive media. I specialize in{' '}
+            <span className={styles.extraDescription}>melodically-driven</span>{' '}
+            acoustic and symphonic tracks, inspired by JRPG classics such as
+            Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
           <div className={styles.buttons}>
