@@ -22,6 +22,29 @@ export function getString(obj: any, key: string, source: string): string {
 }
 
 /**
+ * Gets a number property from an object.
+ *
+ * Throws an error if the object is undefined or null,
+ * or if the key is not a number.
+ *
+ * @param obj The object.
+ * @param key The property name.
+ * @param source Where the object's data was loaded from.
+ * @returns The number value.
+ */
+export function getNumber(obj: any, key: string, source: string): number {
+  if (obj === null || obj === undefined || typeof obj !== 'object') {
+    throw new Error(`Cannot decode number from '${obj}'`);
+  }
+  if (obj[key] === undefined || obj[key] === null) {
+    throw new Error(`The key '${key}' is missing in ${source}`);
+  } else if (typeof obj[key] !== 'number') {
+    throw new Error(`The key '${key}' must be a number in ${source}`);
+  }
+  return obj[key];
+}
+
+/**
  * Gets a string[] property from an object.
  *
  * Throws an error if the object is undefined or null,

@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import { logger } from '@/lib/logger';
-import { getString, getNumberArray } from '@/lib/decoder';
+import { getString, getNumber, getNumberArray } from '@/lib/decoder';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
 const allowedSlugPattern = /^[a-z0-9\\-]+$/;
@@ -16,6 +16,9 @@ export interface ProjectMetadata {
 
   /** Unique, dash-delimited name for the project (used in URL). */
   slug: string;
+
+  /** The sort position for the project. */
+  sort: number;
 
   /** My primary role on the project. */
   role: string;
@@ -57,6 +60,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
 
       // gather required fields
       const name = getString(metadata, 'name', filepath);
+      const sort = getNumber(metadata, 'sort', filepath);
       const role = getString(metadata, 'role', filepath);
       const description = getString(metadata, 'description', filepath);
       const image = getString(metadata, 'image', filepath);
@@ -80,6 +84,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
 
       const validated: ProjectMetadata = {
         slug,
+        sort,
         name,
         role,
         description,
@@ -107,6 +112,21 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
       return validated;
     })
   );
+
+  // ensure sort positions are unique
+  const positions = new Map();
+  projectMetadata.forEach(project => {
+    if (positions.has(project.sort)) {
+      throw new Error(
+        `Duplicate sort value '${project.sort}' in projects '${positions.get(
+          project.sort
+        )}' and '${project.name}'`
+      );
+    }
+    positions.set(project.sort, project.name);
+  });
+
+  projectMetadata.sort((a, b) => a.sort - b.sort);
 
   return projectMetadata;
 }

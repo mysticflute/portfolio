@@ -19,9 +19,11 @@ export default function Projects({ projectsMetadata }: Props) {
             <span className="textHighlight3">music portfolio</span>
           </h1>
         </div>
-        {projectsMetadata.map(project => (
-          <Project projectMetadata={project} key={project.slug}></Project>
-        ))}
+        <div className={styles.projectsList}>
+          {projectsMetadata.map(project => (
+            <Project projectMetadata={project} key={project.slug}></Project>
+          ))}
+        </div>
       </div>
     </section>
   );

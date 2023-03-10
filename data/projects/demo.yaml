@@ -1,12 +1,12 @@
 # Name of the project.
-name: Project Name
+name: Twitch user research and analysis
 
 # Unique, dash-delimited name for the project URL (optional).
 # If note specified, defaults to the filename.
 # slug: project-name
 
 # The sort position for the project.
-# sort: 1
+sort: 1
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
@@ -14,7 +14,7 @@ name: Project Name
 
 # My primary role on the project.
 # Examples: Composer, Artist, Producer, Arranger.
-role: Composer
+role: UI/UX Design
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # My additional roles on the project (optional).
@@ -37,7 +37,7 @@ description: >
 # The main image for the project.
 # Must be a file under public/images/projects.
 # If an image is not available yet, use placeholder.svg.
-image: placeholder.svg
+image: stencil-computer.svg
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Large image for the project detail page.
@@ -45,7 +45,7 @@ image: placeholder.svg
 
 # The client's logo image (optional).
 # Must be a file under public/images/logos.
-# logoImage: logo-placeholder.svg
+logoImage: logo-twitch.svg
 
 # A link to an external project landing page (optional).
 # link: https://twitter.com/SquareEnix

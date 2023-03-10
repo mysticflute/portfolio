@@ -17,3 +17,9 @@
 .heading h1 {
   margin-bottom: 48px;
 }
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
