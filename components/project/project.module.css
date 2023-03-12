@@ -30,8 +30,6 @@
   flex: 1.1;
   align-self: stretch;
   overflow: hidden;
-  /* TODO: background color should by dynamic and set on style attribute */
-  background: #5c42fb;
 }
 
 .imageContainer img {
@@ -60,7 +58,7 @@
 .badge {
   padding: 14px 22px;
   border-radius: 12px;
-  background: #0b0b0b;
+  background: var(--color-background-dark);
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
@@ -114,8 +112,6 @@
   .badge {
     padding: 12px 20px;
     border-radius: 10px;
-    background: #0b0b0b;
-    color: #fff;
     font-size: 0.875rem;
   }
 

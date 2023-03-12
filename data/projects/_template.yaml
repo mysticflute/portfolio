@@ -45,7 +45,7 @@ image: placeholder.svg
 
 # The client's logo image (optional).
 # Must be a file under public/images/logos.
-# logoImage: logo-placeholder.svg
+# logoImage: logo-twitch.svg
 
 # A link to an external project landing page (optional).
 # link: https://twitter.com/SquareEnix
