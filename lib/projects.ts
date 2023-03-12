@@ -37,6 +37,9 @@ export interface ProjectMetadata {
 
   /** A link to an external project landing page. */
   link?: string;
+
+  /** Project's accent color, in css hex format. */
+  color?: string;
 }
 
 /**
@@ -63,7 +66,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
       const sort = getNumber(metadata, 'sort', filepath);
       const role = getString(metadata, 'role', filepath);
       const description = getString(metadata, 'description', filepath);
-      const image = getString(metadata, 'image', filepath);
+      const image = getString(metadata, 'image', filepath); // TODO: check that image exists
 
       let slug: string;
       if (metadata['slug']) {
@@ -93,19 +96,27 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
 
       // optional fields
       if (metadata['link']) {
+        // TODO: check that it is url format.
         validated.link = getString(metadata, 'link', filepath);
       }
 
       if (metadata['logoImage']) {
+        // TODO: check that the image is in the right path.
         validated.logoImage = getString(metadata, 'logoImage', filepath);
       }
 
       if (metadata['soundcloudIDs']) {
+        // TODO: check that they are all 10 digit ids.
         validated.soundcloudIDs = getNumberArray(
           metadata,
           'soundcloudIDs',
           filepath
         );
+      }
+
+      if (metadata['color']) {
+        // TODO: check that it's in hex format.
+        validated.color = getString(metadata, 'color', filepath);
       }
 
       logger.debug(validated, 'found project metadata');

@@ -61,10 +61,8 @@ image: placeholder.svg
 #   - Nintendo Switch
 #   - Playstation 5
 
-### NOT CURRENTLY IMPLEMENTED ###
-# Project's accent color (optional).
-# Must be one of: yellow, blue, purple, red, green, white, black, grey.
-# color: purple
+# Project's accent color, in css hex format (optional).
+# color: #5c42fb
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.

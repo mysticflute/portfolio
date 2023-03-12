@@ -5,6 +5,28 @@ import { type ProjectMetadata } from '@/lib/projects';
 // TODO: handle the image sizes correctly.
 /* eslint-disable @next/next/no-img-element */
 
+const baseSoundCloudURL =
+  'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks';
+
+type SoundCloudOptions = {
+  /** Shows a black background when true. */
+  inverse?: boolean;
+  auto_play?: boolean;
+  show_user?: boolean;
+  color?: string;
+};
+
+// ('&inverse=false&auto_play=false&show_user=false');
+function getSoundCloudURL(id: number, options: SoundCloudOptions) {
+  let url = `${baseSoundCloudURL}/${id}&inverse=false&auto_play=false&show_user=false`;
+
+  // const formattedOptions = Object.keys(options).reduce(
+  //   (previous, key) => previous + `${key}=${options[key]}`
+  // );
+
+  return url;
+}
+
 type Props = {
   /**
    * Metadata about a single portfolio project.
@@ -38,7 +60,7 @@ export default function Project({ projectMetadata: data }: Props) {
                     width="100%"
                     height="20"
                     loading="lazy"
-                    src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}&color=%235c42fb&inverse=false&auto_play=true&show_user=false`}
+                    src={getSoundCloudURL({ id, color: data.color })}
                   ></iframe>
                 ))}
             </div>
