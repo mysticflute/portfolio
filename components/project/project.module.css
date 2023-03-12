@@ -1,0 +1,139 @@
+.container {
+  overflow: hidden;
+  border: 3px solid var(--color-background-dark);
+  border-radius: 28px;
+  background: #fff;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.container:hover {
+  box-shadow: 10px 10px 0 0 var(--color-background-dark);
+  transform: translate3d(0px, -10px, 0.01px);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  flex: 1;
+  min-width: 475px;
+}
+
+.descriptionFlexInner {
+  /* padding on the flex child messes with the flex property */
+  padding: 58px 64px;
+}
+
+.imageContainer {
+  flex: 1.1;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 300ms ease;
+  transform-style: preserve-3d;
+}
+
+.container:hover .imageContainer img {
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  margin-bottom: 32px;
+}
+
+.info img {
+  max-height: 35px;
+}
+
+.badge {
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: var(--color-background-dark);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.125;
+}
+
+.description h3 {
+  margin-bottom: 8px;
+}
+
+.description p {
+  margin-bottom: 56px;
+}
+
+.description iframe {
+  border: 0;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 991px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .description {
+    min-width: 0;
+  }
+
+  .descriptionFlexInner {
+    padding: 48px 64px;
+  }
+
+  .description p {
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .descriptionFlexInner {
+    padding: 48px 32px;
+  }
+
+  .info {
+    margin-bottom: 26px;
+  }
+
+  .info img {
+    max-height: 25px;
+  }
+
+  .badge {
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+  }
+
+  .description p {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    border-radius: 24px;
+  }
+
+  .descriptionFlexInner {
+    padding: 32px 24px;
+  }
+
+  .info {
+    margin-bottom: 23px;
+  }
+
+  .description p {
+    margin-bottom: 18px;
+  }
+}

@@ -1,6 +1,8 @@
 import localFont from 'next/font/local';
 
-// Onest font from https://onest.md/en
+/**
+ * The Onest font from https://onest.md/en.
+ */
 export const Onest = localFont({
   src: [
     // {
@@ -41,6 +43,9 @@ export const Onest = localFont({
   ],
 });
 
+/**
+ * An icon font with rounded lines.
+ */
 export const LineRoundedIcons = localFont({
   src: '../assets/fonts/LineRoundedIcons.woff2',
 });

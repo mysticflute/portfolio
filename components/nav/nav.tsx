@@ -14,8 +14,8 @@ type NavItems = {
 
 const mainNav: NavItems[] = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Portfolio', path: '/portfolio' },
+  { label: 'About', path: '#about' },
+  { label: 'Portfolio', path: '#portfolio' },
   { label: 'Contact', path: '/contact' },
 ];
 

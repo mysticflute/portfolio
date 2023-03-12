@@ -8,22 +8,24 @@ import styles from './hero.module.css';
 
 export default function Hero() {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.content}>
         <div className={styles.intro}>
-          <h1 className="textHeadingLarge">
-            I&rsquo;m <span className="textHighlight1">Nathan</span>, a Music
-            Composer from <span className="textHighlight2">Atlanta, GA</span>
+          {/* prettier-ignore */}
+          <h1 id="about" className="textHeadingLarge">
+            I&rsquo;m <span className="textHighlight1" title="Because Nathan David McWilliams is too long to fit here!">
+              Nathan
+            </span>, a Music Composer from <span className="textHighlight2">Atlanta, GA</span>
           </h1>
           {/* <p>
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
             montes augue donec cras turpis ultrices nulla sed doler.
           </p> */}
           <p>
-            I&apos;m Nathan David McWilliams, and I write music for games and
-            interactive media. I specialize in melodically-driven acoustic and
-            symphonic music, inspired by JRPG classics such as Final Fantasy,
-            Suikoden and Octopath Traveler.
+            I write music for games and interactive media. I specialize in{' '}
+            <span className={styles.extraDescription}>melodically-driven</span>{' '}
+            acoustic and symphonic tracks, inspired by JRPG classics such as
+            Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
           <div className={styles.buttons}>
@@ -32,7 +34,7 @@ export default function Hero() {
               Get in touch
             </Button>
 
-            <Button type="secondary" href="/portfolio">
+            <Button type="secondary" href="#portfolio">
               <Icon name="briefcase" hasTextAfter={true} />
               View portfolio
             </Button>
@@ -48,6 +50,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
