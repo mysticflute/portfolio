@@ -62,7 +62,7 @@ image: placeholder.svg
 #   - Playstation 5
 
 # Project's accent color, in css hex format (optional).
-# color: #5c42fb
+# color: '#5c42fb'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.
