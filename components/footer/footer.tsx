@@ -15,6 +15,8 @@ import { ReactElement } from 'react';
 
 // TODO: update email address after figuring out obfuscation
 // TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
+// TODO: remove text from the logo?
+
 type SocialLink = {
   key: string;
   label: string;
