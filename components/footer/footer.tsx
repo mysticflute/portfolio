@@ -14,7 +14,7 @@ import styles from './footer.module.css';
 import { ReactElement } from 'react';
 
 // TODO: update email address after figuring out obfuscation
-
+// TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
 type SocialLink = {
   key: string;
   label: string;
@@ -73,7 +73,7 @@ export default function Footer() {
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
         <div className={styles.top}>
-          <div className={`${styles.section} ${styles.sectionWithText}`}>
+          <div className={styles.sectionWithText}>
             <Link href="/" className={styles.logo}>
               <Image src={logoImage} alt="Site logo" />
             </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className={styles.section}>
+          <div>
             <h2 className={styles.title}>Pages</h2>
             <ul className={styles.list}>
               {mainNav.map(page => (
@@ -116,8 +116,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className={styles.section}>
-            <h2 className={styles.title}>Social</h2>
+          <div>
+            <h2 className={styles.title}>Elsewhere</h2>
             <ul className={styles.list}>
               {socialLinks.slice(0, 6).map(social => (
                 <li key={social.label}>
@@ -142,7 +142,7 @@ export default function Footer() {
             )}
           </div>
 
-          <div className={styles.section}>
+          <div>
             <h2 className={styles.title}>Contact Me</h2>
             <ul className={styles.list}>
               <li>
@@ -163,7 +163,8 @@ export default function Footer() {
         </div>
 
         <p className={styles.bottom}>
-          Copyright &copy; {new Date().getFullYear()} Nathan David McWilliams
+          Copyright &copy; {new Date().getFullYear()}{' '}
+          <span className={styles.nowrap}>Nathan David McWilliams</span>
         </p>
       </div>
     </footer>

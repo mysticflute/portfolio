@@ -12,6 +12,7 @@
 .top {
   display: flex;
   justify-content: space-between;
+  /* TODO: column-gap: 25px; */
   column-gap: 80px;
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--color-gray);
@@ -22,12 +23,9 @@
   text-align: center;
 }
 
-.sectionWithText {
-  max-width: 300px;
-}
-
 .sectionWithText p {
   margin-bottom: 32px;
+  max-width: 300px;
 }
 
 .logo {
@@ -95,6 +93,10 @@ a:hover > .socialIcon,
   line-height: 20px;
 }
 
+.list li:last-of-type {
+  margin-bottom: 0;
+}
+
 .list a {
   display: inline-block;
   font-weight: 400;
@@ -110,4 +112,56 @@ a:hover > .socialIcon,
 .list a.hasIcon {
   display: flex;
   align-items: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* TODO: @media screen and (min-width: 1440px) {
+  .top {
+    column-gap: 80px;
+  }
+} */
+
+@media screen and (max-width: 991px) {
+  .top {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 60px;
+  }
+
+  .sectionWithText {
+    flex-basis: 100%;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+
+  .sectionWithText p {
+    margin-bottom: 26px;
+    max-width: 350px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .list li {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sectionWithText p {
+    margin-bottom: 23px;
+  }
 }
