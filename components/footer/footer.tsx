@@ -11,10 +11,60 @@ import soundcloudIcon from '@/public/images/icon-soundcloud2.svg';
 import linktreeIcon from '@/public/images/icon-linktree.svg';
 import emailIcon from '@/public/images/icon-email.svg';
 import styles from './footer.module.css';
+import { ReactElement } from 'react';
 
 // TODO: extract nav into lib
 
-// TODO put social links in a var (and optional icon property?)
+type SocialLink = {
+  key: string;
+  label: string;
+  url: string;
+  icon?: ReactElement;
+};
+
+/* later: bandcamp, spotify, apple music, patreon */
+export const socialLinks: SocialLink[] = [
+  {
+    key: 'twitter',
+    label: 'Twitter',
+    url: 'https://twitter.com/mysticflute',
+    icon: <Image src={twitterIcon} alt="Twitter Icon" />,
+  },
+  {
+    key: 'instagram',
+    label: 'Instagram',
+    url: 'https://www.instagram.com/mysticflute/',
+    icon: <Image src={instagramIcon} alt="Instagram Icon" />,
+  },
+  {
+    key: 'youtube',
+    label: 'YouTube',
+    url: 'https://www.youtube.com/@nathandavidmcwilliams',
+    icon: <Image src={youtubeIcon} alt="YouTube Icon" />,
+  },
+  {
+    key: 'soundcloud',
+    label: 'SoundCloud',
+    url: 'https://soundcloud.com/nathan_david_mcwilliams',
+    icon: <Image src={soundcloudIcon} alt="SoundCloud Icon" />,
+  },
+  {
+    key: 'linktree',
+    label: 'Linktree',
+    url: 'https://linktr.ee/nathanmcwilliams',
+    icon: <Image src={linktreeIcon} alt="Linktree Icon" />,
+  },
+  {
+    key: 'itch',
+    label: 'Itch.io',
+    url: 'https://mysticflute.itch.io/',
+  },
+  {
+    key: 'mastodon',
+    label: 'Mastodon',
+    url: 'https://mastodon.gamedev.place/@mysticflute',
+  },
+];
 
 export default function Footer() {
   const { asPath: currentPage } = useRouter();
@@ -25,63 +75,44 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={`${styles.section} ${styles.main}`}>
             <Link href="/" className={styles.logoLink}>
-              <Image src={logoImage} alt="Site logo and name" />
+              <Image src={logoImage} alt="Site logo" />
             </Link>
-            <p>
+            <p className={styles.text}>
               Lorem ipsum dolor amet consecte adipiscing elit. Lectus mattis
               nunc.
             </p>
-            <div className={styles.social}>
-              <a
-                href="https://twitter.com/mysticflute"
-                title="Twitter"
-                className={`${styles.twitterIcon} ${styles.socialIcon}`}
-              >
-                <Image src={twitterIcon} alt="Twitter Icon" />
-              </a>
-              <a
-                href="https://www.instagram.com/mysticflute/"
-                title="Instagram"
-                className={`${styles.instagramIcon} ${styles.socialIcon}`}
-              >
-                <Image src={instagramIcon} alt="Instagram Icon" />
-              </a>
-              <a
-                href="https://www.youtube.com/@nathandavidmcwilliams"
-                title="YouTube"
-                className={`${styles.youtubeIcon} ${styles.socialIcon}`}
-              >
-                <Image src={youtubeIcon} alt="YouTube Icon" />
-              </a>
-              <a
-                href="https://soundcloud.com/nathan_david_mcwilliams"
-                title="SoundCloud"
-                className={`${styles.soundcloudIcon} ${styles.socialIcon}`}
-              >
-                <Image src={soundcloudIcon} alt="SoundCloud Icon" />
-              </a>
-              <a
-                href="https://linktr.ee/nathanmcwilliams"
-                title="Linktree"
-                className={`${styles.linktreeIcon} ${styles.socialIcon}`}
-              >
-                <Image src={linktreeIcon} alt="Linktree Icon" />
-              </a>
-            </div>
+            <ul className={styles.social}>
+              {socialLinks
+                .filter(socialLink => !!socialLink.icon)
+                .map(socialLink => (
+                  <li key={socialLink.key}>
+                    <a
+                      href={socialLink.url}
+                      className={styles.socialIcon}
+                      data-key={socialLink.key}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {socialLink.icon}
+                      {/* <span className="visually-hidden">Nathan on ${socialLink.label}</span> */}
+                    </a>
+                  </li>
+                ))}
+            </ul>
           </div>
 
           <div className={styles.section}>
-            <div className={styles.footerTitle}>Pages</div>
-            <ul className={styles.footerList}>
-              {mainNav.map(item => (
-                <li key={item.label}>
+            <div className={styles.title}>Pages</div>
+            <ul className={styles.list}>
+              {mainNav.map(page => (
+                <li key={page.label}>
                   <Link
-                    href={item.path}
+                    href={page.path}
                     aria-current={
-                      item.path === currentPage ? 'page' : undefined
+                      page.path === currentPage ? 'page' : undefined
                     }
                   >
-                    {item.label}
+                    {page.label}
                   </Link>
                 </li>
               ))}
@@ -89,70 +120,42 @@ export default function Footer() {
           </div>
 
           <div className={styles.section}>
-            <div className={styles.footerTitle}>Social</div>
+            <div className={styles.title}>Social</div>
             <div className={styles.multiList}>
-              <ul className={styles.footerList}>
-                <li>
-                  <a href="https://twitter.com/mysticflute">
-                    Twitter
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/mysticflute/">
-                    Instagram
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/@nathandavidmcwilliams">
-                    YouTube
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://soundcloud.com/nathan_david_mcwilliams">
-                    SoundCloud
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://linktr.ee/nathanmcwilliams">
-                    Linktree
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://mysticflute.itch.io/">
-                    Itch.io
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-                {/* later: bandcamp, spotify, apple music, patreon */}
+              <ul className={styles.list}>
+                {socialLinks.slice(0, 6).map(socialLink => (
+                  <li key={socialLink.label}>
+                    <a key={socialLink.label} href={socialLink.url}>
+                      {socialLink.label}
+                      <Icon name="arrowDiagonal" hasTextBefore={true} />
+                    </a>
+                  </li>
+                ))}
               </ul>
-              <ul className={styles.footerList}>
-                <li>
-                  <a href="https://mastodon.gamedev.place/@mysticflute">
-                    Mastodon
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-              </ul>
+              {socialLinks.length > 6 && (
+                <ul className={styles.list}>
+                  {socialLinks.slice(6).map(socialLink => (
+                    <li key={socialLink.label}>
+                      <a key={socialLink.label} href={socialLink.url}>
+                        {socialLink.label}
+                        <Icon name="arrowDiagonal" hasTextBefore={true} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
 
           <div className={styles.section}>
-            <div className={styles.footerTitle}>Contact Me</div>
-            <ul className={styles.footerList}>
+            <div className={styles.title}>Contact Me</div>
+            <ul className={styles.list}>
               <li>
-                <a
-                  className={styles.footerLink}
-                  href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%66%6F%6F%40%62%61%72%2E%63%6F%6D"
-                >
+                <a className={styles.hasIcon} href="mailto:hello@ndm.studio">
                   <div className={styles.socialIcon}>
                     <Image src={emailIcon} alt="" />
                   </div>
-                  hello [at] ndm.studio
+                  hello@ndm.studio
                 </a>
               </li>
             </ul>

@@ -17,11 +17,16 @@
   justify-content: space-between;
 }
 
+.bottom {
+  padding: 40px 0;
+  text-align: center;
+}
+
 .section.main {
   max-width: 300px;
 }
 
-.section p {
+.text {
   margin-bottom: 32px;
 }
 
@@ -46,44 +51,45 @@
   transition: background-color 300ms ease;
 }
 
-.footerLink:hover {
+a:hover > .socialIcon,
+.socialIcon:hover {
   background: var(--color-blue);
 }
 
-.soundcloudIcon {
+.socialIcon[data-key='soundcloud'] img {
   padding-bottom: 2px;
 }
 
-.soundcloudIcon img {
+.socialIcon[data-key='soundcloud'] img {
   width: auto;
   height: 18px;
 }
 
-.linktreeIcon img {
+.socialIcon[data-key='linktree'] img {
   width: auto;
   height: 25px;
 }
 
-.footerTitle {
+.title {
   color: #fff;
   margin-bottom: 40px;
   font-size: 24px;
   line-height: 1.083;
 }
 
-.footerList li {
+.list li {
   margin-bottom: 24px;
   line-height: 20px;
 }
 
-.footerList a {
+.list a {
   font-weight: 400;
   transition: transform 300ms ease, color 300ms ease;
   display: inline-block;
   transform-style: preserve-3d;
 }
 
-.footerList a:not([aria-current]):hover {
+.list a:not([aria-current]):hover {
   transform: translate3d(8px, 0px, 0.01px);
   color: var(--color-text-link-highlight);
 }
@@ -92,8 +98,11 @@
   display: flex;
   column-gap: 38px;
 }
+.list a.hasIcon {
+  display: flex;
+  align-items: center;
+}
 
-.bottom {
-  padding: 40px 0;
-  text-align: center;
+a.hasIcon .socialIcon {
+  margin-right: 14px;
 }
