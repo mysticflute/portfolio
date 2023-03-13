@@ -1,0 +1,92 @@
+.container {
+  padding: 92px 0 200px 0;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 489px;
+  text-align: center;
+}
+
+.content h1 {
+  margin-bottom: 16px;
+}
+
+.content p {
+  margin-bottom: 32px;
+}
+
+.card {
+  display: inline-flex;
+  padding: 40px 35px;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid var(--color-background-dark);
+  border-radius: 24px;
+  background: #fff;
+}
+
+.card a {
+  display: flex;
+  align-items: center;
+  column-gap: 22px;
+  font-size: 1.25rem;
+  line-height: 1.111;
+  color: var(--color-text-link);
+  transition: color 300ms ease;
+}
+
+.card a:hover {
+  color: var(--color-text-link-highlight);
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    padding: 77px 0 160px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 60px 0 133px 0;
+  }
+
+  .content h1 {
+    margin-bottom: 10px;
+  }
+
+  .content p {
+    margin-bottom: 26px;
+  }
+
+  .card a {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    padding: 50px 0 111px 0;
+  }
+
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .content p {
+    margin-bottom: 23px;
+  }
+
+  .card {
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .card a {
+    font-size: 1rem;
+    column-gap: 15px;
+  }
+}
