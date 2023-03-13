@@ -4,6 +4,11 @@
   font-weight: 500;
 }
 
+.hasTextBefore {
+  display: inline-block;
+  margin-left: 6px;
+}
+
 .lineRounded {
   font-family: var(--font-line-rounded-icons);
 }
@@ -14,4 +19,8 @@
 
 .lineRounded.briefcase::before {
   content: '\E80A';
+}
+
+.lineRounded.arrowDiagonal::before {
+  content: '\E803';
 }

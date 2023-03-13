@@ -1,0 +1,176 @@
+.container {
+  background: var(--color-background-dark);
+  color: var(--color-neutral);
+}
+
+.content {
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 1300px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  /* TODO: column-gap: 25px; */
+  column-gap: 80px;
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.bottom {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.sectionWithText p {
+  margin-bottom: 32px;
+  max-width: 300px;
+}
+
+.logo {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.logo img {
+  transition: transform 300ms ease;
+  transform-style: preserve-3d;
+}
+
+.logo img:hover {
+  transform: scale3d(0.92, 0.92, 1.01);
+}
+
+.social {
+  display: flex;
+  column-gap: 10px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  transition: background-color 300ms ease;
+}
+
+a.hasIcon .socialIcon {
+  margin-right: 14px;
+}
+
+a:hover > .socialIcon,
+.socialIcon:hover {
+  background: var(--color-blue);
+}
+
+.socialIcon[data-key='soundcloud'] img {
+  padding-bottom: 2px;
+}
+
+.socialIcon[data-key='soundcloud'] img {
+  width: auto;
+  height: 18px;
+}
+
+.socialIcon[data-key='linktree'] img {
+  width: auto;
+  height: 25px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 1.5rem;
+  line-height: 1.083;
+  color: #fff;
+}
+
+.list {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.list + .list {
+  margin-left: 38px;
+}
+
+.list li {
+  margin-bottom: 24px;
+  line-height: 20px;
+}
+
+.list li:last-of-type {
+  margin-bottom: 0;
+}
+
+.list a {
+  display: inline-block;
+  font-weight: 400;
+  transition: transform 300ms ease, color 300ms ease;
+  transform-style: preserve-3d;
+}
+
+.list a:not([aria-current]):hover {
+  transform: translate3d(8px, 0px, 0.01px);
+  color: var(--color-text-link-highlight);
+}
+
+.list a.hasIcon {
+  display: flex;
+  align-items: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* TODO: @media screen and (min-width: 1440px) {
+  .top {
+    column-gap: 80px;
+  }
+} */
+
+@media screen and (max-width: 991px) {
+  .top {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 60px;
+  }
+
+  .sectionWithText {
+    flex-basis: 100%;
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+
+  .sectionWithText p {
+    margin-bottom: 26px;
+    max-width: 350px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .list li {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sectionWithText p {
+    margin-bottom: 23px;
+  }
+}
