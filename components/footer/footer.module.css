@@ -33,6 +33,15 @@
   margin-bottom: 16px;
 }
 
+.logo img {
+  transition: transform 300ms ease;
+  transform-style: preserve-3d;
+}
+
+.logo img:hover {
+  transform: scale3d(0.92, 0.92, 1.01);
+}
+
 .social {
   display: flex;
   column-gap: 10px;
