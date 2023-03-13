@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Nav from '@/components/nav/nav';
+import Footer from '@/components/footer/footer';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main id="main-content" role="main">
         {children}
       </main>
-      <footer role="contentinfo"></footer>
+      <Footer></Footer>
     </div>
   );
 }

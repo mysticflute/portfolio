@@ -1,12 +1,14 @@
 :root {
   --color-dark: #0b0b0b;
+  --color-gray: #393939;
+  --color-neutral: #eff0f6;
   --color-blue: #1c92ff;
   --color-red: #ff4a60;
   --color-yellow: #ffc431;
-  --color-text-default: #393939;
+  --color-text-default: var(--color-gray);
   --color-text-dark: var(--color-dark);
-  --color-text-header-link: var(--color-dark);
-  --color-text-header-link-highlight: var(--color-blue);
+  --color-text-link: var(--color-dark);
+  --color-text-link-highlight: var(--color-blue);
   --color-background-default: #faf9f6;
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);

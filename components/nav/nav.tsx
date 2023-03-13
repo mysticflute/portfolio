@@ -12,7 +12,7 @@ type NavItems = {
   path: string;
 };
 
-const mainNav: NavItems[] = [
+export const mainNav: NavItems[] = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '#about' },
   { label: 'Portfolio', path: '#portfolio' },

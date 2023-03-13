@@ -1,0 +1,99 @@
+.container {
+  background: var(--color-background-dark);
+  color: var(--color-neutral);
+}
+
+.content {
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 1300px;
+}
+
+.top {
+  display: flex;
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--color-gray);
+  column-gap: 80px;
+  justify-content: space-between;
+}
+
+.section.main {
+  max-width: 300px;
+}
+
+.section p {
+  margin-bottom: 32px;
+}
+
+.logoLink {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.social {
+  display: flex;
+  column-gap: 10px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  transition: background-color 300ms ease;
+}
+
+.footerLink:hover {
+  background: var(--color-blue);
+}
+
+.soundcloudIcon {
+  padding-bottom: 2px;
+}
+
+.soundcloudIcon img {
+  width: auto;
+  height: 18px;
+}
+
+.linktreeIcon img {
+  width: auto;
+  height: 25px;
+}
+
+.footerTitle {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 24px;
+  line-height: 1.083;
+}
+
+.footerList li {
+  margin-bottom: 24px;
+  line-height: 20px;
+}
+
+.footerList a {
+  font-weight: 400;
+  transition: transform 300ms ease, color 300ms ease;
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+
+.footerList a:not([aria-current]):hover {
+  transform: translate3d(8px, 0px, 0.01px);
+  color: var(--color-text-link-highlight);
+}
+
+.multiList {
+  display: flex;
+  column-gap: 38px;
+}
+
+.bottom {
+  padding: 40px 0;
+  text-align: center;
+}
