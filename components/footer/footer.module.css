@@ -11,10 +11,10 @@
 
 .top {
   display: flex;
+  justify-content: space-between;
+  column-gap: 80px;
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--color-gray);
-  column-gap: 80px;
-  justify-content: space-between;
 }
 
 .bottom {
@@ -22,15 +22,15 @@
   text-align: center;
 }
 
-.section.main {
+.sectionWithText {
   max-width: 300px;
 }
 
-.text {
+.sectionWithText p {
   margin-bottom: 32px;
 }
 
-.logoLink {
+.logo {
   display: inline-block;
   margin-bottom: 16px;
 }
@@ -49,6 +49,10 @@
   border-radius: 50%;
   background: #fff;
   transition: background-color 300ms ease;
+}
+
+a.hasIcon .socialIcon {
+  margin-right: 14px;
 }
 
 a:hover > .socialIcon,
@@ -71,10 +75,19 @@ a:hover > .socialIcon,
 }
 
 .title {
-  color: #fff;
   margin-bottom: 40px;
   font-size: 24px;
   line-height: 1.083;
+  color: #fff;
+}
+
+.list {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.list + .list {
+  margin-left: 38px;
 }
 
 .list li {
@@ -83,9 +96,9 @@ a:hover > .socialIcon,
 }
 
 .list a {
+  display: inline-block;
   font-weight: 400;
   transition: transform 300ms ease, color 300ms ease;
-  display: inline-block;
   transform-style: preserve-3d;
 }
 
@@ -94,15 +107,7 @@ a:hover > .socialIcon,
   color: var(--color-text-link-highlight);
 }
 
-.multiList {
-  display: flex;
-  column-gap: 38px;
-}
 .list a.hasIcon {
   display: flex;
   align-items: center;
-}
-
-a.hasIcon .socialIcon {
-  margin-right: 14px;
 }

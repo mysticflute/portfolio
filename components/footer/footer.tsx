@@ -13,7 +13,7 @@ import emailIcon from '@/public/images/icon-email.svg';
 import styles from './footer.module.css';
 import { ReactElement } from 'react';
 
-// TODO: extract nav into lib
+// TODO: update email address after figuring out obfuscation
 
 type SocialLink = {
   key: string;
@@ -22,7 +22,7 @@ type SocialLink = {
   icon?: ReactElement;
 };
 
-/* later: bandcamp, spotify, apple music, patreon */
+// later: bandcamp, spotify, apple music, patreon
 export const socialLinks: SocialLink[] = [
   {
     key: 'twitter',
@@ -73,14 +73,11 @@ export default function Footer() {
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
         <div className={styles.top}>
-          <div className={`${styles.section} ${styles.main}`}>
-            <Link href="/" className={styles.logoLink}>
+          <div className={`${styles.section} ${styles.sectionWithText}`}>
+            <Link href="/" className={styles.logo}>
               <Image src={logoImage} alt="Site logo" />
             </Link>
-            <p className={styles.text}>
-              Lorem ipsum dolor amet consecte adipiscing elit. Lectus mattis
-              nunc.
-            </p>
+            <p>Acoustic and symphonic music for games and interactive media.</p>
             <ul className={styles.social}>
               {socialLinks
                 .filter(socialLink => !!socialLink.icon)
@@ -90,11 +87,11 @@ export default function Footer() {
                       href={socialLink.url}
                       className={styles.socialIcon}
                       data-key={socialLink.key}
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       {socialLink.icon}
-                      {/* <span className="visually-hidden">Nathan on ${socialLink.label}</span> */}
+                      <span className="assistiveText">
+                        Nathan on {socialLink.label}
+                      </span>
                     </a>
                   </li>
                 ))}
@@ -102,7 +99,7 @@ export default function Footer() {
           </div>
 
           <div className={styles.section}>
-            <div className={styles.title}>Pages</div>
+            <h2 className={styles.title}>Pages</h2>
             <ul className={styles.list}>
               {mainNav.map(page => (
                 <li key={page.label}>
@@ -120,42 +117,45 @@ export default function Footer() {
           </div>
 
           <div className={styles.section}>
-            <div className={styles.title}>Social</div>
-            <div className={styles.multiList}>
+            <h2 className={styles.title}>Social</h2>
+            <ul className={styles.list}>
+              {socialLinks.slice(0, 6).map(social => (
+                <li key={social.label}>
+                  <a key={social.label} href={social.url}>
+                    {social.label}
+                    <Icon name="arrowDiagonal" hasTextBefore={true} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {socialLinks.length > 6 && (
               <ul className={styles.list}>
-                {socialLinks.slice(0, 6).map(socialLink => (
-                  <li key={socialLink.label}>
-                    <a key={socialLink.label} href={socialLink.url}>
-                      {socialLink.label}
+                {socialLinks.slice(6).map(social => (
+                  <li key={social.label}>
+                    <a key={social.label} href={social.url}>
+                      {social.label}
                       <Icon name="arrowDiagonal" hasTextBefore={true} />
                     </a>
                   </li>
                 ))}
               </ul>
-              {socialLinks.length > 6 && (
-                <ul className={styles.list}>
-                  {socialLinks.slice(6).map(socialLink => (
-                    <li key={socialLink.label}>
-                      <a key={socialLink.label} href={socialLink.url}>
-                        {socialLink.label}
-                        <Icon name="arrowDiagonal" hasTextBefore={true} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            )}
           </div>
 
           <div className={styles.section}>
-            <div className={styles.title}>Contact Me</div>
+            <h2 className={styles.title}>Contact Me</h2>
             <ul className={styles.list}>
               <li>
-                <a className={styles.hasIcon} href="mailto:hello@ndm.studio">
+                <a
+                  className={styles.hasIcon}
+                  href="mailto:ndm.music.inbox@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className={styles.socialIcon}>
                     <Image src={emailIcon} alt="" />
                   </div>
-                  hello@ndm.studio
+                  ndm.music.inbox@gmail.com
                 </a>
               </li>
             </ul>
