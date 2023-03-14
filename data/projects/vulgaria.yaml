@@ -1,12 +1,12 @@
 # Name of the project.
-name: Recidivia
+name: Vulgaria
 
 # Unique, dash-delimited name for the project URL (optional).
 # If note specified, defaults to the filename.
 # slug: project-name
 
 # The sort position for the project.
-sort: 1
+sort: 2
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
@@ -14,7 +14,7 @@ sort: 1
 
 # My primary role on the project.
 # Examples: Composer, Artist, Producer, Arranger.
-role: Additional Composer
+role: Composer
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # My additional roles on the project (optional).
@@ -25,21 +25,24 @@ role: Additional Composer
 
 # Short project description.
 description: >
-  An old-school 2d RPG adventure! Developed by 1ManArmE Studios, this is the
-  story of a Temple Guard's desperate attempt to repent for actions he believes
-  to be no fault of his own.
-
+  A top-down adventure game, developed by Statson and releasing in 2023.
+  Features strings, flutes, harps, taikos and hand perc.
 # List of 10-digit SoundCloud track IDs. (optional).
 # See the README.md file for how to find these.
 soundcloudIDs:
-  # - 1363207933
-  # - 1362994615
-  # - 1363175623
+  - 1363207933
+  - 1362994615
+  - 1363175623
+  - 1363178761
+  - 1363186105
+  - 1363189672
+  - 1363214545
+  - 1363203541
 
 # The main image for the project.
 # Must be a file under public/images/projects.
 # If an image is not available yet, use placeholder.svg.
-image: recidivia-onyx.jpg
+image: vulgaria.jpeg
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Large image for the project detail page.
@@ -47,10 +50,10 @@ image: recidivia-onyx.jpg
 
 # The client's logo image (optional).
 # Must be a file under public/images/logos.
-logoImage: logo-twitch.svg
+logoImage: logo-youtube.svg
 
 # A link to an external project landing page (optional).
-link: https://twitter.com/RecidiviaRPG
+link: https://twitter.com/StatsonVulgaira
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # The date the project was or will be released (optional).
@@ -64,8 +67,7 @@ link: https://twitter.com/RecidiviaRPG
 #   - Playstation 5
 
 # Project's accent color, in css hex format (optional).
-color: '#5c42fb'
-# color: '#920025'
+color: '#4b914b'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.

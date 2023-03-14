@@ -17,16 +17,16 @@ export default function Hero() {
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
             montes augue donec cras turpis ultrices nulla sed doler.
           </p> */}
-          <p>
+          {/* <p>
             Providing acoustic and symphonic music for video games and
             interactive media, inspired by JRPG classics.
-          </p>
-          {/* <p>
+          </p> */}
+          <p>
             I write music for games and interactive media. I specialize in{' '}
             <span className={styles.extraDescription}>melodically-driven</span>{' '}
             acoustic and symphonic tracks, inspired by JRPG classics such as
             Final Fantasy, Suikoden and Octopath Traveler.
-          </p> */}
+          </p>
 
           <div className={styles.buttons}>
             <Button type="primary" href="/contact">
