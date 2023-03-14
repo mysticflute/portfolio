@@ -36,9 +36,11 @@ description: >
 # List of 10-digit SoundCloud track IDs. (optional).
 # See the README.md file for how to find these.
 soundcloudIDs:
-  # - 1363207933
-  # - 1362994615
-  # - 1363175623
+  - 1468989199
+  - 1468987642
+  - 1468969438
+  - 1468955629
+  - 1468955386
 
 # The main image for the project.
 # Must be a file under public/images/projects.
