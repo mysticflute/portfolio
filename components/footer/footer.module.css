@@ -108,6 +108,7 @@ a:hover > .socialIcon,
 
 .list a {
   display: inline-block;
+  white-space: nowrap;
   font-weight: 400;
   transition: transform 300ms ease, color 300ms ease;
   transform-style: preserve-3d;

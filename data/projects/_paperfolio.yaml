@@ -9,11 +9,15 @@ name: Twitch user research and analysis
 sort: 1
 
 ### NOT CURRENTLY IMPLEMENTED ###
-# Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
+# The project type.
+# Examples: Video Game, Visual Novel, Film, TV, Documentary,
+# Podcast, Streamer, Board Game, Album, Compilation.
 # type: Video Game
 
 # My primary role on the project.
-# Examples: Composer, Artist, Producer, Arranger.
+# Examples: Composer, Primary Composer, Additional Composer,
+# Artist, Producer, Arranger, Sound Designer, Music Implementor,
+# Scoring Assistant, Composer's Assistant, Creator.
 role: UI/UX Design
 
 ### NOT CURRENTLY IMPLEMENTED ###
