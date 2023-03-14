@@ -27,6 +27,7 @@ role: Composer
 description: >
   A top-down adventure game, developed by Statson and releasing in 2023.
   Features strings, flutes, harps, taikos and hand perc.
+
 # List of 10-digit SoundCloud track IDs. (optional).
 # See the README.md file for how to find these.
 soundcloudIDs:
