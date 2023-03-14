@@ -7,7 +7,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="page">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        {/* <meta name="description" content="TODO" /> */}
+        <meta
+          key="desc"
+          name="description"
+          content="Nathan David McWilliams is a music composer, pianist and flutist for video games and interactive media based in Atlanta, GA."
+        />
       </Head>
       {/* <a href="#main-content">Skip to main content</a> */}
       <header role="banner">

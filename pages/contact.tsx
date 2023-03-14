@@ -9,6 +9,11 @@ export default function Contact() {
       <Layout>
         <Head>
           <title>Contact - {baseWebsiteTitle}</title>
+          <meta
+            key="desc"
+            name="description"
+            content="Contact Nathan David McWilliams."
+          />
         </Head>
         <ContactInfo></ContactInfo>
       </Layout>

@@ -17,7 +17,8 @@
 }
 
 .intro h1 {
-  margin-bottom: 16px;
+  /* TODO: margin-bottom: 16px; */
+  margin-bottom: 32px;
 }
 
 .intro p {
@@ -78,7 +79,8 @@
   }
 
   .intro h1 {
-    margin-bottom: 10px;
+    /* TODO: margin-bottom: 10px; */
+    margin-bottom: 16px;
   }
 
   .intro p {
