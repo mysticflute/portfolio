@@ -6,14 +6,19 @@ name: Project Name
 # slug: project-name
 
 # The sort position for the project.
+# Specify 0 to use project date as the sort.
 # sort: 1
 
 ### NOT CURRENTLY IMPLEMENTED ###
-# Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
+# The project type.
+# Examples: Video Game, Visual Novel, Film, TV, Documentary,
+# Podcast, Streamer, Board Game, Album, Compilation.
 # type: Video Game
 
 # My primary role on the project.
-# Examples: Composer, Artist, Producer, Arranger.
+# Examples: Composer, Primary Composer, Additional Composer,
+# Artist, Producer, Arranger, Sound Designer, Music Implementor,
+# Scoring Assistant, Composer's Assistant, Creator.
 role: Composer
 
 ### NOT CURRENTLY IMPLEMENTED ###
@@ -22,6 +27,7 @@ role: Composer
 #   - Composer
 #   - Producer
 #   - Arranger
+#   - Sound Designer
 
 # Short project description.
 description: >

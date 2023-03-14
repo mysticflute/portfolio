@@ -9,12 +9,16 @@ name: Recidivia
 sort: 1
 
 ### NOT CURRENTLY IMPLEMENTED ###
-# Project type (Video Game, Visual Novel, Film, Podcast, Album, etc).
+# The project type.
+# Examples: Video Game, Visual Novel, Film, TV, Documentary,
+# Podcast, Streamer, Board Game, Album, Compilation.
 # type: Video Game
 
 # My primary role on the project.
-# Examples: Composer, Artist, Producer, Arranger.
-role: Additional Composer
+# Examples: Composer, Primary Composer, Additional Composer,
+# Artist, Producer, Arranger, Sound Designer, Music Implementor,
+# Scoring Assistant, Composer's Assistant, Creator.
+role: Primary Composer
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # My additional roles on the project (optional).
@@ -25,7 +29,7 @@ role: Additional Composer
 
 # Short project description.
 description: >
-  An old-school 2d RPG adventure! Developed by 1ManArmE Studios, this is the
+  An old-school 2D RPG adventure! Developed by 1ManArmE Studios, this is the
   story of a Temple Guard's desperate attempt to repent for actions he believes
   to be no fault of his own.
 

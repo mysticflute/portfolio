@@ -119,7 +119,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         validated.color = getString(metadata, 'color', filepath);
       }
 
-      logger.debug(validated, 'found project metadata');
+      logger.trace(validated, 'found project metadata');
       return validated;
     })
   );
