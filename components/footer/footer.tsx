@@ -118,7 +118,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* TODO: get rid of this class */}
+          <div className={styles.nowrap}>
             <h2 className={styles.title}>Elsewhere</h2>
             <ul className={styles.list}>
               {socialLinks.slice(0, 6).map(social => (

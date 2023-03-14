@@ -14,11 +14,14 @@
 
 .intro {
   max-width: 600px;
+  /* TODO: this matches the design spec */
+  /* flex: 1; */
 }
 
 .intro h1 {
-  /* TODO: margin-bottom: 16px; */
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+  /* TODO: was thinking there's not enough padding */
+  /* margin-bottom: 32px; */
 }
 
 .intro p {
@@ -37,6 +40,11 @@
   display: flex;
   align-items: center;
 }
+
+/* TODO: this matches the design spec */
+/* .profile {
+  flex: 0.7;
+} */
 
 @media screen and (max-width: 991px) {
   .container {
@@ -79,8 +87,9 @@
   }
 
   .intro h1 {
-    /* TODO: margin-bottom: 10px; */
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    /* TODO: was thinking there could be more space here  */
+    /* margin-bottom: 16px; */
   }
 
   .intro p {
