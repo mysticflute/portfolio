@@ -14,8 +14,8 @@ type NavItems = {
 
 export const mainNav: NavItems[] = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '#about' },
-  { label: 'Portfolio', path: '#portfolio' },
+  { label: 'About', path: '/#about' },
+  { label: 'Portfolio', path: '/#portfolio' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -77,6 +77,7 @@ export default function Nav() {
       <div
         id="nav-overlay"
         className={clsx(styles.overlay, isOverlayOpen && styles.open)}
+        onClick={() => setIsOverlayOpen(false)}
       >
         {createNav(mainNav, currentPage)}
       </div>
