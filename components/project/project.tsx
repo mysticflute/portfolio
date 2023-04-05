@@ -45,8 +45,11 @@ export default function Project({ projectMetadata: data }: Props) {
             </div>
           </div>
         </div>
-        {/* style={{ backgroundColor: data.color }} */}
-        <div className={styles.imageContainer}>
+
+        <div
+          className={styles.imageContainer}
+          style={{ backgroundColor: data.color }}
+        >
           <img
             src={`/images/projects/${data.image}`}
             alt={`Illustration for ${data.name}`}
