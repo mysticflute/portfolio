@@ -22,7 +22,7 @@ export default function Project({ projectMetadata: data }: Props) {
             <div className={styles.info}>
               {data.logoImage && (
                 <img
-                  src={`/images/logos/${data.logoImage}`}
+                  src={`/images/client/${data.logoImage}`}
                   alt="Client logo"
                   loading="lazy"
                 />
@@ -51,7 +51,7 @@ export default function Project({ projectMetadata: data }: Props) {
           style={{ backgroundColor: data.color }}
         >
           <img
-            src={`/images/projects/${data.image}`}
+            src={`/images/project/${data.image}`}
             alt={`Illustration for ${data.name}`}
             width="642"
             height="605"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36pt" height="36pt" viewBox="0 0 36 36" version="1.1">
+<g id="surface3896">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(62.352943%,65.882355%,85.490197%);fill-opacity:1;" d="M 24.601562 6.75 L 12.148438 6.75 C 10.875 6.75 9.824219 7.800781 9.824219 9.074219 L 9.824219 33 C 9.824219 34.273438 10.875 35.324219 12.148438 35.324219 L 29.925781 35.324219 C 31.199219 35.324219 32.25 34.273438 32.25 33 L 32.25 14.324219 C 32.25 13.949219 32.101562 13.574219 31.800781 13.273438 L 25.726562 7.199219 C 25.425781 6.898438 25.050781 6.75 24.601562 6.75 Z M 24.601562 6.75 "/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.411765%,9.803922%,24.705882%);stroke-opacity:1;stroke-miterlimit:10;" d="M 38.5 27.901042 L 38.5 14.5 L 31.5 14.5 C 30.401042 14.5 29.5 13.598958 29.5 12.5 L 29.5 5.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.411765%,9.803922%,24.705882%);stroke-opacity:1;stroke-miterlimit:10;" d="M 9.5 22.901042 L 9.5 39.5 C 9.5 41.197917 10.802083 42.5 12.5 42.5 L 35.5 42.5 C 37.197917 42.5 38.5 41.197917 38.5 39.5 L 38.5 34.098958 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.411765%,9.803922%,24.705882%);stroke-opacity:1;stroke-miterlimit:10;" d="M 29.5 5.5 L 12.5 5.5 C 10.802083 5.5 9.5 6.802083 9.5 8.5 L 9.5 14.302083 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.411765%,9.803922%,24.705882%);stroke-opacity:1;stroke-miterlimit:10;" d="M 38.5 14.5 L 29.5 5.5 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+<path style="fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(9.411765%,9.803922%,24.705882%);stroke-opacity:1;stroke-miterlimit:10;" d="M 23.197917 23.098958 L 21.5 22.098958 C 20.197917 21.302083 18.5 22.302083 18.5 23.802083 L 18.5 33.302083 C 18.5 34.802083 20.197917 35.802083 21.5 35 L 29.697917 30.197917 C 31 29.401042 31 27.5 29.697917 26.697917 L 27.302083 25.302083 " transform="matrix(0.75,0,0,0.75,0,0)"/>
+</g>
+</svg>

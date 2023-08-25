@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import Icon from '@/components/icon/icon';
-import profileImage from '@/public/images/profile.jpg';
+import profileImage from '@/public/images/profile/profile.jpg';
 import styles from './hero.module.css';
 
 export default function Hero() {

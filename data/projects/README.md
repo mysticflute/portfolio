@@ -15,8 +15,8 @@ This directory contains the data for music projects.
    5. Copy the ten digit code that comes after the `/tracks` part of the src URL.<br/>
       For example, ...api.soundcloud.com/tracks/**1272228361**&color...
 
-4. Add project images to the `public/images/projects` directory.
-5. If applicable, add new client logo images to the `public/images/logos` directory.
+4. Add project images to the `public/images/project` directory.
+5. If applicable, add new client logo images to the `public/images/logo` directory.
 
 ## Disabling a project
 

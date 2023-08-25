@@ -41,7 +41,7 @@ description: >
 #   - 1269466039
 
 # The main image for the project.
-# Must be a file under public/images/projects.
+# Must be a file under public/images/project.
 # If an image is not available yet, use placeholder.svg.
 image: placeholder.svg
 
@@ -50,8 +50,8 @@ image: placeholder.svg
 # largeImage: placeholder-large.png
 
 # The client's logo image (optional).
-# Must be a file under public/images/logos.
-# logoImage: logo-twitch.svg
+# Must be a file under public/images/logo.
+# logoImage: twitch.svg
 
 # A link to an external project landing page (optional).
 # link: https://twitter.com/SquareEnix
