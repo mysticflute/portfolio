@@ -6,7 +6,7 @@ import Icon from '@/components/icon/icon';
 import logoImage from '@/public/images/logo/face-inverse-small.svg';
 import twitterIcon from '@/public/images/icon/paperfolio/twitter.svg';
 import instagramIcon from '@/public/images/icon/paperfolio/instagram.svg';
-import youtubeIcon from '@/public/images/icon/pulsar/youtubex.svg';
+import youtubeIcon from '@/public/images/icon/paperfolio/youtube.svg';
 import soundcloudIcon from '@/public/images/icon/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icon/pulsar/linktree.svg';
 import emailIcon from '@/public/images/icon/paperfolio/email.svg';
