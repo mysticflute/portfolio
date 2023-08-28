@@ -15,7 +15,6 @@ import { ReactElement } from 'react';
 
 // TODO: update email address after figuring out obfuscation
 // TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
-// TODO: remove text from the logo?
 
 type SocialLink = {
   key: string;
@@ -37,6 +36,11 @@ export const socialLinks: SocialLink[] = [
     label: 'Instagram',
     url: 'https://www.instagram.com/mysticflute/',
     icon: <Image src={instagramIcon} alt="Instagram Icon" />,
+  },
+  {
+    key: 'threads',
+    label: 'Threads',
+    url: 'https://www.threads.net/@mysticflute',
   },
   {
     key: 'youtube',
