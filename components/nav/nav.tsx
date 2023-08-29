@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { clsx } from 'clsx';
 import Icon from '@/components/icon/icon';
-import logoImage from '@/public/images/logo/face.svg';
+import logoImage from '@/public/images/logo/n.svg';
 import styles from './nav.module.css';
 
 type NavItems = {

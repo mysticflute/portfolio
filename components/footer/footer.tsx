@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
-import logoImage from '@/public/images/logo/face-inverse-small.svg';
+import logoImage from '@/public/images/logo/n.svg';
 import twitterIcon from '@/public/images/icon/paperfolio/twitter.svg';
 import instagramIcon from '@/public/images/icon/paperfolio/instagram.svg';
 import youtubeIcon from '@/public/images/icon/paperfolio/youtube.svg';
