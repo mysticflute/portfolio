@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
-import logoImage from '@/public/images/logo/n.svg';
+import logoImage from '@/public/images/logo/letter-n.svg';
 import twitterIcon from '@/public/images/icon/paperfolio/twitter.svg';
 import instagramIcon from '@/public/images/icon/paperfolio/instagram.svg';
 import youtubeIcon from '@/public/images/icon/paperfolio/youtube.svg';
@@ -81,7 +81,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.sectionWithText}>
             <Link href="/" className={styles.logo}>
-              <Image src={logoImage} alt="Site logo" />
+              <Image src={logoImage} width={24} height={24} alt="Site logo" />
             </Link>
             <p>Acoustic and symphonic music for games and interactive media.</p>
             <ul className={styles.social}>
