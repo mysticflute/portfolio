@@ -14,12 +14,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta name="theme-color" content="#1c92ff" />
-        {/* <meta name="theme-color" content="#0b0b0b" /> */}
+        <meta name="theme-color" content="#0b0b0b" />
 
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       {/* <a href="#main-content">Skip to main content</a> */}
       <header role="banner">
