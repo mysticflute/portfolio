@@ -16,12 +16,19 @@
   max-width: 600px;
   /* TODO: this matches the design spec */
   /* flex: 1; */
+  background: rgb(0, 0, 0, 0.4);
+  border-radius: 28px;
+  padding: 30px;
+  color: var(--color-text-light);
+  text-wrap: balance;
+  text-align: center;
 }
 
 .intro h1 {
   margin-bottom: 16px;
   /* TODO: was thinking there's not enough padding */
   /* margin-bottom: 32px; */
+  color: var(--color-text-light);
 }
 
 .intro p {

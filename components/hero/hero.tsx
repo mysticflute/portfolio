@@ -10,8 +10,8 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.intro}>
           <h1 id="about" className="textHeadingLarge">
-            I&rsquo;m <span className="textHighlight1">Nathan</span>, a Music
-            Composer from <span className="textHighlight2">Atlanta, GA</span>
+            I&rsquo;m <span className="textHighlight1">Nathan</span>,<br /> a
+            Composer from <span className="textHighlight2">Atlanta</span>
           </h1>
           {/* <p>
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
@@ -47,6 +47,7 @@ export default function Hero() {
               alt="Profile picture of Nathan David McWilliams"
               priority
             />
+            {/* <img src="https://cdn.dribbble.com/userupload/2740488/file/original-60907ec0c68c5a2b008f4c3744120b1f.jpg?resize=2048x2048" /> */}
           </div>
         </div>
       </div>
