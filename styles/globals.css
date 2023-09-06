@@ -1,12 +1,11 @@
 :root {
   --color-dark: #0b0b0b;
   --color-gray: #393939;
-  --color-neutral: #eff0f6;
   --color-theme: #4331f0;
-  /* --color-blue: #1c92ff; */
+  --color-neutral: #eff0f6;
+  --color-white: #faf9f6;
   --color-blue: #53abf8;
   --color-red: #ff4a60;
-  /* --color-yellow: #ffc431; */
   --color-yellow: #f6b468;
   --color-purple: #5358f8;
   --color-text-default: var(--color-gray);
@@ -17,6 +16,7 @@
   --color-background-default: var(--color-theme);
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);
+  --url-background-pattern: url(/images/pattern.jpg);
 }
 
 *,

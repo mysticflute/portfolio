@@ -10,22 +10,18 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.intro}>
           <h1 id="about" className="textHeadingLarge">
-            I&rsquo;m <span className="textHighlight1">Nathan</span>,<br /> a
-            Composer from <span className="textHighlight2">Atlanta</span>
+            I&rsquo;m <span className="textHighlight1">Nathan</span>, a Composer
+            in <span className="textHighlight2">Atlanta</span>
           </h1>
-          {/* <p>
-            Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
-            montes augue donec cras turpis ultrices nulla sed doler.
-          </p> */}
           {/* <p>
             Providing acoustic and symphonic music for video games and
             interactive media, inspired by JRPG classics.
           </p> */}
           <p>
-            I write music for games and interactive media. I specialize in{' '}
-            <span className={styles.extraDescription}>melodically-driven</span>{' '}
-            acoustic and symphonic tracks, inspired by JRPG classics such as
-            Final Fantasy, Suikoden and Octopath Traveler.
+            I write music for games and interactive media. I specialize in
+            melodically-driven tracks, inspired by{' '}
+            <span className={styles.extraDescription}>JRPG</span> classics such
+            as Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
           <div className={styles.buttons}>

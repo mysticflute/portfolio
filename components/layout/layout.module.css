@@ -4,3 +4,12 @@
   background-attachment: fixed;
   background-position: left center;
 }
+
+@media screen and (max-width: 767px) {
+  .page {
+    background-size: auto;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    background-size: auto 250vh;
+  }
+}

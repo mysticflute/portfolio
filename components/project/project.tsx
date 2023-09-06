@@ -46,7 +46,7 @@ export default function Project({ projectMetadata: data }: Props) {
           </div>
         </div>
 
-        <div
+        {/* <div
           className={styles.imageContainer}
           style={{ backgroundColor: data.color }}
         >
@@ -57,7 +57,7 @@ export default function Project({ projectMetadata: data }: Props) {
             height="605"
             loading="lazy"
           />
-        </div>
+        </div> */}
       </div>
     </article>
   );

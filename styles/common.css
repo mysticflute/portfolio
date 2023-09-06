@@ -100,7 +100,6 @@
 
 .textHighlight2 {
   background: linear-gradient(180deg, transparent 10%, var(--color-blue) 10%);
-  /* background: linear-gradient(180deg, transparent 40%, var(--color-purple) 0); */
 }
 
 .textHighlight3 {
