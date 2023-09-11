@@ -64,9 +64,9 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .container {
-    background: var(--url-background-pattern) repeat-y;
+    background: url(/images/pattern.webp) repeat-y;
     background-size: 100%;
   }
-}
+} */
