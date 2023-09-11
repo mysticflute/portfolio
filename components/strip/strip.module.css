@@ -11,8 +11,8 @@
   transform: translate(-15px, 0px) rotate(-5deg);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   .container {
-    background: url(/images/pattern.jpg) no-repeat 0 120px / 100% auto;
+    background: var(--url-background-pattern) no-repeat 0 120px / 100% auto;
   }
 }

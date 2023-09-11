@@ -1,7 +1,8 @@
-import Image from 'next/image';
 import Button from '@/components/button/button';
 import Icon from '@/components/icon/icon';
-import profileImage from '@/public/images/profile/profile.jpg';
+import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
+import profileImageLight from '@/public/images/profile/profile-v2-high-q.png';
+import profileImageDark from '@/public/images/profile/profile-high-q.jpg';
 import styles from './hero.module.css';
 
 export default function Hero() {
@@ -18,8 +19,9 @@ export default function Hero() {
             interactive media, inspired by JRPG classics.
           </p> */}
           <p>
-            I write music for games and interactive media. I specialize in
-            melodically-driven tracks, inspired by{' '}
+            I write music for games and{' '}
+            <span className={styles.extraDescription}>interactive</span> media.
+            I specialize in melodically-driven tracks, inspired by{' '}
             <span className={styles.extraDescription}>JRPG</span> classics such
             as Final Fantasy, Suikoden and Octopath Traveler.
           </p>
@@ -38,11 +40,16 @@ export default function Hero() {
         </div>
         <div className={styles.profile}>
           <div className={styles.imageWrapper}>
-            <Image
-              src={profileImage}
-              alt="Profile picture of Nathan David McWilliams"
-              priority
+            <ColorSchemeImage
+              srcLight={profileImageLight}
+              srcDark={profileImageDark}
+              quality={80}
+              placeholder="blur"
+              fetchpriority="high"
+              sizes="(max-width: 767px) 100vw, (max-width: 991px) 70vw, 50vw"
+              alt="Character portrait of Nathan David McWilliams"
             />
+            {/* <img src="/images/profile/profile-v2-high-q.png" /> */}
             {/* <img src="https://cdn.dribbble.com/userupload/2740488/file/original-60907ec0c68c5a2b008f4c3744120b1f.jpg?resize=2048x2048" /> */}
           </div>
         </div>

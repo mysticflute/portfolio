@@ -16,7 +16,7 @@
   --color-background-default: var(--color-theme);
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);
-  --url-background-pattern: url(/images/pattern.jpg);
+  --url-background-pattern: url(/images/pattern.webp);
 }
 
 *,

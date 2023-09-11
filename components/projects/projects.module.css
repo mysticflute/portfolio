@@ -39,8 +39,6 @@
 @media screen and (max-width: 767px) {
   .container {
     padding: 100px 0 168px;
-    background: var(--url-background-pattern) repeat-y;
-    background-size: contain;
   }
 
   .list {
@@ -63,5 +61,12 @@
 
   .heading {
     max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    background: var(--url-background-pattern) repeat-y;
+    background-size: 100%;
   }
 }

@@ -1,15 +1,21 @@
 .page {
-  background: url(/images/background.jpg) no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: left center;
+  background: url(/images/background-narrow2-med.jpg) no-repeat;
+  background-size: auto 250vh;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
   .page {
-    background-size: auto;
-    background-attachment: scroll;
-    background-position: 0% 0%;
-    background-size: auto 250vh;
+    background: url(/images/background-narrow1-med.jpg) no-repeat;
+    background-size: contain;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page {
+    background: url(/images/background-med.jpg) no-repeat;
+    background: url(/images/background-med.webp) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: left center;
   }
 }
