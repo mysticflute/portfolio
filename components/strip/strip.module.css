@@ -10,9 +10,3 @@
   background: var(--color-background-dark);
   transform: translate(-15px, 0px) rotate(-5deg);
 }
-
-/* @media screen and (max-width: 1024px) {
-  .container {
-    background: var(--url-background-pattern) no-repeat 0 120px / 100% auto;
-  }
-} */
