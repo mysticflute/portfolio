@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import emailIcon from '@/public/images/icon/paperfolio/email-large.svg';
+import emailIcon from '@/public/images/icons/paperfolio/email-large.svg';
 import styles from './contactInfo.module.css';
 
 export default function Contact() {
