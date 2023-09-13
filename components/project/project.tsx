@@ -45,19 +45,6 @@ export default function Project({ projectMetadata: data }: Props) {
             </div>
           </div>
         </div>
-
-        <div
-          className={styles.imageContainer}
-          style={{ backgroundColor: data.color }}
-        >
-          <img
-            src={`/images/project/${data.image}`}
-            alt={`Illustration for ${data.name}`}
-            width="642"
-            height="605"
-            loading="lazy"
-          />
-        </div>
       </div>
     </article>
   );

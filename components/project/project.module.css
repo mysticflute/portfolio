@@ -26,24 +26,6 @@
   padding: 58px 64px;
 }
 
-.imageContainer {
-  flex: 1.1;
-  align-self: stretch;
-  overflow: hidden;
-}
-
-.imageContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 300ms ease;
-  transform-style: preserve-3d;
-}
-
-/* .container:hover .imageContainer img {
-  transform: scale3d(1.1, 1.1, 1.1);
-} */
-
 .info {
   display: flex;
   align-items: center;
