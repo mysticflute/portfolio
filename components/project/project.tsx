@@ -20,18 +20,18 @@ export default function Project({ projectMetadata: data }: Props) {
         <div className={styles.description}>
           <div className={styles.descriptionFlexInner}>
             <div className={styles.info}>
-              {data.logoImage && (
+              {/* {data.logoImage && (
                 <img
                   src={`/images/client/${data.logoImage}`}
                   alt="Client logo"
                   loading="lazy"
                 />
-              )}
+              )} */}
               <div className={styles.badge}>{data.role}</div>
             </div>
             <h3 className="textHeadingSmall">{data.name}</h3>
             <p>{data.description}</p>
-            <div className={styles.soundcloud}>
+            {/* <div className={styles.soundcloud}>
               {data.soundcloudIDs &&
                 data.soundcloudIDs.map(id => (
                   <iframe
@@ -42,7 +42,7 @@ export default function Project({ projectMetadata: data }: Props) {
                     src={getUrlForTrack(id, { color: data.color })}
                   ></iframe>
                 ))}
-            </div>
+            </div> */}
           </div>
         </div>
 

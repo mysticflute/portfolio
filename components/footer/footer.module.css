@@ -39,7 +39,7 @@
 }
 
 .logo img:hover {
-  transform: scale3d(0.92, 0.92, 1.01);
+  transform: scale3d(0.92, 0.92, 0.99);
 }
 
 .social {

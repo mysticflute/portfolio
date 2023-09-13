@@ -16,9 +16,8 @@
   --color-background-default: var(--color-theme);
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);
-  --url-background-pattern: url(/images/pattern.webp);
 }
-
+/* rename primary, accent, accent-200, accent-300, contrast, shadow */
 *,
 ::before,
 ::after {

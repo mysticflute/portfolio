@@ -36,7 +36,7 @@
 }
 
 .logo:hover {
-  transform: scale3d(0.96, 0.96, 1.01);
+  transform: scale3d(0.96, 0.96, 0.99);
 }
 
 .list {

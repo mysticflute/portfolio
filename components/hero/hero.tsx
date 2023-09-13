@@ -49,8 +49,6 @@ export default function Hero() {
               sizes="(max-width: 767px) 100vw, (max-width: 991px) 70vw, 50vw"
               alt="Character portrait of Nathan David McWilliams"
             />
-            {/* <img src="/images/profile/profile-v2-high-q.png" /> */}
-            {/* <img src="https://cdn.dribbble.com/userupload/2740488/file/original-60907ec0c68c5a2b008f4c3744120b1f.jpg?resize=2048x2048" /> */}
           </div>
         </div>
       </div>
