@@ -31,7 +31,7 @@ export default function Project({ projectMetadata: data }: Props) {
             </div>
             <h3 className="textHeadingSmall">{data.name}</h3>
             <p>{data.description}</p>
-            {/* <div className={styles.soundcloud}>
+            <div className={styles.soundcloud}>
               {data.soundcloudIDs &&
                 data.soundcloudIDs.map(id => (
                   <iframe
@@ -42,11 +42,11 @@ export default function Project({ projectMetadata: data }: Props) {
                     src={getUrlForTrack(id, { color: data.color })}
                   ></iframe>
                 ))}
-            </div> */}
+            </div>
           </div>
         </div>
 
-        {/* <div
+        <div
           className={styles.imageContainer}
           style={{ backgroundColor: data.color }}
         >
@@ -57,7 +57,7 @@ export default function Project({ projectMetadata: data }: Props) {
             height="605"
             loading="lazy"
           />
-        </div> */}
+        </div>
       </div>
     </article>
   );

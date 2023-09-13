@@ -1,12 +1,12 @@
 .page {
   background: linear-gradient(transparent 40vh, var(--color-theme) 50vh),
-    top left / contain no-repeat url(/images/bg/background-narrow2-med.jpg);
+    top left / contain no-repeat url(/images/bg/background-narrow-2-med.jpg);
 }
 
 @media screen and (min-width: 768px) {
   .page {
     background: linear-gradient(transparent 50vh, var(--color-theme) 80vh),
-      top left / contain no-repeat url(/images/bg/background-narrow1-med.jpg);
+      top left / contain no-repeat url(/images/bg/background-narrow-1-med.jpg);
   }
 }
 
