@@ -11,7 +11,9 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "npx prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "optimize-svg": "npx svgo",
+    "optimize-svg-staged": "git --no-pager diff --name-only --cached --diff-filter=AMR 'public/*.svg' | xargs -r npx svgo"
   },
   "dependencies": {
     "clsx": "^1.2.1",
@@ -33,6 +35,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "pino-pretty": "^9.4.0",
     "prettier": "^2.8.4",
+    "svgo": "^3.0.2",
     "typescript": "4.9.5"
   }
 }

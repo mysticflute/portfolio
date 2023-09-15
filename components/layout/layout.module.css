@@ -1,0 +1,25 @@
+.page {
+  background: linear-gradient(transparent 40vh, var(--color-theme) 50vh),
+    top left / contain no-repeat url(/images/bg/background-narrow-2-med.jpg);
+}
+
+@media screen and (min-width: 768px) {
+  .page {
+    background: linear-gradient(transparent 50vh, var(--color-theme) 80vh),
+      top left / contain no-repeat url(/images/bg/background-narrow-1-med.jpg);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .page {
+    background: fixed left center / cover no-repeat
+      url(/images/bg/background-med.jpg);
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .page {
+    background: fixed left center / cover no-repeat
+      url(/images/bg/background-high.jpg);
+  }
+}

@@ -41,8 +41,7 @@ export function getUrlForTrack(id: number, params: SoundCloudParams) {
     ...params,
   };
 
-  let url = `${baseSoundCloudURL}/?`;
-  url += `?url=https%3A//api.soundcloud.com/tracks/${id}`;
+  let url = `${baseSoundCloudURL}/?url=https%3A//api.soundcloud.com/tracks/${id}`;
 
   url += Object.keys(allParams).reduce((accumulator, key) => {
     const value = allParams[key as keyof SoundCloudParams];

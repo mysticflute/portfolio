@@ -24,14 +24,19 @@
 }
 
 .logo {
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
 
 .logo:hover {
-  transform: scale3d(0.96, 0.96, 1.01);
+  transform: scale3d(0.96, 0.96, 0.99);
 }
 
 .list {

@@ -1,19 +1,23 @@
 :root {
   --color-dark: #0b0b0b;
   --color-gray: #393939;
+  --color-theme: #4331f0;
   --color-neutral: #eff0f6;
-  --color-blue: #1c92ff;
+  --color-white: #faf9f6;
+  --color-blue: #53abf8;
   --color-red: #ff4a60;
-  --color-yellow: #ffc431;
+  --color-yellow: #f6b468;
+  --color-purple: #5358f8;
   --color-text-default: var(--color-gray);
   --color-text-dark: var(--color-dark);
+  --color-text-light: var(--color-neutral);
   --color-text-link: var(--color-dark);
   --color-text-link-highlight: var(--color-blue);
-  --color-background-default: #faf9f6;
+  --color-background-default: var(--color-theme);
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);
 }
-
+/* rename primary, accent, accent-200, accent-300, contrast, shadow */
 *,
 ::before,
 ::after {

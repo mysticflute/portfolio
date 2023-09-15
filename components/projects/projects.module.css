@@ -20,8 +20,9 @@
 
 .list {
   display: flex;
-  flex-direction: column;
-  row-gap: 32px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
 }
 
 @media screen and (max-width: 991px) {

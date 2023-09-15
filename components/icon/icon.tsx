@@ -12,7 +12,13 @@ type Props = {
    */
   hasTextAfter?: boolean;
 
+  /**
+   * Set to true when there's text to the left of the icon.
+   */
   hasTextBefore?: boolean;
+
+  /** CSS class name for the top element. */
+  className?: string;
 };
 
 /**
@@ -22,6 +28,7 @@ export default function Icon({
   name,
   hasTextAfter = false,
   hasTextBefore = false,
+  className = '',
 }: Props) {
   return (
     <span
@@ -29,7 +36,8 @@ export default function Icon({
         styles.lineRounded,
         styles[name],
         hasTextAfter && styles.hasTextAfter,
-        hasTextBefore && styles.hasTextBefore
+        hasTextBefore && styles.hasTextBefore,
+        className
       )}
     ></span>
   );

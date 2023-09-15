@@ -39,7 +39,7 @@
 }
 
 .logo img:hover {
-  transform: scale3d(0.92, 0.92, 1.01);
+  transform: scale3d(0.92, 0.92, 0.99);
 }
 
 .social {
@@ -68,17 +68,14 @@ a:hover > .socialIcon,
 }
 
 .socialIcon[data-key='soundcloud'] img {
-  padding-bottom: 2px;
-}
-
-.socialIcon[data-key='soundcloud'] img {
   width: auto;
   height: 18px;
+  padding-bottom: 1px;
 }
 
 .socialIcon[data-key='linktree'] img {
   width: auto;
-  height: 25px;
+  height: 28px;
 }
 
 .title {

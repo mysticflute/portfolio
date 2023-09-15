@@ -1,7 +1,8 @@
-import Image from 'next/image';
 import Button from '@/components/button/button';
 import Icon from '@/components/icon/icon';
-import profileImage from '@/public/images/profile.jpg';
+import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
+import profileImageLight from '@/public/images/profile/profile-v2-high-q.png';
+import profileImageDark from '@/public/images/profile/profile-high-q.jpg';
 import styles from './hero.module.css';
 
 export default function Hero() {
@@ -10,22 +11,19 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.intro}>
           <h1 id="about" className="textHeadingLarge">
-            I&rsquo;m <span className="textHighlight1">Nathan</span>, a Music
-            Composer from <span className="textHighlight2">Atlanta, GA</span>
+            I&rsquo;m <span className="textHighlight1">Nathan</span>, a Composer
+            in <span className="textHighlight2">Atlanta</span>
           </h1>
-          {/* <p>
-            Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
-            montes augue donec cras turpis ultrices nulla sed doler.
-          </p> */}
           {/* <p>
             Providing acoustic and symphonic music for video games and
             interactive media, inspired by JRPG classics.
           </p> */}
           <p>
-            I write music for games and interactive media. I specialize in{' '}
-            <span className={styles.extraDescription}>melodically-driven</span>{' '}
-            acoustic and symphonic tracks, inspired by JRPG classics such as
-            Final Fantasy, Suikoden and Octopath Traveler.
+            I write music for games and{' '}
+            <span className={styles.extraDescription}>interactive</span> media.
+            I specialize in melodically-driven tracks, inspired by{' '}
+            <span className={styles.extraDescription}>JRPG</span> classics such
+            as Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
           <div className={styles.buttons}>
@@ -42,10 +40,14 @@ export default function Hero() {
         </div>
         <div className={styles.profile}>
           <div className={styles.imageWrapper}>
-            <Image
-              src={profileImage}
-              alt="Profile picture of Nathan David McWilliams"
-              priority
+            <ColorSchemeImage
+              srcLight={profileImageLight}
+              srcDark={profileImageDark}
+              quality={80}
+              placeholder="blur"
+              fetchpriority="high"
+              sizes="(max-width: 767px) 100vw, (max-width: 991px) 70vw, 50vw"
+              alt="Character portrait of Nathan David McWilliams"
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { clsx } from 'clsx';
 import Icon from '@/components/icon/icon';
-import logoImage from '@/public/images/logo.svg';
+import logoImage from '@/public/images/logo/letter-n.svg';
 import styles from './nav.module.css';
 
 type NavItems = {
@@ -47,7 +47,13 @@ export default function Nav() {
       <div className={styles.bar}>
         <div className={styles.barLeft}>
           <Link href="/" aria-label="Home" className={styles.logo}>
-            <Image src={logoImage} alt="Site logo" priority />
+            <Image
+              src={logoImage}
+              alt="Site logo"
+              width={24}
+              height={24}
+              priority
+            />
           </Link>
         </div>
 

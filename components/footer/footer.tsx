@@ -3,19 +3,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
-import logoImage from '@/public/images/footer-logo-white.svg';
-import twitterIcon from '@/public/images/icon-twitter.svg';
-import instagramIcon from '@/public/images/icon-instagram.svg';
-import youtubeIcon from '@/public/images/icon-youtube.svg';
-import soundcloudIcon from '@/public/images/icon-soundcloud.svg';
-import linktreeIcon from '@/public/images/icon-linktree.svg';
-import emailIcon from '@/public/images/icon-email.svg';
+import logoImage from '@/public/images/logo/letter-n.svg';
+import twitterIcon from '@/public/images/icons/paperfolio/twitter.svg';
+import instagramIcon from '@/public/images/icons/paperfolio/instagram.svg';
+import youtubeIcon from '@/public/images/icons/paperfolio/youtube.svg';
+import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
+import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
+import emailIcon from '@/public/images/icons/paperfolio/email.svg';
 import styles from './footer.module.css';
 import { ReactElement } from 'react';
 
 // TODO: update email address after figuring out obfuscation
 // TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
-// TODO: remove text from the logo?
 
 type SocialLink = {
   key: string;
@@ -37,6 +36,11 @@ export const socialLinks: SocialLink[] = [
     label: 'Instagram',
     url: 'https://www.instagram.com/mysticflute/',
     icon: <Image src={instagramIcon} alt="Instagram Icon" />,
+  },
+  {
+    key: 'threads',
+    label: 'Threads',
+    url: 'https://www.threads.net/@mysticflute',
   },
   {
     key: 'youtube',
@@ -77,7 +81,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.sectionWithText}>
             <Link href="/" className={styles.logo}>
-              <Image src={logoImage} alt="Site logo" />
+              <Image src={logoImage} width={24} height={24} alt="Site logo" />
             </Link>
             <p>Acoustic and symphonic music for games and interactive media.</p>
             <ul className={styles.social}>
