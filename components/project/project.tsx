@@ -14,32 +14,30 @@ type Props = {
 export default function Project({ projectMetadata: data }: Props) {
   return (
     <article className={styles.container}>
-      <div className={styles.content}>
-        <div className={styles.info}>
-          {data.icon && (
-            <Image
-              src={`/images/icons/${data.icon}`}
-              width="46"
-              height="46"
-              alt=""
-            />
-          )}
-          <div className={styles.badge}>{data.role}</div>
-        </div>
-        <h3 className="textHeadingSmall">{data.name}</h3>
-        <p>{data.description}</p>
-        <div className={styles.soundcloud}>
-          {data.soundCloudIds &&
-            data.soundCloudIds.map(id => (
-              <iframe
-                key={id}
-                width="100%"
-                height="20"
-                loading="lazy"
-                src={getUrlForTrack(id, { color: data.color })}
-              ></iframe>
-            ))}
-        </div>
+      <div className={styles.info}>
+        {data.icon && (
+          <Image
+            src={`/images/icons/${data.icon}`}
+            width="46"
+            height="46"
+            alt=""
+          />
+        )}
+        <div className={styles.badge}>{data.role}</div>
+      </div>
+      <h3 className="textHeadingSmall">{data.name}</h3>
+      <p>{data.description}</p>
+      <div className={styles.soundcloud}>
+        {data.soundCloudIds &&
+          data.soundCloudIds.map(id => (
+            <iframe
+              key={id}
+              width="100%"
+              height="20"
+              loading="lazy"
+              src={getUrlForTrack(id, { color: data.color })}
+            ></iframe>
+          ))}
       </div>
     </article>
   );
