@@ -37,6 +37,9 @@ export interface ProjectMetadata {
   /** The path to an icon representing the game type. */
   icon?: string;
 
+  /** A link to the project's external website.  */
+  link?: string;
+
   /** Project's accent color, in css hex format. */
   color?: string;
 }
@@ -113,6 +116,10 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
             `Icon "${icon}" in ${filepath} does not exist or is inaccessible at ${iconPath}`
           );
         }
+      }
+
+      if (metadata['link']) {
+        validated.link = getString(metadata, 'link', filepath);
       }
 
       if (metadata['color']) {

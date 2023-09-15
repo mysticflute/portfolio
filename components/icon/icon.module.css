@@ -24,3 +24,7 @@
 .lineRounded.arrowDiagonal::before {
   content: '\E803';
 }
+
+.lineRounded.arrowRight::before {
+  content: '\E805';
+}

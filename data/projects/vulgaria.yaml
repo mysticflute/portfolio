@@ -6,7 +6,7 @@ name: Vulgari
 # slug: project-name
 
 # The sort position for the project.
-sort: 2
+sort: 3
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # The project type.
@@ -30,8 +30,8 @@ role: Composer
 
 # Short project description.
 description: >
-  A top-down adventure game, developed by Statson and releasing in 2023.
-  Features strings, flutes, harps, taikos and hand perc.
+  A top-down, rogue-like adventure game developed by Statson. Features strings,
+  flutes, harps, taikos and hand perc.
 
 # List of 10-digit SoundCloud track IDs. (optional).
 # See the README.md file for how to find these.

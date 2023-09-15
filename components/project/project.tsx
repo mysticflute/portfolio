@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Icon from '@/components/icon/icon';
 import { getUrlForTrack } from '@/lib/soundcloud';
 import styles from './project.module.css';
 
@@ -39,6 +40,18 @@ export default function Project({ projectMetadata: data }: Props) {
             ></iframe>
           ))}
       </div>
+      {data.link && (
+        <div className={styles.viewMore}>
+          <a href={data.link} target="_blank" rel="noopener noreferrer">
+            View project website
+            <Icon
+              name="arrowDiagonal"
+              className={styles.arrow}
+              hasTextBefore={true}
+            />
+          </a>
+        </div>
+      )}
     </article>
   );
 }
