@@ -1,10 +1,8 @@
+import Image from 'next/image';
 import { getUrlForTrack } from '@/lib/soundcloud';
 import styles from './project.module.css';
 
 import { type ProjectMetadata } from '@/lib/projects';
-
-// TODO: handle the image sizes correctly.
-/* eslint-disable @next/next/no-img-element */
 
 type Props = {
   /**
@@ -17,33 +15,30 @@ export default function Project({ projectMetadata: data }: Props) {
   return (
     <article className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.description}>
-          <div className={styles.descriptionFlexInner}>
-            <div className={styles.info}>
-              {/* {data.logoImage && (
-                <img
-                  src={`/images/client/${data.logoImage}`}
-                  alt="Client logo"
-                  loading="lazy"
-                />
-              )} */}
-              <div className={styles.badge}>{data.role}</div>
-            </div>
-            <h3 className="textHeadingSmall">{data.name}</h3>
-            <p>{data.description}</p>
-            <div className={styles.soundcloud}>
-              {data.soundcloudIDs &&
-                data.soundcloudIDs.map(id => (
-                  <iframe
-                    key={id}
-                    width="100%"
-                    height="20"
-                    loading="lazy"
-                    src={getUrlForTrack(id, { color: data.color })}
-                  ></iframe>
-                ))}
-            </div>
-          </div>
+        <div className={styles.info}>
+          {data.icon && (
+            <Image
+              src={`/images/icons/${data.icon}`}
+              width="46"
+              height="46"
+              alt=""
+            />
+          )}
+          <div className={styles.badge}>{data.role}</div>
+        </div>
+        <h3 className="textHeadingSmall">{data.name}</h3>
+        <p>{data.description}</p>
+        <div className={styles.soundcloud}>
+          {data.soundCloudIds &&
+            data.soundCloudIds.map(id => (
+              <iframe
+                key={id}
+                width="100%"
+                height="20"
+                loading="lazy"
+                src={getUrlForTrack(id, { color: data.color })}
+              ></iframe>
+            ))}
         </div>
       </div>
     </article>

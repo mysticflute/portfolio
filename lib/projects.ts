@@ -5,7 +5,12 @@ import { logger } from '@/lib/logger';
 import { getString, getNumber, getNumberArray } from '@/lib/decoder';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
-const allowedSlugPattern = /^[a-z0-9\\-]+$/;
+const publicDirectory = path.join(process.cwd(), 'public');
+const iconsDirectory = path.join(publicDirectory, 'images/icons');
+
+const VALID_SLUG = /^[a-z0-9\\-]+$/;
+const VALID_SOUNDCLOUD_ID = /^[0-9]{10}$/;
+const VALID_COLOR = /^#[0-9a-fA-F]{6}$/;
 
 /**
  * Metadata about a portfolio project.
@@ -27,16 +32,10 @@ export interface ProjectMetadata {
   description: string;
 
   /** List of 10-digit SoundCloud track IDs. */
-  soundcloudIDs?: number[];
+  soundCloudIds?: number[];
 
-  /** The main image for the project. */
-  image: string;
-
-  /** The client's logo image. */
-  logoImage?: string;
-
-  /** A link to an external project landing page. */
-  link?: string;
+  /** The path to an icon representing the game type. */
+  icon?: string;
 
   /** Project's accent color, in css hex format. */
   color?: string;
@@ -66,19 +65,18 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
       const sort = getNumber(metadata, 'sort', filepath);
       const role = getString(metadata, 'role', filepath);
       const description = getString(metadata, 'description', filepath);
-      const image = getString(metadata, 'image', filepath); // TODO: check that image exists
 
       let slug: string;
       if (metadata['slug']) {
         slug = getString(metadata, 'slug', filepath);
-        if (!allowedSlugPattern.test(slug)) {
+        if (!VALID_SLUG.test(slug)) {
           throw new Error(
             `The key 'slug' can only contain the characters a-z, 0-9 and hyphens, in ${filepath}`
           );
         }
       } else {
         slug = path.parse(filename).name;
-        if (!allowedSlugPattern.test(slug)) {
+        if (!VALID_SLUG.test(slug)) {
           throw new Error(
             `The filename for ${filepath} can only contain the characters a-z, 0-9 and hyphens.`
           );
@@ -91,32 +89,38 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         name,
         role,
         description,
-        image,
       };
 
-      // optional fields
-      if (metadata['link']) {
-        // TODO: check that it is url format.
-        validated.link = getString(metadata, 'link', filepath);
+      // read optional fields
+      if (metadata['soundCloudIds']) {
+        const ids = getNumberArray(metadata, 'soundCloudIds', filepath);
+        ids.forEach(id => {
+          if (!VALID_SOUNDCLOUD_ID.test(`${id}`)) {
+            throw new Error(`Invalid SoundCloud ID "${id}" in ${filepath}`);
+          }
+        });
+        validated.soundCloudIds = ids;
       }
 
-      if (metadata['logoImage']) {
-        // TODO: check that the image is in the right path.
-        validated.logoImage = getString(metadata, 'logoImage', filepath);
-      }
-
-      if (metadata['soundcloudIDs']) {
-        // TODO: check that they are all 10 digit ids.
-        validated.soundcloudIDs = getNumberArray(
-          metadata,
-          'soundcloudIDs',
-          filepath
-        );
+      if (metadata['icon']) {
+        const icon = getString(metadata, 'icon', filepath);
+        const iconPath = path.join(iconsDirectory, icon);
+        try {
+          await fs.access(iconPath);
+          validated.icon = icon;
+        } catch (e) {
+          throw new Error(
+            `Icon "${icon}" in ${filepath} does not exist or is inaccessible at ${iconPath}`
+          );
+        }
       }
 
       if (metadata['color']) {
-        // TODO: check that it's in hex format.
-        validated.color = getString(metadata, 'color', filepath);
+        const color = getString(metadata, 'color', filepath);
+        if (!VALID_COLOR.test(color)) {
+          throw new Error(`Invalid color "${color}" in ${filepath}`);
+        }
+        validated.color = color;
       }
 
       logger.trace(validated, 'found project metadata');
