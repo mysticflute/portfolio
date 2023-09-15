@@ -42,7 +42,7 @@ export default function Project({ projectMetadata: data }: Props) {
       </div>
       {data.link && (
         <div className={styles.viewMore}>
-          <a href={data.link} target="_blank" rel="noopener noreferrer">
+          <a href={data.link}>
             View project website
             <Icon
               name="arrowDiagonal"

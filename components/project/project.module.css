@@ -44,8 +44,8 @@
 }
 
 .viewMore {
-  font-weight: bold;
-  color: #0b0b0b;
+  font-weight: 700;
+  color: var(--color-text-dark);
 }
 
 .viewMore .arrow {
