@@ -40,9 +40,7 @@ export default function Footer() {
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
         <div className={styles.top}>
-          <div
-            className={`${styles.sectionWithText} ${styles.fillPartialSpace}`}
-          >
+          <div className={`${styles.sectionWithText} ${styles.fillSpaceSmall}`}>
             <Link href="/" className={styles.logo}>
               <Image src={logoImage} width={24} height={24} alt="Site logo" />
             </Link>
@@ -65,7 +63,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className={styles.fillPartialSpace}>
+          <div className={styles.fillSpaceSmall}>
             <h2 className={styles.title}>Pages</h2>
             <ul className={styles.list}>
               {mainNav.map(page => (
@@ -83,10 +81,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className={styles.fillSpace}>
+          <div className={styles.fillSpaceMedium}>
             <h2 className={styles.title}>Elsewhere</h2>
-            {/* This is for a grid-based solution (see the css file.)
-            To use this, add styles.fillSpace to the parent div className. */}
             <ul className={`${styles.list} ${styles.multiColumn}`}>
               {allSocialLinks.map(social => (
                 <li key={social.label}>
@@ -97,30 +93,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            {/* <div className={styles.wrappedLists}>
-              <ul className={styles.list}>
-                {allSocialLinks.slice(0, 6).map(social => (
-                  <li key={social.label}>
-                    <a key={social.label} href={social.url}>
-                      {social.label}
-                      <Icon name="arrowDiagonal" hasTextBefore={true} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              {allSocialLinks.length > 6 && (
-                <ul className={styles.list}>
-                  {allSocialLinks.slice(6).map(social => (
-                    <li key={social.label}>
-                      <a key={social.label} href={social.url}>
-                        {social.label}
-                        <Icon name="arrowDiagonal" hasTextBefore={true} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div> */}
           </div>
 
           <div>

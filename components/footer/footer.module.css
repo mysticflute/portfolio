@@ -115,28 +115,18 @@ a:hover > .socialIcon,
   align-items: center;
 }
 
-.wrappedLists {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 24px;
-  column-gap: 38px;
-}
-
-/* this grid results in cleaner html, but I couldn't quite
-get the styling right because of the extra spacing between
-the columns, due to the min width in minmax. */
 .multiColumn {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   column-gap: 38px;
 }
 
-.fillSpace {
-  flex-grow: 1;
+.fillSpaceSmall {
+  flex-grow: 0.25;
 }
 
-.fillPartialSpace {
-  flex-grow: 0.25;
+.fillSpaceMedium {
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 991px) {
@@ -154,7 +144,7 @@ the columns, due to the min width in minmax. */
     font-size: 1.375rem;
   }
 
-  .fillPartialSpace {
+  .fillSpaceSmall {
     flex-grow: 0;
   }
 }
