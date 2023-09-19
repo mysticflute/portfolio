@@ -1,3 +1,5 @@
+import { useEffect, useState, useRef } from 'react';
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -11,9 +13,11 @@ import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
 import emailIcon from '@/public/images/icons/paperfolio/email.svg';
 import styles from './footer.module.css';
-import { ReactElement } from 'react';
 
-// TODO: update email address after figuring out obfuscation
+// encoded with Buffer.from('').toString('base64');
+const encodedHumanEmail = 'bmF0aGFuQG5kbS5zdHVkaW8=';
+const spamEmail = 'spam@ndm.studio';
+
 // TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
 
 type SocialLink = {
@@ -75,8 +79,27 @@ export const socialLinks: SocialLink[] = [
 export default function Footer() {
   const { asPath: currentPage } = useRouter();
 
+  const [emailAddress, setEmailAddress] = useState(spamEmail);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      const observer = new IntersectionObserver(
+        ([entry], o) => {
+          if (entry.isIntersecting) {
+            setEmailAddress(window.atob(encodedHumanEmail));
+            o.disconnect();
+          }
+        },
+        { rootMargin: '250px' }
+      );
+      observer.observe(ref.current);
+      return () => observer.disconnect();
+    }
+  }, []);
+
   return (
-    <footer role="contentinfo" className={styles.container}>
+    <footer role="contentinfo" className={styles.container} ref={ref}>
       <div className={styles.content}>
         <div className={styles.top}>
           <div className={styles.sectionWithText}>
@@ -155,14 +178,14 @@ export default function Footer() {
               <li>
                 <a
                   className={styles.hasIcon}
-                  href="mailto:ndm.music.inbox@gmail.com"
+                  href={`mailto:${emailAddress}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <div className={styles.socialIcon}>
                     <Image src={emailIcon} alt="" />
                   </div>
-                  ndm.music.inbox@gmail.com
+                  {emailAddress}
                 </a>
               </li>
             </ul>
