@@ -1,22 +1,18 @@
-import { useEffect, useState, useRef } from 'react';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { spamEmail, encodedHumanEmail } from '@/lib/constants';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
+import SwappedEmail from '@/components/swappedEmail/swappedEmail';
 import logoImage from '@/public/images/logo/letter-n.svg';
 import twitterIcon from '@/public/images/icons/paperfolio/twitter.svg';
 import instagramIcon from '@/public/images/icons/paperfolio/instagram.svg';
 import youtubeIcon from '@/public/images/icons/paperfolio/youtube.svg';
 import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
-import emailIcon from '@/public/images/icons/paperfolio/email.svg';
 import styles from './footer.module.css';
-
-// encoded with Buffer.from('').toString('base64');
-const encodedHumanEmail = 'bmF0aGFuQG5kbS5zdHVkaW8=';
-const spamEmail = 'spam@ndm.studio';
 
 // TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
 
@@ -27,7 +23,6 @@ type SocialLink = {
   icon?: ReactElement;
 };
 
-// later: bandcamp, spotify, apple music, patreon
 export const socialLinks: SocialLink[] = [
   {
     key: 'twitter',
@@ -79,27 +74,8 @@ export const socialLinks: SocialLink[] = [
 export default function Footer() {
   const { asPath: currentPage } = useRouter();
 
-  const [emailAddress, setEmailAddress] = useState(spamEmail);
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (ref.current) {
-      const observer = new IntersectionObserver(
-        ([entry], o) => {
-          if (entry.isIntersecting) {
-            setEmailAddress(window.atob(encodedHumanEmail));
-            o.disconnect();
-          }
-        },
-        { rootMargin: '250px' }
-      );
-      observer.observe(ref.current);
-      return () => observer.disconnect();
-    }
-  }, []);
-
   return (
-    <footer role="contentinfo" className={styles.container} ref={ref}>
+    <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
         <div className={styles.top}>
           <div className={styles.sectionWithText}>
@@ -176,17 +152,12 @@ export default function Footer() {
             <h2 className={styles.title}>Contact Me</h2>
             <ul className={styles.list}>
               <li>
-                <a
-                  className={styles.hasIcon}
-                  href={`mailto:${emailAddress}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className={styles.socialIcon}>
-                    <Image src={emailIcon} alt="" />
-                  </div>
-                  {emailAddress}
-                </a>
+                <SwappedEmail
+                  spamEmail={spamEmail}
+                  encodedHumanEmail={encodedHumanEmail}
+                  iconClassName={styles.socialIcon}
+                  linkClassName={styles.hasIcon}
+                />
               </li>
             </ul>
           </div>
