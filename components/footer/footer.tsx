@@ -3,6 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { spamEmail, encodedHumanEmail } from '@/lib/constants';
+import {
+  SocialLink,
+  allSocialLinks,
+  twitter,
+  instagram,
+  youtube,
+  soundcloud,
+  linktree,
+} from '@/data/social';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
 import SwappedEmail from '@/components/swappedEmail/swappedEmail';
@@ -16,59 +25,14 @@ import styles from './footer.module.css';
 
 // TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
 
-type SocialLink = {
-  key: string;
-  label: string;
-  url: string;
-  icon?: ReactElement;
-};
+type SocialLinkWithIcon = SocialLink & { icon: ReactElement };
 
-export const socialLinks: SocialLink[] = [
-  {
-    key: 'twitter',
-    label: 'Twitter',
-    url: 'https://twitter.com/mysticflute',
-    icon: <Image src={twitterIcon} alt="Twitter Icon" />,
-  },
-  {
-    key: 'instagram',
-    label: 'Instagram',
-    url: 'https://www.instagram.com/mysticflute/',
-    icon: <Image src={instagramIcon} alt="Instagram Icon" />,
-  },
-  {
-    key: 'threads',
-    label: 'Threads',
-    url: 'https://www.threads.net/@mysticflute',
-  },
-  {
-    key: 'youtube',
-    label: 'YouTube',
-    url: 'https://www.youtube.com/@nathandavidmcwilliams',
-    icon: <Image src={youtubeIcon} alt="YouTube Icon" />,
-  },
-  {
-    key: 'soundcloud',
-    label: 'SoundCloud',
-    url: 'https://soundcloud.com/nathan_david_mcwilliams',
-    icon: <Image src={soundcloudIcon} alt="SoundCloud Icon" />,
-  },
-  {
-    key: 'linktree',
-    label: 'Linktree',
-    url: 'https://linktr.ee/nathanmcwilliams',
-    icon: <Image src={linktreeIcon} alt="Linktree Icon" />,
-  },
-  {
-    key: 'itch',
-    label: 'Itch.io',
-    url: 'https://mysticflute.itch.io/',
-  },
-  {
-    key: 'mastodon',
-    label: 'Mastodon',
-    url: 'https://mastodon.gamedev.place/@mysticflute',
-  },
+const socialLinksWithIcons: SocialLinkWithIcon[] = [
+  { ...twitter, icon: <Image src={twitterIcon} alt="Twitter Icon" /> },
+  { ...instagram, icon: <Image src={instagramIcon} alt="Instagram Icon" /> },
+  { ...youtube, icon: <Image src={youtubeIcon} alt="YouTube Icon" /> },
+  { ...soundcloud, icon: <Image src={soundcloudIcon} alt="SoundCloud Icon" /> },
+  { ...linktree, icon: <Image src={linktreeIcon} alt="Linktree Icon" /> },
 ];
 
 export default function Footer() {
@@ -84,22 +48,20 @@ export default function Footer() {
             </Link>
             <p>Acoustic and symphonic music for games and interactive media.</p>
             <ul className={styles.social}>
-              {socialLinks
-                .filter(socialLink => !!socialLink.icon)
-                .map(socialLink => (
-                  <li key={socialLink.key}>
-                    <a
-                      href={socialLink.url}
-                      className={styles.socialIcon}
-                      data-key={socialLink.key}
-                    >
-                      {socialLink.icon}
-                      <span className="assistiveText">
-                        Nathan on {socialLink.label}
-                      </span>
-                    </a>
-                  </li>
-                ))}
+              {socialLinksWithIcons.map(socialLink => (
+                <li key={socialLink.key}>
+                  <a
+                    href={socialLink.url}
+                    className={styles.socialIcon}
+                    data-key={socialLink.key}
+                  >
+                    {socialLink.icon}
+                    <span className="assistiveText">
+                      Nathan on {socialLink.label}
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -121,11 +83,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* TODO: get rid of this class */}
-          <div className={styles.nowrap}>
+          <div>
             <h2 className={styles.title}>Elsewhere</h2>
             <ul className={styles.list}>
-              {socialLinks.slice(0, 6).map(social => (
+              {allSocialLinks.map(social => (
                 <li key={social.label}>
                   <a key={social.label} href={social.url}>
                     {social.label}
@@ -134,9 +95,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            {socialLinks.length > 6 && (
+            {/* <div className={styles.listWrapper}>
               <ul className={styles.list}>
-                {socialLinks.slice(6).map(social => (
+                {allSocialLinks.slice(0, 6).map(social => (
                   <li key={social.label}>
                     <a key={social.label} href={social.url}>
                       {social.label}
@@ -145,7 +106,19 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            )}
+              {allSocialLinks.length > 6 && (
+                <ul className={styles.list}>
+                  {allSocialLinks.slice(6).map(social => (
+                    <li key={social.label}>
+                      <a key={social.label} href={social.url}>
+                        {social.label}
+                        <Icon name="arrowDiagonal" hasTextBefore={true} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div> */}
           </div>
 
           <div>

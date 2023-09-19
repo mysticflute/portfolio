@@ -90,10 +90,6 @@ a:hover > .socialIcon,
   vertical-align: top;
 }
 
-.list + .list {
-  margin-left: 38px;
-}
-
 .list li {
   margin-bottom: 24px;
   line-height: 20px;
@@ -121,8 +117,11 @@ a:hover > .socialIcon,
   align-items: center;
 }
 
-.nowrap {
-  white-space: nowrap;
+.listWrapper {
+  display: flex;
+  row-gap: 24px;
+  column-gap: 38px;
+  flex-wrap: wrap;
 }
 
 /* TODO: @media screen and (min-width: 1440px) {
