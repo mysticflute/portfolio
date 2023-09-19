@@ -3,15 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { spamEmail, encodedHumanEmail } from '@/lib/constants';
-import {
-  SocialLink,
-  allSocialLinks,
-  twitter,
-  instagram,
-  youtube,
-  soundcloud,
-  linktree,
-} from '@/data/social';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
 import SwappedEmail from '@/components/swappedEmail/swappedEmail';
@@ -22,8 +13,15 @@ import youtubeIcon from '@/public/images/icons/paperfolio/youtube.svg';
 import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
 import styles from './footer.module.css';
-
-// TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
+import {
+  SocialLink,
+  allSocialLinks,
+  twitter,
+  instagram,
+  youtube,
+  soundcloud,
+  linktree,
+} from '@/data/social';
 
 type SocialLinkWithIcon = SocialLink & { icon: ReactElement };
 
@@ -42,7 +40,9 @@ export default function Footer() {
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
         <div className={styles.top}>
-          <div className={styles.sectionWithText}>
+          <div
+            className={`${styles.sectionWithText} ${styles.fillPartialSpace}`}
+          >
             <Link href="/" className={styles.logo}>
               <Image src={logoImage} width={24} height={24} alt="Site logo" />
             </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className={styles.fillPartialSpace}>
             <h2 className={styles.title}>Pages</h2>
             <ul className={styles.list}>
               {mainNav.map(page => (
@@ -83,9 +83,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className={styles.fillSpace}>
             <h2 className={styles.title}>Elsewhere</h2>
-            <ul className={styles.list}>
+            {/* This is for a grid-based solution (see the css file.)
+            To use this, add styles.fillSpace to the parent div className. */}
+            <ul className={`${styles.list} ${styles.multiColumn}`}>
               {allSocialLinks.map(social => (
                 <li key={social.label}>
                   <a key={social.label} href={social.url}>
@@ -95,7 +97,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            {/* <div className={styles.listWrapper}>
+            {/* <div className={styles.wrappedLists}>
               <ul className={styles.list}>
                 {allSocialLinks.slice(0, 6).map(social => (
                   <li key={social.label}>
