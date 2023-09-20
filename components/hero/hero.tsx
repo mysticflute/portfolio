@@ -28,12 +28,20 @@ export default function Hero() {
 
           <div className={styles.buttons}>
             <Button type="primary" href="/contact">
-              <Icon name="mail" hasTextAfter={true} />
+              <Icon
+                name="mail"
+                hasTextAfter={true}
+                className={styles.buttonIcon}
+              />
               Get in touch
             </Button>
 
             <Button type="secondary" href="#portfolio">
-              <Icon name="briefcase" hasTextAfter={true} />
+              <Icon
+                name="briefcase"
+                hasTextAfter={true}
+                className={styles.buttonIcon}
+              />
               View portfolio
             </Button>
           </div>

@@ -46,16 +46,16 @@ export default function Footer() {
             </Link>
             <p>Acoustic and symphonic music for games and interactive media.</p>
             <ul className={styles.social}>
-              {socialLinksWithIcons.map(socialLink => (
-                <li key={socialLink.key}>
+              {socialLinksWithIcons.map(link => (
+                <li key={link.key}>
                   <a
-                    href={socialLink.url}
+                    href={link.url}
                     className={styles.socialIcon}
-                    data-key={socialLink.key}
+                    data-key={link.key}
                   >
-                    {socialLink.icon}
+                    {link.icon}
                     <span className="assistiveText">
-                      Nathan on {socialLink.label}
+                      Nathan on {link.label}
                     </span>
                   </a>
                 </li>
@@ -84,10 +84,10 @@ export default function Footer() {
           <div className={styles.fillSpaceMedium}>
             <h2 className={styles.title}>Elsewhere</h2>
             <ul className={`${styles.list} ${styles.multiColumn}`}>
-              {allSocialLinks.map(social => (
-                <li key={social.label}>
-                  <a key={social.label} href={social.url}>
-                    {social.label}
+              {allSocialLinks.map(link => (
+                <li key={link.label}>
+                  <a key={link.label} href={link.url}>
+                    {link.label}
                     <Icon name="arrowDiagonal" hasTextBefore={true} />
                   </a>
                 </li>

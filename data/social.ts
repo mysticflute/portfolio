@@ -75,13 +75,12 @@ export const mastodon: Readonly<SocialLink> = {
 
 /** Ordered list of all social media accounts. */
 export const allSocialLinks: ReadonlyArray<SocialLink> = [
+  soundcloud,
+  youtube,
+  itch,
   twitter,
   instagram,
   threads,
   bluesky,
   linktree,
-  youtube,
-  soundcloud,
-  itch,
-  mastodon,
 ];
