@@ -47,7 +47,7 @@ export default function Hero() {
           </div>
         </div>
         <div className={styles.profile}>
-          <div className={styles.imageWrapper}>
+          <div className={styles.imageWrapper} title="Art by @mechibaz.">
             <ColorSchemeImage
               srcLight={profileImageLight}
               srcDark={profileImageDark}
