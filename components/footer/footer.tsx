@@ -33,6 +33,8 @@ const socialLinksWithIcons: SocialLinkWithIcon[] = [
   { ...linktree, icon: <Image src={linktreeIcon} alt="Linktree Icon" /> },
 ];
 
+const linksPerColumn = 6;
+
 export default function Footer() {
   const { asPath: currentPage } = useRouter();
 
@@ -40,73 +42,91 @@ export default function Footer() {
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
         <div className={styles.top}>
-          <div className={`${styles.sectionWithText} ${styles.fillSpaceSmall}`}>
-            <Link href="/" className={styles.logo}>
-              <Image src={logoImage} width={24} height={24} alt="Site logo" />
-            </Link>
-            <p>Acoustic and symphonic music for games and interactive media.</p>
-            <ul className={styles.social}>
-              {socialLinksWithIcons.map(link => (
-                <li key={link.key}>
-                  <a
-                    href={link.url}
-                    className={styles.socialIcon}
-                    data-key={link.key}
-                  >
-                    {link.icon}
-                    <span className="assistiveText">
-                      Nathan on {link.label}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className={styles.grid}>
+            <div className={`${styles.sectionWithText} ${styles.bio}`}>
+              <Link href="/" className={styles.logo}>
+                <Image src={logoImage} width={24} height={24} alt="Site logo" />
+              </Link>
+              <p>
+                Acoustic and symphonic music for games and interactive media.
+              </p>
+              <ul className={styles.social}>
+                {socialLinksWithIcons.map(link => (
+                  <li key={link.key}>
+                    <a
+                      href={link.url}
+                      className={styles.socialIcon}
+                      data-key={link.key}
+                    >
+                      {link.icon}
+                      <span className="assistiveText">
+                        Nathan on {link.label}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className={styles.fillSpaceSmall}>
-            <h2 className={styles.title}>Pages</h2>
-            <ul className={styles.list}>
-              {mainNav.map(page => (
-                <li key={page.label}>
-                  <Link
-                    href={page.path}
-                    aria-current={
-                      page.path === currentPage ? 'page' : undefined
-                    }
-                  >
-                    {page.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <h2 className={styles.title}>Pages</h2>
+              <ul className={styles.list}>
+                {mainNav.map(page => (
+                  <li key={page.label}>
+                    <Link
+                      href={page.path}
+                      aria-current={
+                        page.path === currentPage ? 'page' : undefined
+                      }
+                    >
+                      {page.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className={styles.fillSpaceMedium}>
-            <h2 className={styles.title}>Elsewhere</h2>
-            <ul className={`${styles.list} ${styles.multiColumn}`}>
-              {allSocialLinks.map(link => (
-                <li key={link.label}>
-                  <a key={link.label} href={link.url}>
-                    {link.label}
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <h2 className={styles.title}>Elsewhere</h2>
+              <div className={styles.multiList}>
+                <ul className={styles.list}>
+                  {allSocialLinks.slice(0, linksPerColumn).map(social => (
+                    <li key={social.label}>
+                      <a key={social.label} href={social.url}>
+                        {social.label}
+                        <Icon name="arrowDiagonal" hasTextBefore={true} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                {allSocialLinks.length > linksPerColumn && (
+                  <ul className={styles.list}>
+                    {allSocialLinks.slice(linksPerColumn).map(social => (
+                      <li key={social.label}>
+                        <a key={social.label} href={social.url}>
+                          {social.label}
+                          <Icon name="arrowDiagonal" hasTextBefore={true} />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
 
-          <div>
-            <h2 className={styles.title}>Contact Me</h2>
-            <ul className={styles.list}>
-              <li>
-                <SwappedEmail
-                  spamEmail={spamEmail}
-                  encodedHumanEmail={encodedHumanEmail}
-                  iconClassName={styles.socialIcon}
-                  linkClassName={styles.hasIcon}
-                />
-              </li>
-            </ul>
+            <div className={styles.contact}>
+              <h2 className={styles.title}>Contact Me</h2>
+              <ul className={styles.list}>
+                <li>
+                  <SwappedEmail
+                    spamEmail={spamEmail}
+                    encodedHumanEmail={encodedHumanEmail}
+                    iconClassName={styles.socialIcon}
+                    linkClassName={styles.hasIcon}
+                  />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

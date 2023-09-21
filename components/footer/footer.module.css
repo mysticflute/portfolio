@@ -10,12 +10,16 @@
 }
 
 .top {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 80px;
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--color-gray);
-  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  row-gap: 16px;
+  column-gap: 80px;
 }
 
 .bottom {
@@ -44,7 +48,9 @@
 
 .social {
   display: flex;
+  flex-wrap: wrap;
   column-gap: 10px;
+  row-gap: 10px;
 }
 
 .socialIcon {
@@ -85,11 +91,6 @@ a:hover > .socialIcon,
   color: #fff;
 }
 
-.list {
-  display: inline-block;
-  vertical-align: top;
-}
-
 .list li {
   margin-bottom: 24px;
   line-height: 20px;
@@ -116,24 +117,14 @@ a:hover > .socialIcon,
   align-items: center;
 }
 
-.multiColumn {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  grid-template-rows: repeat(6, 1fr);
-  grid-auto-flow: column;
-  column-gap: 38px;
-}
-
-.fillSpaceSmall {
-  flex-grow: 0.25;
-}
-
-.fillSpaceMedium {
-  flex-grow: 1;
-}
-
 .nowrap {
   white-space: nowrap;
+}
+
+.multiList {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 38px;
 }
 
 @media screen and (max-width: 991px) {
@@ -143,8 +134,14 @@ a:hover > .socialIcon,
     row-gap: 60px;
   }
 
-  .sectionWithText {
-    flex-basis: 100%;
+  .grid {
+    column-gap: 25px;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 60px;
+  }
+
+  .bio {
+    grid-area: span 1 / span 3 / span 1 / span 3;
   }
 
   .title {
@@ -156,6 +153,20 @@ a:hover > .socialIcon,
   .top {
     padding-top: 80px;
     padding-bottom: 70px;
+  }
+
+  .grid {
+    grid-template-columns: auto auto;
+    justify-content: stretch;
+  }
+
+  .multiList {
+    justify-content: flex-start;
+  }
+
+  .bio,
+  .contact {
+    grid-column: 1 / span 2;
   }
 
   .sectionWithText p {
@@ -173,12 +184,18 @@ a:hover > .socialIcon,
 }
 
 @media screen and (max-width: 479px) {
-  .top {
-    flex-direction: column;
-    flex-wrap: nowrap;
+  .grid {
+    grid-template-columns: 1fr;
   }
-
+  .bio,
+  .contact {
+    grid-column: initial;
+  }
   .sectionWithText p {
     margin-bottom: 23px;
+  }
+  .multiList {
+    flex-wrap: wrap;
+    row-gap: 20px;
   }
 }
