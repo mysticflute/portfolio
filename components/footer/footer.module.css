@@ -96,8 +96,10 @@ a:hover > .socialIcon,
   line-height: 20px;
 }
 
-.list li:last-of-type {
+.list li:last-of-type,
+.multiColumn li:nth-of-type(6n + 6) {
   margin-bottom: 0;
+  color: red !important;
 }
 
 .list a {
@@ -125,6 +127,15 @@ a:hover > .socialIcon,
   display: flex;
   justify-content: space-between;
   column-gap: 38px;
+}
+
+.multiColumn {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(6, min-content);
+  grid-auto-flow: column;
+  column-gap: 38px;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 991px) {

@@ -33,8 +33,6 @@ const socialLinksWithIcons: SocialLinkWithIcon[] = [
   { ...linktree, icon: <Image src={linktreeIcon} alt="Linktree Icon" /> },
 ];
 
-const linksPerColumn = 6;
-
 export default function Footer() {
   const { asPath: currentPage } = useRouter();
 
@@ -88,30 +86,17 @@ export default function Footer() {
 
             <div>
               <h2 className={styles.title}>Elsewhere</h2>
-              <div className={styles.multiList}>
-                <ul className={styles.list}>
-                  {allSocialLinks.slice(0, linksPerColumn).map(social => (
-                    <li key={social.label}>
-                      <a key={social.label} href={social.url}>
-                        {social.label}
-                        <Icon name="arrowDiagonal" hasTextBefore={true} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-                {allSocialLinks.length > linksPerColumn && (
-                  <ul className={styles.list}>
-                    {allSocialLinks.slice(linksPerColumn).map(social => (
-                      <li key={social.label}>
-                        <a key={social.label} href={social.url}>
-                          {social.label}
-                          <Icon name="arrowDiagonal" hasTextBefore={true} />
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+
+              <ul className={`${styles.list} ${styles.multiColumn}`}>
+                {allSocialLinks.map(link => (
+                  <li key={link.label}>
+                    <a key={link.label} href={link.url}>
+                      {link.label}
+                      <Icon name="arrowDiagonal" hasTextBefore={true} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className={styles.contact}>
