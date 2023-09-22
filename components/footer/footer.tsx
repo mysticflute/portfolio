@@ -39,79 +39,75 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.top}>
-          <div className={styles.grid}>
-            <div className={`${styles.sectionWithText} ${styles.bio}`}>
-              <Link href="/" className={styles.logo}>
-                <Image src={logoImage} width={24} height={24} alt="Site logo" />
-              </Link>
-              <p>
-                Acoustic and symphonic music for games and interactive media.
-              </p>
-              <ul className={styles.social}>
-                {socialLinksWithIcons.map(link => (
-                  <li key={link.key}>
-                    <a
-                      href={link.url}
-                      className={styles.socialIcon}
-                      data-key={link.key}
-                    >
-                      {link.icon}
-                      <span className="assistiveText">
-                        Nathan on {link.label}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h2 className={styles.title}>Pages</h2>
-              <ul className={styles.list}>
-                {mainNav.map(page => (
-                  <li key={page.label}>
-                    <Link
-                      href={page.path}
-                      aria-current={
-                        page.path === currentPage ? 'page' : undefined
-                      }
-                    >
-                      {page.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h2 className={styles.title}>Elsewhere</h2>
-
-              <ul className={`${styles.list} ${styles.multiColumn}`}>
-                {allSocialLinks.map(link => (
-                  <li key={link.label}>
-                    <a key={link.label} href={link.url}>
-                      {link.label}
-                      <Icon name="arrowDiagonal" hasTextBefore={true} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className={styles.contact}>
-              <h2 className={styles.title}>Contact Me</h2>
-              <ul className={styles.list}>
-                <li>
-                  <SwappedEmail
-                    spamEmail={spamEmail}
-                    encodedHumanEmail={encodedHumanEmail}
-                    iconClassName={styles.socialIcon}
-                    linkClassName={styles.hasIcon}
-                  />
+        <div className={`${styles.top} ${styles.grid}`}>
+          <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
+            <Link href="/" className={styles.logo}>
+              <Image src={logoImage} width={24} height={24} alt="Site logo" />
+            </Link>
+            <p>Acoustic and symphonic music for games and interactive media.</p>
+            <ul className={styles.socialIcons}>
+              {socialLinksWithIcons.map(link => (
+                <li key={link.key}>
+                  <a
+                    href={link.url}
+                    className={styles.socialIcon}
+                    data-key={link.key}
+                  >
+                    {link.icon}
+                    <span className="assistiveText">
+                      Nathan on {link.label}
+                    </span>
+                  </a>
                 </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.linksSection}>
+            <h2 className={styles.title}>Pages</h2>
+            <ul className={styles.list}>
+              {mainNav.map(page => (
+                <li key={page.label}>
+                  <Link
+                    href={page.path}
+                    aria-current={
+                      page.path === currentPage ? 'page' : undefined
+                    }
+                  >
+                    {page.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className={styles.title}>Elsewhere</h2>
+
+            <ul className={`${styles.list} ${styles.multiColumn}`}>
+              {allSocialLinks.map(link => (
+                <li key={link.label}>
+                  <a key={link.label} href={link.url}>
+                    {link.label}
+                    <Icon name="arrowDiagonal" hasTextBefore={true} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.contactSection}>
+            <h2 className={styles.title}>Contact Me</h2>
+            <ul className={styles.list}>
+              <li>
+                <SwappedEmail
+                  spamEmail={spamEmail}
+                  encodedHumanEmail={encodedHumanEmail}
+                  iconClassName={styles.socialIcon}
+                  linkClassName={styles.hasIcon}
+                />
+              </li>
+            </ul>
           </div>
         </div>
 
