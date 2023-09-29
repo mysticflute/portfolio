@@ -84,7 +84,7 @@ export default function Footer() {
           <div>
             <h2 className={styles.title}>Elsewhere</h2>
 
-            <ul className={`${styles.list} ${styles.multiColumn}`}>
+            <ul className={`${styles.list} ${styles.multiColumnList}`}>
               {allSocialLinks.map(link => (
                 <li key={link.label}>
                   <a key={link.label} href={link.url}>
