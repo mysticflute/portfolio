@@ -10,10 +10,6 @@
 }
 
 .top {
-  display: flex;
-  justify-content: space-between;
-  /* TODO: column-gap: 25px; */
-  column-gap: 80px;
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--color-gray);
 }
@@ -21,6 +17,14 @@
 .bottom {
   padding: 40px 0;
   text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  row-gap: 16px;
+  column-gap: 80px;
 }
 
 .sectionWithText p {
@@ -42,9 +46,11 @@
   transform: scale3d(0.92, 0.92, 0.99);
 }
 
-.social {
+.socialIcons {
   display: flex;
+  flex-wrap: wrap;
   column-gap: 10px;
+  row-gap: 10px;
 }
 
 .socialIcon {
@@ -85,27 +91,18 @@ a:hover > .socialIcon,
   color: #fff;
 }
 
-.list {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.list + .list {
-  margin-left: 38px;
-}
-
 .list li {
   margin-bottom: 24px;
   line-height: 20px;
 }
 
-.list li:last-of-type {
+.list li:last-of-type,
+.multiColumnList li:nth-of-type(6n + 6) {
   margin-bottom: 0;
 }
 
 .list a {
   display: inline-block;
-  white-space: nowrap;
   font-weight: 400;
   transition: transform 300ms ease, color 300ms ease;
   transform-style: preserve-3d;
@@ -121,25 +118,27 @@ a:hover > .socialIcon,
   align-items: center;
 }
 
+.multiColumnList {
+  display: grid;
+  grid-template-rows: repeat(6, min-content);
+  grid-auto-flow: column;
+  justify-content: flex-start;
+  column-gap: 38px;
+}
+
 .nowrap {
   white-space: nowrap;
 }
 
-/* TODO: @media screen and (min-width: 1440px) {
-  .top {
-    column-gap: 80px;
-  }
-} */
-
 @media screen and (max-width: 991px) {
-  .top {
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  .grid {
+    grid-template-columns: repeat(3, auto);
+    column-gap: 25px;
     row-gap: 60px;
   }
 
-  .sectionWithText {
-    flex-basis: 100%;
+  .bioSection {
+    grid-area: span 1 / span 3 / span 1 / span 3;
   }
 
   .title {
@@ -151,6 +150,16 @@ a:hover > .socialIcon,
   .top {
     padding-top: 80px;
     padding-bottom: 70px;
+  }
+
+  .grid {
+    grid-template-columns: auto auto;
+    justify-content: stretch;
+  }
+
+  .bioSection,
+  .contactSection {
+    grid-column: 1 / span 2;
   }
 
   .sectionWithText p {
@@ -168,7 +177,25 @@ a:hover > .socialIcon,
 }
 
 @media screen and (max-width: 479px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bioSection,
+  .contactSection {
+    grid-column: initial;
+  }
+
   .sectionWithText p {
     margin-bottom: 23px;
   }
+
+  /* .multiColumnList {
+    grid-template-rows: 1fr;
+    grid-auto-flow: row;
+  }
+
+  .multiColumnList li:nth-of-type(6n + 6) {
+    margin-bottom: 20px;
+  } */
 }

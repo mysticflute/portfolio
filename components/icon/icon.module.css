@@ -1,11 +1,8 @@
 .hasTextAfter {
-  display: inline-block;
   margin-right: 6px;
-  font-weight: 500;
 }
 
 .hasTextBefore {
-  display: inline-block;
   margin-left: 6px;
 }
 

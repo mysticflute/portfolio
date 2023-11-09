@@ -1,4 +1,5 @@
 .page {
+  min-width: 300px;
   background: linear-gradient(transparent 40vh, var(--color-theme) 50vh),
     top left / contain no-repeat url(/images/bg/background-narrow-2-med.jpg);
 }
