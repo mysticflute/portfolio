@@ -1,75 +1,36 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { spamEmail, encodedHumanEmail } from '@/lib/constants';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
+import SwappedEmail from '@/components/swappedEmail/swappedEmail';
 import logoImage from '@/public/images/logo/letter-n.svg';
 import twitterIcon from '@/public/images/icons/paperfolio/twitter.svg';
 import instagramIcon from '@/public/images/icons/paperfolio/instagram.svg';
 import youtubeIcon from '@/public/images/icons/paperfolio/youtube.svg';
 import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
-import emailIcon from '@/public/images/icons/paperfolio/email.svg';
 import styles from './footer.module.css';
-import { ReactElement } from 'react';
+import {
+  SocialLink,
+  allSocialLinks,
+  twitter,
+  instagram,
+  youtube,
+  soundcloud,
+  linktree,
+} from '@/data/social';
 
-// TODO: update email address after figuring out obfuscation
-// TODO: the double lists in Elsewhere don't wrap nicely on very narrow viewports.
+type SocialLinkWithIcon = SocialLink & { icon: ReactElement };
 
-type SocialLink = {
-  key: string;
-  label: string;
-  url: string;
-  icon?: ReactElement;
-};
-
-// later: bandcamp, spotify, apple music, patreon
-export const socialLinks: SocialLink[] = [
-  {
-    key: 'twitter',
-    label: 'Twitter',
-    url: 'https://twitter.com/mysticflute',
-    icon: <Image src={twitterIcon} alt="Twitter Icon" />,
-  },
-  {
-    key: 'instagram',
-    label: 'Instagram',
-    url: 'https://www.instagram.com/mysticflute/',
-    icon: <Image src={instagramIcon} alt="Instagram Icon" />,
-  },
-  {
-    key: 'threads',
-    label: 'Threads',
-    url: 'https://www.threads.net/@mysticflute',
-  },
-  {
-    key: 'youtube',
-    label: 'YouTube',
-    url: 'https://www.youtube.com/@nathandavidmcwilliams',
-    icon: <Image src={youtubeIcon} alt="YouTube Icon" />,
-  },
-  {
-    key: 'soundcloud',
-    label: 'SoundCloud',
-    url: 'https://soundcloud.com/nathan_david_mcwilliams',
-    icon: <Image src={soundcloudIcon} alt="SoundCloud Icon" />,
-  },
-  {
-    key: 'linktree',
-    label: 'Linktree',
-    url: 'https://linktr.ee/nathanmcwilliams',
-    icon: <Image src={linktreeIcon} alt="Linktree Icon" />,
-  },
-  {
-    key: 'itch',
-    label: 'Itch.io',
-    url: 'https://mysticflute.itch.io/',
-  },
-  {
-    key: 'mastodon',
-    label: 'Mastodon',
-    url: 'https://mastodon.gamedev.place/@mysticflute',
-  },
+const socialLinksWithIcons: SocialLinkWithIcon[] = [
+  { ...twitter, icon: <Image src={twitterIcon} alt="Twitter Icon" /> },
+  { ...instagram, icon: <Image src={instagramIcon} alt="Instagram Icon" /> },
+  { ...youtube, icon: <Image src={youtubeIcon} alt="YouTube Icon" /> },
+  { ...soundcloud, icon: <Image src={soundcloudIcon} alt="SoundCloud Icon" /> },
+  { ...linktree, icon: <Image src={linktreeIcon} alt="Linktree Icon" /> },
 ];
 
 export default function Footer() {
@@ -78,33 +39,31 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.top}>
-          <div className={styles.sectionWithText}>
+        <div className={`${styles.top} ${styles.grid}`}>
+          <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
             <Link href="/" className={styles.logo}>
               <Image src={logoImage} width={24} height={24} alt="Site logo" />
             </Link>
             <p>Acoustic and symphonic music for games and interactive media.</p>
-            <ul className={styles.social}>
-              {socialLinks
-                .filter(socialLink => !!socialLink.icon)
-                .map(socialLink => (
-                  <li key={socialLink.key}>
-                    <a
-                      href={socialLink.url}
-                      className={styles.socialIcon}
-                      data-key={socialLink.key}
-                    >
-                      {socialLink.icon}
-                      <span className="assistiveText">
-                        Nathan on {socialLink.label}
-                      </span>
-                    </a>
-                  </li>
-                ))}
+            <ul className={styles.socialIcons}>
+              {socialLinksWithIcons.map(link => (
+                <li key={link.key}>
+                  <a
+                    href={link.url}
+                    className={styles.socialIcon}
+                    data-key={link.key}
+                  >
+                    {link.icon}
+                    <span className="assistiveText">
+                      Nathan on {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
+          <div className={styles.linksSection}>
             <h2 className={styles.title}>Pages</h2>
             <ul className={styles.list}>
               {mainNav.map(page => (
@@ -122,48 +81,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* TODO: get rid of this class */}
-          <div className={styles.nowrap}>
+          <div>
             <h2 className={styles.title}>Elsewhere</h2>
-            <ul className={styles.list}>
-              {socialLinks.slice(0, 6).map(social => (
-                <li key={social.label}>
-                  <a key={social.label} href={social.url}>
-                    {social.label}
+
+            <ul className={`${styles.list} ${styles.multiColumnList}`}>
+              {allSocialLinks.map(link => (
+                <li key={link.label}>
+                  <a key={link.label} href={link.url}>
+                    {link.label}
                     <Icon name="arrowDiagonal" hasTextBefore={true} />
                   </a>
                 </li>
               ))}
             </ul>
-            {socialLinks.length > 6 && (
-              <ul className={styles.list}>
-                {socialLinks.slice(6).map(social => (
-                  <li key={social.label}>
-                    <a key={social.label} href={social.url}>
-                      {social.label}
-                      <Icon name="arrowDiagonal" hasTextBefore={true} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
 
-          <div>
+          <div className={styles.contactSection}>
             <h2 className={styles.title}>Contact Me</h2>
             <ul className={styles.list}>
               <li>
-                <a
-                  className={styles.hasIcon}
-                  href="mailto:ndm.music.inbox@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className={styles.socialIcon}>
-                    <Image src={emailIcon} alt="" />
-                  </div>
-                  ndm.music.inbox@gmail.com
-                </a>
+                <SwappedEmail
+                  spamEmail={spamEmail}
+                  encodedHumanEmail={encodedHumanEmail}
+                  iconClassName={styles.socialIcon}
+                  linkClassName={styles.hasIcon}
+                />
               </li>
             </ul>
           </div>

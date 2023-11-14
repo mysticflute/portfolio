@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import emailIcon from '@/public/images/icons/paperfolio/email-large.svg';
+import { spamEmail, encodedHumanEmail } from '@/lib/constants';
+import SwappedEmail from '@/components/swappedEmail/swappedEmail';
 import styles from './contactInfo.module.css';
 
 export default function Contact() {
@@ -14,14 +14,20 @@ export default function Contact() {
           email at the address below. I&apos;ll be in touch shortly.
         </p>
         <div className={styles.card}>
-          <a
+          <SwappedEmail
+            spamEmail={spamEmail}
+            encodedHumanEmail={encodedHumanEmail}
+            iconClassName={styles.socialIcon}
+            linkClassName={styles.hasIcon}
+          />
+          {/* <a
             href="mailto:ndm.music.inbox@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image src={emailIcon} alt="" priority />
             ndm.music.inbox@gmail.com
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
