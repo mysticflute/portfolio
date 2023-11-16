@@ -6,13 +6,13 @@ name: Vulgari
 # slug: project-name
 
 # The sort position for the project.
-sort: 3
+sort: 100
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # The project type.
 # Examples: Video Game, Visual Novel, Film, TV, Documentary,
 # Podcast, Streamer, Board Game, Album, Compilation.
-# type: Video Game
+type: Video Game
 
 # My primary role on the project.
 # Examples: Composer, Primary Composer, Additional Composer,
