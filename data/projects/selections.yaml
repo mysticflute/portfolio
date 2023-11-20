@@ -1,18 +1,18 @@
 # Name of the project.
-name: Project Name
+name: Selected Compositions
 
 # Unique, dash-delimited name for the project URL (optional).
 # If none specified, defaults to the filename.
-# slug: project-name
+slug: selected-compositions
 
 # The sort position for the project.
-# sort: 97
+sort: 1
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # The project type.
 # Examples: Video Game, Visual Novel, Film, TV, Documentary,
 # Podcast, Streamer, Board Game, Album, Compilation.
-# type: Video Game
+type: Compilation
 
 # My primary role on the project.
 # Examples: Composer, Primary Composer, Additional Composer,
@@ -30,18 +30,27 @@ role: Composer
 
 # Short project description.
 description: >
-  In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl
-  pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
+  A selection of my compositions across various recent projects. Styles include
+  instrumental, orchestral, atmospheric and more.
 
 # List of 10-digit SoundCloud track IDs. (optional).
 # See the README.md file for how to find these.
-# soundCloudIds:
-#   - 1272228361
-#   - 1269466039
+soundCloudIds:
+  - 1272228361 # blue river road
+  - 1363178761 # no escape
+  - 1362994615 # overworld (vulgaria)
+  - 1269487699 # princess aiysha
+  - 1468989199 # deep dark forest
+  - 1661983896 # fireflies
+  - 1363203541 # the secret
+  - 1363214545 # savara's gate
+  - 1363207933 # chasing freedom
+  - 1510431769 # overworld map
 
 # An icon that represents the game type (optional).
 # Must be a file under public/icons.
-# icon: pulsar/game-controller.svg
+icon: pulsar/favorites.svg
+# icon: pulsar/bookmark.svg
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # The main image for the project (optional).
@@ -73,7 +82,7 @@ description: >
 #   - Playstation 5
 
 # Project's accent color, in css hex format (optional).
-# color: '#5c42fb'
+color: '#ffab91'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.
