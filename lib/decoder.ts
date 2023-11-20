@@ -58,7 +58,7 @@ export function getNumber(obj: any, key: string, source: string): number {
 export function getStringArray(
   obj: any,
   key: string,
-  source: string
+  source: string,
 ): string[] {
   if (obj === null || obj === undefined || typeof obj !== 'object') {
     throw new Error(`Cannot decode string array from '${obj}'`);
@@ -69,7 +69,7 @@ export function getStringArray(
     throw new Error(`The key '${key}' must be a list of strings in ${source}`);
   } else if (!obj[key].every((v: any) => v !== null && typeof v === 'string')) {
     throw new Error(
-      `The key '${key}' must only contain string values in ${source}`
+      `The key '${key}' must only contain string values in ${source}`,
     );
   }
   return obj[key];
@@ -89,7 +89,7 @@ export function getStringArray(
 export function getNumberArray(
   obj: any,
   key: string,
-  source: string
+  source: string,
 ): number[] {
   if (obj === null || obj === undefined || typeof obj !== 'object') {
     throw new Error(`Cannot decode numbers array from '${obj}'`);
@@ -100,7 +100,7 @@ export function getNumberArray(
     throw new Error(`The key '${key}' must be a list of numbers in ${source}`);
   } else if (!obj[key].every((v: any) => v !== null && typeof v === 'number')) {
     throw new Error(
-      `The key '${key}' must only contain number values in ${source}`
+      `The key '${key}' must only contain number values in ${source}`,
     );
   }
   return obj[key];

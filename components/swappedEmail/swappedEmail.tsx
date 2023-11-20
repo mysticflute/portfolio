@@ -96,7 +96,7 @@ export default function SwappedEmail({
             o.disconnect();
           }
         },
-        { rootMargin }
+        { rootMargin },
       );
       observer.observe(ref.current);
       return () => observer.disconnect();

@@ -90,8 +90,11 @@
   font-size: 24px;
   line-height: 24px;
   transform-style: preserve-3d;
-  transition: color 300ms ease, border-color 300ms ease,
-    background-color 300ms ease, transform 300ms ease;
+  transition:
+    color 300ms ease,
+    border-color 300ms ease,
+    background-color 300ms ease,
+    transform 300ms ease;
 }
 
 .contact:hover {

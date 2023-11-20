@@ -37,7 +37,7 @@ export default function Icon({
         styles[name],
         hasTextAfter && styles.hasTextAfter,
         hasTextBefore && styles.hasTextBefore,
-        className
+        className,
       )}
     ></span>
   );

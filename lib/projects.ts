@@ -74,14 +74,14 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         slug = getString(metadata, 'slug', filepath);
         if (!VALID_SLUG.test(slug)) {
           throw new Error(
-            `The key 'slug' can only contain the characters a-z, 0-9 and hyphens, in ${filepath}`
+            `The key 'slug' can only contain the characters a-z, 0-9 and hyphens, in ${filepath}`,
           );
         }
       } else {
         slug = path.parse(filename).name;
         if (!VALID_SLUG.test(slug)) {
           throw new Error(
-            `The filename for ${filepath} can only contain the characters a-z, 0-9 and hyphens.`
+            `The filename for ${filepath} can only contain the characters a-z, 0-9 and hyphens.`,
           );
         }
       }
@@ -113,7 +113,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
           validated.icon = icon;
         } catch (e) {
           throw new Error(
-            `Icon "${icon}" in ${filepath} does not exist or is inaccessible at ${iconPath}`
+            `Icon "${icon}" in ${filepath} does not exist or is inaccessible at ${iconPath}`,
           );
         }
       }
@@ -132,7 +132,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
 
       logger.trace(validated, 'found project metadata');
       return validated;
-    })
+    }),
   );
 
   // ensure sort positions are unique
@@ -141,8 +141,8 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
     if (positions.has(project.sort)) {
       throw new Error(
         `Duplicate sort value '${project.sort}' in projects '${positions.get(
-          project.sort
-        )}' and '${project.name}'`
+          project.sort,
+        )}' and '${project.name}'`,
       );
     }
     positions.set(project.sort, project.name);

@@ -3,7 +3,9 @@
   border: 3px solid var(--color-background-dark);
   border-radius: 28px;
   background: #fff;
-  transition: box-shadow 300ms ease, transform 300ms ease;
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
   flex: 1 1 500px;
 }
 
