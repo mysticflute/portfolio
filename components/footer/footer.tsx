@@ -1,7 +1,9 @@
+'use client';
+
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { spamEmail, encodedHumanEmail } from '@/lib/constants';
 import { mainNav } from '@/components/nav/nav';
 import Icon from '@/components/icon/icon';
@@ -34,7 +36,7 @@ const socialLinksWithIcons: SocialLinkWithIcon[] = [
 ];
 
 export default function Footer() {
-  const { asPath: currentPage } = useRouter();
+  const currentPath = usePathname();
 
   return (
     <footer role="contentinfo" className={styles.container}>
@@ -71,7 +73,7 @@ export default function Footer() {
                   <Link
                     href={page.path}
                     aria-current={
-                      page.path === currentPage ? 'page' : undefined
+                      page.path === currentPath ? 'page' : undefined
                     }
                   >
                     {page.label}

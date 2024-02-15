@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { clsx } from 'clsx';
 import Icon from '@/components/icon/icon';
@@ -19,7 +21,8 @@ export const mainNav: NavItems[] = [
   { label: 'Contact', path: '/contact' },
 ];
 
-function createNav(items: NavItems[], currentItem: string) {
+// TODO: remove null from currentItem once deleting the pages directory
+function createNav(items: NavItems[], currentItem: string | null) {
   return (
     <nav role="navigation" aria-label="Main navigation">
       <ul className={styles.list}>
@@ -39,7 +42,7 @@ function createNav(items: NavItems[], currentItem: string) {
 }
 
 export default function Nav() {
-  const { asPath: currentPage } = useRouter();
+  const currentPath = usePathname();
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   return (
@@ -58,7 +61,7 @@ export default function Nav() {
         </div>
 
         <div className={styles.barMiddle}>
-          {createNav(mainNav, currentPage)}
+          {createNav(mainNav, currentPath)}
         </div>
 
         <div className={styles.barRight}>
@@ -85,7 +88,7 @@ export default function Nav() {
         className={clsx(styles.overlay, isOverlayOpen && styles.open)}
         onClick={() => setIsOverlayOpen(false)}
       >
-        {createNav(mainNav, currentPage)}
+        {createNav(mainNav, currentPath)}
       </div>
     </div>
   );

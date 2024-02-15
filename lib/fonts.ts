@@ -41,6 +41,7 @@ export const Onest = localFont({
     //   style: 'normal',
     // },
   ],
+  variable: '--font-default',
 });
 
 /**
@@ -48,4 +49,5 @@ export const Onest = localFont({
  */
 export const LineRoundedIcons = localFont({
   src: '../assets/fonts/LineRoundedIcons.woff2',
+  variable: '--font-line-rounded-icons',
 });
