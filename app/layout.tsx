@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { baseWebsiteTitle } from '@/lib/constants';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
 
@@ -10,8 +10,6 @@ import '@/styles/globals.css';
 import '@/styles/common.css';
 
 import styles from './layout.module.css';
-
-import type { Viewport } from 'next';
 
 export const viewport: Viewport = {
   themeColor: [
