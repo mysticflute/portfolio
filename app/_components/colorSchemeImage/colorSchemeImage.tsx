@@ -21,7 +21,7 @@ type Props = Omit<ImageProps, 'src' | 'priority' | 'loading'> & {
   /**
    * Passthrough of the img fetchPriority.
    */
-  fetchpriority?: 'high' | 'low' | 'auto';
+  fetchPriority?: 'high' | 'low' | 'auto';
 };
 
 /**

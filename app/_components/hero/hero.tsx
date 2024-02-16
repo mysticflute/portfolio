@@ -53,7 +53,7 @@ export default function Hero() {
               srcDark={profileImageDark}
               quality={80}
               placeholder="blur"
-              fetchpriority="high"
+              fetchPriority="high"
               sizes="(max-width: 767px) 100vw, (max-width: 991px) 70vw, 50vw"
               alt="Character portrait of Nathan David McWilliams"
             />
