@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import emailIcon from '@/public/images/icons/paperfolio/email.svg';
-// TODO optino for large email icon (contact page).
+// TODO option for large email icon (contact page).
 
 // Reference:
 // https://css-tricks.com/how-to-safely-share-your-email-address-on-a-website

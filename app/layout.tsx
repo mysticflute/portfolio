@@ -2,14 +2,9 @@ import { Metadata, Viewport } from 'next';
 import { baseWebsiteTitle } from '@/lib/constants';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
 
-import Nav from '@/components/nav/nav';
-import Footer from '@/components/footer/footer';
-
 import 'normalize.css/normalize.css';
 import '@/styles/globals.css';
 import '@/styles/common.css';
-
-import styles from './layout.module.css';
 
 export const viewport: Viewport = {
   themeColor: [
@@ -47,16 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${Onest.variable} ${LineRoundedIcons.variable}`}>
-        <div className={styles.page}>
-          {/* <a href="#main-content">Skip to main content</a> */}
-          <header role="banner">
-            <Nav></Nav>
-          </header>
-          <main id="main-content" role="main">
-            {children}
-          </main>
-          <Footer></Footer>
-        </div>
+        {children}
       </body>
     </html>
   );
