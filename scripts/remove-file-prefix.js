@@ -11,7 +11,7 @@ const prefix = process.argv[3];
 
 if (!directory) {
   console.error(
-    'Error: The first argument should be the path to the directory.'
+    'Error: The first argument should be the path to the directory.',
   );
   process.exit(1);
 }
