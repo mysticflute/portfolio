@@ -16,10 +16,10 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/assets/*": ["./app/_assets/*"],
-      "@/styles/*": ["./app/_styles/*"],
-      "@/components/*": ["./app/_components/*"],
       "@/lib/*": ["./app/_lib/*"],
+      "@/components/*": ["./app/_components/*"],
+      "@/styles/*": ["./app/_styles/*"],
+      "@/assets/*": ["./app/_assets/*"],
       "@/data/*": ["./data/*"],
       "@/public/*": ["./public/*"]
     },

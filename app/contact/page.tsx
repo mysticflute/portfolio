@@ -1,6 +1,6 @@
+import { Metadata } from 'next';
 import Layout from '@/components/layout/layout';
 import ContactInfo from '@/components/contactInfo/contactInfo';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact',

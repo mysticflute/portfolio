@@ -21,8 +21,7 @@ export const mainNav: NavItems[] = [
   { label: 'Contact', path: '/contact' },
 ];
 
-// TODO: remove null from currentItem once deleting the pages directory
-function createNav(items: NavItems[], currentItem: string | null) {
+function createNav(items: NavItems[], currentItem: string) {
   return (
     <nav role="navigation" aria-label="Main navigation">
       <ul className={styles.list}>
