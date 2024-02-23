@@ -14,7 +14,7 @@
 
 .intro {
   max-width: 625px;
-  background: rgb(0 0 0 0.2);
+  background: rgb(0 0 0 / 0.2);
   border-radius: 32px;
   padding: 48px 64px;
   color: var(--color-text-light);

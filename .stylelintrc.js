@@ -1,6 +1,7 @@
 module.exports = {
   extends: 'stylelint-config-standard',
   rules: {
+    'alpha-value-notation': null,
     'media-feature-range-notation': null,
     'no-descending-specificity': null,
     'selector-max-id': 0,
