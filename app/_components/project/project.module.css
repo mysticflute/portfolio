@@ -11,7 +11,7 @@
 
 .container:hover {
   box-shadow: 10px 10px 0 0 var(--color-background-dark);
-  transform: translate3d(0px, -10px, 0.01px);
+  transform: translate3d(0, -10px, 0.01px);
 }
 
 .info {
@@ -56,7 +56,7 @@
 }
 
 .viewMore a:hover > .arrow {
-  transform: translate3d(2px, -1px, 0px);
+  transform: translate3d(2px, -1px, 0);
 }
 
 @media screen and (max-width: 991px) {

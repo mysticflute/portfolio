@@ -18,8 +18,11 @@
   --color-background-default: var(--color-theme);
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);
+
   /* TODO: variables for container padding/margins/widths */
-  /** layoutWidth, layoutMargin, layoutPadding */
+
+  /* TODO: layoutWidth, layoutMargin, layoutPadding */
+
   /* TODO: rename primary, accent, accent-200, accent-300, contrast, shadow */
 }
 

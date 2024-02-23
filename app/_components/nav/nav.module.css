@@ -71,7 +71,7 @@
 }
 
 .overlay .list > li {
-  margin: 0 0 24px 0;
+  margin: 0 0 24px;
   line-height: 1.111;
 }
 
@@ -101,7 +101,7 @@
   color: #fff;
   border-color: var(--color-background-highlight);
   background-color: var(--color-background-highlight);
-  transform: translate3d(0px, -3px, 0.01px);
+  transform: translate3d(0, -3px, 0.01px);
 }
 
 .hamburger {
@@ -127,11 +127,11 @@
 }
 
 .hamburger.open .hamburgerTop {
-  transform: translate3d(0px, 8px, 0px) rotateZ(135deg);
+  transform: translate3d(0, 8px, 0) rotateZ(135deg);
 }
 
 .hamburger.open .hamburgerBottom {
-  transform: translate3d(0px, -7px, 0px) rotateZ(45deg);
+  transform: translate3d(0, -7px, 0) rotateZ(45deg);
 }
 
 .overlay {
@@ -140,6 +140,7 @@
   top: 100%;
   right: 0;
   left: 0;
+
   /* woudn't need this with display none... */
   max-height: 0;
   transition: max-height 200ms ease;

@@ -9,8 +9,9 @@
     "dev": "PINO_LOG_LEVEL=debug next dev | pino-pretty",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prettier": "npx prettier --write .",
+    "lint": "next lint && npm run stylelint",
+    "stylelint": "stylelint -f verbose 'app/**/*.css'",
+    "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "optimize-svg": "npx svgo",
     "optimize-svg-staged": "git --no-pager diff --name-only --cached --diff-filter=AMR 'public/*.svg' | xargs -r npx svgo"
@@ -35,6 +36,8 @@
     "eslint-plugin-prettier": "^5.1.3",
     "pino-pretty": "^10.3.1",
     "prettier": "^3.2.5",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
     "svgo": "^3.2.0",
     "typescript": "^5.3.3"
   }

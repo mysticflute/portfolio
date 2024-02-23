@@ -6,6 +6,7 @@
   .light {
     display: none;
   }
+
   .dark {
     display: unset;
   }
