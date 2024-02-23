@@ -8,5 +8,5 @@
   width: 110%;
   padding: 60px 0;
   background: var(--color-background-dark);
-  transform: translate(-15px, 0px) rotate(-5deg);
+  transform: translate(-15px, 0) rotate(-5deg);
 }
