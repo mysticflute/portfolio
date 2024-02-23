@@ -4,7 +4,7 @@ import { Onest, LineRoundedIcons } from '@/lib/fonts';
 
 import 'normalize.css/normalize.css';
 import '@/styles/globals.css';
-import '@/styles/common.css';
+import '@/styles/utilities.css';
 
 export const metadata: Metadata = {
   title: {

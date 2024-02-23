@@ -60,7 +60,7 @@
   border-color: var(--color-background-highlight);
   background: var(--color-background-highlight);
   color: #fff;
-  transform: translate3d(0px, -3px, 0.01px);
+  transform: translate3d(0, -3px, 0.01px);
 }
 
 .secondary {
@@ -72,5 +72,5 @@
   border-color: var(--color-background-dark);
   background: var(--color-background-dark);
   color: #fff;
-  transform: translate3d(0px, -3px, 0.01px);
+  transform: translate3d(0, -3px, 0.01px);
 }

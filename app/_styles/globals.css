@@ -1,3 +1,5 @@
+/** CSS variables and default element styles/resets only. */
+
 :root {
   --color-dark: #0b0b0b;
   --color-gray: #393939;
@@ -16,8 +18,14 @@
   --color-background-default: var(--color-theme);
   --color-background-dark: var(--color-dark);
   --color-background-highlight: var(--color-blue);
+
+  /* TODO: variables for container padding/margins/widths */
+
+  /* TODO: layoutWidth, layoutMargin, layoutPadding */
+
+  /* TODO: rename primary, accent, accent-200, accent-300, contrast, shadow */
 }
-/* rename primary, accent, accent-200, accent-300, contrast, shadow */
+
 *,
 ::before,
 ::after {
@@ -81,14 +89,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-  }
-} */
