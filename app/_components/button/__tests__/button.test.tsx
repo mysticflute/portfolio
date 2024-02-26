@@ -48,6 +48,16 @@ describe('button', () => {
     expect(screen.getByRole('link')).toContainHTML('<span class="icon" />');
   });
 
+  it('adds the base class name', () => {
+    render(
+      <Button href="/foo" type="primary">
+        foo
+      </Button>,
+    );
+
+    expect(screen.getByRole('link')).toHaveClass(/base/);
+  });
+
   it('renders the link with type=primary', () => {
     render(
       <Button href="/foo" type="primary">
