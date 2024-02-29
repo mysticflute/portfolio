@@ -4,12 +4,6 @@
  */
 
 import type { Config } from 'jest';
-import nextJest from 'next/jest.js';
-
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: './',
-});
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -114,7 +108,8 @@ const config: Config = {
   preset: 'ts-jest',
 
   // Run tests from one or more projects
-  // projects: undefined,
+  //projects: undefined,
+  projects: ['<rootDir>/app/_components/jest.components.config.ts'],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
@@ -146,7 +141,7 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -205,4 +200,4 @@ const config: Config = {
   // watchman: true,
 };
 
-export default createJestConfig(config);
+export default config;
