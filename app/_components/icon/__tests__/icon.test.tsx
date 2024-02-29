@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Icon from '../icon';
 
-describe('button', () => {
+describe('icon', () => {
   it('renders the correct class for the specified icon', () => {
     render(<Icon name="foo" />);
 

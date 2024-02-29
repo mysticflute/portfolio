@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Hero from '../hero';
 
-describe('button', () => {
+describe('hero', () => {
   it('renders a heading', () => {
     render(<Hero />);
 
