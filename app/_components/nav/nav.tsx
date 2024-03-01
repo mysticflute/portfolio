@@ -84,6 +84,7 @@ export default function Nav() {
 
       <div
         id="nav-overlay"
+        data-testid="nav-overlay"
         className={clsx(styles.overlay, isOverlayOpen && styles.open)}
         onClick={() => setIsOverlayOpen(false)}
       >
