@@ -10,7 +10,7 @@ describe('button', () => {
       </Button>,
     );
 
-    expect(screen.getByRole('link')).toBeDefined();
+    expect(screen.getByRole('link')).toBeInTheDocument();
   });
 
   it('renders the link url', () => {
