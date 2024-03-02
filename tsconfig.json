@@ -22,7 +22,8 @@
       "@/styles/*": ["./app/_styles/*"],
       "@/assets/*": ["./app/_assets/*"],
       "@/data/*": ["./data/*"],
-      "@/public/*": ["./public/*"]
+      "@/public/*": ["./public/*"],
+      "@/tests/*": ["./tests/*"]
     },
     "plugins": [
       {

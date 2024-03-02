@@ -1,25 +1,18 @@
-import {
-  jest,
-  beforeEach,
-  afterEach,
-  describe,
-  expect,
-  it,
-} from '@jest/globals';
+import { beforeEach, afterEach, describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
-import { getMockIntersectionObserver } from '@/lib/test-utils/intersectionObserver';
+import {
+  initializeObserverMocks,
+  resetObserverMocks,
+} from '@/tests/lib/jest/intersectionObserver';
 import ContactInfo from '../contactInfo';
 
 describe('contactInfo', () => {
-  let mockIntersectionObserver: jest.Mock<() => IntersectionObserver>;
-
   beforeEach(() => {
-    mockIntersectionObserver = getMockIntersectionObserver();
-    global.IntersectionObserver = mockIntersectionObserver;
+    initializeObserverMocks();
   });
 
   afterEach(() => {
-    mockIntersectionObserver.mockReset();
+    resetObserverMocks();
   });
 
   it('renders a heading', () => {
