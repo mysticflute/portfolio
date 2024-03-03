@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`soundcloud getUrlForTrack should return the correct URL with all options specified 1`] = `"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661989830&inverse=true&auto_play=true&show_user=true&color=%23fffeee"`;
+
+exports[`soundcloud getUrlForTrack should return the correct URL with no options specified 1`] = `"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661989830&inverse=false&auto_play=false&show_user=false&color=%23ff5500"`;
+
+exports[`soundcloud getUrlForTrack should return the correct URL with some options specified 1`] = `"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661989830&inverse=false&auto_play=false&show_user=false&color=%23fffeee"`;
