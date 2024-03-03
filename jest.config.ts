@@ -109,7 +109,14 @@ const config: Config = {
 
   // Run tests from one or more projects
   //projects: undefined,
-  projects: ['<rootDir>/app/_components/jest.components.config.ts'],
+  projects: [
+    '<rootDir>/app/_components/jest.components.config.ts',
+    {
+      displayName: 'lib tests',
+      testMatch: ['<rootDir>/app/_lib/__tests__/**/*.[jt]s?(x)'],
+      preset: 'ts-jest',
+    },
+  ],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
