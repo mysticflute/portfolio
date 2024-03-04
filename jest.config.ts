@@ -90,10 +90,7 @@ const config: Config = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  moduleNameMapper: {
-    '^@/lib/(.*)$': '<rootDir>/app/_lib/$1',
-    '^@/components/(.*)$': '<rootDir>/app/_components/$1',
-  },
+  // moduleNameMapper: {},
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -105,7 +102,7 @@ const config: Config = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: 'ts-jest',
+  // preset: undefined,
 
   // Run tests from one or more projects
   //projects: undefined,
@@ -115,6 +112,9 @@ const config: Config = {
       displayName: 'lib tests',
       testMatch: ['<rootDir>/app/_lib/__tests__/**/*.[jt]s?(x)'],
       preset: 'ts-jest',
+      moduleNameMapper: {
+        '^@/lib/(.*)$': '<rootDir>/app/_lib/$1',
+      },
     },
   ],
 
