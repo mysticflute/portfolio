@@ -116,6 +116,14 @@ const config: Config = {
         '^@/lib/(.*)$': '<rootDir>/app/_lib/$1',
       },
     },
+    {
+      displayName: 'data tests',
+      testMatch: ['<rootDir>/data/__tests__/**/*.[jt]s?(x)'],
+      preset: 'ts-jest',
+      moduleNameMapper: {
+        '^@/lib/(.*)$': '<rootDir>/app/_lib/$1',
+      },
+    },
   ],
 
   // Use this configuration option to add custom reporters to Jest
