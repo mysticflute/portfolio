@@ -23,9 +23,16 @@ const config: Config = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
+  // collectCoverageFrom: [
+  //   'app/_lib/**/*.[jt]s?(x)',
+  //   'app/_components/**/*.[jt]s?(x)',
+  //   'data/**/*.[jt]s?(x)',
+  //   '!**/__tests__/**',
+  //   '!**/jest.*',
+  // ],
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: 'coverage',
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -33,7 +40,7 @@ const config: Config = {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  // coverageProvider: 'v8',
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
