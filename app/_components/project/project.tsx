@@ -37,6 +37,7 @@ export default function Project({ projectMetadata: data }: Props) {
               height="20"
               loading="lazy"
               src={getUrlForTrack(id, { color: data.color })}
+              title={`Play music from ${data.name} with SoundCloud music player`}
             ></iframe>
           ))}
       </div>

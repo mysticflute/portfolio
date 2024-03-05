@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`currently enabled projects should match snapshot 1`] = `
+[
+  {
+    "color": "#ffab91",
+    "description": "A selection of my compositions across various recent projects. Styles include instrumental, orchestral, atmospheric and more.
+",
+    "icon": "pulsar/favorites.svg",
+    "name": "Selected Compositions",
+    "role": "Composer",
+    "slug": "selected-compositions",
+    "sort": 1,
+    "soundCloudIds": [
+      1272228361,
+      1363178761,
+      1362994615,
+      1269487699,
+      1468989199,
+      1661983896,
+      1363203541,
+      1363214545,
+      1363207933,
+      1510431769,
+    ],
+  },
+  {
+    "color": "#f49ac1",
+    "description": "A combat-less game about agriculture, economy, and exploration developed for fans of Stardew Valley, Forager, and A Link to the Past.
+",
+    "icon": "pulsar/leaf.svg",
+    "link": "https://www.turninggame.com",
+    "name": "Turning",
+    "role": "Additional Composer",
+    "slug": "turning",
+    "sort": 98,
+    "soundCloudIds": [
+      1661974287,
+      1661979261,
+      1661980971,
+      1661982381,
+      1661983896,
+      1661985333,
+      1661991063,
+      1661999643,
+      1661987727,
+      1661989830,
+    ],
+  },
+  {
+    "color": "#5c42fb",
+    "description": "A story-driven 2D RPG under development by 1ManArmE Studios. Contributions include multiple orchestral and instrumental tracks.
+",
+    "icon": "pulsar/crystal.svg",
+    "link": "https://twitter.com/RecidiviaRPG",
+    "name": "Recidivia",
+    "role": "Primary Composer",
+    "slug": "recidivia",
+    "sort": 99,
+    "soundCloudIds": [
+      1468989199,
+      1468987642,
+      1468969438,
+      1468955629,
+      1468955386,
+    ],
+  },
+  {
+    "color": "#4b914b",
+    "description": "A top-down, rogue-like adventure game developed by Statson. Features strings, flutes, harps, taikos and hand perc.
+",
+    "icon": "pulsar/adventure.svg",
+    "name": "Vulgari",
+    "role": "Composer",
+    "slug": "vulgaria",
+    "sort": 100,
+    "soundCloudIds": [
+      1363207933,
+      1362994615,
+      1363175623,
+      1363178761,
+      1363186105,
+      1363189672,
+      1363214545,
+      1363203541,
+    ],
+  },
+]
+`;

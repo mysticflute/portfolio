@@ -39,6 +39,7 @@ export default function Icon({
         hasTextBefore && styles.hasTextBefore,
         className,
       )}
+      data-testid="icon"
     ></span>
   );
 }

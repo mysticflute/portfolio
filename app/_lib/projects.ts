@@ -10,6 +10,7 @@ const iconsDirectory = path.join(publicDirectory, 'images/icons');
 
 const VALID_SLUG = /^[a-z0-9\\-]+$/;
 const VALID_SOUNDCLOUD_ID = /^[0-9]{10}$/;
+const VALID_LINK = /^https?:\/\/.+/;
 const VALID_COLOR = /^#[0-9a-fA-F]{6}$/;
 
 /**
@@ -113,13 +114,17 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
           validated.icon = icon;
         } catch (e) {
           throw new Error(
-            `Icon "${icon}" in ${filepath} does not exist or is inaccessible at ${iconPath}`,
+            `Icon "${icon}" specified in ${filepath} does not exist or is inaccessible at ${iconPath}`,
           );
         }
       }
 
       if (metadata['link']) {
-        validated.link = getString(metadata, 'link', filepath);
+        const link = getString(metadata, 'link', filepath);
+        if (!VALID_LINK.test(link)) {
+          throw new Error(`Invalid link "${link}" in ${filepath}`);
+        }
+        validated.link = link;
       }
 
       if (metadata['color']) {

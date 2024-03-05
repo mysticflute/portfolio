@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`project matches snapshot 1`] = `
+<article
+  class="container"
+>
+  <div
+    class="info"
+  >
+    <img
+      alt=""
+      data-nimg="1"
+      decoding="async"
+      height="46"
+      loading="lazy"
+      src="/images/icons/pulsar/leaf.svg"
+      style="color: transparent;"
+      width="46"
+    />
+    <div
+      class="badge"
+    >
+      Composer
+    </div>
+  </div>
+  <h3
+    class="textHeadingSmall"
+  >
+    Test Project
+  </h3>
+  <p>
+    A test project.
+  </p>
+  <div
+    class="soundcloud"
+  >
+    <iframe
+      height="20"
+      loading="lazy"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661974287&inverse=false&auto_play=false&show_user=false&color=%23fffeee"
+      title="Play music from Test Project with SoundCloud music player"
+      width="100%"
+    />
+    <iframe
+      height="20"
+      loading="lazy"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661979261&inverse=false&auto_play=false&show_user=false&color=%23fffeee"
+      title="Play music from Test Project with SoundCloud music player"
+      width="100%"
+    />
+    <iframe
+      height="20"
+      loading="lazy"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661980971&inverse=false&auto_play=false&show_user=false&color=%23fffeee"
+      title="Play music from Test Project with SoundCloud music player"
+      width="100%"
+    />
+  </div>
+  <div
+    class="viewMore"
+  >
+    <a
+      href="https://www.test-project.com"
+    >
+      View project website
+      <span
+        class="lineRounded arrowDiagonal hasTextBefore arrow"
+        data-testid="icon"
+      />
+    </a>
+  </div>
+</article>
+`;

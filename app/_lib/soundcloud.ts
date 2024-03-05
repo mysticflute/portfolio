@@ -1,4 +1,4 @@
-const baseSoundCloudURL = 'https://w.soundcloud.com/player/';
+const baseSoundCloudURL = 'https://w.soundcloud.com/player';
 
 /**
  * Params for building a SoundCloud URL.
@@ -32,7 +32,7 @@ export type SoundCloudParams = {
  * @param params Additional SoundCloud parameters.
  * @returns The URL.
  */
-export function getUrlForTrack(id: number, params: SoundCloudParams) {
+export function getUrlForTrack(id: number, params?: SoundCloudParams) {
   const allParams: SoundCloudParams = {
     inverse: false,
     auto_play: false,

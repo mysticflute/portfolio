@@ -40,7 +40,7 @@ description: >
 #   - 1269466039
 
 # An icon that represents the game type (optional).
-# Must be a file under public/icons.
+# Must be a file under public/images/icons.
 # icon: pulsar/game-controller.svg
 
 ### NOT CURRENTLY IMPLEMENTED ###
