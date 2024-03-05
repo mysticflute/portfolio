@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`footer renders the expected set of links 1`] = `
+[
+  "http://localhost/",
+  "https://twitter.com/mysticflute",
+  "https://www.instagram.com/mysticflute/",
+  "https://www.youtube.com/@nathandavidmcwilliams",
+  "https://soundcloud.com/nathan_david_mcwilliams",
+  "https://linktr.ee/nathanmcwilliams",
+  "http://localhost/",
+  "http://localhost/#about",
+  "http://localhost/#portfolio",
+  "http://localhost/contact",
+  "https://soundcloud.com/nathan_david_mcwilliams",
+  "https://www.youtube.com/@nathandavidmcwilliams",
+  "https://mysticflute.itch.io/",
+  "https://twitter.com/mysticflute",
+  "https://www.instagram.com/mysticflute/",
+  "https://www.threads.net/@mysticflute",
+  "https://bsky.app/profile/mysticflute.bsky.social",
+  "https://linktr.ee/nathanmcwilliams",
+  "mailto:spam@ndm.studio",
+]
+`;
