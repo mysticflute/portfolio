@@ -6,7 +6,7 @@ module.exports = {
   ],
   rules: {
     semi: 'error',
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single', { avoidEscape: true }],
     'no-trailing-spaces': 'warn',
   },
   overrides: [
