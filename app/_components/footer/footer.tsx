@@ -1,6 +1,5 @@
 'use client';
 
-import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -25,14 +24,14 @@ import {
   linktree,
 } from '@/data/social';
 
-type SocialLinkWithIcon = SocialLink & { icon: ReactElement };
+type SocialLinkWithIcon = SocialLink & { icon: any };
 
 const socialLinksWithIcons: SocialLinkWithIcon[] = [
-  { ...twitter, icon: <Image src={twitterIcon} alt="Twitter Icon" /> },
-  { ...instagram, icon: <Image src={instagramIcon} alt="Instagram Icon" /> },
-  { ...youtube, icon: <Image src={youtubeIcon} alt="YouTube Icon" /> },
-  { ...soundcloud, icon: <Image src={soundcloudIcon} alt="SoundCloud Icon" /> },
-  { ...linktree, icon: <Image src={linktreeIcon} alt="Linktree Icon" /> },
+  { ...twitter, icon: twitterIcon },
+  { ...instagram, icon: instagramIcon },
+  { ...youtube, icon: youtubeIcon },
+  { ...soundcloud, icon: soundcloudIcon },
+  { ...linktree, icon: linktreeIcon },
 ];
 
 export default function Footer() {
@@ -43,7 +42,12 @@ export default function Footer() {
       <div className={styles.content}>
         <div className={`${styles.top} ${styles.grid}`}>
           <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
-            <Link href="/" className={styles.logo}>
+            <Link
+              href="/"
+              className={styles.logo}
+              aria-label="Home"
+              data-testid="footer-logo-link"
+            >
               <Image src={logoImage} width={24} height={24} alt="Site logo" />
             </Link>
             <p>Acoustic and symphonic music for games and interactive media.</p>
@@ -55,10 +59,7 @@ export default function Footer() {
                     className={styles.socialIcon}
                     data-key={link.key}
                   >
-                    {link.icon}
-                    <span className="assistiveText">
-                      Nathan on {link.label}
-                    </span>
+                    <Image src={link.icon} alt={`Nathan on ${link.label}`} />
                   </a>
                 </li>
               ))}

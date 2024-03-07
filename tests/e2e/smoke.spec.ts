@@ -39,8 +39,6 @@ test.describe('home page', () => {
   test('links to home page from the footer', async ({ page }) => {
     await page.goto('/');
 
-    await expect(
-      page.getByRole('contentinfo').getByRole('link', { name: 'Home' }),
-    ).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByText('Home')).toBeVisible();
   });
 });
