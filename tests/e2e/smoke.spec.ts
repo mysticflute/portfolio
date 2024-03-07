@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // This contains simple, fast smoke tests to check that the site
 // is loading and showing content.
 
-test.describe('home page', () => {
+test.describe('home page', { tag: '@smoke' }, () => {
   test('has title', async ({ page }) => {
     await page.goto('/');
 
@@ -36,9 +36,21 @@ test.describe('home page', () => {
     ).toBeVisible();
   });
 
-  test('links to home page from the footer', async ({ page }) => {
+  test('shows copyright in the footer', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.getByRole('contentinfo').getByText('Home')).toBeVisible();
+    await expect(
+      page.getByText(`Copyright © ${new Date().getFullYear()}`),
+    ).toBeVisible();
+  });
+
+  test('shows email address in the footer', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByRole('contentinfo').scrollIntoViewIfNeeded();
+
+    await expect(
+      page.getByRole('link', { name: /n[a-zA-Z]+n@n[a-zA-Z]+.studio/i }),
+    ).toBeVisible();
   });
 });

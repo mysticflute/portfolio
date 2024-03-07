@@ -15,6 +15,7 @@
     "test:coverage:open": "npm test:coverage && open coverage/lcov-report/index.html",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:e2e:smoke": "playwright test --grep @smoke",
     "lint": "next lint && npm run stylelint",
     "stylelint": "stylelint -f verbose 'app/**/*.css'",
     "prettier": "prettier --write .",
