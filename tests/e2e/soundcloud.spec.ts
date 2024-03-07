@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// minimal checks that the soundcloud iframes load.
+// Minimal checks that the soundcloud iframes load.
 
 test.describe('soundcloud iframes', () => {
   test('load successfully', async ({ page }) => {

@@ -1,6 +1,12 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('contact page', () => {
+  test('has title', async ({ page }) => {
+    await page.goto('/contact');
+
+    await expect(page).toHaveTitle(/contact/i);
+  });
+
   test('has main heading', async ({ page }) => {
     await page.goto('/contact');
 
