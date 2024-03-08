@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// Minimal checks that the soundcloud iframes load.
+// Minimal checks for the soundcloud iframes.
 
 test.describe('soundcloud iframes', () => {
   test('load successfully', async ({ page }) => {
@@ -8,10 +8,10 @@ test.describe('soundcloud iframes', () => {
 
     const frame = page.frameLocator('iframe[src*="soundcloud"]').first();
 
-    // the play button, current html looks like this:
+    // the play button's current html looks like this:
     // <button class="playButton small" role="application" title="Play"...>
-    await expect(
-      frame.getByRole('application', { name: 'Play' }),
-    ).toBeVisible();
+    await expect(frame.getByRole('application', { name: 'Play' })).toBeVisible({
+      timeout: 30000,
+    });
   });
 });
