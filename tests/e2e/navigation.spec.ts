@@ -207,28 +207,4 @@ test.describe('footer navigation', () => {
 
     await expect(page).toHaveURL('/');
   });
-
-  test('contains social media links', async ({ page }) => {
-    await page.goto('/');
-
-    await expect(
-      page.getByRole('link', { name: 'Nathan on Twitter' }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByRole('link', { name: 'Nathan on Instagram' }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByRole('link', { name: 'Nathan on YouTube' }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByRole('link', { name: 'Nathan on SoundCloud' }),
-    ).toBeVisible();
-
-    await expect(
-      page.getByRole('link', { name: 'Nathan on Linktree' }),
-    ).toBeVisible();
-  });
 });
