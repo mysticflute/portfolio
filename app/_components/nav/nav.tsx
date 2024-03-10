@@ -48,7 +48,12 @@ export default function Nav() {
     <div className={styles.container}>
       <div className={styles.bar}>
         <div className={styles.barLeft}>
-          <Link href="/" aria-label="Home" className={styles.logo}>
+          <Link
+            href="/"
+            aria-label="Home"
+            className={styles.logo}
+            data-testid="logo-link"
+          >
             <Image
               src={logoImage}
               alt="Site logo"
@@ -59,12 +64,16 @@ export default function Nav() {
           </Link>
         </div>
 
-        <div className={styles.barMiddle}>
+        <div className={styles.barMiddle} data-testid="nav-middle">
           {createNav(mainNav, currentPath)}
         </div>
 
         <div className={styles.barRight}>
-          <Link href="/contact" className={styles.contact}>
+          <Link
+            href="/contact"
+            className={styles.contact}
+            data-testid="contact-icon-link"
+          >
             <Icon name="mail" />
           </Link>
 
