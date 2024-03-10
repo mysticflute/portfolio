@@ -125,14 +125,16 @@ test.describe('main navigation bar', { tag: '@desktop-only' }, () => {
 });
 
 test.describe('main navigation overlay', () => {
-  test.use({ viewport: { width: 390, height: 844 } });
-
-  test('navigates across the website', async ({ page }) => {
+  test('navigates across the website', async ({ page, isMobile }) => {
     const overlayButton = locators.navigationOverlay.button(page);
     const homeLink = locators.navigationOverlay.homeLink(page);
     const aboutLink = locators.navigationOverlay.aboutLink(page);
     const portfolioLink = locators.navigationOverlay.portfolioLink(page);
     const contactLink = locators.navigationOverlay.contactLink(page);
+
+    if (!isMobile) {
+      page.setViewportSize({ width: 390, height: 844 });
+    }
 
     await page.goto('/');
 
