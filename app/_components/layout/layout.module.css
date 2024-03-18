@@ -16,7 +16,7 @@
 @media screen and (min-width: 1025px) {
   .page {
     background: fixed left center / cover no-repeat
-      url('/images/bg/optim/bg-med-q70.jpg?v=1');
+      url('/images/bg/optim/bg-q70.jpg?v=1');
   }
 }
 

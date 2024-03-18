@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it, beforeEach, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import ColorSchemeImage from '../colorSchemeImage';
 
@@ -15,6 +15,12 @@ const srcDark = {
 };
 
 describe('colorSchemeImage', () => {
+  beforeEach(() => {
+    // suppress React warning about fetchPriority prop until this is fixed:
+    // https://github.com/facebook/react/issues/27233
+    jest.spyOn(console, 'error').mockImplementation(jest.fn());
+  });
+
   it('matches the snapshot with basic props', () => {
     const { container } = render(
       <ColorSchemeImage srcDark={srcDark} srcLight={srcLight} alt="alt text" />,
