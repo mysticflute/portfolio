@@ -1,30 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`colorSchemeImage matches the snapshot 1`] = `
+exports[`colorSchemeImage matches the snapshot with additional props 1`] = `
 <div>
-  <img
-    alt="alt text"
-    class="light"
-    data-nimg="1"
-    decoding="async"
-    height="1"
-    loading="lazy"
-    src="/_next/image?url=%2FsrcLight.png&w=16&q=75"
-    srcset="/_next/image?url=%2FsrcLight.png&w=16&q=75 1x"
-    style="color: transparent;"
-    width="1"
-  />
-  <img
-    alt="alt text"
-    class="dark"
-    data-nimg="1"
-    decoding="async"
-    height="1"
-    loading="lazy"
-    src="/_next/image?url=%2FsrcDark.png&w=16&q=75"
-    srcset="/_next/image?url=%2FsrcDark.png&w=16&q=75 1x"
-    style="color: transparent;"
-    width="1"
-  />
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      sizes="(max-width: 500px) 100vw, 50vw"
+      srcset="/_next/image?url=%2FsrcDark.png&w=384&q=80 384w, /_next/image?url=%2FsrcDark.png&w=640&q=80 640w, /_next/image?url=%2FsrcDark.png&w=750&q=80 750w, /_next/image?url=%2FsrcDark.png&w=828&q=80 828w, /_next/image?url=%2FsrcDark.png&w=1080&q=80 1080w, /_next/image?url=%2FsrcDark.png&w=1200&q=80 1200w, /_next/image?url=%2FsrcDark.png&w=1920&q=80 1920w, /_next/image?url=%2FsrcDark.png&w=2048&q=80 2048w, /_next/image?url=%2FsrcDark.png&w=3840&q=80 3840w"
+    />
+    <img
+      alt="alt text"
+      decoding="async"
+      fetchpriority="high"
+      height="100"
+      sizes="(max-width: 500px) 100vw, 50vw"
+      src="/_next/image?url=%2FsrcLight.png&w=3840&q=80"
+      srcset="/_next/image?url=%2FsrcLight.png&w=384&q=80 384w, /_next/image?url=%2FsrcLight.png&w=640&q=80 640w, /_next/image?url=%2FsrcLight.png&w=750&q=80 750w, /_next/image?url=%2FsrcLight.png&w=828&q=80 828w, /_next/image?url=%2FsrcLight.png&w=1080&q=80 1080w, /_next/image?url=%2FsrcLight.png&w=1200&q=80 1200w, /_next/image?url=%2FsrcLight.png&w=1920&q=80 1920w, /_next/image?url=%2FsrcLight.png&w=2048&q=80 2048w, /_next/image?url=%2FsrcLight.png&w=3840&q=80 3840w"
+      style="color: transparent;"
+      width="200"
+    />
+  </picture>
+</div>
+`;
+
+exports[`colorSchemeImage matches the snapshot with basic props 1`] = `
+<div>
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="/_next/image?url=%2FsrcDark.png&w=256&q=75 1x, /_next/image?url=%2FsrcDark.png&w=640&q=75 2x"
+    />
+    <img
+      alt="alt text"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="/_next/image?url=%2FsrcLight.png&w=640&q=75"
+      srcset="/_next/image?url=%2FsrcLight.png&w=256&q=75 1x, /_next/image?url=%2FsrcLight.png&w=640&q=75 2x"
+      style="color: transparent;"
+      width="200"
+    />
+  </picture>
 </div>
 `;
