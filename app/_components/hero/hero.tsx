@@ -1,8 +1,8 @@
 import Button from '@/components/button/button';
 import Icon from '@/components/icon/icon';
 import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
-import profileImageLight from '@/public/images/profile/profile-v2-high-q.png';
-import profileImageDark from '@/public/images/profile/profile-high-q.jpg';
+import profileImageLight from '@/public/images/profile/profile-v2-high.png';
+import profileImageDark from '@/public/images/profile/profile-high.jpg';
 import styles from './hero.module.css';
 
 export default function Hero() {

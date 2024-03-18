@@ -28,9 +28,9 @@ describe('colorSchemeImage', () => {
       <ColorSchemeImage
         srcDark={srcDark}
         srcLight={srcLight}
-        alt="alt text"
         priority
         quality={80}
+        alt="alt text"
         sizes="(max-width: 500px) 100vw, 50vw"
       />,
     );

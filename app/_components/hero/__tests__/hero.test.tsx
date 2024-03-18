@@ -28,6 +28,6 @@ describe('hero', () => {
   it('renders the avatar image(s)', () => {
     render(<Hero />);
 
-    expect(screen.getAllByAltText(/nathan david mcwilliams/i)).toHaveLength(2);
+    expect(screen.getByAltText(/nathan david mcwilliams/i)).toBeInTheDocument();
   });
 });
