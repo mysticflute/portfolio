@@ -1,8 +1,14 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it, beforeEach, jest } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Hero from '../hero';
 
 describe('hero', () => {
+  beforeEach(() => {
+    // suppress React warning about fetchPriority prop until this is fixed:
+    // https://github.com/facebook/react/issues/27233
+    jest.spyOn(console, 'error').mockImplementation(jest.fn());
+  });
+
   it('renders a heading', () => {
     render(<Hero />);
 
@@ -28,6 +34,6 @@ describe('hero', () => {
   it('renders the avatar image(s)', () => {
     render(<Hero />);
 
-    expect(screen.getAllByAltText(/nathan david mcwilliams/i)).toHaveLength(2);
+    expect(screen.getByAltText(/nathan david mcwilliams/i)).toBeInTheDocument();
   });
 });

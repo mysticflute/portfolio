@@ -1,42 +1,45 @@
-import Image, { ImageProps, StaticImageData } from 'next/image';
-import styles from './colorSchemeImage.module.css';
+import { getImageProps, ImageProps, StaticImageData } from 'next/image';
 
-// Taken from the nextjs docs:
-// https://nextjs.org/docs/pages/api-reference/components/image
-//
-// It resuts in two images elements on the page, but only
-// the relevant is loaded by the browser. It seems Next.js
-// is working on improvements here that would allow using
-// the <picture> and <source> elements which is more ideal.
+// Reference:
+// https://nextjs.org/docs/app/api-reference/components/image#getimageprops
 
-type Props = Omit<ImageProps, 'src' | 'priority' | 'loading'> & {
-  /**
-   * The image source for light mode.
-   */
-  srcLight: StaticImageData;
+/**
+ * Properties for the ColorSchemeImage component.
+ *
+ * According to the NextJS docs, the `placeholder` property cannot be used
+ * along with `getImageProps`, because it would not be removed when the image
+ * loads. So it's removed here as a param option.
+ */
+type Props = Omit<ImageProps, 'src' | 'placeholder'> & {
   /**
    * The image source for dark mode.
    */
   srcDark: StaticImageData;
+
   /**
-   * Passthrough of the img fetchPriority.
+   * The image source for light mode.
    */
-  fetchPriority?: 'high' | 'low' | 'auto';
+  srcLight: StaticImageData;
 };
 
 /**
  * An image that has two different sources for light and dark modes.
  */
 export default function ColorSchemeImage(props: Props) {
-  const { srcLight, srcDark, ...rest } = props;
+  const { srcDark, srcLight, ...rest } = props;
+
+  const { props: darkSrc } = getImageProps({ ...rest, src: srcDark });
+  const { props: lightSrc } = getImageProps({ ...rest, src: srcLight });
 
   return (
-    // the alt prop is required by the type, even though
-    // eslint doesn't detect it:
-    /* eslint-disable jsx-a11y/alt-text */
-    <>
-      <Image src={srcLight} {...rest} className={styles.light} />
-      <Image src={srcDark} {...rest} className={styles.dark} />
-    </>
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcSet={darkSrc.srcSet}
+        sizes={darkSrc.sizes}
+      />
+      {/* for some reason the alt property is not on the typedef */}
+      <img {...lightSrc} alt={props.alt} />
+    </picture>
   );
 }

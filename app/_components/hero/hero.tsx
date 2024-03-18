@@ -1,8 +1,8 @@
 import Button from '@/components/button/button';
 import Icon from '@/components/icon/icon';
 import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
-import profileImageLight from '@/public/images/profile/profile-v2-high-q.png';
-import profileImageDark from '@/public/images/profile/profile-high-q.jpg';
+import profileImageLight from '@/public/images/profile/profile-v2-high.png';
+import profileImageDark from '@/public/images/profile/profile-high.jpg';
 import styles from './hero.module.css';
 
 export default function Hero() {
@@ -49,12 +49,11 @@ export default function Hero() {
         <div className={styles.profile}>
           <div className={styles.imageWrapper} title="Art by @mechibaz.">
             <ColorSchemeImage
-              srcLight={profileImageLight}
-              srcDark={profileImageDark}
+              priority
               quality={80}
-              placeholder="blur"
-              fetchPriority="high"
-              sizes="(max-width: 767px) 100vw, (max-width: 991px) 70vw, 50vw"
+              srcDark={profileImageDark}
+              srcLight={profileImageLight}
+              sizes="(max-width: 540px) calc(100vw-40px), (max-width: 767px) 500px, (max-width: 991px) 600px, (max-width: 1175px) 45vw, 500px"
               alt="Character portrait of Nathan David McWilliams"
             />
           </div>

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`colorSchemeImage matches the snapshot 1`] = `
+<div>
+  <img
+    alt="alt text"
+    class="light"
+    data-nimg="1"
+    decoding="async"
+    height="1"
+    loading="lazy"
+    src="/_next/image?url=%2FsrcLight.png&w=16&q=75"
+    srcset="/_next/image?url=%2FsrcLight.png&w=16&q=75 1x"
+    style="color: transparent;"
+    width="1"
+  />
+  <img
+    alt="alt text"
+    class="dark"
+    data-nimg="1"
+    decoding="async"
+    height="1"
+    loading="lazy"
+    src="/_next/image?url=%2FsrcDark.png&w=16&q=75"
+    srcset="/_next/image?url=%2FsrcDark.png&w=16&q=75 1x"
+    style="color: transparent;"
+    width="1"
+  />
+</div>
+`;
