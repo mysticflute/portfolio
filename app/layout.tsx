@@ -11,8 +11,28 @@ export const metadata: Metadata = {
     default: baseWebsiteTitle,
     template: `%s - ${baseWebsiteTitle}`,
   },
+
   description:
     'Nathan David McWilliams is a music composer, pianist and flutist for video games and interactive media based in Atlanta, GA.',
+
+  twitter: {
+    card: 'summary',
+    site: '@mysticflute',
+  },
+
+  openGraph: {
+    type: 'website',
+    url: 'https://www.ndm.studio',
+    title: 'Nathan David McWilliams, Composer',
+    description:
+      'Nathan is a composer in Atlanta, GA, crafting memorable melodies and themes for games and interactive media. Listen to selected demo tracks and published works.',
+    images: [
+      {
+        url: 'https://www.ndm.studio/images/profile/profile-og-image.jpg',
+        alt: 'Character portrait of Nathan David McWilliams',
+      },
+    ],
+  },
 
   // for info about favicons, see these articles:
   // https://medium.com/web-dev-survey-from-kyoto/favicon-nightmare-how-to-maintain-sanity-7628bfc39918
@@ -24,6 +44,7 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
+
   manifest: '/site.webmanifest',
 };
 
