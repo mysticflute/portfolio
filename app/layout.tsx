@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Nathan is a composer in Atlanta, GA, crafting memorable melodies and themes for games and interactive media. Listen to selected demo tracks and published works.',
     images: [
       {
-        url: 'https://portfolio-git-metadata2-mysticflute.vercel.app/images/profile/profile-og-image-sq.png?1',
+        url: 'https://portfolio-git-metadata2-mysticflute.vercel.app/images/profile/profile-og-image-sq-alt.png?2',
         alt: 'Character portrait of Nathan David McWilliams',
       },
     ],
