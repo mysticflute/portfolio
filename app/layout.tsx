@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: 'website',
-    url: 'https://www.ndm.studio',
+    url: 'https://portfolio-git-metadata2-mysticflute.vercel.app',
     title: 'Nathan David McWilliams, Composer',
     description:
       'Nathan is a composer in Atlanta, GA, crafting memorable melodies and themes for games and interactive media. Listen to selected demo tracks and published works.',
     images: [
       {
-        url: 'https://www.ndm.studio/images/profile/profile-og-image.jpg',
+        url: 'https://portfolio-git-metadata2-mysticflute.vercel.app/images/profile/profile-og-image.jpg',
         alt: 'Character portrait of Nathan David McWilliams',
       },
     ],
