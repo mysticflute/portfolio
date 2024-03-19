@@ -15,11 +15,6 @@ export const metadata: Metadata = {
   description:
     'Nathan David McWilliams is a music composer, pianist and flutist for video games and interactive media based in Atlanta, GA.',
 
-  twitter: {
-    card: 'summary',
-    site: '@mysticflute',
-  },
-
   openGraph: {
     type: 'website',
     url: 'https://www.ndm.studio',
@@ -32,6 +27,14 @@ export const metadata: Metadata = {
         alt: 'Character portrait of Nathan David McWilliams',
       },
     ],
+  },
+
+  twitter: {
+    card: 'summary',
+    site: '@mysticflute',
+    title: 'Nathan David McWilliams, Composer',
+    description:
+      'Nathan is a composer in Atlanta, GA, crafting memorable melodies and themes for games and interactive media. Listen to selected demo tracks and published works.',
   },
 
   // for info about favicons, see these articles:
