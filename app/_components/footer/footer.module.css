@@ -1,17 +1,17 @@
 .container {
-  background: var(--color-background-dark);
-  color: var(--color-neutral);
+  background: var(--color-background-default);
+  color: var(--color-text-inverse);
 }
 
 .content {
-  margin: 0 auto;
-  padding: 0 24px;
-  max-width: 1300px;
+  margin: var(--layout-margin);
+  padding: var(--layout-padding);
+  max-width: var(--layout-max-width);
 }
 
 .top {
   padding: 100px 0 80px;
-  border-bottom: 1px solid var(--color-gray);
+  border-bottom: 1px solid var(--color-gray-200);
 }
 
 .bottom {
@@ -68,7 +68,7 @@ a.hasIcon .socialIcon {
 
 a:hover > .socialIcon,
 .socialIcon:hover {
-  background: var(--color-blue);
+  background: var(--color-text-link-highlight);
 }
 
 .socialIcon[data-key='soundcloud'] img {

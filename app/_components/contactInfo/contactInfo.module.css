@@ -3,8 +3,8 @@
 }
 
 .content {
-  margin: 0 auto;
-  padding: 0 24px;
+  margin: var(--layout-margin);
+  padding: var(--layout-padding);
   max-width: 489px;
   text-align: center;
 }
@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 40px 35px;
-  border: 3px solid var(--color-background-dark);
+  border: 3px solid var(--color-background-border);
   border-radius: 24px;
   background: #fff;
 }

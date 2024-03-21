@@ -1,29 +1,31 @@
-/** CSS variables and default element styles/resets only. */
+/* CSS variables and default element styles/resets only. */
 
 :root {
-  --color-dark: #0b0b0b;
-  --color-gray: #393939;
-  --color-theme: #4331f0;
-  --color-neutral: #eff0f6;
-  --color-white: #faf9f6;
-  --color-blue: #53abf8;
-  --color-red: #ff4a60;
-  --color-yellow: #f6b468;
-  --color-purple: #5358f8;
-  --color-text-default: var(--color-gray);
-  --color-text-dark: var(--color-dark);
-  --color-text-light: var(--color-neutral);
-  --color-text-link: var(--color-dark);
-  --color-text-link-highlight: var(--color-blue);
-  --color-background-default: var(--color-theme);
-  --color-background-dark: var(--color-dark);
-  --color-background-highlight: var(--color-blue);
-
-  /* TODO: variables for container padding/margins/widths */
-
-  /* TODO: layoutWidth, layoutMargin, layoutPadding */
-
-  /* TODO: rename primary, accent, accent-200, accent-300, contrast, shadow */
+  --color-gray-100: #0b0b0b;
+  --color-gray-200: #393939;
+  --color-neutral-100: #eff0f6;
+  --color-red-100: #ff4a60;
+  --color-yellow-100: #f6b468;
+  --color-blue-100: #53abf8;
+  --color-purple-100: #4331f0;
+  --color-purple-200: #5358f8;
+  --color-primary: var(--color-purple-100);
+  --color-accent-100: var(--color-purple-200);
+  --color-accent-200: var(--color-blue-100);
+  --color-accent-300: var(--color-yellow-100);
+  --color-background-primary: var(--color-primary);
+  --color-background-default: var(--color-gray-100);
+  --color-background-border: var(--color-gray-100);
+  --color-background-shadow: var(--color-gray-100);
+  --color-background-highlight: var(--color-blue-100);
+  --color-text-default: var(--color-gray-200);
+  --color-text-accent: var(--color-gray-100);
+  --color-text-inverse: var(--color-neutral-100);
+  --color-text-link: var(--color-gray-100);
+  --color-text-link-highlight: var(--color-blue-100);
+  --layout-max-width: 1300px;
+  --layout-padding: 0 24px;
+  --layout-margin: 0 auto;
 }
 
 *,

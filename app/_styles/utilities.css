@@ -1,4 +1,4 @@
-/** Cross-component utility classes only. */
+/* Cross-component utility classes only. */
 
 .assistiveText {
   position: absolute !important;
@@ -15,21 +15,21 @@
 
 /* Headings */
 .textHeadingLarge {
-  color: var(--color-text-dark);
+  color: var(--color-text-accent);
   font-size: 4.5rem;
   font-weight: 700;
   line-height: 1.181;
 }
 
 .textHeadingMedium {
-  color: var(--color-text-dark);
+  color: var(--color-text-accent);
   font-size: 3.25rem;
   font-weight: 700;
   line-height: 1.154;
 }
 
 .textHeadingSmall {
-  color: var(--color-text-dark);
+  color: var(--color-text-accent);
   font-size: 2.375rem;
   font-weight: 700;
   line-height: 1.368;
@@ -96,14 +96,26 @@
 }
 
 .textHighlight1 {
-  background: linear-gradient(180deg, transparent 6%, var(--color-purple) 6%);
+  background: linear-gradient(
+    180deg,
+    transparent 6%,
+    var(--color-accent-100) 6%
+  );
 }
 
 .textHighlight2 {
-  background: linear-gradient(180deg, transparent 10%, var(--color-blue) 10%);
+  background: linear-gradient(
+    180deg,
+    transparent 10%,
+    var(--color-accent-200) 10%
+  );
 }
 
 .textHighlight3 {
-  background: linear-gradient(180deg, transparent 10%, var(--color-yellow) 10%);
+  background: linear-gradient(
+    180deg,
+    transparent 10%,
+    var(--color-accent-300) 10%
+  );
   color: inherit;
 }

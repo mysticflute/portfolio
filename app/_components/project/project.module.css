@@ -1,6 +1,6 @@
 .container {
   padding: 58px 64px;
-  border: 3px solid var(--color-background-dark);
+  border: 3px solid var(--color-background-border);
   border-radius: 28px;
   background: #fff;
   transition:
@@ -10,7 +10,7 @@
 }
 
 .container:hover {
-  box-shadow: 10px 10px 0 0 var(--color-background-dark);
+  box-shadow: 10px 10px 0 0 var(--color-background-shadow);
   transform: translate3d(0, -10px, 0.01px);
 }
 
@@ -24,7 +24,7 @@
 .badge {
   padding: 14px 22px;
   border-radius: 12px;
-  background: var(--color-background-dark);
+  background: var(--color-background-default);
   color: #fff;
   font-size: 1rem;
   font-weight: 400;

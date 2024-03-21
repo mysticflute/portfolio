@@ -3,9 +3,9 @@
 }
 
 .content {
-  max-width: 1300px;
-  padding: 0 24px;
-  margin: 0 auto;
+  margin: var(--layout-margin);
+  padding: var(--layout-padding);
+  max-width: var(--layout-max-width);
 }
 
 .heading {
