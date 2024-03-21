@@ -1,6 +1,11 @@
 import { Metadata, Viewport } from 'next';
-import { baseWebsiteTitle } from '@/lib/constants';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
+import {
+  baseWebsiteTitle,
+  websiteDescription,
+  socialCardTitle,
+  socialCardDescription,
+} from '@/lib/constants';
 
 import 'normalize.css/normalize.css';
 import '@/styles/globals.css';
@@ -11,8 +16,29 @@ export const metadata: Metadata = {
     default: baseWebsiteTitle,
     template: `%s - ${baseWebsiteTitle}`,
   },
-  description:
-    'Nathan David McWilliams is a music composer, pianist and flutist for video games and interactive media based in Atlanta, GA.',
+
+  description: websiteDescription,
+
+  openGraph: {
+    type: 'website',
+    url: 'https://www.ndm.studio',
+    title: socialCardTitle,
+    description: socialCardDescription,
+    images: [
+      {
+        url: 'https://www.ndm.studio/images/profile/profile-og-image.png',
+        alt: 'Character portrait of Nathan David McWilliams',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: socialCardTitle,
+    description: socialCardDescription,
+  },
 
   // for info about favicons, see these articles:
   // https://medium.com/web-dev-survey-from-kyoto/favicon-nightmare-how-to-maintain-sanity-7628bfc39918
@@ -24,6 +50,7 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
+
   manifest: '/site.webmanifest',
 };
 
