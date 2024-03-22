@@ -1,4 +1,4 @@
-/* Cross-component utility classes only. */
+/* This file contains cross-component utility classes only. */
 
 .assistiveText {
   position: absolute !important;
@@ -118,4 +118,25 @@
     var(--color-accent-300) 10%
   );
   color: inherit;
+}
+
+/* Links */
+.linkBase,
+.linkDefault {
+  transition: color 300ms ease;
+}
+
+.linkDefault {
+  color: var(--color-text-link);
+}
+
+.linkDefault:not([aria-current]):hover {
+  color: var(--color-text-highlight);
+}
+
+/* Alignment */
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

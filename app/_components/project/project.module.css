@@ -1,8 +1,8 @@
 .container {
   padding: 58px 64px;
-  border: 3px solid var(--color-background-border);
+  border: 3px solid var(--color-background-100);
   border-radius: 28px;
-  background: #fff;
+  background: var(--color-background-200);
   transition:
     box-shadow 300ms ease,
     transform 300ms ease;
@@ -10,7 +10,7 @@
 }
 
 .container:hover {
-  box-shadow: 10px 10px 0 0 var(--color-background-shadow);
+  box-shadow: 10px 10px 0 0 var(--color-background-100);
   transform: translate3d(0, -10px, 0.01px);
 }
 
@@ -24,7 +24,7 @@
 .badge {
   padding: 14px 22px;
   border-radius: 12px;
-  background: var(--color-background-default);
+  background: var(--color-background-300);
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
@@ -47,7 +47,7 @@
 
 .viewMore {
   font-weight: 700;
-  color: var(--color-text-dark);
+  color: var(--color-text-link);
 }
 
 .viewMore .arrow {

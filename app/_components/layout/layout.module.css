@@ -1,14 +1,14 @@
 .page {
   min-width: 300px;
   background:
-    linear-gradient(transparent 40vh, var(--color-background-primary) 50vh),
+    linear-gradient(transparent 40vh, var(--color-primary) 50vh),
     top left / contain no-repeat url('/images/bg/optim/bg-phone-q70.jpg?v=1');
 }
 
 @media screen and (min-width: 768px) {
   .page {
     background:
-      linear-gradient(transparent 50vh, var(--color-background-primary) 80vh),
+      linear-gradient(transparent 50vh, var(--color-primary) 80vh),
       top left / contain no-repeat url('/images/bg/optim/bg-tablet-q70.jpg?v=1');
   }
 }

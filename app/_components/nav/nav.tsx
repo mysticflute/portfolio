@@ -30,6 +30,7 @@ function createNav(items: NavItems[], currentItem: string) {
             <Link
               href={item.path}
               aria-current={item.path === currentItem ? 'page' : undefined}
+              className="linkDefault"
             >
               {item.label}
             </Link>
@@ -51,7 +52,7 @@ export default function Nav() {
           <Link
             href="/"
             aria-label="Home"
-            className={styles.logo}
+            className={`${styles.logo} flexCenter`}
             data-testid="logo-link"
           >
             <Image

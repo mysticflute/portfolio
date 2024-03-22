@@ -7,6 +7,6 @@
   display: flex;
   width: 110%;
   padding: 60px 0;
-  background: var(--color-background-default);
+  background: var(--color-background-100);
   transform: translate(-15px, 0) rotate(-5deg);
 }

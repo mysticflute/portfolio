@@ -26,7 +26,7 @@ export default function Hero() {
             as Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
-          <div className={styles.buttons}>
+          <div className={`${styles.buttons} flexCenter`}>
             <Button type="primary" href="/contact">
               <Icon
                 name="mail"

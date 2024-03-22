@@ -1,5 +1,5 @@
 .container {
-  background: var(--color-background-default);
+  background: var(--color-background-100);
   color: var(--color-text-inverse);
 }
 
@@ -52,13 +52,10 @@
 }
 
 .socialIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-background-200);
   transition: background-color 300ms ease;
 }
 
@@ -68,7 +65,7 @@ a.hasIcon .socialIcon {
 
 a:hover > .socialIcon,
 .socialIcon:hover {
-  background: var(--color-text-link-highlight);
+  background: var(--color-text-highlight);
 }
 
 .socialIcon[data-key='soundcloud'] img {
@@ -110,7 +107,7 @@ a:hover > .socialIcon,
 
 .list a:not([aria-current]):hover {
   transform: translate3d(8px, 0, 0.01px);
-  color: var(--color-text-link-highlight);
+  color: var(--color-text-highlight);
 }
 
 .list a.hasIcon {
