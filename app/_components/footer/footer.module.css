@@ -185,13 +185,4 @@ a:hover > .socialIcon,
   .sectionWithText p {
     margin-bottom: 23px;
   }
-
-  /* .multiColumnList {
-    grid-template-rows: 1fr;
-    grid-auto-flow: row;
-  }
-
-  .multiColumnList li:nth-of-type(6n + 6) {
-    margin-bottom: 20px;
-  } */
 }

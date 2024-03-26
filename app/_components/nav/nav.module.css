@@ -6,21 +6,12 @@
 }
 
 .bar {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
   border: 2px solid var(--color-background-100);
   border-radius: 18px;
   background: var(--color-background-200);
   box-shadow: 7px 7px 0 0 var(--color-background-100);
-}
-
-.barLeft,
-.barMiddle,
-.barRight {
-  display: flex;
-  align-items: center;
 }
 
 .logo {
@@ -34,11 +25,6 @@
 
 .logo:hover {
   transform: scale3d(0.96, 0.96, 0.99);
-}
-
-.list {
-  display: flex;
-  align-items: center;
 }
 
 .list a {

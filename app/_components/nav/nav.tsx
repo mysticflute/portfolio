@@ -24,7 +24,7 @@ export const mainNav: NavItems[] = [
 function createNav(items: NavItems[], currentItem: string) {
   return (
     <nav role="navigation" aria-label="Main navigation">
-      <ul className={styles.list}>
+      <ul className={`flexCenter ${styles.list}`}>
         {items.map(item => (
           <li key={item.label}>
             <Link
@@ -47,8 +47,8 @@ export default function Nav() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.bar}>
-        <div className={styles.barLeft}>
+      <div className={`flexCenter ${styles.bar}`}>
+        <div className="flexCenter">
           <Link
             href="/"
             aria-label="Home"
@@ -65,11 +65,11 @@ export default function Nav() {
           </Link>
         </div>
 
-        <div className={styles.barMiddle} data-testid="nav-middle">
+        <div className="flexCenter" data-testid="nav-middle">
           {createNav(mainNav, currentPath)}
         </div>
 
-        <div className={styles.barRight}>
+        <div className="flexCenter">
           <Link
             href="/contact"
             className={styles.contact}
