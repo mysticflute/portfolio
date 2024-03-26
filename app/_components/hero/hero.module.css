@@ -40,11 +40,6 @@
   overflow: hidden;
 }
 
-/* TODO: make a iconButton component */
-.buttonIcon {
-  font-weight: 500;
-}
-
 @media screen and (max-width: 991px) {
   .container {
     padding: 78px 0 123px;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iconButton matches snapshot 1`] = `
+<div>
+  <a
+    class="base secondary"
+    href="/foo"
+  >
+    <span
+      class="lineRounded mail hasTextAfter icon"
+      data-testid="icon"
+    />
+    foo
+  </a>
+</div>
+`;
