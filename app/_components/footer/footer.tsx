@@ -56,7 +56,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={link.url}
-                    className={styles.socialIcon}
+                    className={`${styles.socialIcon} flexCenter`}
                     data-key={link.key}
                   >
                     <Image src={link.icon} alt={`Nathan on ${link.label}`} />
@@ -106,7 +106,7 @@ export default function Footer() {
                 <SwappedEmail
                   spamEmail={spamEmail}
                   encodedHumanEmail={encodedHumanEmail}
-                  iconClassName={styles.socialIcon}
+                  iconClassName={`${styles.socialIcon} flexCenter`}
                   linkClassName={styles.hasIcon}
                 />
               </li>
