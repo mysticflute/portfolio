@@ -18,16 +18,8 @@ export default function Contact() {
             spamEmail={spamEmail}
             encodedHumanEmail={encodedHumanEmail}
             iconClassName={styles.socialIcon}
-            linkClassName={styles.hasIcon}
+            linkClassName="linkDefault flexCenter"
           />
-          {/* <a
-            href="mailto:ndm.music.inbox@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image src={emailIcon} alt="" priority />
-            ndm.music.inbox@gmail.com
-          </a> */}
         </div>
       </div>
     </div>
