@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './button.module.css';
 
-type Props = {
+export type Props = {
   /**
    * The button style.
    */

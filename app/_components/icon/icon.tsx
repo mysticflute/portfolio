@@ -1,11 +1,11 @@
 import { clsx } from 'clsx';
 import styles from './icon.module.css';
 
-type Props = {
+export type Props = {
   /**
    * Name of the icon to use.
    */
-  name: string;
+  name: 'mail' | 'briefcase' | 'arrowDiagonal' | 'arrowRight';
 
   /**
    * Set to true when there's text to the right of the icon.

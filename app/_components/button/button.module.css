@@ -1,9 +1,8 @@
 .base {
   display: inline-block;
   padding: 26px 38px;
-  border: 2px solid var(--color-background-dark);
+  border: 2px solid var(--color-background-100);
   border-radius: 16px;
-  color: #fff;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.111;
@@ -40,7 +39,8 @@
 
 .primary {
   margin-right: 28px;
-  background: var(--color-background-dark);
+  background: var(--color-background-100);
+  color: #fff;
 }
 
 @media screen and (max-width: 767px) {
@@ -59,18 +59,16 @@
 .primary:hover {
   border-color: var(--color-background-highlight);
   background: var(--color-background-highlight);
-  color: #fff;
   transform: translate3d(0, -3px, 0.01px);
 }
 
 .secondary {
-  background: #fff;
-  color: var(--color-text-dark);
+  background: var(--color-background-200);
+  color: var(--color-text-link);
 }
 
 .secondary:hover {
-  border-color: var(--color-background-dark);
-  background: var(--color-background-dark);
+  background: var(--color-background-100);
   color: #fff;
   transform: translate3d(0, -3px, 0.01px);
 }

@@ -6,28 +6,16 @@
 }
 
 .bar {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  border: 2px solid var(--color-background-dark);
+  border: 2px solid var(--color-background-100);
   border-radius: 18px;
-  background-color: #fff;
-  box-shadow: 7px 7px 0 0 var(--color-background-dark);
-}
-
-.barLeft,
-.barMiddle,
-.barRight {
-  display: flex;
-  align-items: center;
+  background: var(--color-background-200);
+  box-shadow: 7px 7px 0 0 var(--color-background-100);
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
+  background-color: var(--color-background-300);
   border-radius: 50%;
   width: 54px;
   height: 54px;
@@ -39,19 +27,8 @@
   transform: scale3d(0.96, 0.96, 0.99);
 }
 
-.list {
-  display: flex;
-  align-items: center;
-}
-
 .list a {
-  color: var(--color-text-link);
   font-weight: 700;
-  transition: color 300ms ease;
-}
-
-.list a:not([aria-current]):hover {
-  color: var(--color-text-link-highlight);
 }
 
 .bar .list > li {
@@ -65,9 +42,9 @@
   flex-direction: column;
   overflow: hidden;
   padding: 32px 24px;
-  border: 2px solid var(--color-background-dark);
+  border: 2px solid var(--color-background-100);
   border-radius: 24px;
-  background: #fff;
+  background: var(--color-background-200);
 }
 
 .overlay .list > li {
@@ -82,10 +59,9 @@
 .contact {
   display: inline-block;
   margin-left: 24px;
-  padding: 13px;
-  border: 2px solid var(--color-background-dark);
+  padding: 15px;
   border-radius: 12px;
-  background-color: var(--color-background-dark);
+  background: var(--color-background-300);
   color: #fff;
   font-size: 24px;
   line-height: 24px;
@@ -98,9 +74,7 @@
 }
 
 .contact:hover {
-  color: #fff;
-  border-color: var(--color-background-highlight);
-  background-color: var(--color-background-highlight);
+  background: var(--color-background-highlight);
   transform: translate3d(0, -3px, 0.01px);
 }
 
@@ -121,7 +95,7 @@
   height: 3px;
   margin: 12px 0;
   border-radius: 20px;
-  background-color: var(--color-background-dark);
+  background-color: var(--color-background-100);
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }

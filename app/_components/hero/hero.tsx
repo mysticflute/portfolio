@@ -1,5 +1,4 @@
-import Button from '@/components/button/button';
-import Icon from '@/components/icon/icon';
+import IconButton from '@/components/iconButton/iconButton';
 import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
 import profileImageLight from '@/public/images/profile/profile-v2-high.png';
 import profileImageDark from '@/public/images/profile/profile-high.jpg';
@@ -26,24 +25,14 @@ export default function Hero() {
             as Final Fantasy, Suikoden and Octopath Traveler.
           </p>
 
-          <div className={styles.buttons}>
-            <Button type="primary" href="/contact">
-              <Icon
-                name="mail"
-                hasTextAfter={true}
-                className={styles.buttonIcon}
-              />
+          <div className={`${styles.buttons} flexCenter`}>
+            <IconButton type="primary" href="/contact" iconName="mail">
               Get in touch
-            </Button>
+            </IconButton>
 
-            <Button type="secondary" href="#portfolio">
-              <Icon
-                name="briefcase"
-                hasTextAfter={true}
-                className={styles.buttonIcon}
-              />
+            <IconButton type="secondary" href="#portfolio" iconName="briefcase">
               View portfolio
-            </Button>
+            </IconButton>
           </div>
         </div>
         <div className={styles.profile}>
