@@ -9,3 +9,11 @@
   );
   color: var(--color-text-alt);
 }
+
+@media screen and (max-width: 991px) {
+  .text {
+    display: inline-block;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
