@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Box from '@/components/box/box';
 import Button from '@/components/button/button';
 import warningIcon from '@/public/images/icons/paperfolio/warning-large.svg';
 import styles from './notFound.module.css';
@@ -19,13 +19,15 @@ export default function NotFound() {
             <p className="textHeadingLarge">Oops!</p>
             <h1 className="textHeadingMedium">Page Not Found</h1>
           </hgroup>
-          <p className={styles.text}>
-            That page is not here.
-            <br />{' '}
-            <span className={styles.textFade}>
-              Perchance it has disappeared, into the ether.
-            </span>
-          </p>
+          <Box type="text" className={styles.text}>
+            <p>
+              That page is not here.
+              <br />
+              <span className={styles.fade}>
+                Perchance it has disappeared, into the ether.
+              </span>
+            </p>
+          </Box>
           <div>
             <Button href="/" type="primary">
               Go to homepage

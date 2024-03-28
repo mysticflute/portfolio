@@ -13,10 +13,6 @@
   margin-bottom: 16px;
 }
 
-.content p {
-  margin-bottom: 32px;
-}
-
 .card {
   display: inline-flex;
   flex-direction: column;
@@ -50,9 +46,9 @@
     margin-bottom: 10px;
   }
 
-  .content p {
+  /* .content p {
     margin-bottom: 26px;
-  }
+  } */
 
   .card a {
     font-size: 1.125rem;
@@ -70,9 +66,9 @@
     padding-right: 20px;
   }
 
-  .content p {
+  /* .content p {
     margin-bottom: 23px;
-  }
+  } */
 
   .card {
     display: flex;

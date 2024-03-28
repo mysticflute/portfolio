@@ -17,7 +17,9 @@ export type Props = {
    */
   hasTextBefore?: boolean;
 
-  /** CSS class name for the top element. */
+  /**
+   * CSS class name for the top element.
+   */
   className?: string;
 };
 
