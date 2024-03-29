@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`box matches snapshot for default options 1`] = `
+<div>
+  <div
+    class="box hover"
+  >
+    content...
+  </div>
+</div>
+`;
+
+exports[`box matches snapshot for type="flat" 1`] = `
+<div>
+  <div
+    class="box flat"
+  >
+    content...
+  </div>
+</div>
+`;
+
+exports[`box matches snapshot for type="hover" 1`] = `
+<div>
+  <div
+    class="box hover"
+  >
+    content...
+  </div>
+</div>
+`;
+
+exports[`box matches snapshot for type="raised" 1`] = `
+<div>
+  <div
+    class="box raised"
+  >
+    content...
+  </div>
+</div>
+`;
+
+exports[`box matches snapshot for type="text" 1`] = `
+<div>
+  <div
+    class="box text"
+  >
+    content...
+  </div>
+</div>
+`;
