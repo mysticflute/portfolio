@@ -180,6 +180,11 @@
 }
 
 @media screen and (max-width: 479px) {
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   .logo img {
     max-width: 86%;
   }

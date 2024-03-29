@@ -16,14 +16,14 @@ export default function Contact() {
             email at the address below. I&apos;ll be in touch shortly.
           </p>
         </Box>
-        <div className={styles.card}>
+        <Box type="flat" className={styles.card}>
           <SwappedEmail
             spamEmail={spamEmail}
             encodedHumanEmail={encodedHumanEmail}
-            iconClassName={styles.socialIcon}
+            largeIcon={true}
             linkClassName="linkDefault flexCenter"
           />
-        </div>
+        </Box>
       </div>
     </div>
   );

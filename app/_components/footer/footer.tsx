@@ -107,7 +107,7 @@ export default function Footer() {
                   spamEmail={spamEmail}
                   encodedHumanEmail={encodedHumanEmail}
                   iconClassName={`${styles.socialIcon} flexCenter`}
-                  linkClassName={styles.hasIcon}
+                  linkClassName={styles.iconLink}
                 />
               </li>
             </ul>

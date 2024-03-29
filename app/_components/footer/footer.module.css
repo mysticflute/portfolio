@@ -59,10 +59,6 @@
   transition: background-color 300ms ease;
 }
 
-a.hasIcon .socialIcon {
-  margin-right: 14px;
-}
-
 a:hover > .socialIcon,
 .socialIcon:hover {
   background: var(--color-text-highlight);
@@ -110,9 +106,13 @@ a:hover > .socialIcon,
   color: var(--color-text-highlight);
 }
 
-.list a.hasIcon {
+.iconLink {
   display: flex;
   align-items: center;
+}
+
+.iconLink .socialIcon {
+  margin-right: 14px;
 }
 
 .multiColumnList {

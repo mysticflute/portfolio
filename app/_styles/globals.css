@@ -1,4 +1,4 @@
-/* The file contains variables and default element styles/resets only. */
+/* The file contains root-level custom properties and element resets only. */
 
 :root {
   /* colors */
@@ -35,24 +35,6 @@
   --layout-margin-y: 0;
   --layout-margin-x: auto;
   --layout-margin: var(--layout-margin-y) var(--layout-margin-x);
-}
-
-@media screen and (max-width: 991px) {
-  :root {
-    --layout-max-width: calc(600px + var(--layout-padding-x) * 2);
-  }
-}
-
-@media screen and (max-width: 767px) {
-  :root {
-    --layout-max-width: calc(500px + var(--layout-padding-x) * 2);
-  }
-}
-
-@media screen and (max-width: 479px) {
-  :root {
-    --layout-padding-x: 20px;
-  }
 }
 
 *,
@@ -117,4 +99,22 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --layout-max-width: calc(600px + var(--layout-padding-x) * 2);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --layout-max-width: calc(500px + var(--layout-padding-x) * 2);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --layout-padding-x: 20px;
+  }
 }

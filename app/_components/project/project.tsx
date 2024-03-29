@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
 import { getUrlForTrack } from '@/lib/soundcloud';
 import styles from './project.module.css';
@@ -14,7 +15,7 @@ type Props = {
 
 export default function Project({ projectMetadata: data }: Props) {
   return (
-    <article className={styles.container}>
+    <Box tag="article" className={styles.container}>
       <div className={styles.info}>
         {data.icon && (
           <Image
@@ -53,6 +54,6 @@ export default function Project({ projectMetadata: data }: Props) {
           </a>
         </div>
       )}
-    </article>
+    </Box>
   );
 }
