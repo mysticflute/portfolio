@@ -28,7 +28,7 @@ exports[`projects matches snapshot 1`] = `
         class="list"
       >
         <article
-          class="container"
+          class="box hover container"
         >
           <div
             class="info"
@@ -52,7 +52,7 @@ exports[`projects matches snapshot 1`] = `
           />
         </article>
         <article
-          class="container"
+          class="box hover container"
         >
           <div
             class="info"
