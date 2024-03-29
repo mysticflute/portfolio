@@ -106,12 +106,12 @@ a:hover > .socialIcon,
   color: var(--color-text-highlight);
 }
 
-.iconLink {
+.list .iconLink {
   display: flex;
   align-items: center;
 }
 
-.iconLink .socialIcon {
+.list .iconLink .socialIcon {
   margin-right: 14px;
 }
 
