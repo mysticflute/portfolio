@@ -1,10 +1,6 @@
 .container {
-  padding: 200px 0 240px;
-}
-
-.content {
   margin: var(--layout-margin);
-  padding: var(--layout-padding);
+  padding: 200px var(--layout-padding-x) 240px;
   max-width: var(--layout-max-width);
 }
 
@@ -26,13 +22,15 @@
 
 @media screen and (max-width: 991px) {
   .container {
-    padding: 118px 0 200px;
+    padding-top: 118px;
+    padding-bottom: 200px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .container {
-    padding: 100px 0 168px;
+    padding-top: 100px;
+    padding-bottom: 168px;
   }
 
   .heading h1 {
@@ -42,7 +40,8 @@
 
 @media screen and (max-width: 479px) {
   .container {
-    padding: 80px 0 138px;
+    padding-top: 80px;
+    padding-bottom: 138px;
   }
 
   .heading {

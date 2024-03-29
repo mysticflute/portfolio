@@ -3,19 +3,19 @@
   color: var(--color-text-inverse);
 }
 
-.content {
+.top,
+.bottom {
   margin: var(--layout-margin);
-  padding: var(--layout-padding);
   max-width: var(--layout-max-width);
 }
 
 .top {
-  padding: 100px 0 80px;
+  padding: 100px var(--layout-padding-x) 80px;
   border-bottom: 1px solid var(--color-gray-200);
 }
 
 .bottom {
-  padding: 40px 0;
+  padding: 40px var(--layout-padding-x);
   text-align: center;
 }
 

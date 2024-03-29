@@ -39,86 +39,82 @@ export default function Footer() {
 
   return (
     <footer role="contentinfo" className={styles.container}>
-      <div className={styles.content}>
-        <div className={`${styles.top} ${styles.grid}`}>
-          <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
-            <Link
-              href="/"
-              className={styles.logo}
-              aria-label="Home"
-              data-testid="footer-logo-link"
-            >
-              <Image src={logoImage} width={24} height={24} alt="Site logo" />
-            </Link>
-            <p>Acoustic and symphonic music for games and interactive media.</p>
-            <ul className={styles.socialIcons}>
-              {socialLinksWithIcons.map(link => (
-                <li key={link.key}>
-                  <a
-                    href={link.url}
-                    className={`${styles.socialIcon} flexCenter`}
-                    data-key={link.key}
-                  >
-                    <Image src={link.icon} alt={`Nathan on ${link.label}`} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={styles.linksSection}>
-            <h2 className={styles.title}>Pages</h2>
-            <ul className={styles.list}>
-              {mainNav.map(page => (
-                <li key={page.label}>
-                  <Link
-                    href={page.path}
-                    aria-current={
-                      page.path === currentPath ? 'page' : undefined
-                    }
-                  >
-                    {page.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className={styles.title}>Elsewhere</h2>
-
-            <ul className={`${styles.list} ${styles.multiColumnList}`}>
-              {allSocialLinks.map(link => (
-                <li key={link.label}>
-                  <a key={link.label} href={link.url}>
-                    {link.label}
-                    <Icon name="arrowDiagonal" hasTextBefore={true} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={styles.contactSection}>
-            <h2 className={styles.title}>Contact Me</h2>
-            <ul className={styles.list}>
-              <li>
-                <SwappedEmail
-                  spamEmail={spamEmail}
-                  encodedHumanEmail={encodedHumanEmail}
-                  iconClassName={`${styles.socialIcon} flexCenter`}
-                  linkClassName={styles.iconLink}
-                />
+      <div className={`${styles.top} ${styles.grid}`}>
+        <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
+          <Link
+            href="/"
+            className={styles.logo}
+            aria-label="Home"
+            data-testid="footer-logo-link"
+          >
+            <Image src={logoImage} width={24} height={24} alt="Site logo" />
+          </Link>
+          <p>Acoustic and symphonic music for games and interactive media.</p>
+          <ul className={styles.socialIcons}>
+            {socialLinksWithIcons.map(link => (
+              <li key={link.key}>
+                <a
+                  href={link.url}
+                  className={`${styles.socialIcon} flexCenter`}
+                  data-key={link.key}
+                >
+                  <Image src={link.icon} alt={`Nathan on ${link.label}`} />
+                </a>
               </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
 
-        <p className={styles.bottom}>
-          Copyright &copy; {new Date().getFullYear()}{' '}
-          <span className={styles.nowrap}>Nathan David McWilliams</span>
-        </p>
+        <div className={styles.linksSection}>
+          <h2 className={styles.title}>Pages</h2>
+          <ul className={styles.list}>
+            {mainNav.map(page => (
+              <li key={page.label}>
+                <Link
+                  href={page.path}
+                  aria-current={page.path === currentPath ? 'page' : undefined}
+                >
+                  {page.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className={styles.title}>Elsewhere</h2>
+
+          <ul className={`${styles.list} ${styles.multiColumnList}`}>
+            {allSocialLinks.map(link => (
+              <li key={link.label}>
+                <a key={link.label} href={link.url}>
+                  {link.label}
+                  <Icon name="arrowDiagonal" hasTextBefore={true} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.contactSection}>
+          <h2 className={styles.title}>Contact Me</h2>
+          <ul className={styles.list}>
+            <li>
+              <SwappedEmail
+                spamEmail={spamEmail}
+                encodedHumanEmail={encodedHumanEmail}
+                iconClassName={`${styles.socialIcon} flexCenter`}
+                linkClassName={styles.iconLink}
+              />
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <p className={styles.bottom}>
+        Copyright &copy; {new Date().getFullYear()}{' '}
+        <span className={styles.nowrap}>Nathan David McWilliams</span>
+      </p>
     </footer>
   );
 }

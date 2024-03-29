@@ -1,15 +1,11 @@
 .container {
-  padding: 92px 0 200px;
-}
-
-.content {
   margin: var(--layout-margin);
-  padding: var(--layout-padding);
+  padding: 92px var(--layout-padding-x) 200px;
   max-width: 489px;
   text-align: center;
 }
 
-.content h1 {
+.container h1 {
   margin-bottom: 16px;
 }
 
@@ -36,7 +32,7 @@
     padding-bottom: 133px;
   }
 
-  .content h1 {
+  .container h1 {
     margin-bottom: 10px;
   }
 
