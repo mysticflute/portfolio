@@ -69,7 +69,6 @@
   }
 
   .topLayer {
-    max-width: 600px;
     text-align: center;
   }
 
@@ -110,10 +109,6 @@
     padding-top: 50px;
   }
 
-  .content {
-    padding: 0 20px; /* TODO change the var instead */
-  }
-
   .heading > h1,
   .content .text {
     margin-bottom: 23px;
@@ -121,9 +116,5 @@
 
   .content .text {
     text-wrap: pretty;
-  }
-
-  .statusCode {
-    /* top: 18%; */
   }
 }

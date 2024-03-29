@@ -28,21 +28,11 @@
   .container {
     padding: 118px 0 200px;
   }
-
-  .list {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 @media screen and (max-width: 767px) {
   .container {
     padding: 100px 0 168px;
-  }
-
-  .list {
-    max-width: 500px;
   }
 
   .heading h1 {
@@ -53,10 +43,6 @@
 @media screen and (max-width: 479px) {
   .container {
     padding: 80px 0 138px;
-  }
-
-  .content {
-    padding: 0 20px;
   }
 
   .heading {

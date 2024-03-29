@@ -5,9 +5,11 @@ export type Props = {
   /**
    * The box style.
    */
-  type: 'text';
+  type?: 'text' | 'flat' | 'hover' | 'raised';
 
-  /** CSS class name for the top element. */
+  /**
+   * CSS class name for the top element.
+   */
   className?: string;
 
   /**
@@ -19,7 +21,7 @@ export type Props = {
 /**
  * Displays a box with content.
  */
-export default function Box({ type, className, children }: Props) {
+export default function Box({ type = 'hover', className, children }: Props) {
   return (
     <div className={clsx(styles.box, styles[type], className)}>{children}</div>
   );

@@ -1,6 +1,7 @@
 /* The file contains variables and default element styles/resets only. */
 
 :root {
+  /* colors */
   --color-gray-100: #0b0b0b;
   --color-gray-200: #393939;
   --color-neutral-100: #fff;
@@ -25,9 +26,33 @@
   --color-text-link: var(--color-gray-100);
   --color-text-highlight: var(--color-blue-100);
   --color-text-inverse: var(--color-neutral-200);
+
+  /* spacing */
   --layout-max-width: 1300px;
-  --layout-padding: 0 24px;
-  --layout-margin: 0 auto;
+  --layout-padding-y: 0;
+  --layout-padding-x: 24px;
+  --layout-padding: var(--layout-padding-y) var(--layout-padding-x);
+  --layout-margin-y: 0;
+  --layout-margin-x: auto;
+  --layout-margin: var(--layout-margin-y) var(--layout-margin-x);
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --layout-max-width: calc(600px + var(--layout-padding-x) * 2);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --layout-max-width: calc(500px + var(--layout-padding-x) * 2);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --layout-padding-x: 20px;
+  }
 }
 
 *,

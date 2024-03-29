@@ -1,6 +1,6 @@
 .text {
   margin-bottom: 16px;
-  padding: 35px;
+  padding: 35px 38px;
   border-radius: 16px;
   background: linear-gradient(
     to right,
@@ -15,5 +15,12 @@
     display: inline-block;
     padding-top: 24px;
     padding-bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .text {
+    padding: 20px 32px;
+    border-radius: 14px;
   }
 }
