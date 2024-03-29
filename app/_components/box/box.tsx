@@ -19,7 +19,7 @@ export type Props = {
 };
 
 /**
- * Displays a box with content.
+ * Displays a styled box with content.
  */
 export default function Box({ type = 'hover', className, children }: Props) {
   return (
