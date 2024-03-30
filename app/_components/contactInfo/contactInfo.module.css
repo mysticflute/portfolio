@@ -9,7 +9,7 @@
   margin-bottom: 16px;
 }
 
-.card {
+.container .card {
   display: inline-flex;
 }
 
@@ -47,7 +47,7 @@
     padding-bottom: 111px;
   }
 
-  .card {
+  .container .card {
     display: flex;
   }
 

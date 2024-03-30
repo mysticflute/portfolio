@@ -27,8 +27,11 @@ export default function Project({ projectMetadata: data }: Props) {
         )}
         <div className={styles.badge}>{data.role}</div>
       </div>
+
       <h3 className="textHeadingSmall">{data.name}</h3>
+
       <p>{data.description}</p>
+
       <div className={styles.soundcloud}>
         {data.soundCloudIds &&
           data.soundCloudIds.map(id => (
@@ -42,6 +45,7 @@ export default function Project({ projectMetadata: data }: Props) {
             ></iframe>
           ))}
       </div>
+
       {data.link && (
         <div className={styles.viewMore}>
           <a href={data.link}>

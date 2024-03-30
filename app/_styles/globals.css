@@ -29,11 +29,11 @@
 
   /* spacing */
   --layout-max-width: 1300px;
-  --layout-padding-y: 0;
   --layout-padding-x: 24px;
+  --layout-padding-y: 0;
   --layout-padding: var(--layout-padding-y) var(--layout-padding-x);
-  --layout-margin-y: 0;
   --layout-margin-x: auto;
+  --layout-margin-y: 0;
   --layout-margin: var(--layout-margin-y) var(--layout-margin-x);
 }
 

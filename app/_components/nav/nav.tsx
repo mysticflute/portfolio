@@ -47,23 +47,21 @@ export default function Nav() {
 
   return (
     <div className={styles.container}>
-      <div className={`flexCenter ${styles.bar}`}>
-        <div className="flexCenter">
-          <Link
-            href="/"
-            aria-label="Home"
-            className={`${styles.logo} flexCenter`}
-            data-testid="logo-link"
-          >
-            <Image
-              src={logoImage}
-              alt="Site logo"
-              width={24}
-              height={24}
-              priority
-            />
-          </Link>
-        </div>
+      <div className={`${styles.bar} flexCenter`}>
+        <Link
+          href="/"
+          aria-label="Home"
+          className={`${styles.logo} flexCenter`}
+          data-testid="logo-link"
+        >
+          <Image
+            src={logoImage}
+            alt="Site logo"
+            width={24}
+            height={24}
+            priority
+          />
+        </Link>
 
         <div className="flexCenter" data-testid="nav-middle">
           {createNav(mainNav, currentPath)}

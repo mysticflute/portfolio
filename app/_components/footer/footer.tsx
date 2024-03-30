@@ -65,7 +65,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className={styles.linksSection}>
+        <div>
           <h2 className={styles.title}>Pages</h2>
           <ul className={styles.list}>
             {mainNav.map(page => (
@@ -83,7 +83,6 @@ export default function Footer() {
 
         <div>
           <h2 className={styles.title}>Elsewhere</h2>
-
           <ul className={`${styles.list} ${styles.multiColumnList}`}>
             {allSocialLinks.map(link => (
               <li key={link.label}>
