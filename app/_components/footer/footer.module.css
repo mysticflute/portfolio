@@ -5,9 +5,8 @@
 
 .top,
 .bottom {
-  /* TODO styles are off at some breakpoints */
   margin: var(--layout-margin);
-  max-width: var(--layout-max-width);
+  max-width: max(var(--layout-max-width), 1300);
 }
 
 .top {
