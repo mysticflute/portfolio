@@ -1,4 +1,7 @@
 import { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
 import {
   baseWebsiteTitle,
@@ -70,6 +73,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${Onest.variable} ${LineRoundedIcons.variable}`}>
         {children}
+
+        <Analytics />
+        <SpeedInsights />
+
+        {process.env.NEXT_PUBLIC_ANALYTICS_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_ANALYTICS_ID} />
+        )}
       </body>
     </html>
   );
