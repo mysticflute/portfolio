@@ -1,10 +1,12 @@
-/* The file contains variables and default element styles/resets only. */
+/* The file contains root-level custom properties and element resets only. */
 
 :root {
+  /* colors */
   --color-gray-100: #0b0b0b;
   --color-gray-200: #393939;
   --color-neutral-100: #fff;
   --color-neutral-200: #eff0f6;
+  --color-neutral-300: #eceae8;
   --color-red-100: #ff4a60;
   --color-yellow-100: #f6b468;
   --color-blue-100: #53abf8;
@@ -19,13 +21,20 @@
   --color-background-300: var(--color-gray-100);
   --color-background-highlight: var(--color-blue-100);
   --color-text: var(--color-gray-200);
-  --color-text-link: var(--color-gray-100);
   --color-text-accent: var(--color-gray-100);
+  --color-text-alt: var(--color-gray-100);
+  --color-text-link: var(--color-gray-100);
   --color-text-highlight: var(--color-blue-100);
   --color-text-inverse: var(--color-neutral-200);
+
+  /* spacing */
   --layout-max-width: 1300px;
-  --layout-padding: 0 24px;
-  --layout-margin: 0 auto;
+  --layout-padding-x: 24px;
+  --layout-padding-y: 0;
+  --layout-padding: var(--layout-padding-y) var(--layout-padding-x);
+  --layout-margin-x: auto;
+  --layout-margin-y: 0;
+  --layout-margin: var(--layout-margin-y) var(--layout-margin-x);
 }
 
 *,
@@ -90,4 +99,22 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --layout-max-width: calc(600px + var(--layout-padding-x) * 2);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --layout-max-width: calc(500px + var(--layout-padding-x) * 2);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --layout-padding-x: 20px;
+  }
 }

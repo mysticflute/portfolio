@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
 import { getUrlForTrack } from '@/lib/soundcloud';
 import styles from './project.module.css';
@@ -14,7 +15,7 @@ type Props = {
 
 export default function Project({ projectMetadata: data }: Props) {
   return (
-    <article className={styles.container}>
+    <Box tag="article" className={styles.container}>
       <div className={styles.info}>
         {data.icon && (
           <Image
@@ -26,8 +27,11 @@ export default function Project({ projectMetadata: data }: Props) {
         )}
         <div className={styles.badge}>{data.role}</div>
       </div>
+
       <h3 className="textHeadingSmall">{data.name}</h3>
+
       <p>{data.description}</p>
+
       <div className={styles.soundcloud}>
         {data.soundCloudIds &&
           data.soundCloudIds.map(id => (
@@ -41,6 +45,7 @@ export default function Project({ projectMetadata: data }: Props) {
             ></iframe>
           ))}
       </div>
+
       {data.link && (
         <div className={styles.viewMore}>
           <a href={data.link}>
@@ -53,6 +58,6 @@ export default function Project({ projectMetadata: data }: Props) {
           </a>
         </div>
       )}
-    </article>
+    </Box>
   );
 }

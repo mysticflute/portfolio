@@ -12,18 +12,16 @@ type Props = {
 export default function Projects({ projectsMetadata }: Props) {
   return (
     <section className={styles.container}>
-      <div className={styles.content}>
-        <div className={styles.heading}>
-          <h1 id="portfolio" className="textHeadingMedium">
-            Take a look at my{' '}
-            <span className="textHighlight3">music portfolio</span>
-          </h1>
-        </div>
-        <div className={styles.list}>
-          {projectsMetadata.map(project => (
-            <Project projectMetadata={project} key={project.slug}></Project>
-          ))}
-        </div>
+      <div className={styles.heading}>
+        <h1 id="portfolio" className="textHeadingMedium">
+          Take a look at my{' '}
+          <span className="textHighlight3">music portfolio</span>
+        </h1>
+      </div>
+      <div className={styles.list}>
+        {projectsMetadata.map(project => (
+          <Project projectMetadata={project} key={project.slug}></Project>
+        ))}
       </div>
     </section>
   );
