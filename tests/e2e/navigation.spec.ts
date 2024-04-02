@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 
-// TODO: revisit some of these locators after improving accessibility of the
+// XXX: revisit some of these locators after improving accessibility of the
 // main nav bar. Probably will not have to use `first()` anymore, or as many
 // test ids.
 /** Common locators for the page. */

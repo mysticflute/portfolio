@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import emailIcon from '@/public/images/icons/paperfolio/email.svg';
-// TODO option for large email icon (contact page).
+import emailIconLarge from '@/public/images/icons/paperfolio/email-large.svg';
 
 // Reference:
 // https://css-tricks.com/how-to-safely-share-your-email-address-on-a-website
@@ -46,16 +46,23 @@ type Props = {
   rootMargin?: string;
 
   /**
-   * Optional CSS class for the top-level link element.
+   * Optional CSS class for the top-level `<a>` element.
    */
   linkClassName?: string;
 
   /**
-   * Shows the email icon image when true.
+   * Show the email icon image when true.
    *
    * @defaultValue true.
    */
   showIcon?: boolean;
+
+  /**
+   * Use a larger email icon image, when `showIcon` is true.
+   *
+   * @defaultValue false.
+   */
+  largeIcon?: boolean;
 
   /**
    * Optional CSS class for the icon image container element.
@@ -84,6 +91,7 @@ export default function SwappedEmail({
   rootMargin = '250px',
   linkClassName,
   showIcon = true,
+  largeIcon,
   iconClassName,
 }: Props) {
   const [emailAddress, setEmailAddress] = useState(spamEmail);
@@ -115,7 +123,7 @@ export default function SwappedEmail({
     >
       {showIcon && (
         <div className={iconClassName}>
-          <Image src={emailIcon} alt="" />
+          <Image src={largeIcon ? emailIconLarge : emailIcon} alt="" />
         </div>
       )}
       {emailAddress}

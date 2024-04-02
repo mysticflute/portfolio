@@ -2,7 +2,7 @@
 
 exports[`project matches snapshot 1`] = `
 <article
-  class="container"
+  class="box hover container"
 >
   <div
     class="info"

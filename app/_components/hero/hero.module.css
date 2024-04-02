@@ -1,14 +1,10 @@
 .container {
-  padding: 93px 0 148px;
-}
-
-.content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   column-gap: 20px;
   margin: var(--layout-margin);
-  padding: var(--layout-padding);
+  padding: 93px var(--layout-padding-x) 148px;
   max-width: var(--layout-max-width);
 }
 
@@ -32,7 +28,8 @@
   text-wrap: balance;
 }
 
-.imageWrapper {
+.image {
+  flex: 1;
   max-width: 500px;
   border: 4px solid var(--color-background-100);
   border-radius: 32px;
@@ -40,36 +37,37 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 991px) {
-  .container {
-    padding: 78px 0 123px;
+@media screen and (min-width: 992px) and (max-width: 1110px) {
+  .image {
+    align-self: stretch;
   }
 
-  .content {
+  .image img {
+    max-width: initial;
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .container {
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    max-width: 600px;
     row-gap: 60px;
-    padding: 0;
+    padding-top: 78px;
+    padding-bottom: 123px;
   }
 
-  .imageWrapper {
+  .image {
     max-width: 100%;
-  }
-
-  .imageWrapper > img {
-    width: 100%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .container {
-    padding: 60px 0 103px;
-  }
-
-  .content {
-    max-width: 500px;
+    padding-top: 60px;
+    padding-bottom: 103px;
   }
 
   .intro {
@@ -86,19 +84,10 @@
   }
 }
 
-@media screen and (max-width: 540px) {
-  .content {
-    padding: 0 24px;
-  }
-}
-
 @media screen and (max-width: 479px) {
   .container {
-    padding: 50px 0 86px;
-  }
-
-  .content {
-    padding: 0 20px;
+    padding-top: 50px;
+    padding-bottom: 86px;
   }
 
   .buttons {
@@ -114,7 +103,7 @@
     font-size: 2.125rem;
   }
 
-  .extraDescription {
+  .extra {
     display: none;
   }
 }

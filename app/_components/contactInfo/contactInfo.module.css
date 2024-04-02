@@ -1,30 +1,16 @@
 .container {
-  padding: 92px 0 200px;
-}
-
-.content {
   margin: var(--layout-margin);
-  padding: var(--layout-padding);
+  padding: 92px var(--layout-padding-x) 200px;
   max-width: 489px;
   text-align: center;
 }
 
-.content h1 {
+.container h1 {
   margin-bottom: 16px;
 }
 
-.content p {
-  margin-bottom: 32px;
-}
-
-.card {
+.container .card {
   display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px 35px;
-  border: 3px solid var(--color-background-100);
-  border-radius: 24px;
-  background: var(--color-background-200);
 }
 
 .card a {
@@ -46,12 +32,8 @@
     padding-bottom: 133px;
   }
 
-  .content h1 {
+  .container h1 {
     margin-bottom: 10px;
-  }
-
-  .content p {
-    margin-bottom: 26px;
   }
 
   .card a {
@@ -65,19 +47,8 @@
     padding-bottom: 111px;
   }
 
-  .content {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .content p {
-    margin-bottom: 23px;
-  }
-
-  .card {
+  .container .card {
     display: flex;
-    padding-left: 24px;
-    padding-right: 24px;
   }
 
   .card a {
