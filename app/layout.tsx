@@ -1,4 +1,5 @@
 import { Metadata, Viewport } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
@@ -75,6 +76,10 @@ export default function RootLayout({
 
         <Analytics />
         <SpeedInsights />
+
+        {process.env.NEXT_PUBLIC_ANALYTICS_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_ANALYTICS_ID} />
+        )}
       </body>
     </html>
   );
