@@ -1,0 +1,76 @@
+.text {
+  margin-bottom: 16px;
+  padding: 35px 38px;
+  border-radius: 16px;
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255 / 0.07),
+    rgb(255 255 255/ 0)
+  );
+  color: var(--color-text-alt);
+}
+
+.flat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 35px;
+  border: 3px solid var(--color-background-100);
+  border-radius: 24px;
+  background: var(--color-background-200);
+}
+
+.hover,
+.raised {
+  padding: 58px 64px;
+  border: 3px solid var(--color-background-100);
+  border-radius: 28px;
+  background: var(--color-background-200);
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+}
+
+.hover:hover,
+.raised {
+  box-shadow: 10px 10px 0 0 var(--color-background-100);
+  transform: translate3d(0, -10px, 0.01px);
+}
+
+@media screen and (max-width: 991px) {
+  .text {
+    display: inline-block;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .hover,
+  .raised {
+    padding: 48px 64px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .text {
+    padding: 20px 32px;
+    border-radius: 14px;
+  }
+
+  .hover,
+  .raised {
+    padding: 48px 32px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .flat {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hover,
+  .raised {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+}
