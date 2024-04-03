@@ -15,13 +15,13 @@
     "test:coverage:open": "npm test:coverage && open coverage/lcov-report/index.html",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "lint": "next lint && npm run stylelint",
-    "stylelint": "stylelint -f verbose 'app/**/*.css'",
+    "lint": "next lint && npm run lint:css",
+    "lint:css": "stylelint -f verbose 'app/**/*.css'",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "clean": "rm -rf .next coverage playwright",
     "optimize-svg": "svgo",
-    "optimize-svg-staged": "git --no-pager diff --name-only --cached --diff-filter=AMR 'public/*.svg' | xargs -r npx svgo"
+    "optimize-svg:staged": "git --no-pager diff --name-only --cached --diff-filter=AMR 'public/*.svg' | xargs -r npx svgo"
   },
   "dependencies": {
     "@next/third-parties": "^14.1.4",
