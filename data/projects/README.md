@@ -1,4 +1,4 @@
-# Project Listing
+# Projects Data
 
 This directory contains the data for music projects.
 
@@ -14,6 +14,6 @@ This directory contains the data for music projects.
    5. Copy the ten digit code that comes after the `/tracks` part of the src URL.<br/>
       For example, ...api.soundcloud.com/tracks/**1272228361**&color...
 
-## Disabling a project
+## Disabling a Project
 
 1. Rename the yaml file to start with an underscore, e.g., `_project.yaml`.
