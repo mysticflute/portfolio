@@ -5,7 +5,7 @@ import Script from 'next/script';
 // a CSS ordering bug, where imported CSS files in the root layout are not
 // consistently ordered as specified. See notes in the `layout` component.
 //
-// This can be deleted in favor of the original once this bug is fixed.
+// This can be deleted in favor of the original once that bug is fixed.
 
 type Props = {
   gaId: string;
