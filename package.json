@@ -19,7 +19,7 @@
     "stylelint": "stylelint -f verbose 'app/**/*.css'",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "clean": "rm -rf .next coverage playwright-report test-results",
+    "clean": "rm -rf .next coverage playwright",
     "optimize-svg": "svgo",
     "optimize-svg-staged": "git --no-pager diff --name-only --cached --diff-filter=AMR 'public/*.svg' | xargs -r npx svgo"
   },
