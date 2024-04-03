@@ -53,4 +53,4 @@ Some other recommended resources:
 ## License
 
 All content, music and images copyright Nathan David McWilliams and respective
-owners. See [License.md](LICENSE.md) for more info.
+rights-holders. See [License.md](LICENSE.md) for more info.

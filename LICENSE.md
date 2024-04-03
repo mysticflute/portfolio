@@ -1,6 +1,6 @@
 # Music
 
-For any and all music files:
+For any and all music and sound files:
 
 Copyright Nathan McWilliams and other respective rights-holders.
 All rights reserved.
