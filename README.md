@@ -3,12 +3,12 @@
 The portfolio website for Nathan David McWilliams
 ([https://www.ndm.studio](https://www.ndm.studio)).
 
-Happy to open this up as a reference. Feel free to use any of the React
-components or Next.js code for your own website!
+Happy to open this up as a reference! Feel free to use any of the React
+components or Next.js code for your own website.
 
 ## Tech
 
-Here's some of the tech used in this project:
+Here are some of the tools and frameworks used in this project:
 
 - [React](https://react.dev/) - Frontend libray for the UI.
 - [Next.js](https://nextjs.org) - React framework for Static Site Generation.
@@ -52,5 +52,4 @@ Some other recommended resources:
 
 ## License
 
-All content, music and images copyright Nathan David McWilliams and respective
-owners. See [License.txt](License.txt) for more info.
+See [License.md](License.md) for info.
