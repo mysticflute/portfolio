@@ -1,7 +1,7 @@
 import { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@/components/googleAnalytics/googleAnalytics';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
 import {
   baseWebsiteTitle,
