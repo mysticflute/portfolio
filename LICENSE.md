@@ -16,7 +16,7 @@ Do not use without permission.
 
 # Source Code
 
-For React components, Next.js code, configuration code, and other source code within the `app` directory:
+For React components, Next.js code, configuration code, and other source code under the `/app` directory:
 
 MIT License
 
