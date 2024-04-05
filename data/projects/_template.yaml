@@ -1,4 +1,4 @@
-# Name of the project.
+# Name of the project or collection.
 name: Project Name
 
 # Unique, dash-delimited name for the project URL (optional).
@@ -33,13 +33,38 @@ description: >
   In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl
   pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
 
-# List of 10-digit SoundCloud track IDs. (optional).
-# See the README.md file for how to find these.
-# soundCloudIds:
-#   - 1272228361
-#   - 1269466039
+# List of audio tracks for this project or compilation.
+tracks:
+  - name: Track 1
 
-# An icon that represents the game type (optional).
+    # The urls to embed, externally stream or buy the track.
+    # At least one direct source file must be specified: mp3, aac.
+    urls:
+      mp3: https://feeds.soundcloud.com/stream/id
+      # aac: https://feeds.soundcloud.com/stream/id
+      # soundcloud: https://soundcloud.com/nathan_david_mcwilliams/id
+      # bandcamp: https://nathanmcwilliams.bandcamp.com/track/id
+      # spotify: https://open.spotify.com/track/id
+      # apple: https://music.apple.com/us/album/name/id
+      # itunes: https://music.apple.com/us/album/name/id
+      # youtube: https://www.youtube.com/watch?v=id
+
+    ### NOT CURRENTLY IMPLEMENTED ###
+    # The track tempo (optional).
+    # Examples: fast, medium, slow, dynamic.
+    # tempo: medium
+
+    ### NOT CURRENTLY IMPLEMENTED ###
+    # The list of moods describing the track (optional).
+    # Examples: cheerful, relaxing, mysterious.
+    # moods: [relaxing, mysterious]
+
+    ### NOT CURRENTLY IMPLEMENTED ###
+    # The list of instrumentations used in the track (optional).
+    # Examples: orchestral, piano, ambient, synths, percussion.
+    # instrumentations: [orchestral, piano]
+
+# An icon that represents the project type (optional).
 # Must be a file under public/images/icons.
 # icon: pulsar/game-controller.svg
 
