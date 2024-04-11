@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
-import { getUrlForTrack } from '@/lib/soundcloud';
+// import { getUrlForTrack } from '@/lib/soundcloud';
 import styles from './project.module.css';
 
 import { type ProjectMetadata } from '@/lib/projects';
@@ -32,7 +32,7 @@ export default function Project({ projectMetadata: data }: Props) {
 
       <p>{data.description}</p>
 
-      <div className={styles.soundcloud}>
+      {/* <div className={styles.soundcloud}>
         {data.soundCloudIds &&
           data.soundCloudIds.map(id => (
             <iframe
@@ -44,7 +44,7 @@ export default function Project({ projectMetadata: data }: Props) {
               title={`Play music from ${data.name} with SoundCloud music player`}
             ></iframe>
           ))}
-      </div>
+      </div> */}
 
       {data.link && (
         <div className={styles.viewMore}>

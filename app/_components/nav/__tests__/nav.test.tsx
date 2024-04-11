@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Nav from '../nav';
 
-// @ts-ignore: importing jest from @jest/globals breaks mocks.
+// @ts-expect-error: importing jest from @jest/globals breaks mocks.
 // https://github.com/vercel/next.js/issues/43888
 jest.mock('next/navigation', () => ({
   usePathname: () => '/',
