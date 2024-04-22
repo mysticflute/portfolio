@@ -6,7 +6,7 @@ import { promises as fs } from 'fs';
  * @param path The file path to check.
  * @returns Whether the given path is accessible.
  */
-export async function exists(path: string) {
+export async function exists(path?: string | null) {
   if (path === undefined || path === null) {
     return false;
   }
