@@ -12,7 +12,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:coverage:open": "npm test:coverage && open coverage/lcov-report/index.html",
+    "test:coverage:open": "npm run test:coverage && open coverage/lcov-report/index.html",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "lint": "next lint && npm run lint:css",

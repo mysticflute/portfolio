@@ -33,6 +33,54 @@ describe('getProjects', () => {
     ]);
   });
 
+  it('throws an error if missing the project name', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/project.yaml': [
+        'sort: 1',
+        'role: Composer',
+        'description: description...',
+      ].join('\n'),
+    });
+
+    await expect(getProjects()).rejects.toThrow(
+      /Missing required property(.*)name/,
+    );
+  });
+
+  it('throws an error if missing the project description', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/project.yaml': [
+        'name: Project',
+        'sort: 1',
+        'role: Composer',
+      ].join('\n'),
+    });
+
+    await expect(getProjects()).rejects.toThrow(
+      /Missing required property(.*)description/,
+    );
+  });
+
+  it('throws an error if missing the project role', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/project.yaml': [
+        'name: Project',
+        'sort: 1',
+        'description: description...',
+      ].join('\n'),
+    });
+
+    await expect(getProjects()).rejects.toThrow(
+      /Missing required property(.*)role/,
+    );
+  });
+
   it('reads multiple project files', async () => {
     mockfs({
       'data/projects/project-a.yaml': [
@@ -112,7 +160,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      "The key 'slug' can only contain",
+      'filename or specified value can only contain',
     );
   });
 
@@ -134,38 +182,8 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /The filename for[a-zA-Z\\/ ]*invalid_filename.yaml/,
+      'filename or specified value can only contain',
     );
-  });
-
-  it('reads an array of soundcloud ids', async () => {
-    mockfs({
-      'data/projects/project.yaml': [
-        minimumProjectYaml,
-        'soundCloudIds:',
-        '  - 1468989199',
-        '  - 1468987642',
-      ].join('\n'),
-    });
-
-    expect(await getProjects()).toEqual([
-      expect.objectContaining({ soundCloudIds: [1468989199, 1468987642] }),
-    ]);
-  });
-
-  it('throws an error for invalid soundcloud ids', async () => {
-    expect.assertions(1);
-
-    mockfs({
-      'data/projects/project.yaml': [
-        minimumProjectYaml,
-        'soundCloudIds:',
-        '  - 1468989199',
-        '  - 1234',
-      ].join('\n'),
-    });
-
-    await expect(getProjects()).rejects.toThrow('Invalid SoundCloud ID "1234"');
   });
 
   it('reads the icon metadata', async () => {
@@ -193,9 +211,7 @@ describe('getProjects', () => {
       'public/images/icons/pulsar/tree.svg': '',
     });
 
-    await expect(getProjects()).rejects.toThrow(
-      /Icon "pulsar\/hero.svg"[a-zA-Z./ ]*does not exist/,
-    );
+    await expect(getProjects()).rejects.toThrow('Icon does not exist');
   });
 
   it('reads the link metadata', async () => {
@@ -221,7 +237,7 @@ describe('getProjects', () => {
       ].join('\n'),
     });
 
-    await expect(getProjects()).rejects.toThrow('Invalid link');
+    await expect(getProjects()).rejects.toThrow('Expected a valid url');
   });
 
   it('reads the color metadata', async () => {
@@ -247,7 +263,103 @@ describe('getProjects', () => {
       ].join('\n'),
     });
 
-    await expect(getProjects()).rejects.toThrow('Invalid color');
+    await expect(getProjects()).rejects.toThrow(
+      'Expected a valid CSS hex color',
+    );
+  });
+
+  it('reads the tracks metadata', async () => {
+    mockfs({
+      'data/projects/project.yaml': [
+        minimumProjectYaml,
+        'tracks:',
+        '  - name: Track 1',
+        '    urls:',
+        '      mp3: https://some/url/file.mp3',
+        '  - name: Track 2',
+        '    urls:',
+        '      mp3: https://some/url/file.mp3',
+        '      aac: https://some/url/file.mp4',
+        '      soundcloud: https://soundcloud.com',
+        '      bandcamp: https://bandcamp.com',
+        '      spotify: https://spotify.com',
+        '      apple: https://apple.com',
+        '      itunes: https://itunes.com',
+        '      youtube: https://youtube.com',
+      ].join('\n'),
+    });
+
+    expect(await getProjects()).toEqual([
+      expect.objectContaining({
+        tracks: [
+          { name: 'Track 1', urls: { mp3: 'https://some/url/file.mp3' } },
+          {
+            name: 'Track 2',
+            urls: {
+              mp3: 'https://some/url/file.mp3',
+              aac: 'https://some/url/file.mp4',
+              soundcloud: 'https://soundcloud.com',
+              bandcamp: 'https://bandcamp.com',
+              spotify: 'https://spotify.com',
+              apple: 'https://apple.com',
+              itunes: 'https://itunes.com',
+              youtube: 'https://youtube.com',
+            },
+          },
+        ],
+      }),
+    ]);
+  });
+
+  it('throws an error for missing track names', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/project.yaml': [
+        minimumProjectYaml,
+        'tracks:',
+        '  - urls:',
+        '      mp3: https://some/url/file.mp3',
+      ].join('\n'),
+    });
+
+    await expect(getProjects()).rejects.toThrow(
+      /Missing required property(.*)name/,
+    );
+  });
+
+  it('throws an error for invalid track urls', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/project.yaml': [
+        minimumProjectYaml,
+        'tracks:',
+        '  - name: Track 1',
+        '    urls:',
+        '      mp3: htps://some/url/file.mp3',
+      ].join('\n'),
+    });
+
+    await expect(getProjects()).rejects.toThrow('Expected a valid url');
+  });
+
+  it('throws an error if both the mp3 and aac urls are missing', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/project.yaml': [
+        minimumProjectYaml,
+        'tracks:',
+        '  - name: Track 1',
+        '    urls:',
+        '      soundcloud: htps://soundcloud.com',
+      ].join('\n'),
+    });
+
+    await expect(getProjects()).rejects.toThrow(
+      'At least one direct audio url must be specified',
+    );
   });
 
   it('sorts the projects by sort order', async () => {
@@ -297,6 +409,6 @@ describe('getProjects', () => {
       ].join('\n'),
     });
 
-    await expect(getProjects()).rejects.toThrow("Duplicate sort value '1'");
+    await expect(getProjects()).rejects.toThrow('Duplicate sort value "1"');
   });
 });

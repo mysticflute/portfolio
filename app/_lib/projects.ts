@@ -3,18 +3,33 @@ import path from 'path';
 import yaml from 'js-yaml';
 import { logger } from '@/lib/logger';
 import { exists } from '@/lib/files';
-import { object, string, number, infer as Infer, ZodError } from 'zod';
+import {
+  infer as Infer,
+  object,
+  string,
+  number,
+  ZodError,
+  ZodIssueCode,
+} from 'zod';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
 const publicDirectory = path.join(process.cwd(), 'public');
 const iconsDirectory = path.join(publicDirectory, 'images/icons');
 
-const VALID_URL = /^https?:\/\/.+/;
-const VALID_SLUG = /^[a-z0-9\\-]+$/;
-const VALID_COLOR = /^#[0-9a-fA-F]{6}$/;
+/** Zod matcher for a URL string. */
+const url = string().regex(
+  /^https?:\/\/.+/,
+  'Expected a valid url beginning with https://',
+);
+
+/** Zod matcher for a CSS hex color. */
+const color = string().regex(
+  /^#[0-9a-fA-F]{6}$/,
+  'Expected a valid CSS hex color',
+);
 
 /** Schema for the Yaml file. */
-const ProjectSchema = object({
+const projectSchema = object({
   // REQUIRED FIELDS
 
   /** Name of the project. */
@@ -22,7 +37,7 @@ const ProjectSchema = object({
 
   /** Unique, dash-delimited name for the project (used in page URL). */
   slug: string().regex(
-    VALID_SLUG,
+    /^[a-z0-9\\-]+$/,
     'The filename or specified value can only contain the characters a-z, ' +
       '0-9 and hyphens',
   ),
@@ -42,10 +57,10 @@ const ProjectSchema = object({
   icon: string().min(1).optional(),
 
   /** A link to the project's external website.  */
-  link: string().regex(VALID_URL).optional(),
+  link: url.min(1).optional(),
 
   /** The project's accent color, in css hex format. */
-  color: string().regex(VALID_COLOR).optional(),
+  color: color.optional(),
 
   /** The audio tracks for the project. */
   tracks: object({
@@ -55,28 +70,28 @@ const ProjectSchema = object({
     /** The urls to direct audio files and streaming sites. */
     urls: object({
       /** The URL to an audio file in mp3 format. */
-      mp3: string().regex(VALID_URL).optional(),
+      mp3: url.min(1).optional(),
 
       /** The URL to an audio file in aac format. */
-      aac: string().regex(VALID_URL).optional(),
+      aac: url.min(1).optional(),
 
       /** The URL to stream on Apple Music. */
-      appleMusic: string().regex(VALID_URL).optional(),
+      apple: url.min(1).optional(),
 
       /** The URL for iTunes. */
-      itunes: string().regex(VALID_URL).optional(),
+      itunes: url.min(1).optional(),
 
       /** The URL to stream on Spotify. */
-      spotify: string().regex(VALID_URL).optional(),
+      spotify: url.min(1).optional(),
 
       /** The URL to stream or purchase on Bandcamp. */
-      bandcamp: string().regex(VALID_URL).optional(),
+      bandcamp: url.min(1).optional(),
 
       /** The URL to stream on SoundCloud. */
-      soundcloud: string().regex(VALID_URL).optional(),
+      soundcloud: url.min(1).optional(),
 
       /** The URL to stream on YouTube. */
-      youtube: string().regex(VALID_URL).optional(),
+      youtube: url.min(1).optional(),
     }).refine(
       data => data === undefined || data.mp3 || data.aac,
       'At least one direct audio url must be specified (mp3 or aac)',
@@ -90,7 +105,7 @@ const ProjectSchema = object({
 /**
  * Metadata about a portfolio project.
  */
-export type ProjectMetadata = Infer<typeof ProjectSchema>;
+export type ProjectMetadata = Infer<typeof projectSchema>;
 
 /**
  * Reads the project metadata from the yaml files in data/projects.
@@ -111,12 +126,12 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
       const contents = await fs.readFile(filepath, 'utf8');
       const metadata = yaml.load(contents, { filename: filepath });
 
-      const FinalProjectSchema = ProjectSchema.extend({
+      const finalProjectSchema = projectSchema.extend({
         // default value of the slug is the filename
-        slug: ProjectSchema.shape.slug.default(path.parse(filename).name),
+        slug: projectSchema.shape.slug.default(path.parse(filename).name),
 
         // the icon must exist at the expected path
-        icon: ProjectSchema.shape.icon.refine(
+        icon: projectSchema.shape.icon.refine(
           async icon =>
             icon === undefined ||
             (await exists(path.join(iconsDirectory, icon))),
@@ -127,13 +142,22 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
       let validated: ProjectMetadata;
 
       try {
-        validated = await FinalProjectSchema.parseAsync(metadata);
+        validated = await finalProjectSchema.parseAsync(metadata);
       } catch (e) {
         if (e instanceof ZodError) {
           const errors = e.issues.map(issue => {
+            logger.trace(issue, 'error details for %s', filename);
+
             const location = issue.path
-              .map(v => (typeof v === 'number' ? `item ${v + 1}` : v))
+              .map(i => (typeof i === 'number' ? `item ${i + 1}` : i))
               .join(' > ');
+
+            if (
+              issue.code === ZodIssueCode.invalid_type &&
+              issue.received === 'undefined'
+            ) {
+              return `Missing required property "${location}".`;
+            }
 
             return `${issue.message}, for property "${location}".`;
           });
@@ -146,7 +170,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         }
       }
 
-      logger.trace(validated, 'found project metadata');
+      logger.trace(validated, 'successfully parserd project metadata');
       return validated;
     }),
   );
