@@ -19,6 +19,27 @@ describe('getProjects', () => {
     expect(await getProjects()).toEqual([]);
   });
 
+  it('it ignores non-yaml files', async () => {
+    mockfs({ 'data/projects/project.txt': 'name: Project' });
+    expect(await getProjects()).toEqual([]);
+  });
+
+  it('it ignores files starting with an underscore', async () => {
+    mockfs({ 'data/projects/_project.yaml': 'name: Project' });
+    expect(await getProjects()).toEqual([]);
+  });
+
+  it('throws an error if the yaml is invalid', async () => {
+    expect.assertions(1);
+
+    mockfs({
+      'data/projects/invalid.yaml': 'name: name:',
+      'data/projects/valid.yaml': minimumProjectYaml,
+    });
+
+    await expect(getProjects()).rejects.toThrow('invalid.yaml');
+  });
+
   it('reads all required project metadata', async () => {
     mockfs({ 'data/projects/project.yaml': minimumProjectYaml });
 
@@ -45,7 +66,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /Missing required property(.*)name/,
+      /missing required property(.*)name/i,
     );
   });
 
@@ -61,7 +82,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /Missing required property(.*)description/,
+      /missing required property(.*)description/i,
     );
   });
 
@@ -77,7 +98,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /Missing required property(.*)role/,
+      /missing required property(.*)role/i,
     );
   });
 
@@ -113,27 +134,6 @@ describe('getProjects', () => {
         description: 'the second project.',
       },
     ]);
-  });
-
-  it('it ignores non-yaml files', async () => {
-    mockfs({ 'data/projects/project.txt': 'name: Project' });
-    expect(await getProjects()).toEqual([]);
-  });
-
-  it('it ignores files starting with an underscore', async () => {
-    mockfs({ 'data/projects/_project.yaml': 'name: Project' });
-    expect(await getProjects()).toEqual([]);
-  });
-
-  it('throws an error if the yaml is invalid', async () => {
-    expect.assertions(1);
-
-    mockfs({
-      'data/projects/invalid.yaml': 'name: name:',
-      'data/projects/valid.yaml': minimumProjectYaml,
-    });
-
-    await expect(getProjects()).rejects.toThrow('invalid.yaml');
   });
 
   it('reads a specified slug field', async () => {
@@ -324,7 +324,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /Missing required property(.*)name/,
+      /missing required property(.*)name/i,
     );
   });
 
