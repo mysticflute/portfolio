@@ -32,19 +32,14 @@ export default function Project({ projectMetadata: data }: Props) {
 
       <p>{data.description}</p>
 
-      {/* <div className={styles.soundcloud}>
-        {data.soundCloudIds &&
-          data.soundCloudIds.map(id => (
-            <iframe
-              key={id}
-              width="100%"
-              height="20"
-              loading="lazy"
-              src={getUrlForTrack(id, { color: data.color })}
-              title={`Play music from ${data.name} with SoundCloud music player`}
-            ></iframe>
-          ))}
-      </div> */}
+      {data.tracks &&
+        data.tracks.map(track => (
+          <audio key={track.name} controls preload="none">
+            {track.aac && <source src={track.aac} type="audio/aac" />}
+            {track.mp3 && <source src={track.mp3} type="audio/mpeg" />}
+            Your browser does not support the audio element.
+          </audio>
+        ))}
 
       {data.link && (
         <div className={styles.viewMore}>
