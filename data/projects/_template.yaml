@@ -34,35 +34,39 @@ description: >
   pellentesque et dignissim et aenean tempor adipiscing eget mi diam at tempus.
 
 # List of audio tracks for this project or compilation.
+# At least one embeddable url (mp3/aac) must be specified for each track.
 tracks:
-  - name: Track 1
-
+  # Display name for the track.
+  - name: 'Track 1'
     # The urls to embed, externally stream or buy the track.
-    # At least one direct source file must be specified: mp3, aac.
-    urls:
-      mp3: https://feeds.soundcloud.com/stream/id
-      # aac: https://feeds.soundcloud.com/stream/id
-      # soundcloud: https://soundcloud.com/nathan_david_mcwilliams/id
-      # bandcamp: https://nathanmcwilliams.bandcamp.com/track/id
-      # spotify: https://open.spotify.com/track/id
-      # apple: https://music.apple.com/us/album/name/id
-      # itunes: https://music.apple.com/us/album/name/id
-      # youtube: https://www.youtube.com/watch?v=id
-
+    mp3: https://feeds.soundcloud.com/stream/id
+    # aac: https://feeds.soundcloud.com/stream/id
+    # soundcloud: https://soundcloud.com/nathan_david_mcwilliams/id
+    # bandcamp: https://nathanmcwilliams.bandcamp.com/track/id
+    # spotify: https://open.spotify.com/track/id
+    # apple: https://music.apple.com/us/album/name/id
+    # itunes: https://music.apple.com/us/album/name/id
+    # youtube: https://www.youtube.com/watch?v=id
     ### NOT CURRENTLY IMPLEMENTED ###
     # The track tempo (optional).
     # Examples: fast, medium, slow, dynamic.
     # tempo: medium
-
     ### NOT CURRENTLY IMPLEMENTED ###
     # The list of moods describing the track (optional).
     # Examples: cheerful, relaxing, mysterious.
     # moods: [relaxing, mysterious]
-
     ### NOT CURRENTLY IMPLEMENTED ###
     # The list of instrumentations used in the track (optional).
     # Examples: orchestral, piano, ambient, synths, percussion.
     # instrumentations: [orchestral, piano]
+
+  # Display name for the track.
+  - name: Track 2
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/id
+
+# Project's accent color, in css hex format (optional).
+# color: '#5c42fb'
 
 # An icon that represents the project type (optional).
 # Must be a file under public/images/icons.
@@ -78,7 +82,6 @@ tracks:
 # Must be a file under public/images/projects.
 # largeImage: placeholder-large.png
 
-### NOT CURRENTLY IMPLEMENTED ###
 # A link to an external project landing page (optional).
 # link: https://twitter.com/SquareEnix
 
@@ -96,9 +99,6 @@ tracks:
 #   - Steam
 #   - Nintendo Switch
 #   - Playstation 5
-
-# Project's accent color, in css hex format (optional).
-# color: '#5c42fb'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.

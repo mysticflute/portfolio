@@ -67,36 +67,34 @@ const projectSchema = object({
     /** The display name of the track. */
     name: string().min(1),
 
-    /** The urls to direct audio files and streaming sites. */
-    urls: object({
-      /** The URL to an audio file in mp3 format. */
-      mp3: url.min(1).optional(),
+    /** The URL to an audio file in mp3 format. */
+    mp3: url.min(1).optional(),
 
-      /** The URL to an audio file in aac format. */
-      aac: url.min(1).optional(),
+    /** The URL to an audio file in aac format. */
+    aac: url.min(1).optional(),
 
-      /** The URL to stream on Apple Music. */
-      apple: url.min(1).optional(),
+    /** The URL to stream on Apple Music. */
+    apple: url.min(1).optional(),
 
-      /** The URL for iTunes. */
-      itunes: url.min(1).optional(),
+    /** The URL for iTunes. */
+    itunes: url.min(1).optional(),
 
-      /** The URL to stream on Spotify. */
-      spotify: url.min(1).optional(),
+    /** The URL to stream on Spotify. */
+    spotify: url.min(1).optional(),
 
-      /** The URL to stream or purchase on Bandcamp. */
-      bandcamp: url.min(1).optional(),
+    /** The URL to stream or purchase on Bandcamp. */
+    bandcamp: url.min(1).optional(),
 
-      /** The URL to stream on SoundCloud. */
-      soundcloud: url.min(1).optional(),
+    /** The URL to stream on SoundCloud. */
+    soundcloud: url.min(1).optional(),
 
-      /** The URL to stream on YouTube. */
-      youtube: url.min(1).optional(),
-    }).refine(
-      data => data === undefined || data.mp3 || data.aac,
-      'At least one direct audio url must be specified (mp3 or aac)',
-    ),
+    /** The URL to stream on YouTube. */
+    youtube: url.min(1).optional(),
   })
+    .refine(
+      track => track.mp3 || track.aac,
+      'At least one embeddable audio url must be specified (mp3 or aac)',
+    )
     .array()
     .nonempty()
     .optional(),

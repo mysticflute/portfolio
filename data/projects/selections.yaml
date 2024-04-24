@@ -1,4 +1,4 @@
-# Name of the project.
+# Name of the project or collection.
 name: Selected Compositions
 
 # Unique, dash-delimited name for the project URL (optional).
@@ -33,19 +33,61 @@ description: >
   A selection of my compositions across various recent projects. Styles include
   instrumental, orchestral, atmospheric and more.
 
-# List of 10-digit SoundCloud track IDs. (optional).
-# See the README.md file for how to find these.
-soundCloudIds:
-  - 1272228361 # blue river road
-  - 1363178761 # no escape
-  - 1362994615 # overworld (vulgaria)
-  - 1269487699 # princess aiysha
-  - 1468989199 # deep dark forest
-  - 1661983896 # fireflies
-  - 1363203541 # the secret
-  - 1363214545 # savara's gate
-  - 1363207933 # chasing freedom
-  - 1510431769 # overworld map
+# List of audio tracks for this project or compilation.
+# At least one embeddable url (mp3/aac) must be specified for each track.
+tracks:
+  # Display name for the track.
+  - name: "Blue River Road"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1272228361
+
+  # Display name for the track.
+  - name: "No Escape (Vulgari OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363178761
+
+  # Display name for the track.
+  - name: "Overworld (Vulgari OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1362994615
+
+  # Display name for the track.
+  - name: "Princess Aiysha"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1269487699
+
+  # Display name for the track.
+  - name: "Deep Dark Forest (Recidivia OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1468989199
+
+  # Display name for the track.
+  - name: "Fireflies (Turning OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1661983896
+
+  # Display name for the track.
+  - name: "The Secret (Vulgari OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363203541
+
+  # Display name for the track.
+  - name: "Sarvarā's Gate [Final Stage] (Vulgari OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363214545
+
+  # Display name for the track.
+  - name: "Chasing Freedom (Vulgari OST)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363207933
+
+  # Display name for the track.
+  - name: "Overworld Map (JRPG-Style Dungeons and Dragons Campaign)"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1510431769
+
+# Project's accent color, in css hex format (optional).
+color: "#ffab91"
 
 # An icon that represents the game type (optional).
 # Must be a file under public/icons.
@@ -62,7 +104,6 @@ icon: pulsar/favorites.svg
 # Must be a file under public/images/projects.
 # largeImage: placeholder-large.png
 
-### NOT CURRENTLY IMPLEMENTED ###
 # A link to an external project landing page (optional).
 # link: https://twitter.com/SquareEnix
 
@@ -80,9 +121,6 @@ icon: pulsar/favorites.svg
 #   - Steam
 #   - Nintendo Switch
 #   - Playstation 5
-
-# Project's accent color, in css hex format (optional).
-color: '#ffab91'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.

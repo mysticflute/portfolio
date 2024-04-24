@@ -5,6 +5,7 @@ module.exports = {
     {
       files: ['*.yaml', '*.yml'],
       options: {
+        singleQuote: false,
         proseWrap: 'always',
       },
     },

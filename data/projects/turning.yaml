@@ -1,4 +1,4 @@
-# Name of the project.
+# Name of the project or collection.
 name: Turning
 
 # Unique, dash-delimited name for the project URL (optional).
@@ -33,6 +33,7 @@ description: >
   A combat-less game about agriculture, economy, and exploration developed for
   fans of Stardew Valley, Forager, and A Link to the Past.
 
+# TODO delete
 # List of 10-digit SoundCloud track IDs. (optional).
 # See the README.md file for how to find these.
 soundCloudIds:
@@ -46,6 +47,17 @@ soundCloudIds:
   - 1661999643
   - 1661987727
   - 1661989830
+
+# List of audio tracks for this project or compilation.
+# At least one embeddable url (mp3/aac) must be specified for each track.
+tracks:
+  # Display name for the track.
+  - name: "Blue River Road"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1272228361
+
+# Project's accent color, in css hex format (optional).
+color: "#f49ac1"
 
 # An icon that represents the game type (optional).
 # Must be a file under public/icons.
@@ -79,9 +91,6 @@ link: https://www.turninggame.com
 #   - Steam
 #   - Nintendo Switch
 #   - Playstation 5
-
-# Project's accent color, in css hex format (optional).
-color: '#f49ac1'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.

@@ -274,37 +274,33 @@ describe('getProjects', () => {
         minimumProjectYaml,
         'tracks:',
         '  - name: Track 1',
-        '    urls:',
-        '      mp3: https://some/url/file.mp3',
+        '    mp3: https://some/url/file.mp3',
         '  - name: Track 2',
-        '    urls:',
-        '      mp3: https://some/url/file.mp3',
-        '      aac: https://some/url/file.mp4',
-        '      soundcloud: https://soundcloud.com',
-        '      bandcamp: https://bandcamp.com',
-        '      spotify: https://spotify.com',
-        '      apple: https://apple.com',
-        '      itunes: https://itunes.com',
-        '      youtube: https://youtube.com',
+        '    mp3: https://some/url/file.mp3',
+        '    aac: https://some/url/file.mp4',
+        '    soundcloud: https://soundcloud.com',
+        '    bandcamp: https://bandcamp.com',
+        '    spotify: https://spotify.com',
+        '    apple: https://apple.com',
+        '    itunes: https://itunes.com',
+        '    youtube: https://youtube.com',
       ].join('\n'),
     });
 
     expect(await getProjects()).toEqual([
       expect.objectContaining({
         tracks: [
-          { name: 'Track 1', urls: { mp3: 'https://some/url/file.mp3' } },
+          { name: 'Track 1', mp3: 'https://some/url/file.mp3' },
           {
             name: 'Track 2',
-            urls: {
-              mp3: 'https://some/url/file.mp3',
-              aac: 'https://some/url/file.mp4',
-              soundcloud: 'https://soundcloud.com',
-              bandcamp: 'https://bandcamp.com',
-              spotify: 'https://spotify.com',
-              apple: 'https://apple.com',
-              itunes: 'https://itunes.com',
-              youtube: 'https://youtube.com',
-            },
+            mp3: 'https://some/url/file.mp3',
+            aac: 'https://some/url/file.mp4',
+            soundcloud: 'https://soundcloud.com',
+            bandcamp: 'https://bandcamp.com',
+            spotify: 'https://spotify.com',
+            apple: 'https://apple.com',
+            itunes: 'https://itunes.com',
+            youtube: 'https://youtube.com',
           },
         ],
       }),
@@ -318,8 +314,7 @@ describe('getProjects', () => {
       'data/projects/project.yaml': [
         minimumProjectYaml,
         'tracks:',
-        '  - urls:',
-        '      mp3: https://some/url/file.mp3',
+        '  - mp3: https://some/url/file.mp3',
       ].join('\n'),
     });
 
@@ -336,8 +331,7 @@ describe('getProjects', () => {
         minimumProjectYaml,
         'tracks:',
         '  - name: Track 1',
-        '    urls:',
-        '      mp3: htps://some/url/file.mp3',
+        '  - mp3: htps://some/url/file.mp3',
       ].join('\n'),
     });
 
@@ -352,13 +346,12 @@ describe('getProjects', () => {
         minimumProjectYaml,
         'tracks:',
         '  - name: Track 1',
-        '    urls:',
-        '      soundcloud: htps://soundcloud.com',
+        '    soundcloud: htps://soundcloud.com',
       ].join('\n'),
     });
 
     await expect(getProjects()).rejects.toThrow(
-      'At least one direct audio url must be specified',
+      'At least one embeddable audio url must be specified',
     );
   });
 
