@@ -115,7 +115,6 @@
   top: 100%;
   right: 0;
   left: 0;
-  z-index: 100;
 
   /* woudn't need this with display none... */
   max-height: 0;
@@ -124,6 +123,7 @@
 
 .overlay.open {
   max-height: 1000px;
+  z-index: 100;
 }
 
 .overlay nav {
