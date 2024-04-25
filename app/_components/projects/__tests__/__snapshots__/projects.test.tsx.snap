@@ -44,9 +44,6 @@ exports[`projects matches snapshot 1`] = `
         <p>
           Project A description.
         </p>
-        <div
-          class="soundcloud"
-        />
       </article>
       <article
         class="box hover container"
@@ -68,9 +65,6 @@ exports[`projects matches snapshot 1`] = `
         <p>
           Project B description.
         </p>
-        <div
-          class="soundcloud"
-        />
       </article>
     </div>
   </section>

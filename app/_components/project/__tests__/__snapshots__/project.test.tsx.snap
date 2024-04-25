@@ -32,31 +32,6 @@ exports[`project matches snapshot 1`] = `
     A test project.
   </p>
   <div
-    class="soundcloud"
-  >
-    <iframe
-      height="20"
-      loading="lazy"
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661974287&inverse=false&auto_play=false&show_user=false&color=%23fffeee"
-      title="Play music from Test Project with SoundCloud music player"
-      width="100%"
-    />
-    <iframe
-      height="20"
-      loading="lazy"
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661979261&inverse=false&auto_play=false&show_user=false&color=%23fffeee"
-      title="Play music from Test Project with SoundCloud music player"
-      width="100%"
-    />
-    <iframe
-      height="20"
-      loading="lazy"
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1661980971&inverse=false&auto_play=false&show_user=false&color=%23fffeee"
-      title="Play music from Test Project with SoundCloud music player"
-      width="100%"
-    />
-  </div>
-  <div
     class="viewMore"
   >
     <a

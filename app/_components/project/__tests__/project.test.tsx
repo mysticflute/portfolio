@@ -12,7 +12,6 @@ describe('project', () => {
           sort: 1,
           role: 'Composer',
           description: 'A test project.',
-          soundCloudIds: [1661974287, 1661979261, 1661980971],
           icon: 'pulsar/leaf.svg',
           link: 'https://www.test-project.com',
           color: '#fffeee',
