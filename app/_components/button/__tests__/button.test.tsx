@@ -73,4 +73,14 @@ describe('button', () => {
 
     expect(screen.getByRole('link')).toHaveClass('secondary');
   });
+
+  it('adds the custom class name', () => {
+    render(
+      <Button href="/foo" type="primary" className="customclass">
+        foo
+      </Button>,
+    );
+
+    expect(screen.getByRole('link')).toHaveClass(/customclass/);
+  });
 });

@@ -3,7 +3,7 @@
 exports[`iconButton matches snapshot 1`] = `
 <div>
   <a
-    class="base secondary"
+    class="base secondary button"
     href="/foo"
   >
     <span
