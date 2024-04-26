@@ -19,11 +19,15 @@ type Props = {
 export default function AudioTrack({ metadata }: Props) {
   return (
     <div className={styles.track}>
-      <span className={styles.title}>{metadata.name}</span>
+      <span title={metadata.name} className={styles.title}>
+        {metadata.name}
+      </span>
       <div className={styles.audio}>
         <AudioPlayer
-          src={metadata.mp3}
+          // src={metadata.mp3}
+          src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Jazz_at_Mladost_Club/Jazz_Night/Jazz_at_Mladost_Club_-_07_-_Blue_bossa.mp3"
           showJumpControls={false}
+          autoPlayAfterSrcChange={false}
           layout="horizontal"
           preload="metadata"
           customVolumeControls={[]}

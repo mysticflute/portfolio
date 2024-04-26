@@ -3,10 +3,9 @@
 
 .track {
   display: flex;
-  font-size: 12px;
   margin: 5px 0;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .title {
@@ -20,11 +19,26 @@
   flex: 1;
 }
 
+.track,
 .audio :global(.rhap_time) {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 
 .audio :global(.rhap_container) {
   box-shadow: none;
   padding: 0;
+}
+
+.audio :global(.rhap_play-pause-button) {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.audio :global(.rhap_current-time) {
+  margin-right: 7px;
+}
+
+.audio :global(.rhap_controls-section) {
+  flex: initial;
 }
