@@ -1,0 +1,30 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+/* stylelint-disable selector-class-pattern */
+
+.track {
+  display: flex;
+  font-size: 12px;
+  margin: 5px 0;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.audio {
+  flex: 1;
+}
+
+.audio :global(.rhap_time) {
+  font-size: 12px;
+}
+
+.audio :global(.rhap_container) {
+  box-shadow: none;
+  padding: 0;
+}

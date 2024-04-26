@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
-// import { getUrlForTrack } from '@/lib/soundcloud';
+import AudioTrack from '@/components/audioTrack/audioTrack';
 import styles from './project.module.css';
 
 import { type ProjectMetadata } from '@/lib/projects';
@@ -34,11 +34,12 @@ export default function Project({ projectMetadata: data }: Props) {
 
       {data.tracks &&
         data.tracks.map(track => (
-          <audio key={track.name} controls preload="none">
-            {track.aac && <source src={track.aac} type="audio/aac" />}
-            {track.mp3 && <source src={track.mp3} type="audio/mpeg" />}
-            Your browser does not support the audio element.
-          </audio>
+          // <audio key={track.name} controls preload="none">
+          //   {track.aac && <source src={track.aac} type="audio/aac" />}
+          //   {track.mp3 && <source src={track.mp3} type="audio/mpeg" />}
+          //   Your browser does not support the audio element.
+          // </audio>
+          <AudioTrack key={track.name} metadata={track} />
         ))}
 
       {data.link && (
