@@ -2,6 +2,7 @@ import { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@/components/googleAnalytics/googleAnalytics';
+import { MediaStatusProvider } from '@/components/mediaContext/mediaContext';
 import { Onest, LineRoundedIcons } from '@/lib/fonts';
 import {
   baseWebsiteTitle,
@@ -72,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${Onest.variable} ${LineRoundedIcons.variable}`}>
-        {children}
+        <MediaStatusProvider>{children}</MediaStatusProvider>
 
         <Analytics />
         <SpeedInsights />
