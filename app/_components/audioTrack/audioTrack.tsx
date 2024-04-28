@@ -5,8 +5,8 @@ import { ProjectMetadata } from '@/lib/projects';
 import AudioPlayer from 'react-h5-audio-player';
 import styles from './audioTrack.module.css';
 import {
-  useMediaStatusDispatch,
-  useMediaStatus,
+  useMediaContext,
+  useMediaDispatch,
 } from '@/components/mediaContext/mediaContext';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -18,12 +18,12 @@ type Props = {
 };
 
 /**
- * Displays a Button component with an Icon to the left.
+ * TODO.
  */
 export default function AudioTrack({ metadata }: Props) {
+  const state = useMediaContext();
+  const dispatch = useMediaDispatch();
   const audioRef = useRef<AudioPlayer>(null);
-  const dispatch = useMediaStatusDispatch();
-  const state = useMediaStatus();
 
   if (state.currentlyPlaying !== metadata.name) {
     const ref = audioRef.current?.audio.current;
