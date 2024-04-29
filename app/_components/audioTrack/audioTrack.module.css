@@ -36,7 +36,8 @@
 }
 
 .audio :global(.rhap_current-time) {
-  margin-right: 7px;
+  /* prevent layout shift during play, since the font is not fixed width */
+  width: 46px;
 }
 
 .audio :global(.rhap_controls-section) {
