@@ -24,7 +24,7 @@
 }
 
 .container p,
-.container .soundcloud:not(:last-child) {
+.container .tracks:not(:last-child) {
   margin-bottom: 56px;
 }
 
@@ -49,14 +49,14 @@
 
 @media screen and (max-width: 991px) {
   .container p,
-  .container .soundcloud:not(:last-child) {
+  .container .tracks:not(:last-child) {
     margin-bottom: 32px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .container p,
-  .container .soundcloud:not(:last-child) {
+  .container .tracks:not(:last-child) {
     margin-bottom: 24px;
   }
 
@@ -77,7 +77,7 @@
 
 @media screen and (max-width: 479px) {
   .container p,
-  .container .soundcloud:not(:last-child) {
+  .container .tracks:not(:last-child) {
     margin-bottom: 18px;
   }
 

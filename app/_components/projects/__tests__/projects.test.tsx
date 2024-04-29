@@ -6,7 +6,7 @@ describe('projects', () => {
   it('matches snapshot', () => {
     const { container } = render(
       <Projects
-        projectsMetadata={[
+        projects={[
           {
             name: 'Test Project A',
             slug: 'test-project-a',

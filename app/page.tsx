@@ -11,7 +11,7 @@ export default async function Page() {
     <Layout>
       <Hero></Hero>
       <Strip></Strip>
-      <Projects projectsMetadata={projects}></Projects>
+      <Projects projects={projects}></Projects>
     </Layout>
   );
 }

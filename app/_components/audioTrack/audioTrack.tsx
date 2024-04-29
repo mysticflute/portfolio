@@ -1,57 +1,78 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { ProjectMetadata } from '@/lib/projects';
-import AudioPlayer from 'react-h5-audio-player';
-import styles from './audioTrack.module.css';
 import {
   useMediaContext,
   useMediaDispatch,
 } from '@/components/mediaContext/mediaContext';
+import styles from './audioTrack.module.css';
+
+import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 type Props = {
   /**
-   * TODO.
+   * Metadata about the track.
    */
-  metadata: NonNullable<ProjectMetadata['tracks']>[number];
+  track: NonNullable<ProjectMetadata['tracks']>[number];
+
+  /**
+   * Controls whether the <audio> element pauses or plays.
+   */
+  isPlaying?: boolean;
+
+  /**
+   * Function to call when a track finishes playing.
+   * @param id The id of the track that finished playing.
+   */
+  onTrackEnd?(id: string): void;
 };
 
-/**
- * TODO.
- */
-export default function AudioTrack({ metadata }: Props) {
-  const state = useMediaContext();
-  const dispatch = useMediaDispatch();
+export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
   const audioRef = useRef<AudioPlayer>(null);
+  const context = useMediaContext();
+  const update = useMediaDispatch();
 
-  if (state.currentlyPlaying !== metadata.name) {
+  // sync the isPlaying prop with the audio element
+  useEffect(() => {
     const ref = audioRef.current?.audio.current;
-    if (ref && !ref.paused) {
-      ref.pause();
+    if (ref) {
+      if (isPlaying && ref.paused) {
+        ref.play();
+      } else if (!isPlaying && !ref.paused) {
+        ref.pause();
+      }
     }
-  }
+  }, [isPlaying]);
 
-  const onPlay = () => {
-    dispatch({ type: 'playing', id: metadata.name });
+  const onPlay = function () {
+    if (context.currentTrackId !== track.id) {
+      update({ type: 'playing', id: track.id });
+    }
+  };
+
+  const onEnded = function () {
+    onTrackEnd && onTrackEnd(track.id);
   };
 
   return (
     <div className={styles.track}>
-      <span title={metadata.name} className={styles.title}>
-        {metadata.name}
+      <span title={track.name} className={styles.title}>
+        {track.name}
       </span>
       <div className={styles.audio}>
         <AudioPlayer
+          ref={audioRef}
+          preload="metadata"
+          layout="horizontal"
           // src={metadata.mp3}
           src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Jazz_at_Mladost_Club/Jazz_Night/Jazz_at_Mladost_Club_-_07_-_Blue_bossa.mp3"
           showJumpControls={false}
-          layout="horizontal"
-          preload="metadata"
           customVolumeControls={[]}
           customAdditionalControls={[]}
           onPlay={onPlay}
-          ref={audioRef}
+          onEnded={onEnded}
         />
       </div>
     </div>

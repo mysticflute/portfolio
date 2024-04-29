@@ -5,7 +5,10 @@ import { createContext, useContext, useReducer, Dispatch } from 'react';
 /**
  * Describes the media currently playing on the page.
  */
-type State = { currentlyPlaying: string | null };
+type State = {
+  /** The id of the current audio or video currently playing on the page. */
+  currentTrackId: string | null;
+};
 
 /**
  * Describes a change to the media currently playing on the page.
@@ -21,7 +24,7 @@ function reducer(state: State, action: Action): State {
     case 'playing':
       return {
         ...state,
-        currentlyPlaying: action.id,
+        currentTrackId: action.id,
       };
     default: {
       throw new Error(`MediaContext: unhandled action type "${action.type}"`);
@@ -39,7 +42,7 @@ export function MediaContextProvider({
   children: React.ReactNode;
 }) {
   const [currentMedia, dispatch] = useReducer(reducer, {
-    currentlyPlaying: null,
+    currentTrackId: null,
   });
 
   return (
