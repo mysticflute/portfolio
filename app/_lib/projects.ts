@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { nanoid } from 'nanoid';
 import { logger } from '@/lib/logger';
 import { exists } from '@/lib/files';
 import {
@@ -64,6 +65,9 @@ const projectSchema = object({
 
   /** The audio tracks for the project. */
   tracks: object({
+    /** a unique identifier for the track. */
+    id: string().nanoid().default(nanoid),
+
     /** The display name of the track. */
     name: string().min(1),
 

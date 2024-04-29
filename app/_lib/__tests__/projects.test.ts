@@ -290,8 +290,13 @@ describe('getProjects', () => {
     expect(await getProjects()).toEqual([
       expect.objectContaining({
         tracks: [
-          { name: 'Track 1', mp3: 'https://some/url/file.mp3' },
           {
+            id: expect.any(String),
+            name: 'Track 1',
+            mp3: 'https://some/url/file.mp3',
+          },
+          {
+            id: expect.any(String),
             name: 'Track 2',
             mp3: 'https://some/url/file.mp3',
             aac: 'https://some/url/file.mp4',
