@@ -49,3 +49,24 @@ exports[`box matches snapshot for type="text" 1`] = `
   </div>
 </div>
 `;
+
+exports[`box renders the specified class name 1`] = `
+<div>
+  <div
+    class="box hover customclass"
+  >
+    content...
+  </div>
+</div>
+`;
+
+exports[`box renders the specified inline style 1`] = `
+<div>
+  <div
+    class="box hover"
+    style="color: red;"
+  >
+    content...
+  </div>
+</div>
+`;
