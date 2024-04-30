@@ -1,10 +1,14 @@
+import { type CSSProperties } from 'react';
+import { type ProjectMetadata } from '@/lib/projects';
 import Image from 'next/image';
 import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
 import AudioPlaylist from '@/components/audioPlaylist/audioPlaylist';
 import styles from './project.module.css';
 
-import { type ProjectMetadata } from '@/lib/projects';
+interface CustomProperties extends CSSProperties {
+  '--color-project': string;
+}
 
 type Props = {
   /**
@@ -14,8 +18,13 @@ type Props = {
 };
 
 export default function Project({ project }: Props) {
+  let inlineStyle: CustomProperties | undefined;
+  if (project.color) {
+    inlineStyle = { '--color-project': project.color };
+  }
+
   return (
-    <Box tag="article" className={styles.container}>
+    <Box tag="article" className={styles.container} style={inlineStyle}>
       <div className={styles.info}>
         {project.icon && (
           <Image

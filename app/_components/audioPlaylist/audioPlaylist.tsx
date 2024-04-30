@@ -1,6 +1,6 @@
 'use client';
 
-import { ProjectMetadata } from '@/lib/projects';
+import { type ProjectMetadata } from '@/lib/projects';
 import AudioTrack from '@/components/audioTrack/audioTrack';
 import {
   useMediaContext,

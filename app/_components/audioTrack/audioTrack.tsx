@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import { ProjectMetadata } from '@/lib/projects';
+import { type ProjectMetadata } from '@/lib/projects';
 import {
   useMediaContext,
   useMediaDispatch,

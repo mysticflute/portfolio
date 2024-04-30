@@ -1,6 +1,3 @@
-/* stylelint-disable selector-pseudo-class-no-unknown */
-/* stylelint-disable selector-class-pattern */
-
 .track {
   display: flex;
   margin: 5px 0;
@@ -19,20 +16,20 @@
   flex: 1;
 }
 
-.track,
-.audio :global(.rhap_time) {
-  font-size: 0.875rem;
-}
+/* allow use of :global to override rhap class selectors */
+/* stylelint-disable selector-pseudo-class-no-unknown */
+
+/* allow use of rhap class overrides */
+/* stylelint-disable selector-class-pattern */
 
 .audio :global(.rhap_container) {
   box-shadow: none;
   padding: 0;
 }
 
-.audio :global(.rhap_play-pause-button) {
-  font-size: 30px;
-  width: 30px;
-  height: 30px;
+.track,
+.audio :global(.rhap_time) {
+  font-size: 0.875rem;
 }
 
 .audio :global(.rhap_current-time) {
@@ -42,4 +39,32 @@
 
 .audio :global(.rhap_controls-section) {
   flex: initial;
+}
+
+.audio :global(.rhap_play-pause-button) {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.audio :global(.rhap_main-controls-button) {
+  color: var(--color-gray-300);
+  transition: color 300ms ease;
+}
+
+.audio :global(.rhap_play-status--playing .rhap_main-controls-button) {
+  color: var(--color-project, var(--color-gray-300));
+  transition: color 300ms ease;
+}
+
+.audio :global(.rhap_progress-indicator),
+.audio :global(.rhap_progress-filled) {
+  background-color: var(--color-gray-300);
+  transition: background-color 300ms ease;
+}
+
+.audio :global(.rhap_play-status--playing .rhap_progress-indicator),
+.audio :global(.rhap_play-status--playing .rhap_progress-filled) {
+  background-color: var(--color-project, var(--color-gray-300));
+  transition: background-color 300ms ease;
 }

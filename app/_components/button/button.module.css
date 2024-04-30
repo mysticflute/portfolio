@@ -7,10 +7,10 @@
   font-weight: 700;
   line-height: 1.111;
   transition:
+    color 300ms ease,
     border-color 300ms ease,
-    transform 300ms ease,
     background-color 300ms ease,
-    color 300ms ease;
+    transform 300ms ease;
   transform-style: preserve-3d;
   -webkit-tap-highlight-color: transparent;
 }
