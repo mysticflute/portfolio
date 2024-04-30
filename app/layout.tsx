@@ -39,8 +39,6 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: socialCardTitle,
-    description: socialCardDescription,
   },
 
   // for info about favicons, see these articles:
