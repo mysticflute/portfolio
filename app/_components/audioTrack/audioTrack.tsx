@@ -56,7 +56,7 @@ export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
   };
 
   return (
-    <div className={styles.track}>
+    <div className={styles.track} data-testid="audio-track">
       <span title={track.name} className={styles.title}>
         {track.name}
       </span>
