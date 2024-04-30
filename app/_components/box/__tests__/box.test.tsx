@@ -33,6 +33,20 @@ describe('box', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('renders the specified class name', () => {
+    const { container } = render(<Box className="customclass">content...</Box>);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders the specified inline style', () => {
+    const { container } = render(
+      <Box style={{ color: 'red' }}>content...</Box>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   it('uses the specified tag', () => {
     render(
       <Box type="hover" tag="article">
