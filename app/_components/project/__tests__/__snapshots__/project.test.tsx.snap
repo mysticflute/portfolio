@@ -3,6 +3,7 @@
 exports[`project matches snapshot 1`] = `
 <article
   class="box hover container"
+  style="--color-project: #fffeee;"
 >
   <div
     class="info"
