@@ -1,3 +1,4 @@
+import { MediaContextProvider } from '@/components/mediaContext/mediaContext';
 import Nav from '@/components/nav/nav';
 import Footer from '@/components/footer/footer';
 import styles from './layout.module.css';
@@ -24,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Nav></Nav>
       </header>
       <main id="main-content" role="main">
-        {children}
+        <MediaContextProvider>{children}</MediaContextProvider>
       </main>
       <Footer></Footer>
     </div>
