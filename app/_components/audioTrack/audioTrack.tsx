@@ -2,14 +2,13 @@
 
 import { useRef, useEffect } from 'react';
 import { type ProjectMetadata } from '@/lib/projects';
+import AudioPlayer from 'react-h5-audio-player';
 import {
   useMediaContext,
   useMediaDispatch,
 } from '@/components/mediaContext/mediaContext';
-import styles from './audioTrack.module.css';
-
-import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import styles from './audioTrack.module.css';
 
 type Props = {
   /**
