@@ -18,7 +18,11 @@ describe('project', () => {
             link: 'https://www.test-project.com',
             color: '#fffeee',
             tracks: [
-              { id: '123456', name: 'Test Track', mp3: 'https://url.mp3' },
+              {
+                id: 'uFBa8lXqr1V4lekQ2DUpZ',
+                name: 'Test Track',
+                mp3: 'https://url.mp3',
+              },
             ],
           }}
         ></Project>

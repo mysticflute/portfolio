@@ -5,7 +5,7 @@ import { createContext, useContext, useReducer, Dispatch } from 'react';
 /**
  * Describes the media currently playing on the page.
  */
-type State = {
+export type State = {
   /** The id of the current audio or video currently playing on the page. */
   currentTrackId: string | null;
 };
@@ -13,7 +13,7 @@ type State = {
 /**
  * Describes a change to the media currently playing on the page.
  */
-type Action = { type: 'playing'; id: string };
+export type Action = { type: 'playing'; id: string };
 
 const StateContext = createContext<State | undefined>(undefined);
 const DispatchContext = createContext<Dispatch<Action> | undefined>(undefined);

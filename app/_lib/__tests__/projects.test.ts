@@ -14,17 +14,17 @@ describe('getProjects', () => {
     mockfs.restore();
   });
 
-  it('it handles no projects found', async () => {
+  it('handles no projects found', async () => {
     mockfs({ 'data/projects': {} });
     expect(await getProjects()).toEqual([]);
   });
 
-  it('it ignores non-yaml files', async () => {
+  it('ignores non-yaml files', async () => {
     mockfs({ 'data/projects/project.txt': 'name: Project' });
     expect(await getProjects()).toEqual([]);
   });
 
-  it('it ignores files starting with an underscore', async () => {
+  it('ignores files starting with an underscore', async () => {
     mockfs({ 'data/projects/_project.yaml': 'name: Project' });
     expect(await getProjects()).toEqual([]);
   });

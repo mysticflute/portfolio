@@ -23,7 +23,7 @@ const trackMetadata = Object.freeze({
   mp3: 'https://test.mp3',
 });
 
-describe('audio track', () => {
+describe('audioTrack', () => {
   let isPausedMock: boolean;
   let playMock: jest.Mock;
   let pauseMock: jest.Mock;
@@ -70,7 +70,7 @@ describe('audio track', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('audio plays when isPlaying is true', async () => {
+  it('calls play() on audio element when isPlaying is true', async () => {
     render(<AudioTrack track={{ ...trackMetadata }} isPlaying={true} />, {
       wrapper: Providers,
     });
@@ -79,7 +79,7 @@ describe('audio track', () => {
     expect(playMock).toBeCalledTimes(1);
   });
 
-  it('audio does not play when isPlaying is false', async () => {
+  it('does not call play() on audio element when isPlaying is false', async () => {
     render(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />, {
       wrapper: Providers,
     });
@@ -88,7 +88,7 @@ describe('audio track', () => {
     expect(playMock).not.toBeCalled();
   });
 
-  it('does not call play on the audio if already playing', async () => {
+  it('does not call play() on audio element if already playing', async () => {
     const { rerender } = render(
       <AudioTrack track={{ ...trackMetadata }} isPlaying={false} />,
       { wrapper: Providers },
@@ -101,7 +101,7 @@ describe('audio track', () => {
     expect(playMock).toBeCalledTimes(1);
   });
 
-  it('does not call pause on the audio if already paused', async () => {
+  it('does not call pause() on audio element if already paused', async () => {
     const { rerender } = render(
       <AudioTrack track={{ ...trackMetadata }} isPlaying={true} />,
       { wrapper: Providers },
@@ -114,7 +114,7 @@ describe('audio track', () => {
     expect(pauseMock).toBeCalledTimes(1);
   });
 
-  it('calls onTrackEnd when the track ends', async () => {
+  it('calls onTrackEnd() when the track ends', async () => {
     const onEnd = jest.fn();
 
     const { container } = render(
@@ -137,7 +137,7 @@ describe('audio track', () => {
     expect(onEnd).toBeCalledWith(trackMetadata.id);
   });
 
-  it('updates the track id in the context when the track plays', async () => {
+  it('dispatches a context update when the track starts playing', async () => {
     let contextTrackId: string | null = null;
 
     const ContextConsumer = () => {

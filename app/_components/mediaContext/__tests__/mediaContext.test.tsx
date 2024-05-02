@@ -26,7 +26,7 @@ describe('media context provider', () => {
     expect(contextTrackId).toBeNull();
   });
 
-  it('calling dispatch updates the current track id', () => {
+  it('updates the current track id when dispatch is called', () => {
     const testId = '64d866LtdteTA6nA_yWVD';
     let contextTrackId: string | null = null;
 
