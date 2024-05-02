@@ -78,9 +78,9 @@ export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
       <div className={styles.audio}>
         <AudioPlayer
           ref={audioRef}
+          src={track.mp3}
           preload="metadata"
           layout="horizontal"
-          src={track.mp3}
           onPlay={handlePlay}
           onEnded={handleEnded}
           showJumpControls={false}
