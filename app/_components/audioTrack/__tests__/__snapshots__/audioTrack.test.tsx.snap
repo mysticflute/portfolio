@@ -6,12 +6,12 @@ exports[`audioTrack matches snapshot 1`] = `
     class="track"
     data-testid="audio-track"
   >
-    <span
+    <button
       class="title"
       title="Track Name"
     >
       Track Name
-    </span>
+    </button>
     <div
       class="audio"
     >

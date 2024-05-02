@@ -45,29 +45,44 @@ export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
     }
   }, [isPlaying]);
 
-  const onPlay = function () {
+  function handleTitleClick() {
+    const ref = audioRef.current?.audio.current;
+    if (ref) {
+      if (ref.paused) {
+        ref.play();
+      } else {
+        ref.pause();
+      }
+    }
+  }
+
+  function handlePlay() {
     if (context.currentTrackId !== track.id) {
       update({ type: 'playing', id: track.id });
     }
-  };
+  }
 
-  const onEnded = function () {
+  function handleEnded() {
     onTrackEnd && onTrackEnd(track.id);
-  };
+  }
 
   return (
     <div className={styles.track} data-testid="audio-track">
-      <span title={track.name} className={styles.title}>
+      <button
+        title={track.name}
+        className={styles.title}
+        onClick={handleTitleClick}
+      >
         {track.name}
-      </span>
+      </button>
       <div className={styles.audio}>
         <AudioPlayer
           ref={audioRef}
           preload="metadata"
           layout="horizontal"
           src={track.mp3}
-          onPlay={onPlay}
-          onEnded={onEnded}
+          onPlay={handlePlay}
+          onEnded={handleEnded}
           showJumpControls={false}
           customVolumeControls={[]}
           customAdditionalControls={[]}

@@ -16,6 +16,23 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
+  transition: color 300ms ease;
+
+  /* reset button styles */
+  display: inline-block;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.title:hover {
+  color: var(--color-text-accent);
 }
 
 .audio {

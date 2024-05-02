@@ -6,7 +6,7 @@ import {
   it,
   expect,
 } from '@jest/globals';
-import { render, act } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import {
   MediaContextProvider,
   useMediaContext,
@@ -163,5 +163,23 @@ describe('audioTrack', () => {
     });
 
     expect(contextTrackId).toBe(trackMetadata.id);
+  });
+
+  it('toggles between playing and paused when clicking on the title', async () => {
+    render(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />, {
+      wrapper: Providers,
+    });
+
+    expect(isPausedMock).toBe(true);
+
+    const title = screen.getByRole('button', { name: trackMetadata.name });
+
+    await title.click();
+    expect(isPausedMock).toBe(false);
+
+    await title.click();
+    expect(isPausedMock).toBe(true);
+
+    expect(playMock).toBeCalledTimes(1);
   });
 });
