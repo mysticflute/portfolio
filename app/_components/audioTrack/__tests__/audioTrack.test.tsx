@@ -6,23 +6,22 @@ import {
   it,
   expect,
 } from '@jest/globals';
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import {
   MediaContextProvider,
   useMediaContext,
 } from '@/components/mediaContext/mediaContext';
 import AudioTrack from '../audioTrack';
-import { act } from '@testing-library/react';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return <MediaContextProvider>{children}</MediaContextProvider>;
 };
 
-const defaultTrackMetadata = {
+const trackMetadata = Object.freeze({
   id: 'LfFsucm-4g4PU5ZlfStxc',
   name: 'Track Name',
   mp3: 'https://test.mp3',
-};
+});
 
 describe('audio track', () => {
   let isPausedMock: boolean;
@@ -64,29 +63,26 @@ describe('audio track', () => {
   });
 
   it('matches snapshot', () => {
-    const { container } = render(
-      <AudioTrack track={{ ...defaultTrackMetadata }} />,
-      { wrapper: Providers },
-    );
+    const { container } = render(<AudioTrack track={{ ...trackMetadata }} />, {
+      wrapper: Providers,
+    });
 
     expect(container).toMatchSnapshot();
   });
 
   it('audio plays when isPlaying is true', async () => {
-    render(
-      <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={true} />,
-      { wrapper: Providers },
-    );
+    render(<AudioTrack track={{ ...trackMetadata }} isPlaying={true} />, {
+      wrapper: Providers,
+    });
 
     expect(isPausedMock).toBe(false);
     expect(playMock).toBeCalledTimes(1);
   });
 
   it('audio does not play when isPlaying is false', async () => {
-    render(
-      <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={false} />,
-      { wrapper: Providers },
-    );
+    render(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />, {
+      wrapper: Providers,
+    });
 
     expect(isPausedMock).toBe(true);
     expect(playMock).not.toBeCalled();
@@ -94,31 +90,27 @@ describe('audio track', () => {
 
   it('does not call play on the audio if already playing', async () => {
     const { rerender } = render(
-      <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={false} />,
+      <AudioTrack track={{ ...trackMetadata }} isPlaying={false} />,
       { wrapper: Providers },
     );
 
     playMock(); // fake click of the play button
     expect(playMock).toBeCalledTimes(1);
 
-    rerender(
-      <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={true} />,
-    );
+    rerender(<AudioTrack track={{ ...trackMetadata }} isPlaying={true} />);
     expect(playMock).toBeCalledTimes(1);
   });
 
   it('does not call pause on the audio if already paused', async () => {
     const { rerender } = render(
-      <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={true} />,
+      <AudioTrack track={{ ...trackMetadata }} isPlaying={true} />,
       { wrapper: Providers },
     );
 
     pauseMock(); // fake click of the pause button
     expect(pauseMock).toBeCalledTimes(1);
 
-    rerender(
-      <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={false} />,
-    );
+    rerender(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />);
     expect(pauseMock).toBeCalledTimes(1);
   });
 
@@ -127,7 +119,7 @@ describe('audio track', () => {
 
     const { container } = render(
       <AudioTrack
-        track={{ ...defaultTrackMetadata }}
+        track={{ ...trackMetadata }}
         isPlaying={true}
         onTrackEnd={onEnd}
       />,
@@ -139,7 +131,7 @@ describe('audio track', () => {
     expect(audio).toBeInTheDocument();
 
     audio!.dispatchEvent(new Event('ended'));
-    expect(onEnd).toBeCalledWith(defaultTrackMetadata.id);
+    expect(onEnd).toBeCalledWith(trackMetadata.id);
   });
 
   it('updates the track id in the context when the track plays', async () => {
@@ -154,7 +146,7 @@ describe('audio track', () => {
     const { container } = render(
       <>
         <ContextConsumer />
-        <AudioTrack track={{ ...defaultTrackMetadata }} isPlaying={false} />
+        <AudioTrack track={{ ...trackMetadata }} isPlaying={false} />
       </>,
       { wrapper: Providers },
     );
@@ -167,6 +159,6 @@ describe('audio track', () => {
       audio!.dispatchEvent(new Event('play'));
     });
 
-    expect(contextTrackId).toBe(defaultTrackMetadata.id);
+    expect(contextTrackId).toBe(trackMetadata.id);
   });
 });
