@@ -57,7 +57,7 @@ exports[`project matches snapshot 1`] = `
         >
           <audio
             preload="metadata"
-            src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Jazz_at_Mladost_Club/Jazz_Night/Jazz_at_Mladost_Club_-_07_-_Blue_bossa.mp3"
+            src="https://url.mp3"
           />
           <div
             class="rhap_main rhap_horizontal"

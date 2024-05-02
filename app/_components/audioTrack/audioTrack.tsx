@@ -65,13 +65,12 @@ export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
           ref={audioRef}
           preload="metadata"
           layout="horizontal"
-          // src={metadata.mp3}
-          src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Jazz_at_Mladost_Club/Jazz_Night/Jazz_at_Mladost_Club_-_07_-_Blue_bossa.mp3"
+          src={track.mp3}
+          onPlay={onPlay}
+          onEnded={onEnded}
           showJumpControls={false}
           customVolumeControls={[]}
           customAdditionalControls={[]}
-          onPlay={onPlay}
-          onEnded={onEnded}
         />
       </div>
     </div>

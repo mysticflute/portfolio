@@ -130,7 +130,10 @@ describe('audio track', () => {
     expect(audio).toBeDefined();
     expect(audio).toBeInTheDocument();
 
-    audio!.dispatchEvent(new Event('ended'));
+    act(() => {
+      audio!.dispatchEvent(new Event('ended'));
+    });
+
     expect(onEnd).toBeCalledWith(trackMetadata.id);
   });
 

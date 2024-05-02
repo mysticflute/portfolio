@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { describe, it, expect } from '@jest/globals';
 import { render } from '@testing-library/react';
 import {
@@ -37,7 +38,9 @@ describe('media context provider', () => {
 
     const ContextUpdater = () => {
       const dispatch = useMediaDispatch();
-      dispatch({ type: 'playing', id: testId });
+      useEffect(() => {
+        dispatch({ type: 'playing', id: testId });
+      });
       return <></>;
     };
 

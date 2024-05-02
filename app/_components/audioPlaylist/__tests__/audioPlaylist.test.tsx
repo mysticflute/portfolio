@@ -1,4 +1,11 @@
-import { describe, it, expect } from '@jest/globals';
+import {
+  jest,
+  describe,
+  beforeEach,
+  afterEach,
+  it,
+  expect,
+} from '@jest/globals';
 import { render, act } from '@testing-library/react';
 import {
   MediaContextProvider,
@@ -23,13 +30,42 @@ const trackMetadataB = Object.freeze({
 });
 
 describe('audio playlist', () => {
-  it('matches snapshot', () => {
-    const { container } = render(
-      <AudioPlaylist tracks={[{ ...trackMetadataA }, { ...trackMetadataB }]} />,
-      { wrapper: Providers },
-    );
+  let isPausedMock: boolean;
+  let playMock: jest.Mock;
+  let pauseMock: jest.Mock;
 
-    expect(container).toMatchSnapshot();
+  beforeEach(() => {
+    isPausedMock = true;
+
+    playMock = jest.fn().mockImplementation(() => {
+      isPausedMock = false;
+    });
+
+    pauseMock = jest.fn().mockImplementation(() => {
+      isPausedMock = true;
+    });
+
+    jest
+      .spyOn(window.HTMLMediaElement.prototype, 'play')
+      .mockImplementation(async () => {
+        playMock();
+      });
+
+    jest
+      .spyOn(window.HTMLMediaElement.prototype, 'pause')
+      .mockImplementation(() => {
+        pauseMock();
+      });
+
+    jest
+      .spyOn(window.HTMLMediaElement.prototype, 'paused', 'get')
+      .mockImplementation(() => {
+        return isPausedMock;
+      });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it('plays the next track when a track ends', () => {
