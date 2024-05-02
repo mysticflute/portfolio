@@ -1,6 +1,6 @@
+import { type ProjectMetadata } from '@/lib/projects';
 import Project from '@/components/project/project';
 import styles from './projects.module.css';
-import { type ProjectMetadata } from '@/lib/projects';
 
 type Props = {
   /**

@@ -50,7 +50,7 @@ exports[`currently enabled projects should match snapshot 1`] = `
       {
         "id": Any<String>,
         "mp3": "https://feeds.soundcloud.com/stream/1363214545",
-        "name": "Sarvarā's Gate [Final Stage] (Vulgari OST)",
+        "name": "Sarvarā's Gate  (Vulgari OST)",
       },
       {
         "id": Any<String>,
@@ -60,7 +60,7 @@ exports[`currently enabled projects should match snapshot 1`] = `
       {
         "id": Any<String>,
         "mp3": "https://feeds.soundcloud.com/stream/1510431769",
-        "name": "Overworld Map (JRPG-Style Dungeons and Dragons Campaign)",
+        "name": "Overworld Map (D&D Campaign)",
       },
     ],
   },

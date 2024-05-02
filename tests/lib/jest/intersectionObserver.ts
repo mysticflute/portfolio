@@ -84,7 +84,7 @@ export function resetObserverMocks() {
  * @returns All instances observing the given element.
  */
 export function getObserversForElement(element: Element) {
-  let observers: IntersectionObserver[] = [];
+  const observers: IntersectionObserver[] = [];
 
   allObservers.forEach((metadata, observer) => {
     if (metadata.observedElements.has(element)) {

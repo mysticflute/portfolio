@@ -72,7 +72,7 @@ tracks:
     mp3: https://feeds.soundcloud.com/stream/1363203541
 
   # Display name for the track.
-  - name: "Sarvarā's Gate [Final Stage] (Vulgari OST)"
+  - name: "Sarvarā's Gate  (Vulgari OST)"
     # The urls to embed, externally stream or buy the track.
     mp3: https://feeds.soundcloud.com/stream/1363214545
 
@@ -82,7 +82,7 @@ tracks:
     mp3: https://feeds.soundcloud.com/stream/1363207933
 
   # Display name for the track.
-  - name: "Overworld Map (JRPG-Style Dungeons and Dragons Campaign)"
+  - name: "Overworld Map (D&D Campaign)"
     # The urls to embed, externally stream or buy the track.
     mp3: https://feeds.soundcloud.com/stream/1510431769
 
