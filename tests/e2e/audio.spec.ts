@@ -59,11 +59,16 @@ test.describe('audio tracks', () => {
 
     await track1.scrollIntoViewIfNeeded();
     await track1.getByRole('button', { name: 'Play' }).click();
+
+    // wait for metadata to load
+    await expect(audio1).toHaveJSProperty('readyState', 4, { timeout });
+
+    // move to the end of the track
     await audio1.evaluate(
       (el: HTMLAudioElement) => (el.currentTime = el.duration),
     );
 
-    track2.scrollIntoViewIfNeeded();
+    await track2.scrollIntoViewIfNeeded();
     await expect(audio2).toHaveJSProperty('paused', false, { timeout });
   });
 });
