@@ -22,7 +22,7 @@ exports[`audioTrack matches snapshot 1`] = `
         tabindex="0"
       >
         <audio
-          preload="metadata"
+          preload="none"
           src="https://test.mp3"
         />
         <div

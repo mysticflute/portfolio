@@ -56,7 +56,7 @@ exports[`project matches snapshot 1`] = `
           tabindex="0"
         >
           <audio
-            preload="metadata"
+            preload="none"
             src="https://url.mp3"
           />
           <div

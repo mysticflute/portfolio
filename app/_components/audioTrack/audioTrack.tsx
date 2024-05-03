@@ -10,6 +10,12 @@ import {
 import 'react-h5-audio-player/lib/styles.css';
 import styles from './audioTrack.module.css';
 
+const envPreload = process.env.NEXT_PUBLIC_AUDIO_PRELOAD;
+const defaultPreload =
+  envPreload === 'auto' || envPreload === 'none' || envPreload === 'metadata'
+    ? envPreload
+    : 'metadata';
+
 type Props = {
   /**
    * Metadata about the track.
@@ -79,7 +85,7 @@ export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
         <AudioPlayer
           ref={audioRef}
           src={track.mp3}
-          preload="metadata"
+          preload={defaultPreload}
           layout="horizontal"
           onPlay={handlePlay}
           onEnded={handleEnded}
