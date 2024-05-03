@@ -39,10 +39,8 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          sudo prlimit --pid $$
-          ulimit -a
-          sudo prlimit --pid $$ --nofile=500000:500000
-          sudo prlimit --pid $$
+          sudo prlimit --pid $$ --nproc=65536:65536
+          sudo prlimit --pid $$ --nofile=524288:524288
           ulimit -a
           npx playwright test
 
