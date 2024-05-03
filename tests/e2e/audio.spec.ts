@@ -63,6 +63,7 @@ test.describe('audio tracks', () => {
       (el: HTMLAudioElement) => (el.currentTime = el.duration),
     );
 
+    track2.scrollIntoViewIfNeeded();
     await expect(audio2).toHaveJSProperty('paused', false, { timeout });
   });
 });
