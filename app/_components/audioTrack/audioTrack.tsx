@@ -84,7 +84,7 @@ export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
       <div className={styles.audio}>
         <AudioPlayer
           ref={audioRef}
-          src={track.mp3}
+          src={track.mp3 || track.aac}
           preload={defaultPreload}
           layout="horizontal"
           onPlay={handlePlay}
