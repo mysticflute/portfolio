@@ -37,9 +37,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Check Ulimit
+        run: |
+          ulimit -a
+          systemctl show | grep NOFILE
+
       - name: Run Playwright tests
-        run: ulimit -a
-        run: systemctl show | grep NOFILE
         run: npx playwright test
 
       - uses: actions/upload-artifact@v4
