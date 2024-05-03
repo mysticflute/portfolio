@@ -6,7 +6,7 @@
   "author": "Nathan McWilliams",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "PINO_LOG_LEVEL=debug next dev | pino-pretty",
+    "dev": "next dev | pino-pretty",
     "build": "next build",
     "start": "next start",
     "test": "jest",
