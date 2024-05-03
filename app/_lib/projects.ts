@@ -172,7 +172,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
         }
       }
 
-      logger.trace(validated, 'successfully parserd project metadata');
+      logger.trace(validated, 'successfully parsed project metadata');
       return validated;
     }),
   );
