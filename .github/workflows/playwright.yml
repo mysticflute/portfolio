@@ -37,17 +37,13 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Check Ulimit
-        run: |
-          ulimit -a
-          systemctl show | grep NOFILE
-
       - name: Run Playwright tests
         run: |
-          sudo prlimit --pid $$ --nproc=65536:65536
+          sudo prlimit --pid $$
+          ulimit -a
           sudo prlimit --pid $$ --nofile=500000:500000
-          ulimit -n
-          systemctl show | grep NOFILE
+          sudo prlimit --pid $$
+          ulimit -a
           npx playwright test
 
       - uses: actions/upload-artifact@v4
