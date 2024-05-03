@@ -43,7 +43,11 @@ jobs:
           systemctl show | grep NOFILE
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          sudo prlimit --pid $$ --nproc=65536:65536
+          sudo prlimit --pid $$ --nofile=500000:500000
+          systemctl show | grep NOFILE
+          npx playwright test
 
       - uses: actions/upload-artifact@v4
         if: always()
