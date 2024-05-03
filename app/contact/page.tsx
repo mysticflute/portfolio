@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import Layout from '@/components/layout/layout';
 import ContactInfo from '@/components/contactInfo/contactInfo';
 

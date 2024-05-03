@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './button.module.css';
 
@@ -13,6 +14,11 @@ export type Props = {
   href: string;
 
   /**
+   * CSS class name for the top element.
+   */
+  className?: string;
+
+  /**
    * Child components.
    */
   children: React.ReactNode;
@@ -21,9 +27,9 @@ export type Props = {
 /**
  * Links to a page or section of the website.
  */
-export default function Button({ type, href, children }: Props) {
+export default function Button({ type, href, className, children }: Props) {
   return (
-    <Link href={href} className={`${styles.base} ${styles[type]}`}>
+    <Link href={href} className={clsx(styles.base, styles[type], className)}>
       {children}
     </Link>
   );

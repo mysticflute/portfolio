@@ -1,4 +1,4 @@
-# Name of the project.
+# Name of the project or collection.
 name: Recidivia
 
 # Unique, dash-delimited name for the project URL (optional).
@@ -33,14 +33,36 @@ description: >
   A story-driven 2D RPG under development by 1ManArmE Studios. Contributions
   include multiple orchestral and instrumental tracks.
 
-# List of 10-digit SoundCloud track IDs. (optional).
-# See the README.md file for how to find these.
-soundCloudIds:
-  - 1468989199
-  - 1468987642
-  - 1468969438
-  - 1468955629
-  - 1468955386
+# List of audio tracks for this project or compilation.
+# At least one embeddable url (mp3/aac) must be specified for each track.
+tracks:
+  # Display name for the track.
+  - name: "Deep Dark Forest"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1468989199
+
+  # Display name for the track.
+  - name: "Penca Plains"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1468987642
+
+  # Display name for the track.
+  - name: "Growing Suspicions"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1468969438
+
+  # Display name for the track.
+  - name: "Inn A"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1468955629
+
+  # Display name for the track.
+  - name: "Inn B"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1468955386
+
+# Project's accent color, in css hex format (optional).
+color: "#5c42fb"
 
 # An icon that represents the game type (optional).
 # Must be a file under public/icons.
@@ -56,7 +78,6 @@ icon: pulsar/crystal.svg
 # Must be a file under public/images/projects.
 # largeImage: placeholder-large.png
 
-### NOT CURRENTLY IMPLEMENTED ###
 # A link to an external project landing page (optional).
 link: https://twitter.com/RecidiviaRPG
 
@@ -74,9 +95,6 @@ link: https://twitter.com/RecidiviaRPG
 #   - Steam
 #   - Nintendo Switch
 #   - Playstation 5
-
-# Project's accent color, in css hex format (optional).
-color: '#5c42fb'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.

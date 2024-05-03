@@ -1,0 +1,131 @@
+/* allow use of :global to override rhap class selectors */
+/* stylelint-disable selector-pseudo-class-no-unknown */
+
+/* allow use of rhap class overrides */
+/* stylelint-disable selector-class-pattern */
+
+.track {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  gap: 10px;
+}
+
+.title {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: color 300ms ease;
+
+  /* reset button styles */
+  display: inline-block;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.title:hover {
+  color: var(--color-text-accent);
+}
+
+.audio {
+  flex: 1;
+  min-width: 45%;
+}
+
+.audio :global(.rhap_container) {
+  box-shadow: none;
+  padding: 0;
+}
+
+.track,
+.audio :global(.rhap_time) {
+  font-size: 0.875rem;
+}
+
+.audio :global(.rhap_time) {
+  white-space: nowrap;
+}
+
+.audio :global(.rhap_current-time) {
+  /* prevent layout shift during play, since the font is not fixed width */
+  width: 46px;
+}
+
+.audio :global(.rhap_controls-section) {
+  flex: initial;
+}
+
+.audio :global(.rhap_play-pause-button) {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.audio :global(.rhap_main-controls-button) {
+  color: var(--color-gray-300);
+  transition: color 300ms ease;
+}
+
+.audio :global(.rhap_play-status--playing .rhap_main-controls-button) {
+  color: var(--color-project, var(--color-gray-300));
+  transition: color 300ms ease;
+}
+
+.audio :global(.rhap_progress-indicator),
+.audio :global(.rhap_progress-filled) {
+  background-color: var(--color-gray-300);
+  transition: background-color 300ms ease;
+}
+
+.audio :global(.rhap_play-status--playing .rhap_progress-indicator),
+.audio :global(.rhap_play-status--playing .rhap_progress-filled) {
+  background-color: var(--color-project, var(--color-gray-300));
+  transition: background-color 300ms ease;
+}
+
+@media screen and (max-width: 1079px) {
+  .title {
+    width: auto;
+    min-width: 250px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    width: auto;
+    min-width: auto;
+  }
+
+  .track,
+  .audio :global(.rhap_time) {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .track {
+    flex-direction: column;
+    align-items: normal;
+    margin: 7px 0;
+    gap: 7px;
+  }
+
+  .title {
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  /* this can be removed if I keep the controls and title on separate lines */
+
+  /* .audio {
+    min-width: 50%;
+  } */
+}

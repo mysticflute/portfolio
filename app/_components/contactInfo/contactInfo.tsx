@@ -3,7 +3,7 @@ import SwappedEmail from '@/components/swappedEmail/swappedEmail';
 import Box from '@/components/box/box';
 import styles from './contactInfo.module.css';
 
-export default function Contact() {
+export default function ContactInfo() {
   return (
     <div className={styles.container}>
       <h1 className="textHeadingLarge">

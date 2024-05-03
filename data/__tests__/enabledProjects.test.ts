@@ -4,6 +4,17 @@ import { getProjects } from '@/lib/projects';
 describe('currently enabled projects', () => {
   it('should match snapshot', async () => {
     const projects = await getProjects();
-    expect(projects).toMatchSnapshot();
+
+    // generalize generated fields
+    const propertyMatchers = projects.map(project => {
+      if (project.tracks) {
+        return {
+          tracks: project.tracks.map(() => ({ id: expect.any(String) })),
+        };
+      }
+      return {};
+    });
+
+    expect(projects).toMatchSnapshot(propertyMatchers);
   });
 });

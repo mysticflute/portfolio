@@ -1,15 +1,15 @@
+import { type ProjectMetadata } from '@/lib/projects';
 import Project from '@/components/project/project';
 import styles from './projects.module.css';
-import { type ProjectMetadata } from '@/lib/projects';
 
 type Props = {
   /**
    * The metadata about all portfolio projects.
    */
-  projectsMetadata: ProjectMetadata[];
+  projects: ProjectMetadata[];
 };
 
-export default function Projects({ projectsMetadata }: Props) {
+export default function Projects({ projects }: Props) {
   return (
     <section className={styles.container}>
       <div className={styles.heading}>
@@ -19,8 +19,8 @@ export default function Projects({ projectsMetadata }: Props) {
         </h1>
       </div>
       <div className={styles.list}>
-        {projectsMetadata.map(project => (
-          <Project projectMetadata={project} key={project.slug}></Project>
+        {projects.map(project => (
+          <Project project={project} key={project.slug}></Project>
         ))}
       </div>
     </section>

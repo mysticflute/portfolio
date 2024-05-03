@@ -10,7 +10,10 @@ on:
 env:
   # this node version should match the project's settings in Vercel:
   # https://vercel.com/docs/functions/runtimes/node-js#node.js-version
-  NODE_VERSION: '20.x'
+  NODE_VERSION: "20.x"
+
+  # set the node environment so that `next build` uses the correct settings
+  NODE_ENV: "test"
 
 jobs:
   test-all:
@@ -25,7 +28,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -37,7 +40,11 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          sudo prlimit --pid $$ --nproc=65536:65536
+          sudo prlimit --pid $$ --nofile=524288:524288
+          ulimit -a
+          npx playwright test
 
       - uses: actions/upload-artifact@v4
         if: always()

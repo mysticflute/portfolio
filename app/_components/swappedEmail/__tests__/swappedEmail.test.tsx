@@ -124,7 +124,7 @@ describe('swappedEmail', () => {
       ></SwappedEmail>,
     );
 
-    expect(screen.queryByRole('img')).toBeInTheDocument();
+    expect(screen.queryByRole('presentation')).toBeInTheDocument();
   });
 
   it('does not render icon when showIcon is false', () => {
@@ -136,7 +136,7 @@ describe('swappedEmail', () => {
       ></SwappedEmail>,
     );
 
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+    expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
   });
 
   it('adds the custom link class name', () => {
@@ -160,7 +160,7 @@ describe('swappedEmail', () => {
       ></SwappedEmail>,
     );
 
-    expect(screen.getByRole('img').closest('div')).toHaveClass(
+    expect(screen.getByRole('presentation').closest('div')).toHaveClass(
       'custom-icon-class',
     );
   });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type CSSProperties } from 'react';
 import { clsx } from 'clsx';
 import styles from './box.module.css';
 
@@ -23,6 +23,11 @@ export type Props = {
   className?: string;
 
   /**
+   * Inline styles for the top element.
+   */
+  style?: CSSProperties;
+
+  /**
    * Child components.
    */
   children: React.ReactNode;
@@ -35,11 +40,12 @@ export default function Box({
   type = 'hover',
   tag = 'div',
   className,
+  style,
   children,
 }: Props) {
   return React.createElement(
     tag,
-    { className: clsx(styles.box, styles[type], className) },
+    { className: clsx(styles.box, styles[type], className), style },
     children,
   );
 }

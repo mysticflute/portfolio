@@ -1,4 +1,8 @@
-import { getImageProps, ImageProps, StaticImageData } from 'next/image';
+import {
+  getImageProps,
+  type ImageProps,
+  type StaticImageData,
+} from 'next/image';
 
 // Reference:
 // https://nextjs.org/docs/app/api-reference/components/image#getimageprops

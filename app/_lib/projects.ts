@@ -1,49 +1,113 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { nanoid } from 'nanoid';
 import { logger } from '@/lib/logger';
-import { getString, getNumber, getNumberArray } from '@/lib/decoder';
+import { exists } from '@/lib/files';
+import {
+  infer as Infer,
+  object,
+  string,
+  number,
+  ZodError,
+  ZodIssueCode,
+} from 'zod';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
 const publicDirectory = path.join(process.cwd(), 'public');
 const iconsDirectory = path.join(publicDirectory, 'images/icons');
 
-const VALID_SLUG = /^[a-z0-9\\-]+$/;
-const VALID_SOUNDCLOUD_ID = /^[0-9]{10}$/;
-const VALID_LINK = /^https?:\/\/.+/;
-const VALID_COLOR = /^#[0-9a-fA-F]{6}$/;
+/** Zod matcher for a URL string. */
+const url = string().regex(
+  /^https?:\/\/.+/,
+  'Expected a valid url beginning with https://',
+);
+
+/** Zod matcher for a CSS hex color. */
+const color = string().regex(
+  /^#[0-9a-fA-F]{6}$/,
+  'Expected a valid CSS hex color',
+);
+
+/** Schema for the Yaml file. */
+const projectSchema = object({
+  // REQUIRED FIELDS
+
+  /** Name of the project. */
+  name: string().min(1),
+
+  /** Unique, dash-delimited name for the project (used in page URL). */
+  slug: string().regex(
+    /^[a-z0-9\\-]+$/,
+    'The filename or specified value can only contain the characters a-z, ' +
+      '0-9 and hyphens',
+  ),
+
+  /** The sort position for the project. */
+  sort: number().nonnegative(),
+
+  /** The primary role on the project. */
+  role: string().min(1),
+
+  /** Short project description. */
+  description: string().min(1),
+
+  // OPTIONAL FIELDS
+
+  /** The path to an icon representing the game type. */
+  icon: string().min(1).optional(),
+
+  /** A link to the project's external website.  */
+  link: url.min(1).optional(),
+
+  /** The project's accent color, in css hex format. */
+  color: color.optional(),
+
+  /** The audio tracks for the project. */
+  tracks: object({
+    /** a unique identifier for the track. */
+    id: string().nanoid().default(nanoid),
+
+    /** The display name of the track. */
+    name: string().min(1),
+
+    /** The URL to an audio file in mp3 format. */
+    mp3: url.min(1).optional(),
+
+    /** The URL to an audio file in aac format. */
+    aac: url.min(1).optional(),
+
+    /** The URL to stream on Apple Music. */
+    apple: url.min(1).optional(),
+
+    /** The URL for iTunes. */
+    itunes: url.min(1).optional(),
+
+    /** The URL to stream on Spotify. */
+    spotify: url.min(1).optional(),
+
+    /** The URL to stream or purchase on Bandcamp. */
+    bandcamp: url.min(1).optional(),
+
+    /** The URL to stream on SoundCloud. */
+    soundcloud: url.min(1).optional(),
+
+    /** The URL to stream on YouTube. */
+    youtube: url.min(1).optional(),
+  })
+    .refine(
+      track => track.mp3 || track.aac,
+      'At least one embeddable audio url must be specified (mp3 or aac)',
+    )
+    .array()
+    .nonempty()
+    .optional(),
+});
 
 /**
  * Metadata about a portfolio project.
  */
-export interface ProjectMetadata {
-  /** Name of the project. */
-  name: string;
-
-  /** Unique, dash-delimited name for the project (used in URL). */
-  slug: string;
-
-  /** The sort position for the project. */
-  sort: number;
-
-  /** My primary role on the project. */
-  role: string;
-
-  /** Short project description. */
-  description: string;
-
-  /** List of 10-digit SoundCloud track IDs. */
-  soundCloudIds?: number[];
-
-  /** The path to an icon representing the game type. */
-  icon?: string;
-
-  /** A link to the project's external website.  */
-  link?: string;
-
-  /** Project's accent color, in css hex format. */
-  color?: string;
-}
+export type ProjectMetadata = Infer<typeof projectSchema>;
 
 /**
  * Reads the project metadata from the yaml files in data/projects.
@@ -62,80 +126,53 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
     projectFilenames.map(async (filename): Promise<ProjectMetadata> => {
       const filepath = path.join(projectsDirectory, filename);
       const contents = await fs.readFile(filepath, 'utf8');
-      const metadata: any = yaml.load(contents, { filename: filepath });
+      const metadata = yaml.load(contents, { filename: filepath });
 
-      // gather required fields
-      const name = getString(metadata, 'name', filepath);
-      const sort = getNumber(metadata, 'sort', filepath);
-      const role = getString(metadata, 'role', filepath);
-      const description = getString(metadata, 'description', filepath);
+      const finalProjectSchema = projectSchema.extend({
+        // default value of the slug is the filename
+        slug: projectSchema.shape.slug.default(path.parse(filename).name),
 
-      let slug: string;
-      if (metadata['slug']) {
-        slug = getString(metadata, 'slug', filepath);
-        if (!VALID_SLUG.test(slug)) {
+        // the icon must exist at the expected path
+        icon: projectSchema.shape.icon.refine(
+          async icon =>
+            icon === undefined ||
+            (await exists(path.join(iconsDirectory, icon))),
+          `Icon does not exist under '${iconsDirectory}', or is inaccessible`,
+        ),
+      });
+
+      let validated: ProjectMetadata;
+
+      try {
+        validated = await finalProjectSchema.parseAsync(metadata);
+      } catch (e) {
+        if (e instanceof ZodError) {
+          const errors = e.issues.map(issue => {
+            logger.trace(issue, 'error details for %s', filename);
+
+            const location = issue.path
+              .map(i => (typeof i === 'number' ? `item ${i + 1}` : i))
+              .join(' > ');
+
+            if (
+              issue.code === ZodIssueCode.invalid_type &&
+              issue.received === 'undefined'
+            ) {
+              return `Missing required property "${location}".`;
+            }
+
+            return `${issue.message}, for property "${location}".`;
+          });
+
           throw new Error(
-            `The key 'slug' can only contain the characters a-z, 0-9 and hyphens, in ${filepath}`,
+            `Invalid data in project YAML file ${filepath}:\n${errors.join('\n\n')}`,
           );
-        }
-      } else {
-        slug = path.parse(filename).name;
-        if (!VALID_SLUG.test(slug)) {
-          throw new Error(
-            `The filename for ${filepath} can only contain the characters a-z, 0-9 and hyphens.`,
-          );
+        } else {
+          throw e;
         }
       }
 
-      const validated: ProjectMetadata = {
-        slug,
-        sort,
-        name,
-        role,
-        description,
-      };
-
-      // read optional fields
-      if (metadata['soundCloudIds']) {
-        const ids = getNumberArray(metadata, 'soundCloudIds', filepath);
-        ids.forEach(id => {
-          if (!VALID_SOUNDCLOUD_ID.test(`${id}`)) {
-            throw new Error(`Invalid SoundCloud ID "${id}" in ${filepath}`);
-          }
-        });
-        validated.soundCloudIds = ids;
-      }
-
-      if (metadata['icon']) {
-        const icon = getString(metadata, 'icon', filepath);
-        const iconPath = path.join(iconsDirectory, icon);
-        try {
-          await fs.access(iconPath);
-          validated.icon = icon;
-        } catch (e) {
-          throw new Error(
-            `Icon "${icon}" specified in ${filepath} does not exist or is inaccessible at ${iconPath}`,
-          );
-        }
-      }
-
-      if (metadata['link']) {
-        const link = getString(metadata, 'link', filepath);
-        if (!VALID_LINK.test(link)) {
-          throw new Error(`Invalid link "${link}" in ${filepath}`);
-        }
-        validated.link = link;
-      }
-
-      if (metadata['color']) {
-        const color = getString(metadata, 'color', filepath);
-        if (!VALID_COLOR.test(color)) {
-          throw new Error(`Invalid color "${color}" in ${filepath}`);
-        }
-        validated.color = color;
-      }
-
-      logger.trace(validated, 'found project metadata');
+      logger.trace(validated, 'successfully parsed project metadata');
       return validated;
     }),
   );
@@ -145,9 +182,9 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
   projectMetadata.forEach(project => {
     if (positions.has(project.sort)) {
       throw new Error(
-        `Duplicate sort value '${project.sort}' in projects '${positions.get(
+        `Duplicate sort value "${project.sort}" in projects "${positions.get(
           project.sort,
-        )}' and '${project.name}'`,
+        )}" and "${project.name}".`,
       );
     }
     positions.set(project.sort, project.name);

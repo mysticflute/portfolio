@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { spamEmail, encodedHumanEmail } from '@/lib/constants';
@@ -24,7 +24,9 @@ import {
   linktree,
 } from '@/data/social';
 
-type SocialLinkWithIcon = SocialLink & { icon: any };
+type SocialLinkWithIcon = SocialLink & {
+  icon: StaticImageData | typeof twitterIcon;
+};
 
 const socialLinksWithIcons: SocialLinkWithIcon[] = [
   { ...twitter, icon: twitterIcon },

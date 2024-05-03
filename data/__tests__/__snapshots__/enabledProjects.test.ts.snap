@@ -11,17 +11,57 @@ exports[`currently enabled projects should match snapshot 1`] = `
     "role": "Composer",
     "slug": "selected-compositions",
     "sort": 1,
-    "soundCloudIds": [
-      1272228361,
-      1363178761,
-      1362994615,
-      1269487699,
-      1468989199,
-      1661983896,
-      1363203541,
-      1363214545,
-      1363207933,
-      1510431769,
+    "tracks": [
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1272228361",
+        "name": "Blue River Road",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363178761",
+        "name": "No Escape (Vulgari OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1362994615",
+        "name": "Overworld (Vulgari OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1269487699",
+        "name": "Princess Aiysha",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1468989199",
+        "name": "Deep Dark Forest (Recidivia OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661983896",
+        "name": "Fireflies (Turning OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363203541",
+        "name": "The Secret (Vulgari OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363214545",
+        "name": "Sarvarā's Gate  (Vulgari OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363207933",
+        "name": "Chasing Freedom (Vulgari OST)",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1510431769",
+        "name": "Overworld Map (D&D Campaign)",
+      },
     ],
   },
   {
@@ -34,17 +74,57 @@ exports[`currently enabled projects should match snapshot 1`] = `
     "role": "Additional Composer",
     "slug": "turning",
     "sort": 98,
-    "soundCloudIds": [
-      1661974287,
-      1661979261,
-      1661980971,
-      1661982381,
-      1661983896,
-      1661985333,
-      1661991063,
-      1661999643,
-      1661987727,
-      1661989830,
+    "tracks": [
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661974287",
+        "name": "Seeds of Life [Morning]",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661979261",
+        "name": "Sunny Shovel [Morning 2]",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661980971",
+        "name": "After the Clouds [Afternoon]",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661982381",
+        "name": "The Frog's Dream [Evening]",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661983896",
+        "name": "Fireflies [Night]",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661985333",
+        "name": "A Day's Work",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661991063",
+        "name": "Forest",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661999643",
+        "name": "Silent Awakening",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661987727",
+        "name": "Passage",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1661989830",
+        "name": "Determination",
+      },
     ],
   },
   {
@@ -57,12 +137,32 @@ exports[`currently enabled projects should match snapshot 1`] = `
     "role": "Primary Composer",
     "slug": "recidivia",
     "sort": 99,
-    "soundCloudIds": [
-      1468989199,
-      1468987642,
-      1468969438,
-      1468955629,
-      1468955386,
+    "tracks": [
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1468989199",
+        "name": "Deep Dark Forest",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1468987642",
+        "name": "Penca Plains",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1468969438",
+        "name": "Growing Suspicions",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1468955629",
+        "name": "Inn A",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1468955386",
+        "name": "Inn B",
+      },
     ],
   },
   {
@@ -74,15 +174,47 @@ exports[`currently enabled projects should match snapshot 1`] = `
     "role": "Composer",
     "slug": "vulgaria",
     "sort": 100,
-    "soundCloudIds": [
-      1363207933,
-      1362994615,
-      1363175623,
-      1363178761,
-      1363186105,
-      1363189672,
-      1363214545,
-      1363203541,
+    "tracks": [
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363207933",
+        "name": "Chasing Freedom",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1362994615",
+        "name": "Overworld",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363175623",
+        "name": "Dungeon",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363178761",
+        "name": "No Escape",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363186105",
+        "name": "Umbra",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363189672",
+        "name": "Windy Cave",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363214545",
+        "name": "Sarvarā's Gate [Final Stage]",
+      },
+      {
+        "id": Any<String>,
+        "mp3": "https://feeds.soundcloud.com/stream/1363203541",
+        "name": "The Secret",
+      },
     ],
   },
 ]

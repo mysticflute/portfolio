@@ -1,54 +1,55 @@
+import { type CSSProperties } from 'react';
+import { type ProjectMetadata } from '@/lib/projects';
 import Image from 'next/image';
 import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
-import { getUrlForTrack } from '@/lib/soundcloud';
+import AudioPlaylist from '@/components/audioPlaylist/audioPlaylist';
 import styles from './project.module.css';
 
-import { type ProjectMetadata } from '@/lib/projects';
+interface CustomProperties extends CSSProperties {
+  '--color-project': string;
+}
 
 type Props = {
   /**
    * Metadata about a single portfolio project.
    */
-  projectMetadata: ProjectMetadata;
+  project: ProjectMetadata;
 };
 
-export default function Project({ projectMetadata: data }: Props) {
+export default function Project({ project }: Props) {
+  let inlineStyle: CustomProperties | undefined;
+  if (project.color) {
+    inlineStyle = { '--color-project': project.color };
+  }
+
   return (
-    <Box tag="article" className={styles.container}>
+    <Box tag="article" className={styles.container} style={inlineStyle}>
       <div className={styles.info}>
-        {data.icon && (
+        {project.icon && (
           <Image
-            src={`/images/icons/${data.icon}`}
+            src={`/images/icons/${project.icon}`}
             width="46"
             height="46"
             alt=""
           />
         )}
-        <div className={styles.badge}>{data.role}</div>
+        <div className={styles.badge}>{project.role}</div>
       </div>
 
-      <h3 className="textHeadingSmall">{data.name}</h3>
+      <h3 className="textHeadingSmall">{project.name}</h3>
 
-      <p>{data.description}</p>
+      <p>{project.description}</p>
 
-      <div className={styles.soundcloud}>
-        {data.soundCloudIds &&
-          data.soundCloudIds.map(id => (
-            <iframe
-              key={id}
-              width="100%"
-              height="20"
-              loading="lazy"
-              src={getUrlForTrack(id, { color: data.color })}
-              title={`Play music from ${data.name} with SoundCloud music player`}
-            ></iframe>
-          ))}
-      </div>
+      {project.tracks && (
+        <div className={styles.tracks} data-testid="tracks">
+          <AudioPlaylist tracks={project.tracks} />
+        </div>
+      )}
 
-      {data.link && (
+      {project.link && (
         <div className={styles.viewMore}>
-          <a href={data.link}>
+          <a href={project.link}>
             View project website
             <Icon
               name="arrowDiagonal"

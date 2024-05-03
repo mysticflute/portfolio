@@ -1,4 +1,4 @@
-# Name of the project.
+# Name of the project or collection.
 name: Vulgari
 
 # Unique, dash-delimited name for the project URL (optional).
@@ -33,17 +33,51 @@ description: >
   A top-down, rogue-like adventure game developed by Statson. Features strings,
   flutes, harps, taikos and hand perc.
 
-# List of 10-digit SoundCloud track IDs. (optional).
-# See the README.md file for how to find these.
-soundCloudIds:
-  - 1363207933
-  - 1362994615
-  - 1363175623
-  - 1363178761
-  - 1363186105
-  - 1363189672
-  - 1363214545
-  - 1363203541
+# List of audio tracks for this project or compilation.
+# At least one embeddable url (mp3/aac) must be specified for each track.
+tracks:
+  # Display name for the track.
+  - name: "Chasing Freedom"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363207933
+
+  # Display name for the track.
+  - name: "Overworld"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1362994615
+
+  # Display name for the track.
+  - name: "Dungeon"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363175623
+
+  # Display name for the track.
+  - name: "No Escape"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363178761
+
+  # Display name for the track.
+  - name: "Umbra"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363186105
+
+  # Display name for the track.
+  - name: "Windy Cave"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363189672
+
+  # Display name for the track.
+  - name: "Sarvarā's Gate [Final Stage]"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363214545
+
+  # Display name for the track.
+  - name: "The Secret"
+    # The urls to embed, externally stream or buy the track.
+    mp3: https://feeds.soundcloud.com/stream/1363203541
+
+# Project's accent color, in css hex format (optional).
+color: "#4b914b"
 
 # An icon that represents the game type (optional).
 # Must be a file under public/icons.
@@ -77,9 +111,6 @@ icon: pulsar/adventure.svg
 #   - Steam
 #   - Nintendo Switch
 #   - Playstation 5
-
-# Project's accent color, in css hex format (optional).
-color: '#4b914b'
 
 ### NOT CURRENTLY IMPLEMENTED ###
 # Long project description for the detail page.
