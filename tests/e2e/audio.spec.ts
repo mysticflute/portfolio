@@ -8,30 +8,30 @@ test.describe('audio tracks', () => {
   test('load successfully', async ({ page }) => {
     await page.goto('/');
 
-    const track = await page.getByTestId('audio-track').first();
+    const track = page.getByTestId('audio-track').first();
     await track.scrollIntoViewIfNeeded();
 
-    const audio = await track.locator('audio');
+    const audio = track.locator('audio');
 
     await expect(audio).toHaveJSProperty('paused', true, { timeout });
 
-    await await track.getByRole('button', { name: 'Play' }).click();
+    await track.getByRole('button', { name: 'Play' }).click();
     await expect(audio).toHaveJSProperty('paused', false, { timeout });
 
-    await await track.getByRole('button', { name: 'Pause' }).click();
+    await track.getByRole('button', { name: 'Pause' }).click();
     await expect(audio).toHaveJSProperty('paused', true, { timeout });
   });
 
   test('only play one at a time', async ({ page }) => {
     await page.goto('/');
 
-    const track1 = await page.getByTestId('audio-track').nth(0);
-    const track2 = await page.getByTestId('audio-track').nth(1);
-    const track3 = await page.getByTestId('audio-track').last();
+    const track1 = page.getByTestId('audio-track').nth(0);
+    const track2 = page.getByTestId('audio-track').nth(1);
+    const track3 = page.getByTestId('audio-track').last();
 
-    const audio1 = await track1.locator('audio');
-    const audio2 = await track2.locator('audio');
-    const audio3 = await track3.locator('audio');
+    const audio1 = track1.locator('audio');
+    const audio2 = track2.locator('audio');
+    const audio3 = track3.locator('audio');
 
     await track1.scrollIntoViewIfNeeded();
     await track1.getByRole('button', { name: 'Play' }).click();
@@ -51,11 +51,11 @@ test.describe('audio tracks', () => {
   test('auto play the next track in the list', async ({ page }) => {
     await page.goto('/');
 
-    const track1 = await page.getByTestId('audio-track').nth(0);
-    const track2 = await page.getByTestId('audio-track').nth(1);
+    const track1 = page.getByTestId('audio-track').nth(0);
+    const track2 = page.getByTestId('audio-track').nth(1);
 
-    const audio1 = await track1.locator('audio');
-    const audio2 = await track2.locator('audio');
+    const audio1 = track1.locator('audio');
+    const audio2 = track2.locator('audio');
 
     await track1.scrollIntoViewIfNeeded();
     await track1.getByRole('button', { name: 'Play' }).click();
