@@ -35,6 +35,13 @@
   line-height: 1.368;
 }
 
+.textHeadingXSmall {
+  color: var(--color-text-accent);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.429;
+}
+
 @media screen and (max-width: 991px) {
   .textHeadingLarge {
     font-size: 4rem;
