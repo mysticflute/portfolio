@@ -1,6 +1,13 @@
 import styles from './strip.module.css';
 
-const highlights = [
+// TODO:
+// take the array as a prop
+// displayCount as a int prop (number of times to duplicate)
+// animate as a boolean prop?
+// animation time as a boolean prop?
+
+// create "featured"" component and extra these values:
+const featured = [
   'Turning (Game - In Dev)',
   'Recidivia (Game - In Dev)',
   'Vulgaria (Game - In Dev)',
@@ -15,7 +22,7 @@ export default function Strip() {
       <div className={styles.strip}>
         {[...Array(4)].map((_, i) => (
           <ul key={i} className={styles.stripContent} aria-hidden={i > 0}>
-            {highlights.map(highlight => (
+            {featured.map(highlight => (
               <li
                 key={highlight}
                 className={`textHeadingXSmall ${styles.text}`}
