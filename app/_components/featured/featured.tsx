@@ -30,13 +30,14 @@ type Props = {
 
   /**
    * The number of seconds it should take to scroll through a single list of the
-   * given items.
+   * given items when `animated` is true. Set a higher number for larger or
+   * longer text items.
    */
   duration?: number;
 };
 
 /**
- * A full-page strip of featured text items.
+ * A full-page strip of featured text content.
  */
 export default function Featured({
   items,
