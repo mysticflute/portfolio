@@ -13,6 +13,11 @@ type Props = {
   items: string[];
 
   /**
+   * Descriptive text for this section, used for the heading/aria-label.
+   */
+  title?: string;
+
+  /**
    * The total number of times to render the list of items, including
    * repetitions. Must be at least 1.
    *
@@ -41,6 +46,7 @@ type Props = {
  */
 export default function Featured({
   items,
+  title,
   count = 1,
   animated = true,
   duration = 60,
@@ -55,7 +61,11 @@ export default function Featured({
   }
 
   return (
-    <section className={styles.container} style={inlineStyle}>
+    <section
+      className={styles.container}
+      style={inlineStyle}
+      aria-label={title}
+    >
       <div className={styles.strip}>
         {[...Array(count)].map((_, i) => (
           <ul
@@ -64,9 +74,7 @@ export default function Featured({
             aria-hidden={i > 0 ? true : undefined}
           >
             {items.map(item => (
-              <li key={item} className="textHeadingXSmall">
-                {item}
-              </li>
+              <li key={item}>{item}</li>
             ))}
           </ul>
         ))}

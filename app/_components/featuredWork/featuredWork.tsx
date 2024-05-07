@@ -15,6 +15,12 @@ type Props = {
 
 export default function FeaturedWork({ animated = true }: Props) {
   return (
-    <Featured items={featured} count={4} animated={animated} duration={60} />
+    <Featured
+      title="Featured Work"
+      items={featured}
+      count={4}
+      animated={animated}
+      duration={60}
+    />
   );
 }
