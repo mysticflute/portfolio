@@ -23,16 +23,19 @@
   overflow: hidden;
 }
 
-.stripContent {
+.list {
   display: flex;
-  animation: scroll 60s linear infinite;
 }
 
-.strip:hover .stripContent {
+.list.animated {
+  animation: scroll var(--animation-scroll-duration, 30s) linear infinite;
+}
+
+.strip:hover .list.animated {
   animation-play-state: paused;
 }
 
-.stripContent li::before {
+.list li::before {
   content: '•';
   margin-left: 14px;
   margin-right: 14px;
@@ -40,12 +43,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stripContent {
+  .list {
     animation-play-state: paused !important;
   }
 }
 
-.text {
+.list li {
   color: var(--color-text-inverse);
   white-space: nowrap;
 }
