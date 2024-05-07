@@ -10,7 +10,7 @@ const testItems = [
   'Featured Five',
 ];
 
-describe('hero', () => {
+describe('featured', () => {
   it('renders all items', () => {
     render(<Featured items={testItems} />);
 
