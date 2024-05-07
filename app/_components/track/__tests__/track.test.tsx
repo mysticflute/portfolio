@@ -11,7 +11,7 @@ import {
   MediaContextProvider,
   useMediaContext,
 } from '@/components/mediaContext/mediaContext';
-import AudioTrack from '../audioTrack';
+import Track from '../track';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return <MediaContextProvider>{children}</MediaContextProvider>;
@@ -23,7 +23,7 @@ const trackMetadata = Object.freeze({
   mp3: 'https://test.mp3',
 });
 
-describe('audioTrack', () => {
+describe('track', () => {
   let isPausedMock: boolean;
   let playMock: jest.Mock;
   let pauseMock: jest.Mock;
@@ -63,7 +63,7 @@ describe('audioTrack', () => {
   });
 
   it('matches snapshot', () => {
-    const { container } = render(<AudioTrack track={{ ...trackMetadata }} />, {
+    const { container } = render(<Track track={{ ...trackMetadata }} />, {
       wrapper: Providers,
     });
 
@@ -71,7 +71,7 @@ describe('audioTrack', () => {
   });
 
   it('calls play() on audio element when isPlaying is true', async () => {
-    render(<AudioTrack track={{ ...trackMetadata }} isPlaying={true} />, {
+    render(<Track track={{ ...trackMetadata }} isPlaying={true} />, {
       wrapper: Providers,
     });
 
@@ -80,7 +80,7 @@ describe('audioTrack', () => {
   });
 
   it('does not call play() on audio element when isPlaying is false', async () => {
-    render(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />, {
+    render(<Track track={{ ...trackMetadata }} isPlaying={false} />, {
       wrapper: Providers,
     });
 
@@ -90,27 +90,27 @@ describe('audioTrack', () => {
 
   it('does not call play() on audio element if already playing', async () => {
     const { rerender } = render(
-      <AudioTrack track={{ ...trackMetadata }} isPlaying={false} />,
+      <Track track={{ ...trackMetadata }} isPlaying={false} />,
       { wrapper: Providers },
     );
 
     playMock(); // fake click of the play button
     expect(playMock).toBeCalledTimes(1);
 
-    rerender(<AudioTrack track={{ ...trackMetadata }} isPlaying={true} />);
+    rerender(<Track track={{ ...trackMetadata }} isPlaying={true} />);
     expect(playMock).toBeCalledTimes(1);
   });
 
   it('does not call pause() on audio element if already paused', async () => {
     const { rerender } = render(
-      <AudioTrack track={{ ...trackMetadata }} isPlaying={true} />,
+      <Track track={{ ...trackMetadata }} isPlaying={true} />,
       { wrapper: Providers },
     );
 
     pauseMock(); // fake click of the pause button
     expect(pauseMock).toBeCalledTimes(1);
 
-    rerender(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />);
+    rerender(<Track track={{ ...trackMetadata }} isPlaying={false} />);
     expect(pauseMock).toBeCalledTimes(1);
   });
 
@@ -118,7 +118,7 @@ describe('audioTrack', () => {
     const onEnd = jest.fn();
 
     const { container } = render(
-      <AudioTrack
+      <Track
         track={{ ...trackMetadata }}
         isPlaying={true}
         onTrackEnd={onEnd}
@@ -149,7 +149,7 @@ describe('audioTrack', () => {
     const { container } = render(
       <>
         <ContextConsumer />
-        <AudioTrack track={{ ...trackMetadata }} isPlaying={false} />
+        <Track track={{ ...trackMetadata }} isPlaying={false} />
       </>,
       { wrapper: Providers },
     );
@@ -166,7 +166,7 @@ describe('audioTrack', () => {
   });
 
   it('toggles between playing and paused when clicking on the title', async () => {
-    render(<AudioTrack track={{ ...trackMetadata }} isPlaying={false} />, {
+    render(<Track track={{ ...trackMetadata }} isPlaying={false} />, {
       wrapper: Providers,
     });
 
