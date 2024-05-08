@@ -52,6 +52,9 @@
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.429;
+
+  /* prevent safari flickering during the scroll animation */
+  will-change: transform;
 }
 
 @media screen and (max-width: 991px) {

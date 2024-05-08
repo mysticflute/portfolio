@@ -18,7 +18,7 @@ export default function FeaturedWork({ animated = true }: Props) {
     <Featured
       title="Featured Work"
       items={featured}
-      count={4}
+      count={3}
       animated={animated}
       duration={60}
     />
