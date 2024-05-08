@@ -122,10 +122,4 @@
     white-space: normal;
     text-wrap: balance;
   }
-
-  /* this can be removed if I keep the controls and title on separate lines */
-
-  /* .audio {
-    min-width: 50%;
-  } */
 }

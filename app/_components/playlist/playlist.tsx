@@ -1,7 +1,7 @@
 'use client';
 
 import { type ProjectMetadata } from '@/lib/projects';
-import AudioTrack from '@/components/audioTrack/audioTrack';
+import Track from '@/components/track/track';
 import {
   useMediaContext,
   useMediaDispatch,
@@ -14,7 +14,7 @@ type Props = {
   tracks: NonNullable<ProjectMetadata['tracks']>;
 };
 
-export default function AudioPlaylist({ tracks }: Props) {
+export default function Playlist({ tracks }: Props) {
   const context = useMediaContext();
   const update = useMediaDispatch();
 
@@ -35,7 +35,7 @@ export default function AudioPlaylist({ tracks }: Props) {
   return (
     <>
       {tracks.map(track => (
-        <AudioTrack
+        <Track
           key={track.id}
           track={track}
           isPlaying={context.currentTrackId === track.id}

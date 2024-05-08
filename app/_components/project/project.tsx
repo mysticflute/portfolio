@@ -3,7 +3,7 @@ import { type ProjectMetadata } from '@/lib/projects';
 import Image from 'next/image';
 import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
-import AudioPlaylist from '@/components/audioPlaylist/audioPlaylist';
+import Playlist from '@/components/playlist/playlist';
 import styles from './project.module.css';
 
 interface CustomProperties extends CSSProperties {
@@ -43,7 +43,7 @@ export default function Project({ project }: Props) {
 
       {project.tracks && (
         <div className={styles.tracks} data-testid="tracks">
-          <AudioPlaylist tracks={project.tracks} />
+          <Playlist tracks={project.tracks} />
         </div>
       )}
 

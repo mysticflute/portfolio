@@ -1,7 +1,7 @@
 import { getProjects } from '@/lib/projects';
 import Layout from '@/components/layout/layout';
 import Hero from '@/components/hero/hero';
-import Strip from '@/components/strip/strip';
+import FeaturedWork from '@/components/featuredWork/featuredWork';
 import Projects from '@/components/projects/projects';
 
 export default async function Page() {
@@ -9,9 +9,9 @@ export default async function Page() {
 
   return (
     <Layout>
-      <Hero></Hero>
-      <Strip></Strip>
-      <Projects projects={projects}></Projects>
+      <Hero />
+      <FeaturedWork />
+      <Projects projects={projects} />
     </Layout>
   );
 }

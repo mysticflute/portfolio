@@ -11,7 +11,7 @@ import {
   MediaContextProvider,
   useMediaContext,
 } from '@/components/mediaContext/mediaContext';
-import AudioPlaylist from '../audioPlaylist';
+import Playlist from '../playlist';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return <MediaContextProvider>{children}</MediaContextProvider>;
@@ -80,10 +80,7 @@ describe('audio playlist', () => {
     const { container } = render(
       <>
         <ContextConsumer />
-        <AudioPlaylist
-          tracks={[{ ...trackMetadataA }, { ...trackMetadataB }]}
-        />
-        ,
+        <Playlist tracks={[{ ...trackMetadataA }, { ...trackMetadataB }]} />,
       </>,
       { wrapper: Providers },
     );
@@ -120,10 +117,7 @@ describe('audio playlist', () => {
     const { container } = render(
       <>
         <ContextConsumer />
-        <AudioPlaylist
-          tracks={[{ ...trackMetadataA }, { ...trackMetadataB }]}
-        />
-        ,
+        <Playlist tracks={[{ ...trackMetadataA }, { ...trackMetadataB }]} />,
       </>,
       { wrapper: Providers },
     );

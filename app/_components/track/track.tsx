@@ -8,7 +8,7 @@ import {
   useMediaDispatch,
 } from '@/components/mediaContext/mediaContext';
 import 'react-h5-audio-player/lib/styles.css';
-import styles from './audioTrack.module.css';
+import styles from './track.module.css';
 
 const envPreload = process.env.NEXT_PUBLIC_AUDIO_PRELOAD;
 const defaultPreload =
@@ -34,7 +34,7 @@ type Props = {
   onTrackEnd?(id: string): void;
 };
 
-export default function AudioTrack({ track, isPlaying, onTrackEnd }: Props) {
+export default function Track({ track, isPlaying, onTrackEnd }: Props) {
   const audioRef = useRef<AudioPlayer>(null);
   const context = useMediaContext();
   const update = useMediaDispatch();
