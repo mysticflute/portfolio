@@ -67,7 +67,7 @@ export default function Featured({
       aria-label={title}
     >
       <div className={styles.strip}>
-        {[...Array(count)].map((_, i) => (
+        {Array.from({ length: count }, (_, i) => (
           <ul
             key={i}
             className={clsx(styles.list, animated && styles.animated)}
