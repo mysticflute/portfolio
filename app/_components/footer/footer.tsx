@@ -40,7 +40,7 @@ export default function Footer() {
   const currentPath = usePathname();
 
   return (
-    <footer role="contentinfo" className={styles.container}>
+    <footer className={styles.container}>
       <div className={`${styles.top} ${styles.grid}`}>
         <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
           <Link
