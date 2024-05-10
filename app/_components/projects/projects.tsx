@@ -13,10 +13,10 @@ export default function Projects({ projects }: Props) {
   return (
     <section className={styles.container}>
       <div className={styles.heading}>
-        <h1 id="portfolio" className="textHeadingMedium">
+        <h2 id="portfolio" className="textHeadingMedium">
           Take a look at my{' '}
           <span className="textHighlight3">music portfolio</span>
-        </h1>
+        </h2>
       </div>
       <div className={styles.list}>
         {projects.map(project => (
