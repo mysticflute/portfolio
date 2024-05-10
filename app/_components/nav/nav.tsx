@@ -52,7 +52,6 @@ export default function Nav() {
           href="/"
           aria-label="Home"
           className={`${styles.logo} flexCenter`}
-          data-testid="logo-link"
         >
           <Image
             src={logoImage}
@@ -70,8 +69,9 @@ export default function Nav() {
         <div className="flexCenter">
           <Link
             href="/contact"
+            aria-label="Contact"
+            aria-current={'/contact' === currentPath ? 'page' : undefined}
             className={styles.contact}
-            data-testid="contact-icon-link"
           >
             <Icon name="mail" />
           </Link>

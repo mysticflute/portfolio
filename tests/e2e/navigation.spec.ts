@@ -8,7 +8,7 @@ const locators = {
   /** The main navigation bar. */
   navigationBar: {
     /** The link containing the site logo image. */
-    siteLogo: (page: Page) => page.getByTestId('logo-link'),
+    siteLogo: (page: Page) => page.getByRole('banner').getByLabel('Home'),
 
     /** The "Home" text link. */
     homeLink: (page: Page) =>
@@ -27,7 +27,7 @@ const locators = {
       page.getByTestId('nav-middle').getByRole('link', { name: 'Contact' }),
 
     /** The link containing the contact icon. */
-    contactIcon: (page: Page) => page.getByTestId('contact-icon-link'),
+    contactIcon: (page: Page) => page.getByRole('banner').getByLabel('Contact'),
   },
 
   /** The main navigation overlay. */
@@ -71,7 +71,7 @@ const locators = {
 
     /** The "Contact" text link. */
     contactLink: (page: Page) =>
-      page.getByRole('contentinfo').getByRole('link', { name: 'Contact' }),
+      page.getByRole('contentinfo').getByRole('link', { name: 'Cosntact' }),
   },
 };
 
