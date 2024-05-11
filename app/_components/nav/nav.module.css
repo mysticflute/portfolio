@@ -27,19 +27,21 @@
   transform: scale3d(0.96, 0.96, 0.99);
 }
 
+.list {
+  gap: 24px;
+}
+
+.list li {
+  line-height: 1.111;
+}
+
 .list a {
   font-weight: 700;
 }
 
-.bar .list > li {
-  padding: 0 12px;
-  line-height: 1.111;
-}
-
 .overlay .list {
-  align-items: flex-start;
-  justify-content: flex-end;
   flex-direction: column;
+  align-items: stretch;
   overflow: hidden;
   padding: 32px 24px;
   border: 2px solid var(--color-background-100);
@@ -47,13 +49,9 @@
   background: var(--color-background-200);
 }
 
-.overlay .list > li {
-  margin: 0 0 24px;
-  line-height: 1.111;
-}
-
-.overlay .list > li:last-of-type {
-  margin-bottom: 0;
+/* XXX: maybe only do this on mobile because of wonky outline shape. */
+.overlay .list a {
+  display: block;
 }
 
 .contact {
@@ -118,6 +116,8 @@
 
   /* woudn't need this with display none... */
   max-height: 0;
+
+  /* FIXME this animation isn't working anymore. */
   transition: max-height 200ms ease;
 }
 
@@ -170,6 +170,7 @@
     margin: 0 auto;
   }
 
+  /* FIXME: this isn't working anymore */
   .logo img {
     max-width: 90%;
     height: auto;
@@ -186,6 +187,7 @@
     padding-bottom: 20px;
   }
 
+  /* FIXME: this isn't working anymore */
   .logo img {
     max-width: 86%;
   }
@@ -202,14 +204,5 @@
   .overlay nav {
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  .overlay .list > li {
-    width: 100%;
-    text-align: left;
-  }
-
-  .overlay .list a {
-    display: block;
   }
 }
