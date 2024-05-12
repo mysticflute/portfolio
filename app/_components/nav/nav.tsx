@@ -49,16 +49,19 @@ function createNav(items: NavItems[], currentItem: string) {
 
 export default function Nav() {
   const currentPath = usePathname();
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const overlayButtonRef = useRef<HTMLButtonElement>(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [isHiding, setIsHiding] = useState(false);
+  // const timeoutRef = useRef(null);
 
+  // close the overlay when clicking outside of it
   useEffect(() => {
     function handleClick(e: globalThis.MouseEvent) {
       if (
         isOverlayOpen &&
         e.target instanceof Element &&
-        !overlayRef.current?.contains(e.target)
+        !containerRef.current?.contains(e.target)
       ) {
         setIsOverlayOpen(false);
       }
@@ -69,7 +72,17 @@ export default function Nav() {
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
-  }, [isOverlayOpen, overlayRef]);
+  }, [isOverlayOpen, containerRef]);
+
+  useEffect(() => {
+    let tref: number;
+
+    if (isHiding) {
+      tref = window.setTimeout(() => setIsOverlayOpen(false), 400);
+    }
+
+    return () => window.clearTimeout(tref);
+  }, [isHiding]);
 
   function handleOverlayClick(e: MouseEvent<HTMLDivElement>) {
     if (e.target instanceof Element && e.target.tagName === 'A') {
@@ -85,7 +98,7 @@ export default function Nav() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <div className={`${styles.bar} flexCenter`}>
         <Link
           href="/"
@@ -121,8 +134,18 @@ export default function Nav() {
             aria-haspopup="menu"
             aria-controls="nav-overlay"
             aria-expanded={isOverlayOpen}
-            className={clsx(styles.hamburger, isOverlayOpen && styles.open)}
-            onClick={() => setIsOverlayOpen(isOpen => !isOpen)}
+            className={clsx(
+              styles.hamburger,
+              isOverlayOpen && !isHiding && styles.open,
+            )}
+            onClick={() => {
+              if (isOverlayOpen) {
+                setIsHiding(true);
+              } else {
+                setIsHiding(false);
+                setIsOverlayOpen(true);
+              }
+            }}
           >
             <div className={styles.hamburgerTop}></div>
             <div className={styles.hamburgerBottom}></div>
@@ -131,10 +154,13 @@ export default function Nav() {
       </div>
 
       <div
-        ref={overlayRef}
         id="nav-overlay"
         data-testid="nav-overlay"
-        className={clsx(styles.overlay, isOverlayOpen && styles.open)}
+        className={clsx(
+          styles.overlay,
+          isOverlayOpen && styles.open,
+          isHiding && styles.hiding,
+        )}
         onClick={handleOverlayClick}
         onKeyUp={handleOverlayKeyUp}
       >

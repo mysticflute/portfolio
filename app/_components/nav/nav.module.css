@@ -113,16 +113,9 @@
   top: 100%;
   right: 0;
   left: 0;
-
-  /* woudn't need this with display none... */
-  max-height: 0;
-
-  /* FIXME this animation isn't working anymore. */
-  transition: max-height 200ms ease;
 }
 
 .overlay.open {
-  max-height: 1000px;
   z-index: 100;
 }
 
@@ -130,13 +123,48 @@
   margin: 0 auto;
   padding: 24px;
   max-width: 778px;
-  transition: transform 400ms ease;
-  transform: translateY(-130%);
-  transform-style: preserve-3d;
+
+  /* display: none; */
 }
 
 .overlay.open nav {
+  animation: anim 400ms ease;
+  max-height: 1000px;
   transform: translateY(0);
+  /* display: block; */
+}
+
+.overlay.hiding nav {
+  animation: animo 400ms ease;
+  max-height: 100px;
+  transform: translateY(-300px);
+}
+/* .overlay.open nav .list {
+  min-height: 300px;
+} */
+
+@keyframes anim {
+  from {
+    max-height: 100px;
+    transform: translateY(-300px);
+  }
+
+  to {
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animo {
+  from {
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+
+  to {
+    max-height: 100px;
+    transform: translateY(-300px);
+  }
 }
 
 @media screen and (max-width: 991px) {
