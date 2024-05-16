@@ -15,10 +15,10 @@
 }
 
 .logo {
-  background-color: var(--color-background-300);
-  border-radius: 50%;
   width: 54px;
   height: 54px;
+  border-radius: 50%;
+  background: var(--color-background-300);
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
@@ -39,22 +39,7 @@
   font-weight: 700;
 }
 
-.overlay .list {
-  flex-direction: column;
-  align-items: stretch;
-  overflow: hidden;
-  padding: 32px 24px;
-  border: 2px solid var(--color-background-100);
-  border-radius: 24px;
-  background: var(--color-background-200);
-}
-
-/* XXX: maybe only do this on mobile because of wonky outline shape. */
-.overlay .list a {
-  display: block;
-}
-
-.contact {
+.contactButton {
   display: inline-block;
   vertical-align: middle;
   margin-left: 24px;
@@ -72,7 +57,7 @@
     transform 300ms ease;
 }
 
-.contact:hover {
+.contactButton:hover {
   background: var(--color-background-highlight);
   transform: translate3d(0, -3px, 0.01px);
 }
@@ -94,7 +79,7 @@
   height: 3px;
   margin: 12px 0;
   border-radius: 20px;
-  background-color: var(--color-background-100);
+  background: var(--color-background-100);
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
@@ -108,6 +93,7 @@
 }
 
 .overlay {
+  display: none;
   position: absolute;
   overflow: hidden;
   top: 100%;
@@ -116,55 +102,52 @@
 }
 
 .overlay.open {
+  display: block;
   z-index: 100;
+}
+
+@keyframes open {
+  from {
+    transform: translateY(-300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes close {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-300px);
+  }
 }
 
 .overlay nav {
   margin: 0 auto;
   padding: 24px;
   max-width: 778px;
-
-  /* display: none; */
 }
 
 .overlay.open nav {
-  animation: anim 400ms ease;
-  max-height: 1000px;
-  transform: translateY(0);
-  /* display: block; */
+  animation: open 400ms ease forwards;
 }
 
-.overlay.hiding nav {
-  animation: animo 400ms ease;
-  max-height: 100px;
-  transform: translateY(-300px);
-}
-/* .overlay.open nav .list {
-  min-height: 300px;
-} */
-
-@keyframes anim {
-  from {
-    max-height: 100px;
-    transform: translateY(-300px);
-  }
-
-  to {
-    max-height: 1000px;
-    transform: translateY(0);
-  }
+.overlay.animateClose nav {
+  animation: close 300ms ease forwards;
 }
 
-@keyframes animo {
-  from {
-    max-height: 1000px;
-    transform: translateY(0);
-  }
-
-  to {
-    max-height: 100px;
-    transform: translateY(-300px);
-  }
+.overlay .list {
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  padding: 32px 24px;
+  border: 2px solid var(--color-background-100);
+  border-radius: 24px;
+  background: var(--color-background-200);
 }
 
 @media screen and (max-width: 991px) {
@@ -177,7 +160,7 @@
     display: none;
   }
 
-  .contact {
+  .contactButton {
     margin-left: 0;
     margin-right: 24px;
   }
@@ -198,14 +181,22 @@
     margin: 0 auto;
   }
 
-  /* FIXME: this isn't working anymore */
-  .logo img {
-    max-width: 90%;
-    height: auto;
+  .logo {
+    width: 46px;
+    height: 46px;
   }
 
-  .contact {
+  .logo img {
+    max-height: 19px;
+    width: auto;
+  }
+
+  .contactButton {
     padding: 11px;
+  }
+
+  .overlay .list a {
+    display: block;
   }
 }
 
@@ -215,12 +206,12 @@
     padding-bottom: 20px;
   }
 
-  /* FIXME: this isn't working anymore */
-  .logo img {
-    max-width: 86%;
+  .logo {
+    width: 45px;
+    height: 45px;
   }
 
-  .contact {
+  .contactButton {
     display: none;
   }
 

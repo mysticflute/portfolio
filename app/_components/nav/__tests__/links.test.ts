@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import { allSocialLinks } from '../social';
+import { allSocialLinks } from '../links';
 
 const VALID_LINK = /^https:\/\/.+/;
 

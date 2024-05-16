@@ -1,80 +1,97 @@
-/** Data for a social media or external profile page. */
-export interface SocialLink {
-  /** A unique identifier for this profile. */
-  key: string;
+/** A link to a page. */
+export type Link = {
+  /** A unique identifier. */
+  readonly key: string;
 
-  /** The label for this profile. */
-  label: string;
+  /** The display label. */
+  readonly label: string;
+};
 
-  /** The URL for this profile. */
-  url: string;
-}
+/** An internal link. */
+export type InternalLink = Link & {
+  /** The URL path (excluding the domain). */
+  readonly path: string;
+};
+
+/** A link to a social media or external profile page. */
+export type SocialLink = Link & {
+  /** The full external URL. */
+  readonly url: string;
+};
+
+/** Main internal pages. */
+export const mainNavigation: InternalLink[] = [
+  { key: 'home', label: 'Home', path: '/' },
+  { key: 'about', label: 'About', path: '/#about' },
+  { key: 'portfolio', label: 'Portfolio', path: '/#portfolio' },
+  { key: 'contact', label: 'Contact', path: '/contact' },
+];
 
 /** The Twitter social media account. */
-export const twitter: Readonly<SocialLink> = {
+export const twitter: SocialLink = {
   key: 'twitter',
   label: 'Twitter',
   url: 'https://twitter.com/mysticflute',
 };
 
 /** The Instagram social media account. */
-export const instagram: Readonly<SocialLink> = {
+export const instagram: SocialLink = {
   key: 'instagram',
   label: 'Instagram',
   url: 'https://www.instagram.com/mysticflute/',
 };
 
 /** The Threads social media account. */
-export const threads: Readonly<SocialLink> = {
+export const threads: SocialLink = {
   key: 'threads',
   label: 'Threads',
   url: 'https://www.threads.net/@mysticflute',
 };
 
 /** The Bluesky social media account. */
-export const bluesky: Readonly<SocialLink> = {
+export const bluesky: SocialLink = {
   key: 'bluesky',
   label: 'Bluesky',
   url: 'https://bsky.app/profile/mysticflute.bsky.social',
 };
 
 /** The YouTube channel. */
-export const youtube: Readonly<SocialLink> = {
+export const youtube: SocialLink = {
   key: 'youtube',
   label: 'YouTube',
   url: 'https://www.youtube.com/@nathandavidmcwilliams',
 };
 
 /** The SoundCloud profile page. */
-export const soundcloud: Readonly<SocialLink> = {
+export const soundcloud: SocialLink = {
   key: 'soundcloud',
   label: 'SoundCloud',
   url: 'https://soundcloud.com/nathan_david_mcwilliams',
 };
 
 /** The LinkTree profile page. */
-export const linktree: Readonly<SocialLink> = {
+export const linktree: SocialLink = {
   key: 'linktree',
   label: 'Linktree',
   url: 'https://linktr.ee/nathanmcwilliams',
 };
 
 /** The Itch.io profile page. */
-export const itch: Readonly<SocialLink> = {
+export const itch: SocialLink = {
   key: 'itch',
   label: 'Itch.io',
   url: 'https://mysticflute.itch.io/',
 };
 
 /** The Mastodon social media account. */
-export const mastodon: Readonly<SocialLink> = {
+export const mastodon: SocialLink = {
   key: 'mastodon',
   label: 'Mastodon',
   url: 'https://mastodon.gamedev.place/@mysticflute',
 };
 
 /** Ordered list of all social media accounts. */
-export const allSocialLinks: ReadonlyArray<SocialLink> = [
+export const allSocialLinks: SocialLink[] = [
   soundcloud,
   youtube,
   itch,

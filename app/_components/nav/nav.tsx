@@ -1,69 +1,60 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { clsx } from 'clsx';
 import {
-  useState,
   useRef,
+  useState,
   useEffect,
   type MouseEvent,
   type KeyboardEvent,
 } from 'react';
-import { clsx } from 'clsx';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import { type InternalLink } from '@/components/nav/links';
 import Icon from '@/components/icon/icon';
 import logoImage from '@/public/images/logo/letter-n.svg';
 import styles from './nav.module.css';
 
-type NavItems = {
-  label: string;
-  path: string;
+type Props = {
+  /**
+   * The links to display.
+   */
+  links: InternalLink[];
 };
 
-export const mainNav: NavItems[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/#about' },
-  { label: 'Portfolio', path: '/#portfolio' },
-  { label: 'Contact', path: '/contact' },
-];
-
-function createNav(items: NavItems[], currentItem: string) {
-  return (
-    <nav role="navigation" aria-label="Main navigation">
-      <ul className={`flexCenter ${styles.list}`}>
-        {items.map(item => (
-          <li key={item.label}>
-            <Link
-              href={item.path}
-              aria-current={item.path === currentItem ? 'page' : undefined}
-              className="linkDefault"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-}
-
-export default function Nav() {
+export default function Nav({ links }: Props) {
   const currentPath = usePathname();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const overlayButtonRef = useRef<HTMLButtonElement>(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [isHiding, setIsHiding] = useState(false);
-  // const timeoutRef = useRef(null);
+  const [beginClosingOverlay, setBeginClosingOverlay] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const overlayButtonRef = useRef<HTMLButtonElement>(null);
 
-  // close the overlay when clicking outside of it
+  // Close the overlay after a delay, giving time for the closing animation to
+  // finish.
   useEffect(() => {
-    function handleClick(e: globalThis.MouseEvent) {
+    let timeoutId: number;
+
+    if (beginClosingOverlay) {
+      // the delay should match the animation time in CSS.
+      timeoutId = window.setTimeout(() => setIsOverlayOpen(false), 300);
+    }
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [beginClosingOverlay]);
+
+  // close the overlay when clicking outside of it.
+  useEffect(() => {
+    function handleClick(event: Event) {
       if (
         isOverlayOpen &&
-        e.target instanceof Element &&
-        !containerRef.current?.contains(e.target)
+        event.target instanceof Element &&
+        !overlayRef.current?.contains(event.target) &&
+        !overlayButtonRef.current?.contains(event.target)
       ) {
-        setIsOverlayOpen(false);
+        closeOverlay();
       }
     }
 
@@ -72,33 +63,38 @@ export default function Nav() {
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
-  }, [isOverlayOpen, containerRef]);
+  }, [isOverlayOpen]);
 
-  useEffect(() => {
-    let tref: number;
+  function openOverlay() {
+    setBeginClosingOverlay(false);
+    setIsOverlayOpen(true);
+  }
 
-    if (isHiding) {
-      tref = window.setTimeout(() => setIsOverlayOpen(false), 400);
-    }
-
-    return () => window.clearTimeout(tref);
-  }, [isHiding]);
+  function closeOverlay() {
+    setBeginClosingOverlay(true);
+  }
 
   function handleOverlayClick(e: MouseEvent<HTMLDivElement>) {
-    if (e.target instanceof Element && e.target.tagName === 'A') {
-      setIsOverlayOpen(false);
+    // close the overlay when clicking on a link inside of it.
+    if (
+      isOverlayOpen &&
+      e.target instanceof Element &&
+      e.target.tagName.toLowerCase() === 'a'
+    ) {
+      closeOverlay();
     }
   }
 
   function handleOverlayKeyUp(e: KeyboardEvent<HTMLDivElement>) {
-    if (e.key === 'Escape') {
-      setIsOverlayOpen(false);
+    // close the overlay when hitting escape key.
+    if (isOverlayOpen && e.key === 'Escape') {
+      closeOverlay();
       overlayButtonRef.current?.focus();
     }
   }
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className={styles.container}>
       <div className={`${styles.bar} flexCenter`}>
         <Link
           href="/"
@@ -115,7 +111,7 @@ export default function Nav() {
         </Link>
 
         <div className="flexCenter" data-testid="nav-middle">
-          {!isOverlayOpen && createNav(mainNav, currentPath)}
+          {!isOverlayOpen && createNav(links, currentPath)}
         </div>
 
         <div className="flexCenter">
@@ -123,7 +119,7 @@ export default function Nav() {
             href="/contact"
             aria-label="Contact"
             aria-current={'/contact' === currentPath ? 'page' : undefined}
-            className={styles.contact}
+            className={styles.contactButton}
           >
             <Icon name="mail" />
           </Link>
@@ -134,18 +130,10 @@ export default function Nav() {
             aria-haspopup="menu"
             aria-controls="nav-overlay"
             aria-expanded={isOverlayOpen}
-            className={clsx(
-              styles.hamburger,
-              isOverlayOpen && !isHiding && styles.open,
-            )}
-            onClick={() => {
-              if (isOverlayOpen) {
-                setIsHiding(true);
-              } else {
-                setIsHiding(false);
-                setIsOverlayOpen(true);
-              }
-            }}
+            className={clsx(styles.hamburger, {
+              [styles.open]: isOverlayOpen && !beginClosingOverlay,
+            })}
+            onClick={() => (isOverlayOpen ? closeOverlay() : openOverlay())}
           >
             <div className={styles.hamburgerTop}></div>
             <div className={styles.hamburgerBottom}></div>
@@ -154,18 +142,39 @@ export default function Nav() {
       </div>
 
       <div
+        ref={overlayRef}
         id="nav-overlay"
         data-testid="nav-overlay"
         className={clsx(
           styles.overlay,
           isOverlayOpen && styles.open,
-          isHiding && styles.hiding,
+          beginClosingOverlay && styles.animateClose,
         )}
         onClick={handleOverlayClick}
         onKeyUp={handleOverlayKeyUp}
       >
-        {isOverlayOpen && createNav(mainNav, currentPath)}
+        {isOverlayOpen && createNav(links, currentPath)}
       </div>
     </div>
+  );
+}
+
+function createNav(links: InternalLink[], current: string) {
+  return (
+    <nav role="navigation" aria-label="Main navigation">
+      <ul className={`${styles.list} flexCenter`}>
+        {links.map(link => (
+          <li key={link.key}>
+            <Link
+              href={link.path}
+              aria-current={link.path === current ? 'page' : undefined}
+              className="linkDefault"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

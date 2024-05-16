@@ -1,4 +1,5 @@
 import { MediaContextProvider } from '@/components/mediaContext/mediaContext';
+import { mainNavigation } from '@/components/nav/links';
 import Nav from '@/components/nav/nav';
 import Footer from '@/components/footer/footer';
 import styles from './layout.module.css';
@@ -22,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className={styles.page}>
       {/* <a href="#main-content">Skip to main content</a> */}
       <header role="banner">
-        <Nav></Nav>
+        <Nav links={mainNavigation}></Nav>
       </header>
       <main id="main-content" role="main">
         <MediaContextProvider>{children}</MediaContextProvider>
