@@ -2,8 +2,6 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import IconButton from '../iconButton';
 
-// TODO: update tests
-
 describe('iconButton', () => {
   it('matches snapshot', () => {
     const { container } = render(
