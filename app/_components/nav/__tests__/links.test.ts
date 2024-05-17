@@ -1,26 +1,36 @@
 import { describe, it, expect } from '@jest/globals';
-import { allSocialLinks } from '../links';
+import { mainNavigation, allSocialLinks } from '../links';
 
+const SITE_LINK = /^\/.*/;
 const SECURE_LINK = /^https:\/\/.+/;
 
 describe('links', () => {
   describe('main navigation links', () => {
-    // TODO: have unique keys
+    it('have unique keys', () => {
+      const actualKeys = mainNavigation.map(i => i.key);
+      const uniqueKeys = Array.from(new Set(actualKeys));
 
-    // TODO: all begin with /
-    it.each(allSocialLinks)(
-      '$label should have a valid link beginning with https',
+      expect(uniqueKeys).toEqual(actualKeys);
+    });
+
+    it.each(mainNavigation)(
+      '$label should be a valid link beginning with "/"',
       link => {
-        expect(link.url).toMatch(SECURE_LINK);
+        expect(link.path).toMatch(SITE_LINK);
       },
     );
   });
 
   describe('social media links', () => {
-    // TODO: have unique keys
+    it('have unique keys', () => {
+      const actualKeys = allSocialLinks.map(i => i.key);
+      const uniqueKeys = Array.from(new Set(actualKeys));
+
+      expect(uniqueKeys).toEqual(actualKeys);
+    });
 
     it.each(allSocialLinks)(
-      '$label should have a valid link beginning with https',
+      '$label should be a valid link beginning with https',
       link => {
         expect(link.url).toMatch(SECURE_LINK);
       },
