@@ -133,8 +133,9 @@ exports[`project matches snapshot 1`] = `
     >
       View project website
       <span
+        aria-hidden="true"
         class="lineRounded arrowDiagonal hasTextBefore arrow"
-        data-testid="icon"
+        role="img"
       />
     </a>
   </div>
