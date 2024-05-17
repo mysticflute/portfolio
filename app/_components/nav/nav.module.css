@@ -49,12 +49,10 @@
   color: #fff;
   font-size: 24px;
   line-height: 24px;
-  transform-style: preserve-3d;
   transition:
-    color 300ms ease,
-    border-color 300ms ease,
     background-color 300ms ease,
     transform 300ms ease;
+  transform-style: preserve-3d;
 }
 
 .contact:hover {
@@ -93,12 +91,12 @@
 }
 
 .overlay {
-  display: none;
   position: absolute;
-  overflow: hidden;
   top: 100%;
   right: 0;
   left: 0;
+  display: none;
+  overflow: hidden;
   margin: 0 auto;
   padding: 24px;
   max-width: 778px;
@@ -112,7 +110,6 @@
 .overlay .list {
   flex-direction: column;
   align-items: stretch;
-  overflow: hidden;
   padding: 32px 24px;
   border: 2px solid var(--color-background-100);
   border-radius: 24px;
@@ -184,8 +181,7 @@
   }
 
   .logo img {
-    max-height: 19px;
-    width: auto;
+    max-width: 20px;
   }
 
   .contact {
@@ -206,6 +202,10 @@
   .logo {
     width: 45px;
     height: 45px;
+  }
+
+  .logo img {
+    max-width: 18px;
   }
 
   .contact {
