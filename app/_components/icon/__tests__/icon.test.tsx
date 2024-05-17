@@ -2,48 +2,79 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Icon from '../icon';
 
-// TODO: update tests
-
 describe('icon', () => {
   it('renders the correct class for the specified icon', () => {
-    render(<Icon name="foo" />);
+    render(<Icon name="mail" decorative />);
 
-    expect(screen.getByTestId('icon')).toHaveClass('foo');
-  });
-
-  it('renders the correct class for hasTextAfter', () => {
-    render(<Icon name="foo" hasTextAfter={true} />);
-
-    expect(screen.getByTestId('icon')).toHaveClass('hasTextAfter');
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('mail');
   });
 
   it('renders the correct class for hasTextBefore', () => {
-    render(<Icon name="foo" hasTextBefore={true} />);
+    render(<Icon name="mail" decorative hasTextBefore />);
 
-    expect(screen.getByTestId('icon')).toHaveClass('hasTextBefore');
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(
+      'hasTextBefore',
+    );
+  });
+
+  it('renders the correct class for hasTextAfter', () => {
+    render(<Icon name="mail" decorative hasTextAfter />);
+
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(
+      'hasTextAfter',
+    );
   });
 
   it('renders the correct class for both hasTextBefore and hasTextAfter', () => {
-    render(<Icon name="foo" hasTextBefore={true} hasTextAfter={true} />);
+    render(<Icon name="mail" decorative hasTextBefore hasTextAfter />);
 
-    const icon = screen.getByTestId('icon');
-
-    expect(icon).toHaveClass('hasTextBefore');
-    expect(icon).toHaveClass('hasTextAfter');
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass(
+      'hasTextBefore',
+      'hasTextAfter',
+    );
   });
 
-  it('does not render optional classes when not specified', () => {
-    render(<Icon name="foo" hasTextBefore={false} hasTextAfter={false} />);
+  it('does not render hasText classes when false', () => {
+    render(
+      <Icon
+        name="mail"
+        decorative
+        hasTextBefore={false}
+        hasTextAfter={false}
+      />,
+    );
 
-    const icon = screen.getByTestId('icon');
+    const icon = screen.getByRole('img', { hidden: true });
 
-    expect(icon).not.toHaveClass('hasTextBefore');
-    expect(icon).not.toHaveClass('hasTextAfter');
+    expect(icon).not.toHaveClass('hasTextBefore', 'hasTextAfter');
   });
 
   it('renders the given custom class name', () => {
-    render(<Icon name="foo" className="custom" />);
+    render(<Icon name="mail" className="custom" decorative />);
 
-    expect(screen.getByTestId('icon')).toHaveClass('custom');
+    expect(screen.getByRole('img', { hidden: true })).toHaveClass('custom');
+  });
+
+  it('has aria-hidden=true when decorative', () => {
+    render(<Icon name="mail" decorative />);
+
+    expect(screen.getByRole('img', { hidden: true })).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+  });
+
+  it('has does not have aria-hidden when not decorative', () => {
+    render(<Icon name="mail" label="test-label" />);
+
+    expect(screen.getByRole('img', { hidden: true })).not.toHaveAttribute(
+      'aria-hidden',
+    );
+  });
+
+  it('has aria-label when not decorative', () => {
+    render(<Icon name="mail" label="test-label" />);
+
+    expect(screen.getByRole('img', { name: 'test-label' })).toBeInTheDocument();
   });
 });

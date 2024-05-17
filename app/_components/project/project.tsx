@@ -53,8 +53,9 @@ export default function Project({ project }: Props) {
             View project website
             <Icon
               name="arrowDiagonal"
+              decorative
+              hasTextBefore
               className={styles.arrow}
-              hasTextBefore={true}
             />
           </a>
         </div>

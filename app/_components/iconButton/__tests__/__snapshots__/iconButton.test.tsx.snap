@@ -7,8 +7,9 @@ exports[`iconButton matches snapshot 1`] = `
     href="/foo"
   >
     <span
+      aria-hidden="true"
       class="lineRounded mail hasTextAfter icon"
-      data-testid="icon"
+      role="img"
     />
     foo
   </a>

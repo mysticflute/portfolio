@@ -8,14 +8,14 @@ type BaseProps = {
   name: 'mail' | 'briefcase' | 'arrowDiagonal' | 'arrowRight';
 
   /**
-   * Whether there's text to the right of the icon.
-   */
-  hasTextAfter?: boolean;
-
-  /**
    * Whether there's text to the left of the icon.
    */
   hasTextBefore?: boolean;
+
+  /**
+   * Whether there's text to the right of the icon.
+   */
+  hasTextAfter?: boolean;
 
   /**
    * CSS class name for the top element.
@@ -39,7 +39,7 @@ type PropsForLabeled = BaseProps & {
   /**
    * Whether the icon is used for decorative purposes only.
    */
-  decorative?: never;
+  decorative?: false;
 
   /**
    * The aria label for describing as an image.
@@ -54,11 +54,11 @@ export type Props = PropsForDecorative | PropsForLabeled;
  */
 export default function Icon({
   name,
-  decorative,
   label,
-  hasTextAfter = false,
-  hasTextBefore = false,
-  className = '',
+  decorative,
+  hasTextAfter,
+  hasTextBefore,
+  className,
 }: Props) {
   return (
     <span
