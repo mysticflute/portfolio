@@ -136,7 +136,7 @@
   animation: open 400ms ease forwards;
 }
 
-.overlay.animateClose nav {
+.overlay.closing nav {
   animation: close 300ms ease forwards;
 }
 

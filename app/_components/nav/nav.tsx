@@ -26,7 +26,7 @@ type Props = {
 export default function Nav({ links }: Props) {
   const currentPath = usePathname();
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [beginClosingOverlay, setBeginClosingOverlay] = useState(false);
+  const [isOverlayClosing, setIsOverlayClosing] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const overlayButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -35,7 +35,7 @@ export default function Nav({ links }: Props) {
   useEffect(() => {
     let timeoutId: number;
 
-    if (beginClosingOverlay) {
+    if (isOverlayClosing) {
       // the delay should match the animation time in CSS.
       timeoutId = window.setTimeout(() => setIsOverlayOpen(false), 300);
     }
@@ -43,7 +43,7 @@ export default function Nav({ links }: Props) {
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [beginClosingOverlay]);
+  }, [isOverlayClosing]);
 
   // close the overlay when clicking outside of it.
   useEffect(() => {
@@ -66,12 +66,12 @@ export default function Nav({ links }: Props) {
   }, [isOverlayOpen]);
 
   function openOverlay() {
-    setBeginClosingOverlay(false);
+    setIsOverlayClosing(false);
     setIsOverlayOpen(true);
   }
 
   function closeOverlay() {
-    setBeginClosingOverlay(true);
+    setIsOverlayClosing(true);
   }
 
   function handleOverlayClick(e: MouseEvent<HTMLDivElement>) {
@@ -96,21 +96,17 @@ export default function Nav({ links }: Props) {
   return (
     <div className={styles.container}>
       <div className={`${styles.bar} flexCenter`}>
-        <Link
-          href="/"
-          aria-label="Home"
-          className={`${styles.logo} flexCenter`}
-        >
+        <Link href="/" className={`${styles.logo} flexCenter`}>
           <Image
             src={logoImage}
-            alt="Site logo"
+            alt="Nathan David McWilliams"
             width={24}
             height={24}
             priority
           />
         </Link>
 
-        <div className="flexCenter" data-testid="nav-middle">
+        <div className="flexCenter">
           {!isOverlayOpen && createNav(links, currentPath)}
         </div>
 
@@ -131,7 +127,7 @@ export default function Nav({ links }: Props) {
             aria-controls="nav-overlay"
             aria-expanded={isOverlayOpen}
             className={clsx(styles.hamburger, {
-              [styles.open]: isOverlayOpen && !beginClosingOverlay,
+              [styles.open]: isOverlayOpen && !isOverlayClosing,
             })}
             onClick={() => (isOverlayOpen ? closeOverlay() : openOverlay())}
           >
@@ -148,7 +144,7 @@ export default function Nav({ links }: Props) {
         className={clsx(
           styles.overlay,
           isOverlayOpen && styles.open,
-          beginClosingOverlay && styles.animateClose,
+          isOverlayClosing && styles.closing,
         )}
         onClick={handleOverlayClick}
         onKeyUp={handleOverlayKeyUp}
