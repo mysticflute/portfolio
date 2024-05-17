@@ -94,7 +94,7 @@ export default function Nav({ links }: Props) {
   }
 
   return (
-    <div className={styles.container}>
+    <nav className={styles.container} aria-label="Main navigation">
       <div className={`${styles.bar} flexCenter`}>
         <Link href="/" className={`${styles.logo} flexCenter`}>
           <Image
@@ -107,23 +107,21 @@ export default function Nav({ links }: Props) {
         </Link>
 
         <div className="flexCenter">
-          {!isOverlayOpen && createNav(links, currentPath)}
+          {!isOverlayOpen && createNavList(links, currentPath)}
         </div>
 
         <div className="flexCenter">
           <Link
             href="/contact"
-            aria-label="Contact"
             aria-current={'/contact' === currentPath ? 'page' : undefined}
-            className={styles.contactButton}
+            className={styles.contact}
           >
-            <Icon name="mail" />
+            <Icon name="mail" label="Contact" />
           </Link>
 
           <button
             ref={overlayButtonRef}
             aria-label={`${isOverlayOpen ? 'Close' : 'Open'} main menu`}
-            aria-haspopup="menu"
             aria-controls="nav-overlay"
             aria-expanded={isOverlayOpen}
             className={clsx(styles.hamburger, {
@@ -149,28 +147,26 @@ export default function Nav({ links }: Props) {
         onClick={handleOverlayClick}
         onKeyUp={handleOverlayKeyUp}
       >
-        {isOverlayOpen && createNav(links, currentPath)}
+        {isOverlayOpen && createNavList(links, currentPath)}
       </div>
-    </div>
+    </nav>
   );
 }
 
-function createNav(links: InternalLink[], current: string) {
+function createNavList(links: InternalLink[], current: string) {
   return (
-    <nav role="navigation" aria-label="Main navigation">
-      <ul className={`${styles.list} flexCenter`}>
-        {links.map(link => (
-          <li key={link.key}>
-            <Link
-              href={link.path}
-              aria-current={link.path === current ? 'page' : undefined}
-              className="linkDefault"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <ul className={`${styles.list} flexCenter`}>
+      {links.map(link => (
+        <li key={link.key}>
+          <Link
+            href={link.path}
+            aria-current={link.path === current ? 'page' : undefined}
+            className="linkDefault"
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

@@ -1,19 +1,19 @@
 import { clsx } from 'clsx';
 import styles from './icon.module.css';
 
-export type Props = {
+type BaseProps = {
   /**
    * Name of the icon to use.
    */
   name: 'mail' | 'briefcase' | 'arrowDiagonal' | 'arrowRight';
 
   /**
-   * Set to true when there's text to the right of the icon.
+   * Whether there's text to the right of the icon.
    */
   hasTextAfter?: boolean;
 
   /**
-   * Set to true when there's text to the left of the icon.
+   * Whether there's text to the left of the icon.
    */
   hasTextBefore?: boolean;
 
@@ -23,11 +23,39 @@ export type Props = {
   className?: string;
 };
 
+type PropsForDecorative = BaseProps & {
+  /**
+   * Whether the icon is used for decorative purposes only.
+   */
+  decorative: true;
+
+  /**
+   * The aria label for describing as an image.
+   */
+  label?: never;
+};
+
+type PropsForLabeled = BaseProps & {
+  /**
+   * Whether the icon is used for decorative purposes only.
+   */
+  decorative?: never;
+
+  /**
+   * The aria label for describing as an image.
+   */
+  label: string;
+};
+
+export type Props = PropsForDecorative | PropsForLabeled;
+
 /**
  * Displays an icon from an icon font.
  */
 export default function Icon({
   name,
+  decorative,
+  label,
   hasTextAfter = false,
   hasTextBefore = false,
   className = '',
@@ -41,7 +69,9 @@ export default function Icon({
         hasTextBefore && styles.hasTextBefore,
         className,
       )}
-      data-testid="icon"
+      role="img"
+      aria-label={label}
+      aria-hidden={decorative}
     ></span>
   );
 }

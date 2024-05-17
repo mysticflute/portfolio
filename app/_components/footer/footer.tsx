@@ -43,15 +43,17 @@ export default function Footer() {
     <footer className={styles.container}>
       <div className={`${styles.top} ${styles.grid}`}>
         <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
-          <Link
-            href="/"
-            className={styles.logo}
-            aria-label="Home"
-            data-testid="footer-logo-link"
-          >
-            <Image src={logoImage} width={24} height={24} alt="Site logo" />
+          <Link href="/" className={styles.logo}>
+            <Image
+              src={logoImage}
+              width={24}
+              height={24}
+              alt="Nathan David McWilliams"
+            />
           </Link>
+
           <p>Acoustic and symphonic music for games and interactive media.</p>
+
           <ul className={styles.socialIcons}>
             {socialLinksWithIcons.map(link => (
               <li key={link.key}>
@@ -90,7 +92,7 @@ export default function Footer() {
               <li key={link.label}>
                 <a key={link.label} href={link.url}>
                   {link.label}
-                  <Icon name="arrowDiagonal" hasTextBefore={true} />
+                  <Icon name="arrowDiagonal" decorative hasTextBefore />
                 </a>
               </li>
             ))}

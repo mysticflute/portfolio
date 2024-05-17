@@ -27,7 +27,7 @@ export default function IconButton({
 }: Props) {
   return (
     <Button type={type} href={href} className={clsx(styles.button, className)}>
-      <Icon name={iconName} hasTextAfter={true} className={styles.icon} />
+      <Icon name={iconName} decorative hasTextAfter className={styles.icon} />
       {children}
     </Button>
   );

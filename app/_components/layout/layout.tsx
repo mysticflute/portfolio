@@ -22,10 +22,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.page}>
       {/* <a href="#main-content">Skip to main content</a> */}
-      <header role="banner">
+      <header>
         <Nav links={mainNavigation}></Nav>
       </header>
-      <main id="main-content" role="main">
+      <main id="main-content">
         <MediaContextProvider>{children}</MediaContextProvider>
       </main>
       <Footer></Footer>

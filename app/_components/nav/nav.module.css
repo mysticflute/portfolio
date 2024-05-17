@@ -39,7 +39,7 @@
   font-weight: 700;
 }
 
-.contactButton {
+.contact {
   display: inline-block;
   vertical-align: middle;
   margin-left: 24px;
@@ -57,7 +57,7 @@
     transform 300ms ease;
 }
 
-.contactButton:hover {
+.contact:hover {
   background: var(--color-background-highlight);
   transform: translate3d(0, -3px, 0.01px);
 }
@@ -99,11 +99,32 @@
   top: 100%;
   right: 0;
   left: 0;
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 778px;
+  z-index: 100;
 }
 
 .overlay.open {
   display: block;
-  z-index: 100;
+}
+
+.overlay .list {
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  padding: 32px 24px;
+  border: 2px solid var(--color-background-100);
+  border-radius: 24px;
+  background: var(--color-background-200);
+}
+
+.overlay.open .list {
+  animation: open 400ms ease forwards;
+}
+
+.overlay.closing .list {
+  animation: close 300ms ease forwards;
 }
 
 @keyframes open {
@@ -126,30 +147,6 @@
   }
 }
 
-.overlay nav {
-  margin: 0 auto;
-  padding: 24px;
-  max-width: 778px;
-}
-
-.overlay.open nav {
-  animation: open 400ms ease forwards;
-}
-
-.overlay.closing nav {
-  animation: close 300ms ease forwards;
-}
-
-.overlay .list {
-  flex-direction: column;
-  align-items: stretch;
-  overflow: hidden;
-  padding: 32px 24px;
-  border: 2px solid var(--color-background-100);
-  border-radius: 24px;
-  background: var(--color-background-200);
-}
-
 @media screen and (max-width: 991px) {
   .container {
     padding-top: 28px;
@@ -160,7 +157,7 @@
     display: none;
   }
 
-  .contactButton {
+  .contact {
     margin-left: 0;
     margin-right: 24px;
   }
@@ -191,7 +188,7 @@
     width: auto;
   }
 
-  .contactButton {
+  .contact {
     padding: 11px;
   }
 
@@ -211,7 +208,7 @@
     height: 45px;
   }
 
-  .contactButton {
+  .contact {
     display: none;
   }
 
@@ -220,7 +217,7 @@
     width: 40px;
   }
 
-  .overlay nav {
+  .overlay {
     padding-left: 20px;
     padding-right: 20px;
   }

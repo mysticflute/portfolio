@@ -2,6 +2,8 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Icon from '../icon';
 
+// TODO: update tests
+
 describe('icon', () => {
   it('renders the correct class for the specified icon', () => {
     render(<Icon name="foo" />);
