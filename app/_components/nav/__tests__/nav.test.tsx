@@ -1,25 +1,23 @@
-import { describe, expect, it, beforeAll, afterAll } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { lazy } from 'react';
+import {
+  jest,
+  describe,
+  beforeEach,
+  afterEach,
+  expect,
+  it,
+} from '@jest/globals';
+import { render, screen, act, within } from '@testing-library/react';
+import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { type InternalLink } from '../links';
-import Nav from '../nav';
 
-// @ts-expect-error: importing jest from @jest/globals breaks mocks.
-// https://github.com/vercel/next.js/issues/43888
-jest.mock('next/navigation', () => ({
-  usePathname: () => '/',
-}));
-
-// TODO: displays the logo link
-// TODO: displays the specified links
-// TODO: adds aria-current to the current page
-// TODO: displays the contact button
-// TODO: contact button has an aria-label
-// TODO: opens and closes the overlay
-// TODO: moves the nav from the bar to the overlay
-// TODO: closes the overlay with escape key
-// TODO: closes the overlay when clicking on a link
-// TODO: closes the overlay when clicking outside of the nav
+// Importing `jest` from @jest/globals along with using swc (the default for
+// next.js) breaks mocks: https://github.com/vercel/next.js/issues/43888.
+//
+// Lazy loading the component allows the mock of `next/navigation` to happen
+// before the import. If this gets fixed, the `findBy*` in the tests can be
+// replaced with `getBy*`.
+const Nav = lazy(() => import('../nav'));
 
 export const testNavLinks: InternalLink[] = [
   { key: 'home', label: 'Home', path: '/' },
@@ -28,56 +26,185 @@ export const testNavLinks: InternalLink[] = [
 ];
 
 describe('nav', () => {
-  beforeAll(() => {
-    // @ts-expect-error: importing jest from @jest/globals breaks mocks.
+  let mockUsePathname = jest.fn();
+
+  beforeEach(() => {
     jest.useFakeTimers();
+
+    mockUsePathname = jest.fn();
+    jest.mock('next/navigation', () => ({
+      usePathname: () => mockUsePathname(),
+    }));
   });
 
-  afterAll(() => {
-    // @ts-expect-error: importing jest from @jest/globals breaks mocks.
+  afterEach(() => {
     jest.useRealTimers();
   });
 
-  it('displays the logo link', () => {
+  it('displays the logo link', async () => {
     render(<Nav links={testNavLinks} />);
 
     expect(
-      screen.getByRole('link', { name: 'Nathan David McWilliams' }),
+      await screen.findByRole('link', { name: 'Nathan David McWilliams' }),
     ).toBeInTheDocument();
   });
 
-  // it('includes a link to the homepage', () => {
-  //   render(<Nav />);
+  it('displays the specified links', async () => {
+    render(<Nav links={testNavLinks} />);
 
-  //   // 1) home link around logo
-  //   // 2) home link in nav
-  //   // 3) home link in nav overlay
-  //   expect(screen.getAllByRole('link', { name: 'Home' })).toHaveLength(3);
-  // });
+    testNavLinks.forEach(async link => {
+      expect(
+        await screen.findByRole('link', { name: link.label }),
+      ).toBeInTheDocument();
+    });
+  });
 
-  // it('adds aria-current to the current page', () => {
-  //   render(<Nav />);
+  it('adds aria-current to link for the current page', async () => {
+    mockUsePathname.mockImplementation(() => '/about');
 
-  //   const links = screen.getAllByRole('link', { current: 'page' });
+    render(<Nav links={testNavLinks} />);
 
-  //   links.forEach(link => {
-  //     expect(link).toHaveAttribute('href', '/');
-  //   });
-  // });
+    expect(
+      await screen.findByRole('link', { current: 'page' }),
+    ).toHaveAttribute('href', '/about');
+  });
 
-  // it('open and closes the overlay', async () => {
-  //   const user = userEvent.setup();
+  it('displays the contact button', async () => {
+    render(<Nav links={testNavLinks} />);
 
-  //   render(<Nav />);
+    expect(
+      await screen.findByRole('img', { name: 'Contact' }),
+    ).toBeInTheDocument();
+  });
 
-  //   const overlayButton = screen.getByRole('button', { name: 'Menu' });
-  //   const navOverlay = screen.getByTestId('nav-overlay');
+  describe('overlay', () => {
+    /**
+     * Finds the toggle button and overlay container elements.
+     *
+     * @returns An array with the first element being the button and the second
+     * the overlay container.
+     */
+    async function findOverlayElements() {
+      const button = await screen.findByRole('button', {
+        name: /(open|close) main menu/i,
+      });
+      const overlay = await screen.findByTestId('nav-overlay');
+      return [button, overlay];
+    }
 
-  //   expect(overlayButton).toHaveAttribute('aria-expanded', 'false');
-  //   expect(navOverlay).not.toHaveClass('open');
+    /** Opens or closes the overlay. */
+    async function toggleOverlay(user: UserEvent) {
+      const [button] = await findOverlayElements();
 
-  //   await user.click(overlayButton);
-  //   expect(overlayButton).toHaveAttribute('aria-expanded', 'true');
-  //   expect(navOverlay).toHaveClass('open');
-  // });
+      await act(async () => {
+        user.click(button);
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+      });
+    }
+
+    it('open and closes', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      render(<Nav links={testNavLinks} />);
+
+      const [button, overlay] = await findOverlayElements();
+
+      // initially closed
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      expect(overlay).not.toHaveClass('open');
+
+      // open it
+      await toggleOverlay(user);
+
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(overlay).toHaveClass('open');
+
+      // close it
+      await toggleOverlay(user);
+
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      expect(overlay).not.toHaveClass('open');
+    });
+
+    it('moves the list of nav items when opened', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      render(<Nav links={testNavLinks} />);
+
+      const [, overlay] = await findOverlayElements();
+
+      // nav links list should be in the nav bar
+      expect(within(overlay).queryByRole('list')).not.toBeInTheDocument();
+
+      await toggleOverlay(user);
+
+      // nav links list should be in the overlay
+      expect(within(overlay).queryByRole('list')).toBeInTheDocument();
+    });
+
+    it('closes with the escape key', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      render(<Nav links={testNavLinks} />);
+
+      const [button] = await findOverlayElements();
+
+      await toggleOverlay(user);
+
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+
+      // focus an item in the overlay so that hitting the Escape key fires an
+      // event from within the overlay container.
+      const link = await screen.findByRole('link', { name: 'About' });
+      link.focus();
+
+      await act(async () => {
+        user.keyboard('{Escape}');
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+      });
+
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('closes when clicking outside of it', async () => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      render(
+        <div>
+          <Nav links={testNavLinks} />
+          <div style={{ padding: 100 }}>
+            <button>Test</button>
+          </div>
+        </div>,
+      );
+
+      const [button] = await findOverlayElements();
+
+      await toggleOverlay(user);
+
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+
+      // clicking on an element outside of the overlay should result in the
+      // overlay closing
+      const outsideElement = await screen.findByRole('button', {
+        name: 'Test',
+      });
+
+      await act(async () => {
+        user.click(outsideElement);
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+      });
+
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+  });
 });
