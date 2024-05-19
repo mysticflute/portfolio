@@ -21,7 +21,12 @@ import styles from './layout.module.css';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.page}>
-      {/* <a href="#main-content">Skip to main content</a> */}
+      <a
+        href="#main-content"
+        className={`${styles.skipLink} assistiveTextFocusable`}
+      >
+        Skip to main content
+      </a>
       <header>
         <Nav links={mainNavigation}></Nav>
       </header>

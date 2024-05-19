@@ -1,6 +1,7 @@
 /* This file contains cross-component utility classes only. */
 
-.assistiveText {
+.assistiveText,
+.assistiveTextFocusable:not(:focus) {
   position: absolute !important;
   margin: -1px !important;
   border: 0 !important;
