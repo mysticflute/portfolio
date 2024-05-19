@@ -32,13 +32,13 @@ exports[`project matches snapshot 1`] = `
   <p>
     A test project.
   </p>
-  <div
+  <ul
     class="tracks"
     data-testid="tracks"
   >
-    <div
+    <li
       class="track"
-      data-testid="audio-track"
+      data-testid="track"
     >
       <button
         class="title"
@@ -123,8 +123,8 @@ exports[`project matches snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
   <div
     class="viewMore"
   >

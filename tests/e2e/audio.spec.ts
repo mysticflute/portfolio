@@ -8,7 +8,7 @@ test.describe('audio tracks', () => {
   test('load successfully', async ({ page }) => {
     await page.goto('/');
 
-    const track = page.getByTestId('audio-track').first();
+    const track = page.getByTestId('track').first();
     await track.scrollIntoViewIfNeeded();
 
     const audio = track.locator('audio');
@@ -25,9 +25,9 @@ test.describe('audio tracks', () => {
   test('only play one at a time', async ({ page }) => {
     await page.goto('/');
 
-    const track1 = page.getByTestId('audio-track').nth(0);
-    const track2 = page.getByTestId('audio-track').nth(1);
-    const track3 = page.getByTestId('audio-track').last();
+    const track1 = page.getByTestId('track').nth(0);
+    const track2 = page.getByTestId('track').nth(1);
+    const track3 = page.getByTestId('track').last();
 
     const audio1 = track1.locator('audio');
     const audio2 = track2.locator('audio');
@@ -51,8 +51,8 @@ test.describe('audio tracks', () => {
   test('auto play the next track in the list', async ({ page }) => {
     await page.goto('/');
 
-    const track1 = page.getByTestId('audio-track').nth(0);
-    const track2 = page.getByTestId('audio-track').nth(1);
+    const track1 = page.getByTestId('track').nth(0);
+    const track2 = page.getByTestId('track').nth(1);
 
     const audio1 = track1.locator('audio');
     const audio2 = track2.locator('audio');

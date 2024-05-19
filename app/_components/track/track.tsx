@@ -73,7 +73,7 @@ export default function Track({ track, isPlaying, onTrackEnd }: Props) {
   }
 
   return (
-    <div className={styles.track} data-testid="audio-track">
+    <li className={styles.track} data-testid="track">
       <button
         title={track.name}
         className={styles.title}
@@ -94,6 +94,6 @@ export default function Track({ track, isPlaying, onTrackEnd }: Props) {
           customAdditionalControls={[]}
         />
       </div>
-    </div>
+    </li>
   );
 }

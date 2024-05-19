@@ -2,9 +2,9 @@
 
 exports[`track matches snapshot 1`] = `
 <div>
-  <div
+  <li
     class="track"
-    data-testid="audio-track"
+    data-testid="track"
   >
     <button
       class="title"
@@ -89,6 +89,6 @@ exports[`track matches snapshot 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </li>
 </div>
 `;
