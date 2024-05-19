@@ -94,7 +94,7 @@ export default function Nav({ links }: Props) {
   }
 
   return (
-    <nav className={styles.container} aria-label="Main navigation">
+    <nav className={styles.container} aria-label="Main">
       <div className={`${styles.bar} flexCenter`}>
         <Link href="/" className={`${styles.logo} flexCenter`}>
           <Image
