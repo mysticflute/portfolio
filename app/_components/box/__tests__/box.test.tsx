@@ -47,6 +47,16 @@ describe('box', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('passes through aria-attributes', () => {
+    const { container } = render(
+      <Box type="flat" aria-labelledby="id1" aria-describedby="id2">
+        content...
+      </Box>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   it('uses the specified tag', () => {
     render(
       <Box type="hover" tag="article">

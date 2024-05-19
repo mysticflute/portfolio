@@ -42,10 +42,11 @@ export default function Box({
   className,
   style,
   children,
+  ...rest
 }: Props) {
   return React.createElement(
     tag,
-    { className: clsx(styles.box, styles[type], className), style },
+    { className: clsx(styles.box, styles[type], className), style, ...rest },
     children,
   );
 }

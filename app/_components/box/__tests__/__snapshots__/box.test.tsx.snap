@@ -50,6 +50,18 @@ exports[`box matches snapshot for type="text" 1`] = `
 </div>
 `;
 
+exports[`box passes through aria-attributes 1`] = `
+<div>
+  <div
+    aria-describedby="id2"
+    aria-labelledby="id1"
+    class="box flat"
+  >
+    content...
+  </div>
+</div>
+`;
+
 exports[`box renders the specified class name 1`] = `
 <div>
   <div
