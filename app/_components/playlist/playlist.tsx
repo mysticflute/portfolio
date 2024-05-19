@@ -12,9 +12,14 @@ type Props = {
    * The metadata for each track in the playlist.
    */
   tracks: NonNullable<ProjectMetadata['tracks']>;
+
+  /**
+   * CSS class name for the top element.
+   */
+  className?: string;
 };
 
-export default function Playlist({ tracks }: Props) {
+export default function Playlist({ tracks, className }: Props) {
   const context = useMediaContext();
   const update = useMediaDispatch();
 
@@ -33,7 +38,7 @@ export default function Playlist({ tracks }: Props) {
   };
 
   return (
-    <>
+    <ul className={className} data-testid="tracks">
       {tracks.map(track => (
         <Track
           key={track.id}
@@ -42,6 +47,6 @@ export default function Playlist({ tracks }: Props) {
           onTrackEnd={playNextTrack}
         />
       ))}
-    </>
+    </ul>
   );
 }

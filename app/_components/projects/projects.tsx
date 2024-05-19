@@ -13,9 +13,9 @@ export default function Projects({ projects }: Props) {
   return (
     <section className={styles.container}>
       <div className={styles.heading}>
+        {/*prettier-ignore */}
         <h2 id="portfolio" className="textHeadingMedium">
-          Take a look at my{' '}
-          <span className="textHighlight3">music portfolio</span>
+          Take a look at my <span className="textHighlight3">music portfolio</span>
         </h2>
       </div>
       <div className={styles.list}>

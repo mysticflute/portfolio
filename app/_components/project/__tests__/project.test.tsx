@@ -87,6 +87,6 @@ describe('project', () => {
       </MediaContextProvider>,
     );
 
-    expect(screen.queryByTestId('tracks')).not.toBeInTheDocument();
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 });

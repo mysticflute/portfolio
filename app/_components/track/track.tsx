@@ -73,7 +73,7 @@ export default function Track({ track, isPlaying, onTrackEnd }: Props) {
   }
 
   return (
-    <li className={styles.track} data-testid="track">
+    <li className={styles.track}>
       <button
         title={track.name}
         className={styles.title}

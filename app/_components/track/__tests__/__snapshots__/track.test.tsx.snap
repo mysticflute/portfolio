@@ -4,7 +4,6 @@ exports[`track matches snapshot 1`] = `
 <div>
   <li
     class="track"
-    data-testid="track"
   >
     <button
       class="title"

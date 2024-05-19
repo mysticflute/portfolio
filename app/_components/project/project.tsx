@@ -42,9 +42,7 @@ export default function Project({ project }: Props) {
       <p>{project.description}</p>
 
       {project.tracks && (
-        <ul className={styles.tracks} data-testid="tracks">
-          <Playlist tracks={project.tracks} />
-        </ul>
+        <Playlist tracks={project.tracks} className={styles.tracks} />
       )}
 
       {project.link && (

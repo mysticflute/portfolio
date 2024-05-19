@@ -38,7 +38,6 @@ exports[`project matches snapshot 1`] = `
   >
     <li
       class="track"
-      data-testid="track"
     >
       <button
         class="title"
