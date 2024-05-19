@@ -2,6 +2,8 @@
 
 exports[`project matches snapshot 1`] = `
 <article
+  aria-describedby=":r0:-description"
+  aria-labelledby=":r0:-heading"
   class="box hover container"
   style="--color-project: #fffeee;"
 >
@@ -21,15 +23,23 @@ exports[`project matches snapshot 1`] = `
     <div
       class="badge"
     >
+      <span
+        class="assistiveText"
+      >
+        My role: 
+      </span>
       Composer
     </div>
   </div>
   <h3
     class="textHeadingSmall"
+    id=":r0:-heading"
   >
     Test Project
   </h3>
-  <p>
+  <p
+    id=":r0:-description"
+  >
     A test project.
   </p>
   <ul
