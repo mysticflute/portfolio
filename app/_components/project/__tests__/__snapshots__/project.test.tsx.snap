@@ -134,19 +134,22 @@ exports[`project matches snapshot 1`] = `
       </div>
     </li>
   </ul>
-  <div
+  <a
     class="viewMore"
+    href="https://www.test-project.com"
   >
-    <a
-      href="https://www.test-project.com"
+    View project website
+    <span
+      class="assistiveText"
     >
-      View project website
-      <span
-        aria-hidden="true"
-        class="lineRounded arrowDiagonal hasTextBefore arrow"
-        role="img"
-      />
-    </a>
-  </div>
+      for 
+      Test Project
+    </span>
+    <span
+      aria-hidden="true"
+      class="lineRounded arrowDiagonal hasTextBefore arrow"
+      role="img"
+    />
+  </a>
 </article>
 `;

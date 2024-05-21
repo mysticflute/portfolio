@@ -59,17 +59,16 @@ export default function Project({ project }: Props) {
       )}
 
       {project.link && (
-        <div className={styles.viewMore}>
-          <a href={project.link}>
-            View project website
-            <Icon
-              name="arrowDiagonal"
-              decorative
-              hasTextBefore
-              className={styles.arrow}
-            />
-          </a>
-        </div>
+        <a href={project.link} className={styles.viewMore}>
+          View project website
+          <span className="assistiveText">for {project.name}</span>
+          <Icon
+            name="arrowDiagonal"
+            decorative
+            hasTextBefore
+            className={styles.arrow}
+          />
+        </a>
       )}
     </Box>
   );
