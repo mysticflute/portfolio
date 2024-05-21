@@ -129,8 +129,8 @@ export default function Nav({ links }: Props) {
             })}
             onClick={() => (isOverlayOpen ? closeOverlay() : openOverlay())}
           >
-            <div className={styles.hamburgerTop}></div>
-            <div className={styles.hamburgerBottom}></div>
+            <span className={styles.hamburgerTop}></span>
+            <span className={styles.hamburgerBottom}></span>
           </button>
         </div>
       </div>

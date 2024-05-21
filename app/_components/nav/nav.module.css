@@ -73,6 +73,7 @@
 
 .hamburgerTop,
 .hamburgerBottom {
+  display: block;
   width: 44px;
   height: 3px;
   margin: 12px 0;
