@@ -38,6 +38,7 @@ describe('nav', () => {
   });
 
   afterEach(() => {
+    jest.runOnlyPendingTimers();
     jest.useRealTimers();
   });
 
@@ -52,11 +53,11 @@ describe('nav', () => {
   it('displays the specified links', async () => {
     render(<Nav links={testNavLinks} />);
 
-    testNavLinks.forEach(async link => {
+    for (const link of testNavLinks) {
       expect(
         await screen.findByRole('link', { name: link.label }),
       ).toBeInTheDocument();
-    });
+    }
   });
 
   it('adds aria-current to link for the current page', async () => {
@@ -97,10 +98,10 @@ describe('nav', () => {
       const [button] = await findOverlayElements();
 
       await act(async () => {
-        user.click(button);
+        await user.click(button);
       });
 
-      await act(async () => {
+      act(() => {
         jest.runAllTimers();
       });
     }
@@ -162,10 +163,10 @@ describe('nav', () => {
       link.focus();
 
       await act(async () => {
-        user.keyboard('{Escape}');
+        await user.keyboard('{Escape}');
       });
 
-      await act(async () => {
+      act(() => {
         jest.runAllTimers();
       });
 
@@ -197,10 +198,10 @@ describe('nav', () => {
       });
 
       await act(async () => {
-        user.click(outsideElement);
+        await user.click(outsideElement);
       });
 
-      await act(async () => {
+      act(() => {
         jest.runAllTimers();
       });
 

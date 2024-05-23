@@ -7,6 +7,7 @@ import {
   expect,
 } from '@jest/globals';
 import { screen, render, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {
   MediaContextProvider,
   useMediaContext,
@@ -43,6 +44,7 @@ describe('track', () => {
       .spyOn(window.HTMLMediaElement.prototype, 'play')
       .mockImplementation(async () => {
         playMock();
+        return Promise.resolve();
       });
 
     jest
@@ -70,51 +72,51 @@ describe('track', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('calls play() on audio element when isPlaying is true', async () => {
+  it('calls play() on audio element when isPlaying is true', () => {
     render(<Track track={{ ...trackMetadata }} isPlaying={true} />, {
       wrapper: Providers,
     });
 
     expect(isPausedMock).toBe(false);
-    expect(playMock).toBeCalledTimes(1);
+    expect(playMock).toHaveBeenCalledTimes(1);
   });
 
-  it('does not call play() on audio element when isPlaying is false', async () => {
+  it('does not call play() on audio element when isPlaying is false', () => {
     render(<Track track={{ ...trackMetadata }} isPlaying={false} />, {
       wrapper: Providers,
     });
 
     expect(isPausedMock).toBe(true);
-    expect(playMock).not.toBeCalled();
+    expect(playMock).not.toHaveBeenCalled();
   });
 
-  it('does not call play() on audio element if already playing', async () => {
+  it('does not call play() on audio element if already playing', () => {
     const { rerender } = render(
       <Track track={{ ...trackMetadata }} isPlaying={false} />,
       { wrapper: Providers },
     );
 
     playMock(); // fake click of the play button
-    expect(playMock).toBeCalledTimes(1);
+    expect(playMock).toHaveBeenCalledTimes(1);
 
     rerender(<Track track={{ ...trackMetadata }} isPlaying={true} />);
-    expect(playMock).toBeCalledTimes(1);
+    expect(playMock).toHaveBeenCalledTimes(1);
   });
 
-  it('does not call pause() on audio element if already paused', async () => {
+  it('does not call pause() on audio element if already paused', () => {
     const { rerender } = render(
       <Track track={{ ...trackMetadata }} isPlaying={true} />,
       { wrapper: Providers },
     );
 
     pauseMock(); // fake click of the pause button
-    expect(pauseMock).toBeCalledTimes(1);
+    expect(pauseMock).toHaveBeenCalledTimes(1);
 
     rerender(<Track track={{ ...trackMetadata }} isPlaying={false} />);
-    expect(pauseMock).toBeCalledTimes(1);
+    expect(pauseMock).toHaveBeenCalledTimes(1);
   });
 
-  it('calls onTrackEnd() when the track ends', async () => {
+  it('calls onTrackEnd() when the track ends', () => {
     const onEnd = jest.fn();
 
     const { container } = render(
@@ -134,10 +136,10 @@ describe('track', () => {
       audio!.dispatchEvent(new Event('ended'));
     });
 
-    expect(onEnd).toBeCalledWith(trackMetadata.id);
+    expect(onEnd).toHaveBeenCalledWith(trackMetadata.id);
   });
 
-  it('dispatches a context update when the track starts playing', async () => {
+  it('dispatches a context update when the track starts playing', () => {
     let contextTrackId: string | null = null;
 
     const ContextConsumer = () => {
@@ -166,6 +168,8 @@ describe('track', () => {
   });
 
   it('toggles between playing and paused when clicking on the title', async () => {
+    const user = userEvent.setup();
+
     render(<Track track={{ ...trackMetadata }} isPlaying={false} />, {
       wrapper: Providers,
     });
@@ -174,12 +178,12 @@ describe('track', () => {
 
     const title = screen.getByRole('button', { name: trackMetadata.name });
 
-    await title.click();
+    await user.click(title);
     expect(isPausedMock).toBe(false);
 
-    await title.click();
+    await user.click(title);
     expect(isPausedMock).toBe(true);
 
-    expect(playMock).toBeCalledTimes(1);
+    expect(playMock).toHaveBeenCalledTimes(1);
   });
 });

@@ -49,6 +49,7 @@ describe('audio playlist', () => {
       .spyOn(window.HTMLMediaElement.prototype, 'play')
       .mockImplementation(async () => {
         playMock();
+        return Promise.resolve();
       });
 
     jest

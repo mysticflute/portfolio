@@ -124,7 +124,7 @@ test.describe('main navigation overlay', () => {
     const contactLink = locators.header.contactLink(page);
 
     if (!isMobile) {
-      page.setViewportSize({ width: 390, height: 844 });
+      await page.setViewportSize({ width: 390, height: 844 });
     }
 
     await page.goto('/');
