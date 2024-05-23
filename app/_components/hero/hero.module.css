@@ -18,6 +18,7 @@
 }
 
 .intro h1 {
+  scroll-margin: 2rem;
   margin-bottom: 16px;
   color: var(--color-text-inverse);
   font-size: 3.5rem;
