@@ -203,6 +203,8 @@
   .logo {
     width: 45px;
     height: 45px;
+    padding-right: 0.5px;
+    padding-bottom: 0.5px;
   }
 
   .logo img {
