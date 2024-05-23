@@ -55,9 +55,9 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    padding-top: 36px;
+    padding-top: 78px;
     padding-bottom: 123px;
-    row-gap: 54px;
+    row-gap: 60px;
   }
 
   .image {

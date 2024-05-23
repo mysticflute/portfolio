@@ -20,7 +20,7 @@ type Props = {
   /**
    * The links to display.
    */
-  links: InternalLink[];
+  links: readonly InternalLink[];
 };
 
 export default function Nav({ links }: Props) {
@@ -153,7 +153,7 @@ export default function Nav({ links }: Props) {
   );
 }
 
-function createNavList(links: InternalLink[], current: string) {
+function createNavList(links: readonly InternalLink[], current: string) {
   return (
     <ul className={`${styles.list} flexCenter`}>
       {links.map(link => (

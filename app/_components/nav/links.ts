@@ -20,7 +20,7 @@ export type SocialLink = Link & {
 };
 
 /** Main internal pages. */
-export const mainNavigation: InternalLink[] = [
+export const mainNavigation: readonly InternalLink[] = [
   { key: 'home', label: 'Home', path: '/' },
   { key: 'about', label: 'About', path: '/#about' },
   { key: 'portfolio', label: 'Portfolio', path: '/#portfolio' },
@@ -91,7 +91,7 @@ export const mastodon: SocialLink = {
 };
 
 /** Ordered list of all social media accounts. */
-export const allSocialLinks: SocialLink[] = [
+export const allSocialLinks: readonly SocialLink[] = [
   soundcloud,
   youtube,
   itch,
