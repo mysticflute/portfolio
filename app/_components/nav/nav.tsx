@@ -37,7 +37,7 @@ export default function Nav({ links }: Props) {
 
     if (isOverlayClosing) {
       // the delay should match the animation time in CSS.
-      timeoutId = window.setTimeout(() => setIsOverlayOpen(false), 300);
+      timeoutId = window.setTimeout(() => setIsOverlayOpen(false), 400);
     }
 
     return () => {
