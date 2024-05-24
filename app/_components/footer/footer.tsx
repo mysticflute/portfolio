@@ -4,7 +4,16 @@ import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { spamEmail, encodedHumanEmail } from '@/lib/constants';
-import { mainNav } from '@/components/nav/nav';
+import {
+  type SocialLink,
+  mainNavigation,
+  allSocialLinks,
+  twitter,
+  instagram,
+  youtube,
+  soundcloud,
+  linktree,
+} from '@/components/nav/links';
 import Icon from '@/components/icon/icon';
 import SwappedEmail from '@/components/swappedEmail/swappedEmail';
 import logoImage from '@/public/images/logo/letter-n.svg';
@@ -14,15 +23,6 @@ import youtubeIcon from '@/public/images/icons/paperfolio/youtube.svg';
 import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
 import styles from './footer.module.css';
-import {
-  SocialLink,
-  allSocialLinks,
-  twitter,
-  instagram,
-  youtube,
-  soundcloud,
-  linktree,
-} from '@/data/social';
 
 type SocialLinkWithIcon = SocialLink & {
   icon: StaticImageData | typeof twitterIcon;
@@ -40,18 +40,20 @@ export default function Footer() {
   const currentPath = usePathname();
 
   return (
-    <footer role="contentinfo" className={styles.container}>
+    <footer className={styles.container}>
       <div className={`${styles.top} ${styles.grid}`}>
         <div className={`${styles.bioSection} ${styles.sectionWithText}`}>
-          <Link
-            href="/"
-            className={styles.logo}
-            aria-label="Home"
-            data-testid="footer-logo-link"
-          >
-            <Image src={logoImage} width={24} height={24} alt="Site logo" />
+          <Link href="/" className={styles.logo}>
+            <Image
+              src={logoImage}
+              width={24}
+              height={24}
+              alt="Nathan David McWilliams"
+            />
           </Link>
+
           <p>Acoustic and symphonic music for games and interactive media.</p>
+
           <ul className={styles.socialIcons}>
             {socialLinksWithIcons.map(link => (
               <li key={link.key}>
@@ -70,13 +72,13 @@ export default function Footer() {
         <div>
           <h2 className={styles.title}>Pages</h2>
           <ul className={styles.list}>
-            {mainNav.map(page => (
-              <li key={page.label}>
+            {mainNavigation.map(link => (
+              <li key={link.key}>
                 <Link
-                  href={page.path}
-                  aria-current={page.path === currentPath ? 'page' : undefined}
+                  href={link.path}
+                  aria-current={link.path === currentPath ? 'page' : undefined}
                 >
-                  {page.label}
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -90,7 +92,7 @@ export default function Footer() {
               <li key={link.label}>
                 <a key={link.label} href={link.url}>
                   {link.label}
-                  <Icon name="arrowDiagonal" hasTextBefore={true} />
+                  <Icon name="arrowDiagonal" decorative hasTextBefore />
                 </a>
               </li>
             ))}

@@ -26,3 +26,13 @@
       url('/images/bg/bg-high.jpg?v=1');
   }
 }
+
+.skipLink:focus {
+  display: block;
+  padding: 12px;
+  background: var(--color-primary);
+  border-bottom: 2px solid var(--color-background-100);
+  color: var(--color-text-inverse);
+  text-align: center;
+  outline: none;
+}

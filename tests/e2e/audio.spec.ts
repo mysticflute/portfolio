@@ -1,18 +1,18 @@
 import { test, expect } from '@playwright/test';
 
-// XXX: soundcloud response times seem to be flaky. should be able to remove
-// this once switching to a CDN.
+// XXX: Soundcloud response times seem to be flaky for Firefox. Should be able
+// to remove this once switching to a CDN.
 const timeout = 15000;
 
 test.describe('audio tracks', () => {
   test('load successfully', async ({ page }) => {
     await page.goto('/');
 
-    const track = page.getByTestId('audio-track').first();
-    await track.scrollIntoViewIfNeeded();
-
+    const project = page.getByTestId('tracks').first();
+    const track = project.getByRole('listitem').first();
     const audio = track.locator('audio');
 
+    await track.scrollIntoViewIfNeeded();
     await expect(audio).toHaveJSProperty('paused', true, { timeout });
 
     await track.getByRole('button', { name: 'Play' }).click();
@@ -25,9 +25,12 @@ test.describe('audio tracks', () => {
   test('only play one at a time', async ({ page }) => {
     await page.goto('/');
 
-    const track1 = page.getByTestId('audio-track').nth(0);
-    const track2 = page.getByTestId('audio-track').nth(1);
-    const track3 = page.getByTestId('audio-track').last();
+    const project1 = page.getByTestId('tracks').nth(0);
+    const project2 = page.getByTestId('tracks').nth(1);
+
+    const track1 = project1.getByRole('listitem').nth(0);
+    const track2 = project1.getByRole('listitem').nth(1);
+    const track3 = project2.getByRole('listitem').nth(0);
 
     const audio1 = track1.locator('audio');
     const audio2 = track2.locator('audio');
@@ -51,8 +54,10 @@ test.describe('audio tracks', () => {
   test('auto play the next track in the list', async ({ page }) => {
     await page.goto('/');
 
-    const track1 = page.getByTestId('audio-track').nth(0);
-    const track2 = page.getByTestId('audio-track').nth(1);
+    const project = page.getByTestId('tracks').first();
+
+    const track1 = project.getByRole('listitem').nth(0);
+    const track2 = project.getByRole('listitem').nth(1);
 
     const audio1 = track1.locator('audio');
     const audio2 = track2.locator('audio');

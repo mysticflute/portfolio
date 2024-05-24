@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.heading h1 {
+.heading h2 {
   margin-bottom: 48px;
 }
 
@@ -33,7 +33,7 @@
     padding-bottom: 168px;
   }
 
-  .heading h1 {
+  .heading h2 {
     margin-bottom: 40px;
   }
 }

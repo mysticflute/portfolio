@@ -6,7 +6,7 @@ import {
   it,
   expect,
 } from '@jest/globals';
-import { render, act } from '@testing-library/react';
+import { render, act, screen } from '@testing-library/react';
 import {
   MediaContextProvider,
   useMediaContext,
@@ -49,6 +49,7 @@ describe('audio playlist', () => {
       .spyOn(window.HTMLMediaElement.prototype, 'play')
       .mockImplementation(async () => {
         playMock();
+        return Promise.resolve();
       });
 
     jest
@@ -140,5 +141,13 @@ describe('audio playlist', () => {
     });
 
     expect(contextTrackId).toBe(trackMetadataB.id);
+  });
+
+  it('renders the specified class name', () => {
+    render(<Playlist tracks={[{ ...trackMetadataA }]} className="custom" />, {
+      wrapper: Providers,
+    });
+
+    expect(screen.getByRole('list')).toHaveClass('custom');
   });
 });

@@ -18,5 +18,20 @@ module.exports = {
         'no-undef': 'off',
       },
     },
+    {
+      files: ['*.test.ts', '*.test.tsx'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/style'],
+      // enable this after turning on typed-checked linting
+      // rules: {
+      //   '@typescript-eslint/unbound-method': 'off',
+      //   'jest/unbound-method': 'error',
+      // },
+    },
+    // enable this after turning on typed-checked linting
+    // {
+    //   extends: ['plugin:@typescript-eslint/disable-type-checked'],
+    //   files: ['.eslintrc.js'],
+    // },
   ],
 };

@@ -1,4 +1,4 @@
-import { type CSSProperties } from 'react';
+import { type CSSProperties, useId } from 'react';
 import { type ProjectMetadata } from '@/lib/projects';
 import Image from 'next/image';
 import Box from '@/components/box/box';
@@ -18,13 +18,21 @@ type Props = {
 };
 
 export default function Project({ project }: Props) {
+  const id = useId();
+
   let inlineStyle: CustomProperties | undefined;
   if (project.color) {
     inlineStyle = { '--color-project': project.color };
   }
 
   return (
-    <Box tag="article" className={styles.container} style={inlineStyle}>
+    <Box
+      tag="article"
+      className={styles.container}
+      style={inlineStyle}
+      aria-labelledby={`${id}-heading`}
+      aria-describedby={`${id}-description`}
+    >
       <div className={styles.info}>
         {project.icon && (
           <Image
@@ -34,30 +42,33 @@ export default function Project({ project }: Props) {
             alt=""
           />
         )}
-        <div className={styles.badge}>{project.role}</div>
+        <div className={styles.badge}>
+          <span className="assistiveText">My role: </span>
+          {project.role}
+        </div>
       </div>
 
-      <h3 className="textHeadingSmall">{project.name}</h3>
+      <h3 className="textHeadingSmall" id={`${id}-heading`}>
+        {project.name}
+      </h3>
 
-      <p>{project.description}</p>
+      <p id={`${id}-description`}>{project.description}</p>
 
       {project.tracks && (
-        <div className={styles.tracks} data-testid="tracks">
-          <Playlist tracks={project.tracks} />
-        </div>
+        <Playlist tracks={project.tracks} className={styles.tracks} />
       )}
 
       {project.link && (
-        <div className={styles.viewMore}>
-          <a href={project.link}>
-            View project website
-            <Icon
-              name="arrowDiagonal"
-              className={styles.arrow}
-              hasTextBefore={true}
-            />
-          </a>
-        </div>
+        <a href={project.link} className={styles.viewMore}>
+          View project website
+          <span className="assistiveText">for {project.name}</span>
+          <Icon
+            name="arrowDiagonal"
+            decorative
+            hasTextBefore
+            className={styles.arrow}
+          />
+        </a>
       )}
     </Box>
   );

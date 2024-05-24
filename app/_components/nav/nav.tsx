@@ -1,103 +1,172 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
 import { clsx } from 'clsx';
+import {
+  useRef,
+  useState,
+  useEffect,
+  type MouseEvent,
+  type KeyboardEvent,
+} from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import { type InternalLink } from '@/components/nav/links';
 import Icon from '@/components/icon/icon';
 import logoImage from '@/public/images/logo/letter-n.svg';
 import styles from './nav.module.css';
 
-type NavItems = {
-  label: string;
-  path: string;
+type Props = {
+  /**
+   * The links to display.
+   */
+  links: readonly InternalLink[];
 };
 
-export const mainNav: NavItems[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/#about' },
-  { label: 'Portfolio', path: '/#portfolio' },
-  { label: 'Contact', path: '/contact' },
-];
-
-function createNav(items: NavItems[], currentItem: string) {
-  return (
-    <nav role="navigation" aria-label="Main navigation">
-      <ul className={`flexCenter ${styles.list}`}>
-        {items.map(item => (
-          <li key={item.label}>
-            <Link
-              href={item.path}
-              aria-current={item.path === currentItem ? 'page' : undefined}
-              className="linkDefault"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-}
-
-export default function Nav() {
+export default function Nav({ links }: Props) {
   const currentPath = usePathname();
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [isOverlayClosing, setIsOverlayClosing] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const overlayButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Close the overlay after a delay, giving time for the closing animation to
+  // finish.
+  useEffect(() => {
+    let timeoutId: number;
+
+    if (isOverlayClosing) {
+      // the delay should match the animation time in CSS.
+      timeoutId = window.setTimeout(() => setIsOverlayOpen(false), 400);
+    }
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [isOverlayClosing]);
+
+  // close the overlay when clicking outside of it.
+  useEffect(() => {
+    function handleClick(event: Event) {
+      if (
+        isOverlayOpen &&
+        event.target instanceof Element &&
+        !overlayRef.current?.contains(event.target) &&
+        !overlayButtonRef.current?.contains(event.target)
+      ) {
+        closeOverlay();
+      }
+    }
+
+    document.addEventListener('mousedown', handleClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, [isOverlayOpen]);
+
+  function openOverlay() {
+    setIsOverlayClosing(false);
+    setIsOverlayOpen(true);
+  }
+
+  function closeOverlay() {
+    setIsOverlayClosing(true);
+  }
+
+  function handleOverlayClick(e: MouseEvent<HTMLDivElement>) {
+    // close the overlay when clicking on a link inside of it.
+    if (
+      isOverlayOpen &&
+      e.target instanceof Element &&
+      e.target.tagName.toLowerCase() === 'a'
+    ) {
+      closeOverlay();
+    }
+  }
+
+  function handleOverlayKeyUp(e: KeyboardEvent<HTMLDivElement>) {
+    // close the overlay when hitting escape key.
+    if (isOverlayOpen && e.key === 'Escape') {
+      closeOverlay();
+      overlayButtonRef.current?.focus();
+    }
+  }
 
   return (
-    <div className={styles.container}>
+    <nav className={styles.container} aria-label="Main">
       <div className={`${styles.bar} flexCenter`}>
-        <Link
-          href="/"
-          aria-label="Home"
-          className={`${styles.logo} flexCenter`}
-          data-testid="logo-link"
-        >
+        <Link href="/" className={`${styles.logo} flexCenter`}>
           <Image
             src={logoImage}
-            alt="Site logo"
+            alt="Nathan David McWilliams"
             width={24}
             height={24}
             priority
           />
         </Link>
 
-        <div className="flexCenter" data-testid="nav-middle">
-          {createNav(mainNav, currentPath)}
+        <div className="flexCenter">
+          {!isOverlayOpen && createNavList(links, currentPath)}
         </div>
 
         <div className="flexCenter">
           <Link
             href="/contact"
+            aria-current={'/contact' === currentPath ? 'page' : undefined}
             className={styles.contact}
-            data-testid="contact-icon-link"
           >
-            <Icon name="mail" />
+            <Icon name="mail" label="Contact" />
           </Link>
 
           <button
-            aria-label="Menu"
-            aria-haspopup="menu"
+            ref={overlayButtonRef}
+            aria-label={`${isOverlayOpen ? 'Close' : 'Open'} main menu`}
             aria-controls="nav-overlay"
             aria-expanded={isOverlayOpen}
-            className={clsx(styles.hamburger, isOverlayOpen && styles.open)}
-            onClick={() => setIsOverlayOpen(isOpen => !isOpen)}
+            className={clsx(styles.hamburger, {
+              [styles.open]: isOverlayOpen && !isOverlayClosing,
+            })}
+            onClick={() => (isOverlayOpen ? closeOverlay() : openOverlay())}
           >
-            <div className={styles.hamburgerTop}></div>
-            <div className={styles.hamburgerBottom}></div>
+            <span className={styles.hamburgerTop}></span>
+            <span className={styles.hamburgerBottom}></span>
           </button>
         </div>
       </div>
 
       <div
+        ref={overlayRef}
         id="nav-overlay"
         data-testid="nav-overlay"
-        className={clsx(styles.overlay, isOverlayOpen && styles.open)}
-        onClick={() => setIsOverlayOpen(false)}
+        className={clsx(
+          styles.overlay,
+          isOverlayOpen && styles.open,
+          isOverlayClosing && styles.closing,
+        )}
+        onClick={handleOverlayClick}
+        onKeyUp={handleOverlayKeyUp}
       >
-        {createNav(mainNav, currentPath)}
+        {isOverlayOpen && createNavList(links, currentPath)}
       </div>
-    </div>
+    </nav>
+  );
+}
+
+function createNavList(links: readonly InternalLink[], current: string) {
+  return (
+    <ul className={`${styles.list} flexCenter`}>
+      {links.map(link => (
+        <li key={link.key}>
+          <Link
+            href={link.path}
+            aria-current={link.path === current ? 'page' : undefined}
+            className="linkDefault"
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

@@ -35,16 +35,18 @@
 }
 
 .viewMore {
+  display: inline-block;
   font-weight: 700;
   color: var(--color-text-link);
 }
 
 .viewMore .arrow {
+  display: inline-block;
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
 
-.viewMore a:hover > .arrow {
+.viewMore:hover > .arrow {
   transform: translate3d(2px, -1px, 0);
 }
 
@@ -66,7 +68,8 @@
   }
 
   .info img {
-    max-height: 25px;
+    max-height: 39px;
+    width: auto;
   }
 
   .badge {
@@ -84,5 +87,9 @@
 
   .info {
     margin-bottom: 23px;
+  }
+
+  .info img {
+    max-height: 37px;
   }
 }

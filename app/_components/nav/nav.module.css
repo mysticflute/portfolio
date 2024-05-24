@@ -15,10 +15,10 @@
 }
 
 .logo {
-  background-color: var(--color-background-300);
-  border-radius: 50%;
   width: 54px;
   height: 54px;
+  border-radius: 50%;
+  background: var(--color-background-300);
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
@@ -27,33 +27,16 @@
   transform: scale3d(0.96, 0.96, 0.99);
 }
 
+.list {
+  gap: 24px;
+}
+
+.list li {
+  line-height: 1.111;
+}
+
 .list a {
   font-weight: 700;
-}
-
-.bar .list > li {
-  padding: 0 12px;
-  line-height: 1.111;
-}
-
-.overlay .list {
-  align-items: flex-start;
-  justify-content: flex-end;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 32px 24px;
-  border: 2px solid var(--color-background-100);
-  border-radius: 24px;
-  background: var(--color-background-200);
-}
-
-.overlay .list > li {
-  margin: 0 0 24px;
-  line-height: 1.111;
-}
-
-.overlay .list > li:last-of-type {
-  margin-bottom: 0;
 }
 
 .contact {
@@ -66,12 +49,10 @@
   color: #fff;
   font-size: 24px;
   line-height: 24px;
-  transform-style: preserve-3d;
   transition:
-    color 300ms ease,
-    border-color 300ms ease,
     background-color 300ms ease,
     transform 300ms ease;
+  transform-style: preserve-3d;
 }
 
 .contact:hover {
@@ -92,11 +73,12 @@
 
 .hamburgerTop,
 .hamburgerBottom {
+  display: block;
   width: 44px;
   height: 3px;
   margin: 12px 0;
   border-radius: 20px;
-  background-color: var(--color-background-100);
+  background: var(--color-background-100);
   transition: transform 300ms ease;
   transform-style: preserve-3d;
 }
@@ -111,32 +93,56 @@
 
 .overlay {
   position: absolute;
-  overflow: hidden;
   top: 100%;
   right: 0;
   left: 0;
-
-  /* woudn't need this with display none... */
-  max-height: 0;
-  transition: max-height 200ms ease;
-}
-
-.overlay.open {
-  max-height: 1000px;
-  z-index: 100;
-}
-
-.overlay nav {
+  display: none;
+  overflow: hidden;
   margin: 0 auto;
   padding: 24px;
   max-width: 778px;
-  transition: transform 400ms ease;
-  transform: translateY(-130%);
-  transform-style: preserve-3d;
+  z-index: 100;
 }
 
-.overlay.open nav {
-  transform: translateY(0);
+.overlay.open {
+  display: block;
+}
+
+.overlay .list {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 32px 24px;
+  border: 2px solid var(--color-background-100);
+  border-radius: 24px;
+  background: var(--color-background-200);
+}
+
+.overlay.open .list {
+  animation: open 400ms ease forwards;
+}
+
+.overlay.closing .list {
+  animation: close 400ms ease forwards;
+}
+
+@keyframes open {
+  from {
+    transform: translateY(-300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes close {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-300px);
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -170,13 +176,21 @@
     margin: 0 auto;
   }
 
+  .logo {
+    width: 46px;
+    height: 46px;
+  }
+
   .logo img {
-    max-width: 90%;
-    height: auto;
+    max-width: 20px;
   }
 
   .contact {
     padding: 11px;
+  }
+
+  .overlay .list a {
+    display: block;
   }
 }
 
@@ -186,8 +200,15 @@
     padding-bottom: 20px;
   }
 
+  .logo {
+    width: 45px;
+    height: 45px;
+    padding-right: 0.5px;
+    padding-bottom: 0.5px;
+  }
+
   .logo img {
-    max-width: 86%;
+    max-width: 18px;
   }
 
   .contact {
@@ -199,17 +220,8 @@
     width: 40px;
   }
 
-  .overlay nav {
+  .overlay {
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  .overlay .list > li {
-    width: 100%;
-    text-align: left;
-  }
-
-  .overlay .list a {
-    display: block;
   }
 }

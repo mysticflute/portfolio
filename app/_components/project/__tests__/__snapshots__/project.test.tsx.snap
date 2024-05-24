@@ -2,6 +2,8 @@
 
 exports[`project matches snapshot 1`] = `
 <article
+  aria-describedby=":r0:-description"
+  aria-labelledby=":r0:-heading"
   class="box hover container"
   style="--color-project: #fffeee;"
 >
@@ -21,24 +23,31 @@ exports[`project matches snapshot 1`] = `
     <div
       class="badge"
     >
+      <span
+        class="assistiveText"
+      >
+        My role: 
+      </span>
       Composer
     </div>
   </div>
   <h3
     class="textHeadingSmall"
+    id=":r0:-heading"
   >
     Test Project
   </h3>
-  <p>
+  <p
+    id=":r0:-description"
+  >
     A test project.
   </p>
-  <div
+  <ul
     class="tracks"
     data-testid="tracks"
   >
-    <div
+    <li
       class="track"
-      data-testid="audio-track"
     >
       <button
         class="title"
@@ -123,20 +132,24 @@ exports[`project matches snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div
+    </li>
+  </ul>
+  <a
     class="viewMore"
+    href="https://www.test-project.com"
   >
-    <a
-      href="https://www.test-project.com"
+    View project website
+    <span
+      class="assistiveText"
     >
-      View project website
-      <span
-        class="lineRounded arrowDiagonal hasTextBefore arrow"
-        data-testid="icon"
-      />
-    </a>
-  </div>
+      for 
+      Test Project
+    </span>
+    <span
+      aria-hidden="true"
+      class="lineRounded arrowDiagonal hasTextBefore arrow"
+      role="img"
+    />
+  </a>
 </article>
 `;
