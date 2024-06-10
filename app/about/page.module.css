@@ -1,0 +1,30 @@
+.container {
+  margin: var(--layout-margin);
+  padding: 93px var(--layout-padding-x) 148px;
+  max-width: var(--layout-max-width);
+}
+
+.hero {
+  text-align: center;
+  padding-bottom: 192px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro {
+  margin: 24px;
+}
+
+.hero p {
+  margin-bottom: 40px;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 40px;
+}
+
+.story p {
+  margin-bottom: 24px;
+}
