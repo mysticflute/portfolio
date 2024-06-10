@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <Layout>
-      <div className={styles.container}>
-        <div className={styles.hero}>
+      <div className={styles.hero}>
+        <div className={styles.container}>
           <h1 className="textHeadingLarge">
             Hello, I&rsquo;m <br />
             <span className="textHighlight2">Nathan</span>
           </h1>
           <Box type="text" className={styles.intro}>
             <p>
-              I write music for games, film and interactive media, working out
-              of my studio Atlanta, GA.
+              I write, produce and mix music for games and interactive media in
+              my Atlanta, GA based studio.
             </p>
             <div className={`${styles.buttons} flexCenter`}>
               <IconButton type="primary" href="/contact" iconName="mail">
@@ -38,28 +38,87 @@ export default function AboutPage() {
             </div>
           </Box>
         </div>
-
-        <div className={styles.story}>
+      </div>
+      <div className={styles.story}>
+        <div className={styles.container}>
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight1">story</span> as a composer
           </h2>
-          <Box type="raised">
+          <Box type="hover">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do mod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              inim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
+              My music journey began at a young age in my hometown of Seattle,
+              WA.
             </p>
             <p>
-              Vestibulum rhoncus est pellentesque elit ullamcorper dignissim ras
-              tincidunt. Diam vel quam elementum pulvinar etiam non quam lacus
-              suspendisse. Condimentum mattis pellentesque id nibh tortor. Quis
-              imperdiet massa tincidunt nunc. Ornare suspendisse sed nisi lacus
-              sed viverra tellus. Volutpat lacus laoreet non curabitur gravida
-              arcu ac tortor dignissim. Lectus arcu bibendum at varius vel
-              pharetra.
+              After a few years of watching my older brother play classics like
+              Final Fantasy VI and Chrono Trigger, I finally got my hands on a
+              few games of my own.
+            </p>
+            <p>
+              Chrono Cross. Xenogears. Suikoden. I enjoyed these games immensely
+              and was captivated by the music. Soon after I started teaching
+              myself how to play songs from these games on the piano, learning
+              works ranging from Decisive Battle and Terra’s Theme to Arni
+              Village.
+            </p>
+            <p>
+              After being gifted a Yamaha keyboard for Christmas I just had to
+              start composing songs of my own.
+            </p>
+          </Box>
+        </div>
+      </div>
+      <div className={`${styles.story} ${styles.storyInverse}`}>
+        <div className={styles.container}>
+          <h2 className="textHeadingMedium" id="my-story">
+            My <span className="textHighlight4">story</span> as a composer
+          </h2>
+          <div>
+            <p>
+              During high school I continued my piano lessons and picked up hand
+              percussion from one of the best teachers I’ve ever had. I learned
+              from him how to feel music, and not just play it. As an adult I
+              started private flute lessons.
+            </p>
+            <p>
+              Currently, my experience includes commission work for three
+              commercial games under development, along with commissions from
+              streamers and content creators. My professional work also includes
+              programming and development, and I enjoy exploring systems for
+              interactive and dynamic music implementations.
+            </p>
+            <p>
+              When not writing music or gaming, I enjoy reading, traveling the
+              world, hiking, learning Japanese, collecting various wind and
+              percussion instruments, and, of course, drinking boba tea.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={styles.story}>
+        <div className={styles.container}>
+          <h2 className="textHeadingMedium" id="my-story">
+            My <span className="textHighlight3">story</span> going forward
+          </h2>
+          <Box type="hover">
+            <p>
+              There’s nothing else like a memorable melody flowing from your
+              fingers, narrating or recalling moments from games that you’ll
+              never forget. My compositions lean into the melodies, exploring
+              where they can go, and my ambient tracks look to mirror the
+              rhythmic and cyclic nature of the world around us.
+            </p>
+            <p>
+              I want to do more than just write music that fits the project. I
+              want to craft lasting experiences that will stick with players and
+              viewers, bringing them back every now and then into that other
+              world they experienced for a brief moment in their lives. Music is
+              one part of the whole that brings such worlds to life, and there’s
+              nothing like being part of a team to make that happen.
+            </p>
+            <p>
+              Contact me now to get started on your project, I can’t wait to
+              hear from you.
             </p>
           </Box>
         </div>

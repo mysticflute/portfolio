@@ -6,9 +6,13 @@
 
 .hero {
   text-align: center;
-  padding-bottom: 192px;
+  /* padding-bottom: 192px; */
   max-width: 600px;
   margin: 0 auto;
+}
+
+.hero h1 {
+  color: var(--color-text-inverse);
 }
 
 .intro {
@@ -17,14 +21,24 @@
 
 .hero p {
   margin-bottom: 40px;
+  color: var(--color-text-inverse);
 }
 
-.story {
+.story > div {
   display: grid;
-  grid-template-columns: 0.5fr 1fr;
+  grid-template-columns: 1fr 0.85fr;
   gap: 40px;
 }
 
 .story p {
   margin-bottom: 24px;
+}
+
+.storyInverse {
+  background: #000;
+  color: var(--color-text-inverse);
+}
+
+.storyInverse h2 {
+  color: var(--color-text-inverse);
 }
