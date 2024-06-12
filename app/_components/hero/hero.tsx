@@ -9,8 +9,8 @@ export default function Hero() {
     <section className={styles.container}>
       <div className={styles.intro}>
         <h1 id="about" className="textHeadingLarge">
-          I&rsquo;m <span className="textHighlight1">Nathan</span>, a Composer
-          in <span className="textHighlight2">Atlanta</span>
+          I&rsquo;m <span className="textHighlight1">Nathan</span>, <br /> a
+          Composer in <span className="textHighlight2">Atlanta</span>
         </h1>
         <p>
           I write music for games and{' '}

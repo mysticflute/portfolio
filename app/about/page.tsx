@@ -3,6 +3,8 @@ import Layout from '@/components/layout/layout';
 import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
 import styles from './page.module.css';
+import Image from 'next/image';
+import face1 from '@/public/images/profile/office2.jpg';
 
 export const metadata: Metadata = {
   title: 'About Me',
@@ -12,63 +14,62 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <Layout>
-      <div className={styles.hero}>
-        <div className={styles.container}>
-          <h1 className="textHeadingLarge">
-            Hello, I&rsquo;m <br />
-            <span className="textHighlight2">Nathan</span>
-          </h1>
-          <Box type="text" className={styles.intro}>
-            <p>
-              I write, produce and mix music for games and interactive media in
-              my Atlanta, GA based studio.
-            </p>
-            <div className={`${styles.buttons} flexCenter`}>
-              <IconButton type="primary" href="/contact" iconName="mail">
-                Get in touch
-              </IconButton>
+      <div className={`${styles.container} ${styles.intro}`}>
+        <h1 className="textHeadingLarge">
+          Hello, I&rsquo;m <br />
+          <span className="textHighlight2">Nathan</span>
+        </h1>
+        <Box type="text">
+          <p>
+            I write, produce and mix music for games and interactive media in my
+            Atlanta, GA based studio.
+          </p>
+          <div className={`${styles.buttons} flexCenter`}>
+            <IconButton type="primary" href="/contact" iconName="mail">
+              Get in touch
+            </IconButton>
 
-              <IconButton
-                type="secondary"
-                href="#my-story"
-                iconName="briefcase"
-              >
-                My story
-              </IconButton>
-            </div>
-          </Box>
-        </div>
+            <IconButton type="secondary" href="#my-story" iconName="briefcase">
+              My story
+            </IconButton>
+          </div>
+        </Box>
       </div>
-      <div className={styles.story}>
-        <div className={styles.container}>
+
+      <div className={`${styles.container} ${styles.story}`}>
+        <div>
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight1">story</span> as a composer
           </h2>
-          <Box type="hover">
-            <p>
-              My music journey began at a young age in my hometown of Seattle,
-              WA.
-            </p>
-            <p>
-              After a few years of watching my older brother play classics like
-              Final Fantasy VI and Chrono Trigger, I finally got my hands on a
-              few games of my own.
-            </p>
-            <p>
-              Chrono Cross. Xenogears. Suikoden. I enjoyed these games immensely
-              and was captivated by the music. Soon after I started teaching
-              myself how to play songs from these games on the piano, learning
-              works ranging from Decisive Battle and Terra’s Theme to Arni
-              Village.
-            </p>
-            <p>
-              After being gifted a Yamaha keyboard for Christmas I just had to
-              start composing songs of my own.
-            </p>
+          <Box type="raised" className={styles.imgContainer}>
+            <Image src={face1} alt="TODO" />
           </Box>
         </div>
+
+        <Box type="flat" className={styles.content}>
+          <p>
+            My music journey began at a young age in my hometown of Seattle, WA.
+          </p>
+          <p>
+            After a few years of watching my older brother play classics like
+            Final Fantasy VI and Chrono Trigger, I finally got my hands on a few
+            games of my own.
+          </p>
+          <p>
+            Chrono Cross. Xenogears. Suikoden. I enjoyed these games immensely
+            and was captivated by the music. Soon after I started teaching
+            myself how to play songs from these games on the piano, learning
+            works ranging from Decisive Battle and Terra’s Theme to Arni
+            Village.
+          </p>
+          <p>
+            After being gifted a Yamaha keyboard for Christmas I just had to
+            start composing songs of my own.
+          </p>
+        </Box>
       </div>
-      <div className={`${styles.story} ${styles.storyInverse}`}>
+
+      {/* <div className={`${styles.story} ${styles.storyInverse}`}>
         <div className={styles.container}>
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight4">story</span> as a composer
@@ -77,7 +78,7 @@ export default function AboutPage() {
             <p>
               During high school I continued my piano lessons and picked up hand
               percussion from one of the best teachers I’ve ever had. I learned
-              from him how to feel music, and not just play it. As an adult I
+              from him how to feel music, and not just play it. Later as an adult I
               started private flute lessons.
             </p>
             <p>
@@ -94,8 +95,9 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </div>
-      <div className={styles.story}>
+      </div> */}
+
+      {/* <div className={styles.story}>
         <div className={styles.container}>
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight3">story</span> going forward
@@ -122,7 +124,7 @@ export default function AboutPage() {
             </p>
           </Box>
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 }

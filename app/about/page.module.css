@@ -1,44 +1,59 @@
 .container {
   margin: var(--layout-margin);
-  padding: 93px var(--layout-padding-x) 148px;
+  padding: 16px var(--layout-padding-x) 96px;
   max-width: var(--layout-max-width);
 }
 
-.hero {
-  text-align: center;
-  /* padding-bottom: 192px; */
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.hero h1 {
-  color: var(--color-text-inverse);
-}
-
 .intro {
-  margin: 24px;
+  max-width: 600px;
+  margin: 64px auto 35px;
+  text-align: center;
 }
 
-.hero p {
-  margin-bottom: 40px;
+.intro h1,
+.intro p {
   color: var(--color-text-inverse);
 }
 
-.story > div {
+.intro h1 {
+  margin-bottom: 35px;
+}
+
+.intro p {
+  margin-bottom: 40px;
+}
+
+.story {
   display: grid;
-  grid-template-columns: 1fr 0.85fr;
+  grid-template-columns: 1fr 0.9fr;
   gap: 40px;
 }
 
-.story p {
+.story p:not(:last-child) {
   margin-bottom: 24px;
 }
 
 .storyInverse {
-  background: #000;
+  background: var(--color-background-100);
+}
+
+.storyInverse,
+.storyInverse h2 {
   color: var(--color-text-inverse);
 }
 
-.storyInverse h2 {
-  color: var(--color-text-inverse);
+.story h2 {
+  margin-bottom: 54px;
+}
+
+.imgContainer {
+  max-width: 500px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 550px;
+  justify-self: end;
+  justify-content: flex-start;
 }
