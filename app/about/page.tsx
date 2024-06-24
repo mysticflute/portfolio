@@ -46,11 +46,9 @@ export default function AboutPage() {
           </Box>
         </div>
 
-        <Box type="flat" className={styles.content}>
+        <Box type="text" className={styles.content}>
           <p>
             My music journey began at a young age in my hometown of Seattle, WA.
-          </p>
-          <p>
             After a few years of watching my older brother play classics like
             Final Fantasy VI and Chrono Trigger, I finally got my hands on a few
             games of my own.
@@ -59,43 +57,43 @@ export default function AboutPage() {
             Chrono Cross. Xenogears. Suikoden. I enjoyed these games immensely
             and was captivated by the music. Soon after I started teaching
             myself how to play songs from these games on the piano, learning
-            works ranging from Decisive Battle and Terra’s Theme to Arni
+            works ranging from Decisive Battle and Terra&rsquo;s Theme to Arni
             Village.
           </p>
           <p>
-            After being gifted a Yamaha keyboard for Christmas I just had to
-            start composing songs of my own.
+            After getting a Yamaha keyboard for Christmas I just had to start
+            composing songs of my own.
           </p>
         </Box>
       </div>
 
-      {/* <div className={`${styles.story} ${styles.storyInverse}`}>
+      <div className={`${styles.story} ${styles.storyInverse}`}>
         <div className={styles.container}>
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight4">story</span> as a composer
           </h2>
           <div>
             <p>
-              During high school I continued my piano lessons and picked up hand
-              percussion from one of the best teachers I’ve ever had. I learned
-              from him how to feel music, and not just play it. Later as an adult I
-              started private flute lessons.
+              During high school I picked up hand percussion from one of the
+              best teachers I&rsquo;ve ever had. I learned from him how to feel
+              music, and not just play it. Later as an adult I started on
+              various flutes.
             </p>
             <p>
-              Currently, my experience includes commission work for three
-              commercial games under development, along with commissions from
-              streamers and content creators. My professional work also includes
-              programming and development, and I enjoy exploring systems for
-              interactive and dynamic music implementations.
+              My experience includes work for three commercial games under
+              development, along with commissions from streamers and content
+              creators. My professional work also includes programming and
+              development, and I enjoy exploring systems for interactive and
+              dynamic music implementations.
             </p>
             <p>
               When not writing music or gaming, I enjoy reading, traveling the
               world, hiking, learning Japanese, collecting various wind and
-              percussion instruments, and, of course, drinking boba tea.
+              percussion instruments, and drinking boba tea.
             </p>
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* <div className={styles.story}>
         <div className={styles.container}>

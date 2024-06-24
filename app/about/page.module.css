@@ -6,16 +6,12 @@
 
 .intro {
   max-width: 600px;
-  margin: 64px auto 35px;
+  margin: 64px auto 32px;
   text-align: center;
 }
 
-.intro h1,
-.intro p {
-  color: var(--color-text-inverse);
-}
-
 .intro h1 {
+  color: var(--color-text-inverse);
   margin-bottom: 35px;
 }
 
@@ -43,17 +39,32 @@
 }
 
 .story h2 {
+  /* color: var(--color-text-inverse); */
   margin-bottom: 54px;
 }
 
 .imgContainer {
-  max-width: 500px;
+  max-width: 90%;
   padding: 0;
   overflow: hidden;
+}
+
+.imgContainer img {
+  object-fit: cover;
+  max-height: 375px;
 }
 
 .content {
   max-width: 550px;
   justify-self: end;
   justify-content: flex-start;
+}
+
+.content p:first-child::first-letter {
+  float: left;
+  clear: right;
+  margin-right: 4px;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 60px;
 }
