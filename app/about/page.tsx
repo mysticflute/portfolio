@@ -4,7 +4,7 @@ import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
 import styles from './page.module.css';
 import Image from 'next/image';
-import face1 from '@/public/images/profile/office2.jpg';
+import face1 from '@/public/images/profile/office3.png';
 
 export const metadata: Metadata = {
   title: 'About Me',
