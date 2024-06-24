@@ -3,11 +3,12 @@ import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
 import profileImageLight from '@/public/images/profile/profile-v2-high.png';
 import profileImageDark from '@/public/images/profile/profile-high.jpg';
 import styles from './hero.module.css';
+import Box from '@/components/box/box';
 
 export default function Hero() {
   return (
     <section className={styles.container}>
-      <div className={styles.intro}>
+      <Box type="text" className={styles.intro}>
         <h1 id="about" className="textHeadingLarge">
           I&rsquo;m <span className="textHighlight1">Nathan</span>, <br /> a
           Composer in <span className="textHighlight2">Atlanta</span>
@@ -29,7 +30,7 @@ export default function Hero() {
             View portfolio
           </IconButton>
         </div>
-      </div>
+      </Box>
       <div className={styles.image} title="Art by @mechibaz.">
         <ColorSchemeImage
           priority

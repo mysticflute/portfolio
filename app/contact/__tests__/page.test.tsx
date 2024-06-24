@@ -4,9 +4,9 @@ import {
   initializeObserverMocks,
   resetObserverMocks,
 } from '@/tests/lib/jest/intersectionObserver';
-import ContactInfo from '../contactInfo';
+import Page from '../page';
 
-describe('contactInfo', () => {
+describe('contact page', () => {
   beforeEach(() => {
     initializeObserverMocks();
   });
@@ -16,13 +16,13 @@ describe('contactInfo', () => {
   });
 
   it('renders a heading', () => {
-    render(<ContactInfo />);
+    render(<Page />);
 
     expect(screen.getByRole('heading')).toHaveTextContent(/Contact me/i);
   });
 
   it('renders a link with mailto:', () => {
-    render(<ContactInfo />);
+    render(<Page />);
 
     expect(screen.getByRole('link')).toHaveAttribute(
       'href',

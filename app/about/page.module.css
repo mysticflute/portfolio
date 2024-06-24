@@ -12,7 +12,7 @@
 
 .intro h1 {
   color: var(--color-text-inverse);
-  margin-bottom: 35px;
+  margin-bottom: 38px;
 }
 
 .intro p {
@@ -39,7 +39,8 @@
 }
 
 .story h2 {
-  /* color: var(--color-text-inverse); */
+  color: var(--color-text-inverse);
+  margin-top: 30px;
   margin-bottom: 54px;
 }
 

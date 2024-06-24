@@ -6,8 +6,12 @@
 }
 
 .container h1 {
-  margin-bottom: 35px;
   color: var(--color-text-inverse);
+}
+
+.container h1,
+.container .text {
+  margin-bottom: 38px;
 }
 
 .container .card {
