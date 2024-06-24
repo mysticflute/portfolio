@@ -31,6 +31,7 @@
 
 .storyInverse {
   background: var(--color-background-100);
+  padding: 60px 0;
 }
 
 .storyInverse,
@@ -44,6 +45,10 @@
   margin-bottom: 54px;
 }
 
+.storyInverse h2 {
+  margin-top: 0;
+}
+
 .imgContainer {
   max-width: 90%;
   padding: 0;
@@ -53,6 +58,10 @@
 .imgContainer img {
   object-fit: cover;
   max-height: 375px;
+}
+
+.imgContainer img.faceImg {
+  object-position: 50% 75%;
 }
 
 .content {

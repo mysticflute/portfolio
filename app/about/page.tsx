@@ -4,7 +4,8 @@ import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
 import styles from './page.module.css';
 import Image from 'next/image';
-import face1 from '@/public/images/profile/office3.png';
+import office from '@/public/images/profile/office3.png';
+import face from '@/public/images/profile/face2.jpg';
 
 export const metadata: Metadata = {
   title: 'About Me',
@@ -42,7 +43,7 @@ export default function AboutPage() {
             My <span className="textHighlight1">story</span> as a composer
           </h2>
           <Box type="raised" className={styles.imgContainer}>
-            <Image src={face1} alt="TODO" />
+            <Image src={face} alt="TODO" className={styles.faceImg} />
           </Box>
         </div>
 
@@ -67,12 +68,12 @@ export default function AboutPage() {
         </Box>
       </div>
 
-      <div className={`${styles.story} ${styles.storyInverse}`}>
-        <div className={styles.container}>
-          <h2 className="textHeadingMedium" id="my-story">
-            My <span className="textHighlight4">story</span> as a composer
-          </h2>
+      <div className={`${styles.storyInverse}`}>
+        <div className={`${styles.container} ${styles.story}`}>
           <div>
+            <h2 className="textHeadingMedium">
+              My <span className="textHighlight2">experience</span>
+            </h2>
             <p>
               During high school I picked up hand percussion from one of the
               best teachers I&rsquo;ve ever had. I learned from him how to feel
@@ -81,16 +82,21 @@ export default function AboutPage() {
             </p>
             <p>
               My experience includes work for three commercial games under
-              development, along with commissions from streamers and content
-              creators. My professional work also includes programming and
+              development. I&rsquo;ve also done commissions from streamers and
+              content creators. My work also includes programming and
               development, and I enjoy exploring systems for interactive and
-              dynamic music implementations.
+              dynamic music implementations!
             </p>
             <p>
               When not writing music or gaming, I enjoy reading, traveling the
               world, hiking, learning Japanese, collecting various wind and
               percussion instruments, and drinking boba tea.
             </p>
+          </div>
+          <div>
+            <Box type="raised" className={styles.imgContainer}>
+              <Image src={office} alt="TODO" />
+            </Box>
           </div>
         </div>
       </div>
