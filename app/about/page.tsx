@@ -6,7 +6,7 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import office from '@/public/images/profile/office3.png';
 import face from '@/public/images/profile/face2.jpg';
-import profileSquare from '@/public/images/profile/profile-square.jpg';
+// import profileSquare from '@/public/images/profile/profile-square.jpg';
 import sword from '@/public/images/profile/sword.jpg';
 import tea from '@/public/images/profile/tea.jpg';
 
