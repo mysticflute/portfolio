@@ -6,6 +6,9 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import office from '@/public/images/profile/office3.png';
 import face from '@/public/images/profile/face2.jpg';
+import profileSquare from '@/public/images/profile/profile-square.jpg';
+import sword from '@/public/images/profile/sword.jpg';
+import tea from '@/public/images/profile/tea.jpg';
 
 export const metadata: Metadata = {
   title: 'About Me',
@@ -16,25 +19,39 @@ export default function AboutPage() {
   return (
     <Layout>
       <div className={`${styles.container} ${styles.intro}`}>
-        <h1 className="textHeadingLarge">
-          Hello, I&rsquo;m <br />
-          <span className="textHighlight2">Nathan</span>
-        </h1>
-        <Box type="text">
-          <p>
-            I write, produce and mix music for games and interactive media in my
-            Atlanta, GA based studio.
-          </p>
-          <div className={`${styles.buttons} flexCenter`}>
-            <IconButton type="primary" href="/contact" iconName="mail">
-              Get in touch
-            </IconButton>
-
-            <IconButton type="secondary" href="#my-story" iconName="briefcase">
-              My story
-            </IconButton>
+        <div className={styles.introCols}>
+          <div className={styles.imgLeft}>
+            <Image src={tea} alt="TODO" />
           </div>
-        </Box>
+          <div>
+            <h1 className="textHeadingLarge">
+              Hey there, I&rsquo;m <br />
+              <span className="textHighlight2">Nathan</span>
+            </h1>
+            <Box type="text">
+              <p>
+                I write, produce and mix music for games and interactive media
+                in my Atlanta, GA based studio.
+              </p>
+              <div className={`${styles.buttons} flexCenter`}>
+                <IconButton type="primary" href="/contact" iconName="mail">
+                  Get in touch
+                </IconButton>
+
+                <IconButton
+                  type="secondary"
+                  href="#my-story"
+                  iconName="briefcase"
+                >
+                  My story
+                </IconButton>
+              </div>
+            </Box>
+          </div>
+          <div className={styles.imgRight}>
+            <Image src={sword} alt="TODO" />
+          </div>
+        </div>
       </div>
 
       <div className={`${styles.container} ${styles.story}`}>
