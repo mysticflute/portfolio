@@ -1,9 +1,9 @@
+import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
 import ColorSchemeImage from '@/components/colorSchemeImage/colorSchemeImage';
 import profileImageLight from '@/public/images/profile/profile-v2-high.png';
 import profileImageDark from '@/public/images/profile/profile-high.jpg';
 import styles from './hero.module.css';
-import Box from '@/components/box/box';
 
 export default function Hero() {
   return (

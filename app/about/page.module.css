@@ -6,32 +6,32 @@
 
 .intro {
   display: flex;
-  gap: 24px;
   justify-content: space-between;
+  gap: 24px;
 }
 
-.imageContainer {
+.introImage {
   max-width: 250px;
 }
 
-.imageContainer:first-child {
+.introImage:first-child {
   align-content: end;
 }
 
-.imageContainer img {
+.introImage img {
   border-radius: 50%;
   border: 3px solid var(--color-background-100);
   opacity: 75%;
 }
 
-.imageContainer:first-child img {
+.introImage:first-child img {
   margin-left: -52px;
   margin-bottom: -35px;
   box-shadow: -6px 6px 0 var(--color-background-100);
 }
 
-.imageContainer:last-child img {
-  margin-left: 32px;
+.introImage:last-child img {
+  margin-left: 52px;
   box-shadow: 6px 6px 0 var(--color-background-100);
 }
 
@@ -47,7 +47,7 @@
 }
 
 .introContent p {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .story {

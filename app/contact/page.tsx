@@ -4,6 +4,7 @@ import { spamEmail, encodedHumanEmail } from '@/lib/constants';
 import SwappedEmail from '@/components/swappedEmail/swappedEmail';
 import Box from '@/components/box/box';
 import styles from './page.module.css';
+
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Contact Nathan David McWilliams.',

@@ -1,13 +1,13 @@
 import { type Metadata } from 'next';
+import Image from 'next/image';
 import Layout from '@/components/layout/layout';
 import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
-import styles from './page.module.css';
-import Image from 'next/image';
+import swordImage from '@/public/images/profile/profile-sword.jpg';
+import teaImage from '@/public/images/profile/profile-tea.jpg';
 import office from '@/public/images/profile/office3.png';
 import face from '@/public/images/profile/face2.jpg';
-import sword from '@/public/images/profile/profile-sword.jpg';
-import tea from '@/public/images/profile/profile-tea.jpg';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'About Me',
@@ -18,8 +18,8 @@ export default function AboutPage() {
   return (
     <Layout>
       <div className={`${styles.container} ${styles.intro}`}>
-        <div className={styles.imageContainer}>
-          <Image src={tea} alt="" />
+        <div className={styles.introImage}>
+          <Image src={teaImage} alt="" />
         </div>
         <div className={styles.introContent}>
           <h1 className="textHeadingLarge">
@@ -46,8 +46,8 @@ export default function AboutPage() {
             </div>
           </Box>
         </div>
-        <div className={styles.imageContainer}>
-          <Image src={sword} alt="" />
+        <div className={styles.introImage}>
+          <Image src={swordImage} alt="" />
         </div>
       </div>
 
