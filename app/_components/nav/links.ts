@@ -25,7 +25,7 @@ export const mainNavigation: readonly InternalLink[] = [
   { key: 'about', label: 'About', path: '/about' },
   { key: 'portfolio', label: 'Portfolio', path: '/#portfolio' },
   { key: 'contact', label: 'Contact', path: '/contact' },
-  { key: 'contact', label: 'Free Pack', path: '/contact' },
+  { key: 'free', label: 'Free Pack', path: '/free-pack' },
 ];
 
 /** The Twitter social media account. */
