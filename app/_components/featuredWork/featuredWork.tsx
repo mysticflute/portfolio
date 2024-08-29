@@ -4,7 +4,7 @@ const featured = [
   'Turning (Game - In Dev)',
   'Recidivia (Game - In Dev)',
   'Vulgaria (Game - In Dev)',
-  'D&D Commissions (Various)',
+  'D&D Commissions',
   'Unity Asset Packs',
   'Unreal Engine Asset Packs',
 ];
