@@ -36,6 +36,20 @@
   line-height: 1.368;
 }
 
+.textHeadingXSmall {
+  color: var(--color-text-accent);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.429;
+}
+
+.textHeadingXXSmall {
+  color: var(--color-text-accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.429;
+}
+
 @media screen and (max-width: 991px) {
   .textHeadingLarge {
     font-size: 4rem;
@@ -50,6 +64,12 @@
   .textHeadingSmall {
     font-size: 2rem;
     line-height: 1.375;
+  }
+
+  .textHeadingXSmall,
+  .textHeadingXXSmall {
+    font-size: 1.375rem;
+    line-height: 1.545;
   }
 }
 
@@ -67,6 +87,12 @@
   .textHeadingSmall {
     font-size: 1.625rem;
     line-height: 1.462;
+  }
+
+  .textHeadingXSmall,
+  .textHeadingXXSmall {
+    font-size: 1.25rem;
+    line-height: 1.6;
   }
 }
 

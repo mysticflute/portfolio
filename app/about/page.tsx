@@ -144,7 +144,7 @@ export default function AboutPage() {
             <Image src={tmpIcon} alt="" />
           </div>
           <div className={styles.contentWrap}>
-            <h3 className="textHeadingSmall">Hard Work</h3>
+            <h3 className="textHeadingXXSmall">Hard Work</h3>
             <p>
               Lacus adipiscing lectus convallis purus aliquet cursus magnaol
               dolori montes augue donec cras.
