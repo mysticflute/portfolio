@@ -5,8 +5,8 @@ import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
 import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
-import office from '@/public/images/profile/office3.png';
-import face from '@/public/images/profile/face2.jpg';
+import officeImage from '@/public/images/profile/office1.jpg';
+import headshotImage from '@/public/images/profile/profile-headshot.jpg';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -56,13 +56,17 @@ export default function AboutPage() {
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight1">story</span> as a composer
           </h2>
-          <Box type="raised" className={styles.imgContainer}>
-            <Image src={face} alt="TODO" className={styles.faceImg} />
+          <Box type="raised" className={styles.storyImage}>
+            <Image
+              src={headshotImage}
+              alt="Headshot of Nathan"
+              className={styles.decoratedImage}
+            />
           </Box>
         </div>
 
-        <Box type="text" className={styles.content}>
-          <p>
+        <Box type="text" className={styles.storyText}>
+          <p className={styles.dropCap}>
             My music journey began at a young age in my hometown of Seattle, WA.
             After a few years of watching my older brother play classics like
             Final Fantasy VI and Chrono Trigger, I finally got my hands on a few
@@ -70,14 +74,13 @@ export default function AboutPage() {
           </p>
           <p>
             Chrono Cross. Xenogears. Suikoden. I enjoyed these games immensely
-            and was captivated by the music. Soon after I started teaching
-            myself how to play songs from these games on the piano, learning
-            works ranging from Decisive Battle and Terra&rsquo;s Theme to Arni
-            Village.
+            and was captivated by the music. I started teaching myself how to
+            play songs from these games on the piano, learning works ranging
+            from Decisive Battle and Terra&rsquo;s Theme to Arni Village.
           </p>
           <p>
-            After getting a Yamaha keyboard for Christmas I just had to start
-            composing songs of my own.
+            I&rsquo;ve been studying and composing music ever since for over 10
+            years. I play the piano, drums, and multiple woodwind instruments.
           </p>
         </Box>
       </div>
@@ -86,63 +89,68 @@ export default function AboutPage() {
         <div className={`${styles.container} ${styles.story}`}>
           <div>
             <h2 className="textHeadingMedium">
-              My <span className="textHighlight2">experience</span>
+              My <span className="textHighlight4">experience</span>
             </h2>
             <p>
-              During high school I picked up hand percussion from one of the
-              best teachers I&rsquo;ve ever had. I learned from him how to feel
-              music, and not just play it. Later as an adult I started on
-              various flutes.
+              I&rsquo;ve composed music for three commercial games under
+              development, and I&rsquo;ve done commissions for streamers and
+              content creators.
             </p>
             <p>
-              My experience includes work for three commercial games under
-              development. I&rsquo;ve also done commissions from streamers and
-              content creators. My work also includes programming and
-              development, and I enjoy exploring systems for interactive and
-              dynamic music implementations!
+              I also have over 11 years of programming experience, and am
+              well-versed in audio implementation using tools like FMOD.
             </p>
-            <p>
-              When not writing music or gaming, I enjoy reading, traveling the
-              world, hiking, learning Japanese, collecting various wind and
-              percussion instruments, and drinking boba tea.
-            </p>
+            <ul className={styles.bulletList}>
+              <li>
+                Composing, recording and mixing professionally for over 2 years.
+              </li>
+              <li>Audio implementation using FMOD and Wwise.</li>
+              <li>Dynamic layering and custom sound design.</li>
+            </ul>
+            <IconButton type="secondary" href="/contact" iconName="mail">
+              Get in touch
+            </IconButton>
           </div>
           <div>
-            <Box type="raised" className={styles.imgContainer}>
-              <Image src={office} alt="TODO" />
+            <Box type="flat" className={styles.storyImage}>
+              <Image src={officeImage} alt="Nathan's studio room" />
             </Box>
           </div>
         </div>
       </div>
 
-      {/* <div className={styles.story}>
-        <div className={styles.container}>
-          <h2 className="textHeadingMedium" id="my-story">
-            My <span className="textHighlight3">story</span> going forward
+      <div className={`${styles.container} ${styles.story}`}>
+        <div>
+          <h2 className="textHeadingMedium">
+            The core values that drive my work
           </h2>
-          <Box type="hover">
-            <p>
-              There’s nothing else like a memorable melody flowing from your
-              fingers, narrating or recalling moments from games that you’ll
-              never forget. My compositions lean into the melodies, exploring
-              where they can go, and my ambient tracks look to mirror the
-              rhythmic and cyclic nature of the world around us.
-            </p>
-            <p>
-              I want to do more than just write music that fits the project. I
-              want to craft lasting experiences that will stick with players and
-              viewers, bringing them back every now and then into that other
-              world they experienced for a brief moment in their lives. Music is
-              one part of the whole that brings such worlds to life, and there’s
-              nothing like being part of a team to make that happen.
-            </p>
-            <p>
-              Contact me now to get started on your project, I can’t wait to
-              hear from you.
-            </p>
-          </Box>
         </div>
-      </div> */}
+        <Box type="text" className={styles.storyText}>
+          <p>
+            Contact me now to get started on your project, I can’t wait to hear
+            from you.
+          </p>
+        </Box>
+      </div>
+
+      <div className={`${styles.container} ${styles.cardGrid}`}>
+        <Box type="flat">
+          <div className={styles.imageWrap}></div>
+          <div>
+            <h3 className="textHeadingSmall">Hard Work</h3>
+            <p>
+              Lacus adipiscing lectus convallis purus aliquet cursus magnaol
+              dolori montes augue donec cras.
+            </p>
+          </div>
+        </Box>
+        <Box type="flat">
+          <p>
+            Contact me now to get started on your project, I can’t wait to hear
+            from you.
+          </p>
+        </Box>
+      </div>
     </Layout>
   );
 }

@@ -90,7 +90,8 @@
 /* Text Highlight */
 .textHighlight1,
 .textHighlight2,
-.textHighlight3 {
+.textHighlight3,
+.textHighlight4 {
   padding: 0 4px;
   white-space: nowrap;
   color: #fff;
@@ -117,6 +118,15 @@
     180deg,
     transparent 10%,
     var(--color-accent-300) 10%
+  );
+  color: inherit;
+}
+
+.textHighlight4 {
+  background: linear-gradient(
+    180deg,
+    transparent 10%,
+    var(--color-accent-400) 10%
   );
   color: inherit;
 }
