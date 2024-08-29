@@ -20,10 +20,10 @@ export default function AboutPage() {
   return (
     <Layout>
       <div className={`${styles.container} ${styles.intro}`}>
-        <div className={styles.introImage}>
+        <div className={styles.image}>
           <Image src={teaImage} alt="" />
         </div>
-        <div className={styles.introContent}>
+        <div className={styles.content}>
           <h1 className="textHeadingLarge">
             Hey there, I&rsquo;m <br />
             <span className="textHighlight2">Nathan</span>
@@ -48,7 +48,7 @@ export default function AboutPage() {
             </div>
           </Box>
         </div>
-        <div className={styles.introImage}>
+        <div className={styles.image}>
           <Image src={swordImage} alt="" />
         </div>
       </div>
@@ -58,16 +58,12 @@ export default function AboutPage() {
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight1">story</span> as a composer
           </h2>
-          <Box type="raised" className={styles.storyImage}>
-            <Image
-              src={headshotImage}
-              alt="Headshot of Nathan"
-              className={styles.decoratedImage}
-            />
+          <Box type="raised" className={`${styles.image} ${styles.decorated}`}>
+            <Image src={headshotImage} alt="Headshot of Nathan" />
           </Box>
         </div>
 
-        <Box type="text" className={styles.storyText}>
+        <Box type="text" className={styles.text}>
           <p className={styles.dropCap}>
             My music journey began at a young age in my hometown of Seattle, WA.
             After a few years of watching my older brother play classics like
@@ -121,7 +117,7 @@ export default function AboutPage() {
             </IconButton>
           </div>
           <div>
-            <Box type="flat" className={styles.storyImage}>
+            <Box type="flat" className={styles.image}>
               <Image src={officeImage} alt="Nathan's studio room" />
             </Box>
           </div>
@@ -134,10 +130,10 @@ export default function AboutPage() {
             The core values that drive my work
           </h2>
         </div>
-        <Box type="text" className={styles.storyText}>
+        <Box type="text" className={styles.text}>
           <p>
-            Contact me now to get started on your project, I can’t wait to hear
-            from you.
+            Contact me now to get started on your project, I can&rsquo;t wait to
+            hear from you.
           </p>
         </Box>
       </div>

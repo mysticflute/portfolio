@@ -10,43 +10,43 @@
   gap: 24px;
 }
 
-.introImage {
+.intro .image {
   max-width: 250px;
 }
 
-.introImage:first-child {
+.intro .image:first-child {
   align-content: end;
 }
 
-.introImage img {
+.intro .image img {
   border-radius: 50%;
   border: 3px solid var(--color-background-100);
   opacity: 75%;
 }
 
-.introImage:first-child img {
+.intro .image:first-child img {
   margin-left: -52px;
   margin-bottom: -35px;
   box-shadow: -6px 6px 0 var(--color-background-100);
 }
 
-.introImage:last-child img {
+.intro .image:last-child img {
   margin-left: 52px;
   box-shadow: 6px 6px 0 var(--color-background-100);
 }
 
-.introContent {
+.intro .content {
   max-width: 600px;
   margin: 64px 0 32px;
   text-align: center;
 }
 
-.introContent h1 {
+.intro h1 {
   color: var(--color-text-inverse);
   margin-bottom: 38px;
 }
 
-.introContent p {
+.intro p {
   margin-bottom: 32px;
 }
 
@@ -85,7 +85,7 @@
   padding-top: 176px;
 }
 
-.storyImage {
+.story .image {
   max-width: 90%;
   overflow: hidden;
   background: url('/images/zoom-effect-small.jpg?v=1') center;
@@ -93,35 +93,35 @@
   padding: 7px;
 }
 
-.storyImage img {
+.story .image img {
   object-fit: cover;
   max-height: 320px;
   border-radius: 28px;
   border: 3px solid black;
 }
 
-.storyText {
+.story .text {
   max-width: 550px;
 }
 
-.decoratedImage {
+.story .image.decorated img {
   object-position: 50% 75%;
   mask-image: radial-gradient(
     circle at 60% 60%,
     black 50%,
-    rgba(255, 255, 255, 0.7) 10%
+    rgb(255 255 255 / 0.7) 10%
   );
 
   /* mask-image: radial-gradient(
     circle at 60% 60%,
     white 50%,
-    rgba(255, 255, 255, 0.8) 60%
+    rgb(255 255 255 / 0.8) 60%
   ); */
 
   /* mask-image: radial-gradient(
     circle at 60% 60%,
     white 50%,
-    rgba(255, 255, 255, 0.5) 60%
+    rgb(255 255 255 / 0.5) 60%
   ); */
 }
 
