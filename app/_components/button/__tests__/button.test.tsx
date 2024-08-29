@@ -74,6 +74,16 @@ describe('button', () => {
     expect(screen.getByRole('link')).toHaveClass('secondary');
   });
 
+  it('adds inverse class when inverse=true', () => {
+    render(
+      <Button href="/foo" type="primary" inverse={true}>
+        foo
+      </Button>,
+    );
+
+    expect(screen.getByRole('link')).toHaveClass('inverse');
+  });
+
   it('adds the custom class name', () => {
     render(
       <Button href="/foo" type="primary" className="customclass">

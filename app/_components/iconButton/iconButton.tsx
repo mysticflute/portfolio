@@ -21,12 +21,18 @@ type Props = ButtonProps & {
 export default function IconButton({
   type,
   href,
+  inverse,
   children,
   iconName,
   className,
 }: Props) {
   return (
-    <Button type={type} href={href} className={clsx(styles.button, className)}>
+    <Button
+      type={type}
+      href={href}
+      inverse={inverse}
+      className={clsx(styles.button, className)}
+    >
       <Icon name={iconName} decorative hasTextAfter className={styles.icon} />
       {children}
     </Button>

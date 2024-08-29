@@ -13,6 +13,16 @@ describe('iconButton', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('passes through the inverse attribute', () => {
+    render(
+      <IconButton href="/foo" type="primary" inverse={true} iconName="mail">
+        foo
+      </IconButton>,
+    );
+
+    expect(screen.getByRole('link')).toHaveClass('inverse');
+  });
+
   it('adds the custom class name', () => {
     render(
       <IconButton
@@ -25,6 +35,6 @@ describe('iconButton', () => {
       </IconButton>,
     );
 
-    expect(screen.getByRole('link')).toHaveClass(/customclass/);
+    expect(screen.getByRole('link')).toHaveClass('customclass');
   });
 });
