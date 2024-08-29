@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Layout from '@/components/layout/layout';
 import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
+import HighlightList from '@/components/highlightList/highlightList';
 import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
 import officeImage from '@/public/images/profile/office1.jpg';
@@ -101,14 +102,21 @@ export default function AboutPage() {
               I also have over 11 years of programming experience, and am
               well-versed in audio implementation using tools like FMOD.
             </p>
-            <ul className={styles.bulletList}>
+
+            <HighlightList className={styles.highlights}>
               <li>
                 Composing, recording and mixing professionally for over 2 years.
               </li>
               <li>Audio implementation using FMOD and Wwise.</li>
               <li>Dynamic layering and custom sound design.</li>
-            </ul>
-            <IconButton type="secondary" href="/contact" iconName="mail">
+            </HighlightList>
+
+            <IconButton
+              type="primary"
+              inverse={true}
+              href="/contact"
+              iconName="mail"
+            >
               Get in touch
             </IconButton>
           </div>

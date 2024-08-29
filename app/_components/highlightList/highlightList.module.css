@@ -1,0 +1,35 @@
+.list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.list li:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.list li::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--color-background-200);
+  border-radius: 6px;
+  background: var(--color-primary);
+}
+
+.list li:nth-child(4n + 1)::before {
+  background: var(--color-accent-100);
+}
+
+.list li:nth-child(4n + 2)::before {
+  background: var(--color-accent-200);
+}
+
+.list li:nth-child(4n + 3)::before {
+  background: var(--color-accent-300);
+}
+
+.list li:nth-child(4n + 4)::before {
+  background: var(--color-accent-400);
+}

@@ -134,44 +134,8 @@
   }
 }
 
-.bulletList {
+.highlights {
   margin-bottom: 40px;
-}
-
-.bulletList li {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.bulletList li:not(:last-child) {
-  margin-bottom: 12px;
-}
-
-.bulletList li::before {
-  display: inline-block;
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: green;
-  border: 3px solid white;
-  border-radius: 6px;
-}
-
-.bulletList li:nth-child(1)::before {
-  background: var(--color-accent-100);
-}
-
-.bulletList li:nth-child(2)::before {
-  background: var(--color-accent-200);
-}
-
-.bulletList li:nth-child(3)::before {
-  background: var(--color-accent-300);
-}
-
-.bulletList li:nth-child(4)::before {
-  background: var(--color-accent-400);
 }
 
 .cardGrid {
