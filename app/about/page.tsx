@@ -7,6 +7,7 @@ import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
 import officeImage from '@/public/images/profile/office1.jpg';
 import headshotImage from '@/public/images/profile/profile-headshot.jpg';
+import tmpIcon from '@/public/images/icons/pulsar/about.svg';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -134,9 +135,11 @@ export default function AboutPage() {
       </div>
 
       <div className={`${styles.container} ${styles.cardGrid}`}>
-        <Box type="flat">
-          <div className={styles.imageWrap}></div>
-          <div>
+        <Box type="flat" className={styles.valuesBox}>
+          <div className={styles.imageWrap}>
+            <Image src={tmpIcon} alt="" />
+          </div>
+          <div className={styles.contentWrap}>
             <h3 className="textHeadingSmall">Hard Work</h3>
             <p>
               Lacus adipiscing lectus convallis purus aliquet cursus magnaol
