@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 import Image from 'next/image';
 import Layout from '@/components/layout/layout';
 import Box from '@/components/box/box';
-import ImageBox from '@/components/imageBox/imageBox';
+import MediaBox from '@/components/mediaBox/mediaBox';
 import IconButton from '@/components/iconButton/iconButton';
 import HighlightList from '@/components/highlightList/highlightList';
 
@@ -142,13 +142,13 @@ export default function AboutPage() {
       </div>
 
       <div className={`${styles.container} ${styles.values}`}>
-        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+        <MediaBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
           <p>
             Relentlessly searching for and designing the best sounds that
             immerse players into the game.
           </p>
-        </ImageBox>
-        <ImageBox
+        </MediaBox>
+        <MediaBox
           heading="Communication"
           image={<Image src={tmpIcon} alt="" />}
         >
@@ -156,18 +156,18 @@ export default function AboutPage() {
             Sharing and iterating on ideas every step of the way, while adapting
             to feedback and changes.
           </p>
-        </ImageBox>
-        <ImageBox heading="Transparency" image={<Image src={tmpIcon} alt="" />}>
+        </MediaBox>
+        <MediaBox heading="Transparency" image={<Image src={tmpIcon} alt="" />}>
           <p>
             Upfront total pricing, so you know exactly what it&rsquo;s going to
             cost to get great audio for your game.
           </p>
-        </ImageBox>
-        <ImageBox heading="Satisfaction" image={<Image src={tmpIcon} alt="" />}>
+        </MediaBox>
+        <MediaBox heading="Satisfaction" image={<Image src={tmpIcon} alt="" />}>
           <p>
             Unliimited revisions, working together until we get it just right.
           </p>
-        </ImageBox>
+        </MediaBox>
       </div>
     </Layout>
   );

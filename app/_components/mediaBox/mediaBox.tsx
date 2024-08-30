@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import Box from '@/components/box/box';
-import styles from './imageBox.module.css';
+import styles from './mediaBox.module.css';
 
 type Props = {
   /**
@@ -39,15 +39,16 @@ type Props = {
 };
 
 /**
- * Displays a box with a single image, heading and related content.
+ * Displays a box with a single image, plus a heading and related content.
  */
-export default function HighlightList({
+export default function MediaBox({
   heading,
   image,
   orientation = 'horizontal',
   headingLevel = 3,
   className,
   children,
+  ...rest
 }: Props) {
   const HeadingTag: keyof JSX.IntrinsicElements = `h${headingLevel}`;
 
@@ -59,6 +60,7 @@ export default function HighlightList({
         orientation && styles[orientation],
         className,
       )}
+      {...rest}
     >
       <div className={styles.image}>{image}</div>
       <div className={styles.content}>
