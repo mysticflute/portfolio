@@ -2,14 +2,16 @@ import { type Metadata } from 'next';
 import Image from 'next/image';
 import Layout from '@/components/layout/layout';
 import Box from '@/components/box/box';
+import ImageBox from '@/components/imageBox/imageBox';
 import IconButton from '@/components/iconButton/iconButton';
 import HighlightList from '@/components/highlightList/highlightList';
-import ImageBox from '@/components/imageBox/imageBox';
+
 import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
 import officeImage from '@/public/images/profile/office1.jpg';
 import headshotImage from '@/public/images/profile/profile-headshot.jpg';
 import tmpIcon from '@/public/images/icons/pulsar/services.svg';
+
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -142,26 +144,28 @@ export default function AboutPage() {
       <div className={`${styles.container} ${styles.values}`}>
         <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
           <p>
-            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
-            dolori montes augue donec cras.
+            Relentlessly searching for and designing the best sounds that
+            immerse players into the game.
           </p>
         </ImageBox>
-        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+        <ImageBox
+          heading="Communication"
+          image={<Image src={tmpIcon} alt="" />}
+        >
           <p>
-            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
-            dolori montes augue donec cras.
+            Sharing and iterating on ideas every step of the way, while adapting
+            to feedback and changes.
           </p>
         </ImageBox>
-        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+        <ImageBox heading="Transparency" image={<Image src={tmpIcon} alt="" />}>
           <p>
-            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
-            dolori montes augue donec cras.
+            Upfront total pricing, so you know exactly what it&rsquo;s going to
+            cost to get great audio for your game.
           </p>
         </ImageBox>
-        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+        <ImageBox heading="Satisfaction" image={<Image src={tmpIcon} alt="" />}>
           <p>
-            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
-            dolori montes augue donec cras.
+            Unliimited revisions, working together until we get it just right.
           </p>
         </ImageBox>
       </div>
