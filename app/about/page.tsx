@@ -4,11 +4,12 @@ import Layout from '@/components/layout/layout';
 import Box from '@/components/box/box';
 import IconButton from '@/components/iconButton/iconButton';
 import HighlightList from '@/components/highlightList/highlightList';
+import ImageBox from '@/components/imageBox/imageBox';
 import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
 import officeImage from '@/public/images/profile/office1.jpg';
 import headshotImage from '@/public/images/profile/profile-headshot.jpg';
-import tmpIcon from '@/public/images/icons/pulsar/about.svg';
+import tmpIcon from '@/public/images/icons/pulsar/services.svg';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -138,25 +139,31 @@ export default function AboutPage() {
         </Box>
       </div>
 
-      <div className={`${styles.container} ${styles.cardGrid}`}>
-        <Box type="flat" className={styles.valuesBox}>
-          <div className={styles.imageWrap}>
-            <Image src={tmpIcon} alt="" />
-          </div>
-          <div className={styles.contentWrap}>
-            <h3 className="textHeadingXXSmall">Hard Work</h3>
-            <p>
-              Lacus adipiscing lectus convallis purus aliquet cursus magnaol
-              dolori montes augue donec cras.
-            </p>
-          </div>
-        </Box>
-        <Box type="flat">
+      <div className={`${styles.container} ${styles.values}`}>
+        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
           <p>
-            Contact me now to get started on your project, I can’t wait to hear
-            from you.
+            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
+            dolori montes augue donec cras.
           </p>
-        </Box>
+        </ImageBox>
+        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+          <p>
+            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
+            dolori montes augue donec cras.
+          </p>
+        </ImageBox>
+        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+          <p>
+            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
+            dolori montes augue donec cras.
+          </p>
+        </ImageBox>
+        <ImageBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+          <p>
+            Lacus adipiscing lectus convallis purus aliquet cursus magnaol
+            dolori montes augue donec cras.
+          </p>
+        </ImageBox>
       </div>
     </Layout>
   );

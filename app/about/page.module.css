@@ -138,34 +138,8 @@
   margin-bottom: 40px;
 }
 
-.cardGrid {
+.values {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-}
-
-.cardGrid .valuesBox {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-}
-
-.cardGrid .imageWrap {
-  flex: 1;
-  max-width: 233px;
-  background: var(--color-neutral-200);
-  padding: 40px 22px 40px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.imageWrap img {
-  width: 100%;
-}
-
-.cardGrid .contentWrap {
-  flex: 1;
-  padding: 55px 22px 55px 30px;
 }
