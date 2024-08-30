@@ -1,4 +1,5 @@
-.box {
+.box.horizontal,
+.box.vertical {
   display: flex;
   overflow: hidden;
   padding: 0;

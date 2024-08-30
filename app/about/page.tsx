@@ -8,9 +8,12 @@ import HighlightList from '@/components/highlightList/highlightList';
 
 import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
-import officeImage from '@/public/images/profile/office1.jpg';
 import headshotImage from '@/public/images/profile/profile-headshot.jpg';
-import tmpIcon from '@/public/images/icons/pulsar/services.svg';
+import studioImage from '@/public/images/studio/studio1.jpg';
+import hardWorkImage from '@/public/images/icons/pulsar/services.svg';
+import communicationImage from '@/public/images/icons/pulsar/services.svg';
+import transparencyImage from '@/public/images/icons/pulsar/services.svg';
+import satisfactionImage from '@/public/images/icons/pulsar/services.svg';
 
 import styles from './page.module.css';
 
@@ -56,7 +59,9 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className={`${styles.container} ${styles.story}`}>
+      <div
+        className={`${styles.container} ${styles.story} ${styles.background}`}
+      >
         <div>
           <h2 className="textHeadingMedium" id="my-story">
             My <span className="textHighlight1">story</span> as a composer
@@ -87,28 +92,32 @@ export default function AboutPage() {
       </div>
 
       <div className={`${styles.storyInverse}`}>
-        <div className={`${styles.container} ${styles.story}`}>
+        <div
+          className={`${styles.container} ${styles.story} ${styles.experience}`}
+        >
           <div>
             <h2 className="textHeadingMedium">
               My <span className="textHighlight4">experience</span>
             </h2>
-            <p>
-              I&rsquo;ve composed music for three commercial games under
-              development, and I&rsquo;ve done commissions for streamers and
-              content creators.
-            </p>
-            <p>
-              I also have over 11 years of programming experience, and am
-              well-versed in audio implementation using tools like FMOD.
-            </p>
-
-            <HighlightList className={styles.highlights}>
-              <li>
-                Composing, recording and mixing professionally for over 2 years.
-              </li>
-              <li>Audio implementation using FMOD and Wwise.</li>
-              <li>Dynamic layering and custom sound design.</li>
-            </HighlightList>
+            <div className={styles.text}>
+              <p>
+                I&rsquo;ve composed music for three commercial games under
+                development, and I&rsquo;ve done commissions for streamers and
+                content creators.
+              </p>
+              <p>
+                I also have over 11 years of programming experience, and am
+                well-versed in audio implementation using tools like FMOD.
+              </p>
+              <HighlightList className={styles.highlights}>
+                <li>
+                  Composing, recording and mixing professionally for over 2
+                  years.
+                </li>
+                <li>Audio implementation using FMOD and Wwise.</li>
+                <li>Dynamic layering and custom sound design.</li>
+              </HighlightList>
+            </div>
 
             <IconButton
               type="primary"
@@ -121,13 +130,13 @@ export default function AboutPage() {
           </div>
           <div>
             <Box type="flat" className={styles.image}>
-              <Image src={officeImage} alt="Nathan's studio room" />
+              <Image src={studioImage} alt="Nathan's studio room" />
             </Box>
           </div>
         </div>
       </div>
 
-      <div className={`${styles.container} ${styles.story}`}>
+      <div className={`${styles.container} ${styles.story} ${styles.values}`}>
         <div>
           <h2 className="textHeadingMedium">
             The core values that drive my work
@@ -135,14 +144,23 @@ export default function AboutPage() {
         </div>
         <Box type="text" className={styles.text}>
           <p>
+            I want to craft lasting experiences that will stick with players and
+            viewers. Music is one part of the whole that brings such worlds to
+            life, and there&rsquo;s nothing like being part of a team to make
+            that happen.
+          </p>
+          <p>
             Contact me now to get started on your project, I can&rsquo;t wait to
             hear from you.
           </p>
         </Box>
       </div>
 
-      <div className={`${styles.container} ${styles.values}`}>
-        <MediaBox heading="Hard Work" image={<Image src={tmpIcon} alt="" />}>
+      <div className={`${styles.container} ${styles.valuesList}`}>
+        <MediaBox
+          heading="Hard Work"
+          image={<Image src={hardWorkImage} alt="" />}
+        >
           <p>
             Relentlessly searching for and designing the best sounds that
             immerse players into the game.
@@ -150,20 +168,26 @@ export default function AboutPage() {
         </MediaBox>
         <MediaBox
           heading="Communication"
-          image={<Image src={tmpIcon} alt="" />}
+          image={<Image src={communicationImage} alt="" />}
         >
           <p>
             Sharing and iterating on ideas every step of the way, while adapting
             to feedback and changes.
           </p>
         </MediaBox>
-        <MediaBox heading="Transparency" image={<Image src={tmpIcon} alt="" />}>
+        <MediaBox
+          heading="Transparency"
+          image={<Image src={transparencyImage} alt="" />}
+        >
           <p>
             Upfront total pricing, so you know exactly what it&rsquo;s going to
             cost to get great audio for your game.
           </p>
         </MediaBox>
-        <MediaBox heading="Satisfaction" image={<Image src={tmpIcon} alt="" />}>
+        <MediaBox
+          heading="Satisfaction"
+          image={<Image src={satisfactionImage} alt="" />}
+        >
           <p>
             Unliimited revisions, working together until we get it just right.
           </p>

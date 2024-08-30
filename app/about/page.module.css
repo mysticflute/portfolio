@@ -1,6 +1,6 @@
 .container {
   margin: var(--layout-margin);
-  padding: 16px var(--layout-padding-x) 176px;
+  padding: 0 var(--layout-padding-x);
   max-width: var(--layout-max-width);
 }
 
@@ -8,6 +8,8 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
+  padding-top: 16px;
+  padding-bottom: 227px;
 }
 
 .intro .image {
@@ -54,21 +56,65 @@
   display: grid;
   grid-template-columns: 1fr 0.9fr;
   gap: 40px;
+  padding-top: 192px;
+  padding-bottom: 192px;
+}
+
+.story.background {
+  padding-top: 0;
+}
+
+.story.values {
+  padding-bottom: 54px;
 }
 
 .story h2 {
-  color: var(--color-text-inverse);
   margin-top: 30px;
   margin-bottom: 54px;
+  color: var(--color-text-inverse);
+}
+
+.story.values h2 {
+  margin-bottom: 0;
+}
+
+.story .text {
+  max-width: 550px;
 }
 
 .story p:not(:last-child) {
   margin-bottom: 24px;
 }
 
+.story .image {
+  overflow: hidden;
+  max-width: 90%;
+  padding: 7px;
+  background: url('/images/zoom-effect-small.jpg?v=1') center / cover;
+}
+
+.story .image img {
+  object-fit: cover;
+  max-height: 320px;
+  border-radius: 28px;
+  border: 3px solid var(--color-background-100);
+}
+
+.story .image.decorated img {
+  object-position: 50% 75%;
+  mask-image: radial-gradient(
+    circle at 60% 60%,
+    black 50%,
+    rgb(255 255 255 / 0.66) 10%
+  );
+}
+
+.story.experience .image img {
+  max-height: 375px;
+}
+
 .storyInverse {
   background: var(--color-background-100);
-  /* padding-top: 176px; */
 }
 
 .storyInverse,
@@ -78,51 +124,17 @@
 
 .storyInverse h2 {
   margin-top: 0;
-  /* margin-bottom: 16px; */
 }
 
-.story:last-child {
-  padding-top: 176px;
+.highlights {
+  margin-bottom: 40px;
 }
 
-.story .image {
-  max-width: 90%;
-  overflow: hidden;
-  background: url('/images/zoom-effect-small.jpg?v=1') center;
-  background-size: cover;
-  padding: 7px;
-}
-
-.story .image img {
-  object-fit: cover;
-  max-height: 320px;
-  border-radius: 28px;
-  border: 3px solid black;
-}
-
-.story .text {
-  max-width: 550px;
-}
-
-.story .image.decorated img {
-  object-position: 50% 75%;
-  mask-image: radial-gradient(
-    circle at 60% 60%,
-    black 50%,
-    rgb(255 255 255 / 0.7) 10%
-  );
-
-  /* mask-image: radial-gradient(
-    circle at 60% 60%,
-    white 50%,
-    rgb(255 255 255 / 0.8) 60%
-  ); */
-
-  /* mask-image: radial-gradient(
-    circle at 60% 60%,
-    white 50%,
-    rgb(255 255 255 / 0.5) 60%
-  ); */
+.valuesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding-bottom: 192px;
 }
 
 @supports (initial-letter: 1) or (-webkit-initial-letter: 1) {
@@ -132,14 +144,4 @@
     margin-right: 8px;
     font-weight: 700;
   }
-}
-
-.highlights {
-  margin-bottom: 40px;
-}
-
-.values {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
 }
