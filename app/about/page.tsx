@@ -10,10 +10,14 @@ import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
 import headshotImage from '@/public/images/profile/profile-headshot.jpg';
 import studioImage from '@/public/images/studio/studio1.jpg';
-import hardWorkImage from '@/public/images/icons/pulsar/services.svg';
-import communicationImage from '@/public/images/icons/pulsar/services.svg';
-import transparencyImage from '@/public/images/icons/pulsar/services.svg';
-import satisfactionImage from '@/public/images/icons/pulsar/services.svg';
+// import hardWorkImage from '@/public/images/construction.png';
+// import communicationImage from '@/public/images/bubble.png';
+// import transparencyImage from '@/public/images/shieldm.png';
+// import satisfactionImage from '@/public/images/h5.png';
+import hardWorkImage from '@/public/images/illustrations/searching.svg';
+import communicationImage from '@/public/images/illustrations/planning.svg';
+import transparencyImage from '@/public/images/illustrations/receipt.svg';
+import satisfactionImage from '@/public/images/illustrations/security.svg';
 
 import styles from './page.module.css';
 
@@ -97,7 +101,7 @@ export default function AboutPage() {
         >
           <div>
             <h2 className="textHeadingMedium">
-              My <span className="textHighlight4">experience</span>
+              My <span className="textHighlight2">experience</span>
             </h2>
             <div className={styles.text}>
               <p>
@@ -111,8 +115,7 @@ export default function AboutPage() {
               </p>
               <HighlightList className={styles.highlights}>
                 <li>
-                  Composing, recording and mixing professionally for over 2
-                  years.
+                  Composing and recording professionally for over 3 years.
                 </li>
                 <li>Audio implementation using FMOD and Wwise.</li>
                 <li>Dynamic layering and custom sound design.</li>
