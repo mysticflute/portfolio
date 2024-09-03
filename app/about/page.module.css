@@ -145,3 +145,48 @@
     font-weight: 700;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .intro {
+    gap: 15px;
+    max-width: none;
+    overflow: hidden;
+    padding-bottom: 195px;
+  }
+
+  .intro .image {
+    max-width: 200px;
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+
+  .story h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .story .image,
+  .story .text {
+    max-width: none;
+  }
+
+  .story.values {
+    gap: 54px;
+  }
+
+  .valuesList {
+    grid-template-columns: 1fr;
+    padding-bottom: 160px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 479px) {
+}
