@@ -82,7 +82,7 @@ test.describe('main navigation bar', { tag: '@desktop-only' }, () => {
     // click the About link
     await aboutLink.click();
 
-    await expect(page).toHaveURL('/#about');
+    await expect(page).toHaveURL('/about');
 
     // click the Portfolio link
     await portfolioLink.click();
@@ -134,7 +134,7 @@ test.describe('main navigation overlay', () => {
     await overlayButton.click();
     await aboutLink.click();
 
-    await expect(page).toHaveURL('/#about');
+    await expect(page).toHaveURL('/about');
 
     // click the Portfolio link
     await expect(overlayButton).toHaveAttribute('aria-expanded', 'false');
@@ -174,7 +174,7 @@ test.describe('footer navigation', () => {
     // click the About link
     await aboutLink.click();
 
-    await expect(page).toHaveURL('/#about');
+    await expect(page).toHaveURL('/about');
 
     // click the Portfolio link
     await portfolioLink.click();
