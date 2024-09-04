@@ -64,6 +64,10 @@
   padding-top: 0;
 }
 
+.story.background h2 {
+  scroll-margin: 150px;
+}
+
 .story.values {
   padding-bottom: 54px;
 }
@@ -172,6 +176,10 @@
     gap: 60px;
     padding-top: 160px;
     padding-bottom: 160px;
+  }
+
+  .story.background h2 {
+    scroll-margin: unset;
   }
 
   .story:not(.storyInverse *) h2 {
