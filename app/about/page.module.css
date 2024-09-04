@@ -146,11 +146,16 @@
   }
 }
 
+@media screen and (max-width: 1370px) {
+  .intro {
+    overflow: hidden;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .intro {
     gap: 15px;
     max-width: none;
-    overflow: hidden;
     padding-bottom: 195px;
   }
 
