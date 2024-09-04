@@ -19,6 +19,7 @@
 }
 
 .box.horizontal .image {
+  align-self: stretch;
   max-width: 233px;
   padding: 50px 35px;
 }

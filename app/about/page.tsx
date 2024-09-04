@@ -44,11 +44,7 @@ export default function AboutPage() {
                 Get in touch
               </IconButton>
 
-              <IconButton
-                type="secondary"
-                href="#my-story"
-                iconName="briefcase"
-              >
+              <IconButton type="secondary" href="#my-story" iconName="person">
                 My story
               </IconButton>
             </div>
@@ -123,6 +119,7 @@ export default function AboutPage() {
               inverse={true}
               href="/contact"
               iconName="mail"
+              className={styles.singleButton}
             >
               Get in touch
             </IconButton>

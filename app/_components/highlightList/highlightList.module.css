@@ -12,7 +12,9 @@
   content: '';
   display: inline-block;
   width: 20px;
+  min-width: 20px;
   height: 20px;
+  min-height: 20px;
   border: 3px solid var(--color-background-200);
   border-radius: 6px;
   background: var(--color-primary);
