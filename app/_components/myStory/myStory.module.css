@@ -134,18 +134,20 @@
   margin-bottom: 40px;
 }
 
+.overflowHidden {
+  /*
+    prevent overflow of the intro's right-side image, which happens when
+    the viewport is around 1300px.
+  */
+  overflow: hidden;
+}
+
 @supports (initial-letter: 1) or (-webkit-initial-letter: 1) {
   .dropCap:first-child::first-letter {
     -webkit-initial-letter: 2;
     initial-letter: 2;
     margin-right: 8px;
     font-weight: 700;
-  }
-}
-
-@media screen and (max-width: 1370px) {
-  .intro {
-    overflow: hidden;
   }
 }
 

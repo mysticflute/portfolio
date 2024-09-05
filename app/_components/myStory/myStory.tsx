@@ -11,33 +11,35 @@ import styles from './myStory.module.css';
 export default function MyStory() {
   return (
     <>
-      <div className={`${styles.container} ${styles.intro}`}>
-        <div className={styles.image}>
-          <Image src={teaImage} alt="" />
-        </div>
-        <div className={styles.content}>
-          <h1 className="textHeadingLarge">
-            Hey there, I&rsquo;m <br />
-            <span className="textHighlight2">Nathan</span>
-          </h1>
-          <Box type="text">
-            <p>
-              I write, produce and mix music for games and interactive media in
-              my Atlanta, GA based studio.
-            </p>
-            <div className={`${styles.buttons} flexCenter`}>
-              <IconButton type="primary" href="/contact" iconName="mail">
-                Get in touch
-              </IconButton>
+      <div className={styles.overflowHidden}>
+        <div className={`${styles.container} ${styles.intro}`}>
+          <div className={styles.image}>
+            <Image src={teaImage} alt="" priority />
+          </div>
+          <div className={styles.content}>
+            <h1 className="textHeadingLarge">
+              Hey there, I&rsquo;m <br />
+              <span className="textHighlight2">Nathan</span>
+            </h1>
+            <Box type="text">
+              <p>
+                I write, produce and mix music for games and interactive media
+                in my Atlanta, GA based studio.
+              </p>
+              <div className={`${styles.buttons} flexCenter`}>
+                <IconButton type="primary" href="/contact" iconName="mail">
+                  Get in touch
+                </IconButton>
 
-              <IconButton type="secondary" href="#my-story" iconName="person">
-                My story
-              </IconButton>
-            </div>
-          </Box>
-        </div>
-        <div className={styles.image}>
-          <Image src={swordImage} alt="" />
+                <IconButton type="secondary" href="#my-story" iconName="person">
+                  My story
+                </IconButton>
+              </div>
+            </Box>
+          </div>
+          <div className={styles.image}>
+            <Image src={swordImage} alt="" priority />
+          </div>
         </div>
       </div>
 
