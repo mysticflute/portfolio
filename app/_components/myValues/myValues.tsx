@@ -40,9 +40,7 @@ export default function MyValues() {
         heading="Satisfaction"
         image={<Image src={satisfactionImage} alt="" />}
       >
-        <p>
-          Unliimited revisions, working together until we get it just right.
-        </p>
+        <p>Unlimited revisions, working together until we get it just right.</p>
       </MediaBox>
     </div>
   );

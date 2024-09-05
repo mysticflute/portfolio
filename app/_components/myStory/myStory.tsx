@@ -5,7 +5,7 @@ import HighlightList from '@/components/highlightList/highlightList';
 import swordImage from '@/public/images/profile/profile-sword.jpg';
 import teaImage from '@/public/images/profile/profile-tea.jpg';
 import headshotImage from '@/public/images/profile/profile-headshot.jpg';
-import studioImage from '@/public/images/studio/studio1.jpg';
+import studioImage from '@/public/images/studio/studio.jpg';
 import styles from './myStory.module.css';
 
 export default function MyStory() {
@@ -104,9 +104,9 @@ export default function MyStory() {
 
             <IconButton
               type="primary"
-              inverse={true}
               href="/contact"
               iconName="mail"
+              inverse={true}
               className={styles.singleButton}
             >
               Get in touch
