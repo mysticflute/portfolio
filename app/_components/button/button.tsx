@@ -14,6 +14,11 @@ export type Props = {
   href: string;
 
   /**
+   * Whether the button is displayed on a dark background.
+   */
+  inverse?: boolean;
+
+  /**
    * CSS class name for the top element.
    */
   className?: string;
@@ -27,9 +32,23 @@ export type Props = {
 /**
  * Links to a page or section of the website.
  */
-export default function Button({ type, href, className, children }: Props) {
+export default function Button({
+  type,
+  href,
+  inverse,
+  className,
+  children,
+}: Props) {
   return (
-    <Link href={href} className={clsx(styles.base, styles[type], className)}>
+    <Link
+      href={href}
+      className={clsx(
+        styles.base,
+        styles[type],
+        inverse && styles.inverse,
+        className,
+      )}
+    >
       {children}
     </Link>
   );

@@ -9,7 +9,7 @@ exports[`footer renders the expected set of links 1`] = `
   "https://soundcloud.com/nathan_david_mcwilliams",
   "https://linktr.ee/nathanmcwilliams",
   "http://localhost/",
-  "http://localhost/#about",
+  "http://localhost/about",
   "http://localhost/#portfolio",
   "http://localhost/contact",
   "https://soundcloud.com/nathan_david_mcwilliams",

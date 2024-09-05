@@ -22,9 +22,10 @@ export type SocialLink = Link & {
 /** Main internal pages. */
 export const mainNavigation: readonly InternalLink[] = [
   { key: 'home', label: 'Home', path: '/' },
-  { key: 'about', label: 'About', path: '/#about' },
+  { key: 'about', label: 'About', path: '/about' },
   { key: 'portfolio', label: 'Portfolio', path: '/#portfolio' },
   { key: 'contact', label: 'Contact', path: '/contact' },
+  // { key: 'free', label: 'Free Pack', path: '/free-pack' },
 ];
 
 /** The Twitter social media account. */

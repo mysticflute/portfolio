@@ -18,6 +18,10 @@
   content: '\E80A';
 }
 
+.lineRounded.person::before {
+  content: '\E844';
+}
+
 .lineRounded.arrowDiagonal::before {
   content: '\E803';
 }

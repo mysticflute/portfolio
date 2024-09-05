@@ -40,7 +40,7 @@
 .primary {
   margin-right: 28px;
   background: var(--color-background-100);
-  color: #fff;
+  color: var(--color-neutral-100);
 }
 
 @media screen and (max-width: 767px) {
@@ -56,19 +56,29 @@
   }
 }
 
-.primary:hover {
-  border-color: var(--color-background-highlight);
-  background: var(--color-background-highlight);
-  transform: translate3d(0, -3px, 0.01px);
-}
-
-.secondary {
+.secondary,
+.primary.inverse,
+.secondary.inverse:hover {
   background: var(--color-background-200);
   color: var(--color-text-link);
 }
 
+.secondary.inverse {
+  border-color: var(--color-neutral-100);
+  background: var(--color-background-100);
+  color: var(--color-neutral-100);
+}
+
+.primary:hover,
+.primary.inverse:hover {
+  border-color: var(--color-background-highlight);
+  background: var(--color-background-highlight);
+  color: var(--color-neutral-100);
+  transform: translate3d(0, -3px, 0.01px);
+}
+
 .secondary:hover {
   background: var(--color-background-100);
-  color: #fff;
+  color: var(--color-neutral-100);
   transform: translate3d(0, -3px, 0.01px);
 }

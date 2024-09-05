@@ -1,0 +1,83 @@
+.box.horizontal,
+.box.vertical {
+  display: flex;
+  overflow: hidden;
+  padding: 0;
+}
+
+.box.horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-neutral-200);
+}
+
+.box.horizontal .image {
+  align-self: stretch;
+  max-width: 233px;
+  padding: 50px 35px;
+}
+
+.box.horizontal .image img {
+  width: 100%;
+}
+
+.box.vertical .image {
+  padding: 60px;
+}
+
+.box.vertical .image img {
+  width: 100%;
+  max-height: 215px;
+}
+
+.content {
+  flex: 1;
+  padding: 40px 22px 40px 36px;
+}
+
+.box.vertical .content {
+  padding: 35px 40px 40px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .image {
+    flex: 0.5;
+  }
+
+  .box.horizontal .content,
+  .box.vertical .content {
+    padding: 32px 24px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .box.horizontal {
+    flex-direction: column;
+  }
+
+  .box.horizontal .image {
+    max-width: initial;
+    width: 100%;
+    padding: 60px;
+  }
+
+  .box.horizontal .image img {
+    max-height: 215px;
+  }
+}

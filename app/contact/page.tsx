@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 import Layout from '@/components/layout/layout';
-import ContactInfo from '@/components/contactInfo/contactInfo';
+import Contact from '@/components/contact/contact';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <Layout>
-      <ContactInfo></ContactInfo>
+      <Contact></Contact>
     </Layout>
   );
 }

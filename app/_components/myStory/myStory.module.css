@@ -1,0 +1,290 @@
+.container {
+  margin: var(--layout-margin);
+  padding: 0 var(--layout-padding-x);
+  max-width: var(--layout-max-width);
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 16px;
+  padding-bottom: 227px;
+}
+
+.intro .image {
+  max-width: 250px;
+}
+
+.intro .image:first-child {
+  align-content: end;
+}
+
+.intro .image img {
+  border-radius: 50%;
+  border: 3px solid var(--color-background-100);
+  opacity: 75%;
+}
+
+.intro .image:first-child img {
+  margin-left: -52px;
+  margin-bottom: -35px;
+  box-shadow: -6px 6px 0 var(--color-background-100);
+}
+
+.intro .image:last-child img {
+  margin-left: 52px;
+  box-shadow: 6px 6px 0 var(--color-background-100);
+}
+
+.intro .content {
+  max-width: 600px;
+  margin: 64px 0 32px;
+  text-align: center;
+}
+
+.intro h1 {
+  color: var(--color-text-inverse);
+  margin-bottom: 38px;
+}
+
+.intro p {
+  margin-bottom: 32px;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 40px;
+  padding-top: 192px;
+  padding-bottom: 192px;
+}
+
+.story.background {
+  padding-top: 0;
+}
+
+.story.values {
+  padding-bottom: 54px;
+}
+
+.story h2 {
+  margin-top: 30px;
+  margin-bottom: 54px;
+  color: var(--color-text-inverse);
+}
+
+.story.background h2 {
+  scroll-margin: 150px;
+}
+
+.story.values h2 {
+  margin-bottom: 0;
+}
+
+.story .text {
+  max-width: 550px;
+}
+
+.story p:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.story .image {
+  overflow: hidden;
+  max-width: 90%;
+  padding: 7px;
+  background: url('/images/zoom-effect-small.jpg?v=1') center / cover;
+}
+
+.story .image img {
+  object-fit: cover;
+  max-height: 320px;
+  border-radius: 28px;
+  border: 3px solid var(--color-background-100);
+}
+
+.story .image.decorated img {
+  object-position: 50% 75%;
+  mask-image: radial-gradient(
+    circle at 60% 60%,
+    black 50%,
+    rgb(255 255 255 / 0.7) 10%
+  );
+}
+
+.story.experience .image img {
+  max-height: 375px;
+}
+
+.storyInverse {
+  background: var(--color-background-100);
+}
+
+.storyInverse,
+.storyInverse h2 {
+  color: var(--color-text-inverse);
+}
+
+.storyInverse h2 {
+  margin-top: 0;
+}
+
+.highlights {
+  margin-bottom: 40px;
+}
+
+.overflowHidden {
+  /*
+    prevent overflow of the intro's right-side image, which happens when
+    the viewport is around 1300px.
+  */
+  overflow: hidden;
+}
+
+@supports (initial-letter: 1) or (-webkit-initial-letter: 1) {
+  .dropCap:first-child::first-letter {
+    -webkit-initial-letter: 2;
+    initial-letter: 2;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .intro {
+    gap: 8px;
+    max-width: none;
+    padding-bottom: 195px;
+  }
+
+  .intro .image {
+    max-width: 200px;
+  }
+
+  .intro .content {
+    margin-top: 53px;
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+
+  .story.background h2 {
+    scroll-margin: unset;
+  }
+
+  .story:not(.storyInverse *) h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .story .image,
+  .story .text {
+    max-width: none;
+  }
+
+  .story.values {
+    gap: 54px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .intro {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 60px 28px;
+    max-width: var(--layout-max-width);
+    padding-top: 60px;
+    padding-bottom: 133px;
+  }
+
+  .intro .image:first-child {
+    order: 2;
+  }
+
+  .intro .image:last-child {
+    order: 3;
+  }
+
+  .intro .image:first-child img,
+  .intro .image:last-child img {
+    margin: 0;
+  }
+
+  .intro .content {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .story {
+    padding-top: 145px;
+    padding-bottom: 145px;
+  }
+
+  .story h2 {
+    margin-bottom: 45px;
+    text-wrap: balance;
+  }
+
+  .story.values {
+    gap: 45px;
+    padding-bottom: 45px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .intro {
+    column-gap: 18px;
+    padding-top: 50px;
+    padding-bottom: 111px;
+  }
+
+  .intro .image {
+    max-width: calc(50% - 15px);
+  }
+
+  .intro p {
+    text-wrap: pretty;
+  }
+
+  .intro .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .story {
+    padding-top: 125px;
+    padding-bottom: 125px;
+  }
+
+  .story h2 {
+    margin-bottom: 40px;
+  }
+
+  .story .image.decorated img {
+    object-position: 50% 75%;
+    mask-image: radial-gradient(
+      circle at 65% 65%,
+      black 50%,
+      rgb(255 255 255 / 0.7) 10%
+    );
+  }
+
+  .story.values {
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .highlights li {
+    text-wrap: pretty;
+  }
+
+  .singleButton {
+    text-align: center;
+  }
+}

@@ -9,7 +9,7 @@
   --color-neutral-100: #fff;
   --color-neutral-200: #eff0f6;
   --color-neutral-300: #eceae8;
-  --color-red-100: #ff4a60;
+  --color-red-100: #f45b69;
   --color-yellow-100: #f6b468;
   --color-blue-100: #53abf8;
   --color-purple-100: #4331f0;
@@ -18,6 +18,7 @@
   --color-accent-100: var(--color-purple-200);
   --color-accent-200: var(--color-blue-100);
   --color-accent-300: var(--color-yellow-100);
+  --color-accent-400: var(--color-red-100);
   --color-background-100: var(--color-gray-100);
   --color-background-200: var(--color-neutral-100);
   --color-background-300: var(--color-gray-100);
