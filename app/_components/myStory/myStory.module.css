@@ -64,10 +64,6 @@
   padding-top: 0;
 }
 
-.story.background h2 {
-  scroll-margin: 150px;
-}
-
 .story.values {
   padding-bottom: 54px;
 }
@@ -76,6 +72,10 @@
   margin-top: 30px;
   margin-bottom: 54px;
   color: var(--color-text-inverse);
+}
+
+.story.background h2 {
+  scroll-margin: 150px;
 }
 
 .story.values h2 {
