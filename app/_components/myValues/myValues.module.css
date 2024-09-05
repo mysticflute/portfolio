@@ -1,0 +1,31 @@
+.container {
+  margin: var(--layout-margin);
+  padding: 0 var(--layout-padding-x);
+  max-width: var(--layout-max-width);
+}
+
+.values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding-bottom: 192px;
+}
+
+@media screen and (max-width: 991px) {
+  .values {
+    grid-template-columns: 1fr;
+    padding-bottom: 160px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .values {
+    padding-bottom: 145px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .values {
+    padding-bottom: 125px;
+  }
+}
