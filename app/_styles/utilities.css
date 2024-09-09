@@ -154,7 +154,6 @@
     transparent 10%,
     var(--color-accent-400) 10%
   );
-  color: inherit;
 }
 
 /* Links */
