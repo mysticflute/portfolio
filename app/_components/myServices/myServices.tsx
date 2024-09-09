@@ -2,14 +2,12 @@ import Image from 'next/image';
 import Box from '@/components/box/box';
 import MediaBox from '@/components/mediaBox/mediaBox';
 import IconButton from '@/components/iconButton/iconButton';
-
 import composingImage from '@/public/images/illustrations/music-paper.svg';
 import mixingImage from '@/public/images/illustrations/mixing.svg';
 import recordingImage from '@/public/images/illustrations/instruments.svg';
 import implementationImage from '@/public/images/illustrations/fmod-alt.svg';
 import codingImage from '@/public/images/illustrations/code.svg';
 import subscribeImage from '@/public/images/illustrations/subscribe.svg';
-
 import styles from './myServices.module.css';
 
 export default function MyServices() {
@@ -20,8 +18,10 @@ export default function MyServices() {
           My broad <span className="textHighlight2">set of services</span>
         </h2>
         <Box type="text">
-          Lacus, adipiscing lectus convallis purus aliquet cursus magnaol montes
-          augue donec cras turpis ultrices nulla sed doler.
+          <p>
+            Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
+            montes augue donec cras turpis ultrices nulla sed doler.
+          </p>
         </Box>
       </div>
 
@@ -29,6 +29,7 @@ export default function MyServices() {
         <MediaBox
           heading="Composing"
           orientation="vertical"
+          className={styles.box}
           image={<Image src={composingImage} alt="" />}
         >
           <p>
@@ -39,6 +40,7 @@ export default function MyServices() {
         <MediaBox
           heading="Mixing and mastering"
           orientation="vertical"
+          className={styles.box}
           image={<Image src={mixingImage} alt="" />}
         >
           <p>
@@ -48,16 +50,18 @@ export default function MyServices() {
         <MediaBox
           heading="Live recording"
           orientation="vertical"
+          className={styles.box}
           image={<Image src={recordingImage} alt="" />}
         >
           <p>
-            Live recording of <strong>orchestral flute</strong> and various
-            winds from around the world, plus e-drums and hand percussion.
+            Live recording of orchestral flute and various winds from around the
+            world, plus e-drums and hand percussion.
           </p>
         </MediaBox>
         <MediaBox
           heading="Audio implementation"
           orientation="vertical"
+          className={styles.box}
           image={<Image src={implementationImage} alt="" />}
         >
           <p>
@@ -69,6 +73,7 @@ export default function MyServices() {
         <MediaBox
           heading="Audio programming"
           orientation="vertical"
+          className={styles.box}
           image={<Image src={codingImage} alt="" />}
         >
           <p>
@@ -77,12 +82,12 @@ export default function MyServices() {
           </p>
         </MediaBox>
 
-        <Box className={styles.customService}>
+        <Box className={styles.contact} type="raised">
           <Image src={subscribeImage} alt="" />
           <h3 className="textHeadingXSmall">Get in touch</h3>
           <p>
             Looking for another service? Get in touch with me, there is a high
-            chance that I will be able to help!
+            chance that I can help!
           </p>
           <IconButton type="primary" href="/contact" iconName="mail">
             Get in touch

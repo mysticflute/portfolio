@@ -33,8 +33,11 @@
 }
 
 .box.vertical .image img {
-  width: 100%;
-  max-height: 215px;
+  width: auto;
+  max-height: 185px;
+
+  /* max-height: 215px; */
+
   /* width: auto;
   max-height: 155px;
   min-width: 85px; */
@@ -81,6 +84,6 @@
   }
 
   .box.horizontal .image img {
-    max-height: 215px;
+    max-height: 185px;
   }
 }

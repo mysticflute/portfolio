@@ -1,6 +1,7 @@
 .container {
   flex: 1 1 500px;
   overflow: hidden;
+  border-radius: 28px;
 }
 
 .info {

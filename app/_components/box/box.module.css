@@ -9,22 +9,24 @@
   color: var(--color-text-inverse);
 }
 
-.flat {
+.flat,
+.hover,
+.raised {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 35px;
+  background: var(--color-background-200);
   border: 3px solid var(--color-background-100);
   border-radius: 24px;
-  background: var(--color-background-200);
+}
+
+.flat {
+  padding: 40px 35px;
 }
 
 .hover,
 .raised {
   padding: 58px 64px;
-  border: 3px solid var(--color-background-100);
-  border-radius: 28px;
-  background: var(--color-background-200);
   transition:
     box-shadow 300ms ease,
     transform 300ms ease;
@@ -33,6 +35,9 @@
 .hover:hover,
 .raised {
   box-shadow: 10px 10px 0 0 var(--color-background-100);
+}
+
+.hover:hover {
   transform: translate3d(0, -10px, 0.01px);
 }
 
