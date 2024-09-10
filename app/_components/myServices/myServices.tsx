@@ -19,8 +19,8 @@ export default function MyServices() {
         </h2>
         <Box type="text">
           <p>
-            Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
-            montes augue donec cras turpis ultrices nulla sed doler.
+            Composing for games is my passion, but also just the start. I can
+            help bring your game to life with dynamic implementation.
           </p>
         </Box>
       </div>
@@ -33,8 +33,8 @@ export default function MyServices() {
           image={<Image src={composingImage} alt="" />}
         >
           <p>
-            Composing music for games, specializing in orchestral melodies and
-            ambient soundscapes.
+            Composing music for games, specializing in{' '}
+            <strong>orchestral melodies</strong> and ambient soundscapes.
           </p>
         </MediaBox>
         <MediaBox
@@ -54,8 +54,9 @@ export default function MyServices() {
           image={<Image src={recordingImage} alt="" />}
         >
           <p>
-            Live recording of orchestral flute and various winds from around the
-            world, plus e-drums and hand percussion.
+            Live recording of orchestral <strong>flute</strong> and{' '}
+            <strong>various winds</strong> from around the world, plus e-drums
+            and hand perc.
           </p>
         </MediaBox>
         <MediaBox
