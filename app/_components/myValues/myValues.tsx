@@ -11,6 +11,7 @@ export default function MyValues() {
     <div className={`${styles.container} ${styles.values}`}>
       <MediaBox
         heading="Hard Work"
+        type="flat"
         image={<Image src={hardWorkImage} alt="" />}
       >
         <p>
@@ -20,6 +21,7 @@ export default function MyValues() {
       </MediaBox>
       <MediaBox
         heading="Communication"
+        type="flat"
         image={<Image src={communicationImage} alt="" />}
       >
         <p>
@@ -29,6 +31,7 @@ export default function MyValues() {
       </MediaBox>
       <MediaBox
         heading="Transparency"
+        type="flat"
         image={<Image src={transparencyImage} alt="" />}
       >
         <p>
@@ -38,6 +41,7 @@ export default function MyValues() {
       </MediaBox>
       <MediaBox
         heading="Satisfaction"
+        type="flat"
         image={<Image src={satisfactionImage} alt="" />}
       >
         <p>Unlimited revisions, working together until we get it just right.</p>

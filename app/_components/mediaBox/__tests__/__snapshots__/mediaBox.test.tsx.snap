@@ -3,7 +3,7 @@
 exports[`mediaBox matches snapshot for default options 1`] = `
 <div>
   <div
-    class="box flat box horizontal"
+    class="box hover box horizontal"
   >
     <div
       class="image"
