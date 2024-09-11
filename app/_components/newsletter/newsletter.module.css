@@ -24,11 +24,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .image {
   min-width: 190px;
-  min-height: 190px;
+  min-height: 189px;
   position: relative;
 }
 
