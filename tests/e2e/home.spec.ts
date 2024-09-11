@@ -4,7 +4,7 @@ test.describe('home page', () => {
   test('get in touch link navigates to contact page', async ({ page }) => {
     await page.goto('/');
 
-    await page.getByRole('link', { name: 'get in touch' }).click();
+    await page.getByRole('link', { name: 'get in touch' }).first().click();
 
     await expect(page).toHaveURL('/contact');
   });
