@@ -82,7 +82,6 @@ export default function MyServices() {
             fluent in languages including Java, JavaScript, C# and GDScript.
           </p>
         </MediaBox>
-
         <Box className={styles.contact} type="raised">
           <Image src={subscribeImage} alt="" />
           <h3 className="textHeadingXSmall">Get in touch</h3>

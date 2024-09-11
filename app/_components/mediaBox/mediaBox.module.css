@@ -35,12 +35,6 @@
 .box.vertical .image img {
   width: auto;
   max-height: 185px;
-
-  /* max-height: 215px; */
-
-  /* width: auto;
-  max-height: 155px;
-  min-width: 85px; */
 }
 
 .content {
