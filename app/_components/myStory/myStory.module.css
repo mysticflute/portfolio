@@ -93,15 +93,12 @@
 .story .image {
   overflow: hidden;
   max-width: 90%;
-  padding: 7px;
-  background: url('/images/zoom-effect-small.jpg?v=1') center / cover;
+  padding: 0;
 }
 
 .story .image img {
   object-fit: cover;
   max-height: 320px;
-  border-radius: 28px;
-  border: 3px solid var(--color-background-100);
 }
 
 .story .image.decorated img {
@@ -109,7 +106,7 @@
   mask-image: radial-gradient(
     circle at 60% 60%,
     black 50%,
-    rgb(255 255 255 / 0.7) 10%
+    rgb(255 255 255 / 0.75) 10%
   );
 }
 
@@ -128,7 +125,6 @@
 
 .storyInverse h2 {
   margin-top: 0;
-  margin-bottom: 32px;
 }
 
 .highlights {
@@ -268,11 +264,10 @@
   }
 
   .story .image.decorated img {
-    object-position: 50% 75%;
     mask-image: radial-gradient(
-      circle at 65% 65%,
-      black 50%,
-      rgb(255 255 255 / 0.7) 10%
+      circle at 60% 60%,
+      black 48%,
+      rgb(255 255 255 / 0.75) 10%
     );
   }
 
