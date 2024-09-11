@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import Box from '@/components/box/box';
+import Box, { Props as BoxProps } from '@/components/box/box';
 import styles from './mediaBox.module.css';
 
 type Props = {
@@ -19,6 +19,13 @@ type Props = {
    * @defaultValue horizontal.
    */
   orientation?: 'horizontal' | 'vertical';
+
+  /**
+   * The box style.
+   *
+   * @defaultValue "hover".
+   */
+  type?: BoxProps['type'];
 
   /**
    * The level of the heading tag.
@@ -45,6 +52,7 @@ export default function MediaBox({
   heading,
   image,
   orientation = 'horizontal',
+  type = 'hover',
   headingLevel = 3,
   className,
   children,
@@ -54,7 +62,7 @@ export default function MediaBox({
 
   return (
     <Box
-      type="flat"
+      type={type}
       className={clsx(
         styles.box,
         orientation && styles[orientation],

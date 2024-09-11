@@ -64,6 +64,21 @@ describe('mediaBox', () => {
     expect(screen.getByTestId('test-box')).not.toHaveClass('vertical');
   });
 
+  it('passes through the type property', () => {
+    render(
+      <MediaBox
+        heading="Test Heading"
+        image={<Image src={testImage} alt="Test Image" />}
+        type="raised"
+        data-testid="test-box"
+      >
+        Test Content
+      </MediaBox>,
+    );
+
+    expect(screen.getByTestId('test-box')).toHaveClass('raised');
+  });
+
   it('adds the custom class name', () => {
     render(
       <MediaBox
