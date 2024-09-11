@@ -25,6 +25,11 @@
   gap: 32px;
 }
 
+.box {
+  flex-direction: column;
+  justify-content: center;
+}
+
 .box img {
   transition: transform 300ms ease;
   transform-style: preserve-3d;
@@ -35,7 +40,7 @@
 }
 
 .list .contact {
-  align-items: center;
+  flex-direction: column;
   padding: 40px 30px;
   background: var(--color-accent-300);
   border-color: var(--color-accent-300);

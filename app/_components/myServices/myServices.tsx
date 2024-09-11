@@ -82,7 +82,7 @@ export default function MyServices() {
             fluent in languages including Java, JavaScript, C# and GDScript.
           </p>
         </MediaBox>
-        <Box className={styles.contact} type="raised">
+        <Box type="raised" className={`${styles.contact} flexCenter`}>
           <Image src={subscribeImage} alt="" />
           <h3 className="textHeadingXSmall">Get in touch</h3>
           <p>
