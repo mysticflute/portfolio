@@ -1,6 +1,7 @@
 import { MediaContextProvider } from '@/components/mediaContext/mediaContext';
 import { mainNavigation } from '@/components/nav/links';
 import Nav from '@/components/nav/nav';
+import Newsletter from '@/components/newsletter/newsletter';
 import Footer from '@/components/footer/footer';
 import styles from './layout.module.css';
 
@@ -33,6 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main id="main-content">
         <MediaContextProvider>{children}</MediaContextProvider>
       </main>
+      <Newsletter></Newsletter>
       <Footer></Footer>
     </div>
   );
