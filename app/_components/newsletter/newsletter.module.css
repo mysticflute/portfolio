@@ -134,6 +134,11 @@
   .form {
     max-width: 100%;
   }
+
+  .success,
+  .error:not(:empty) {
+    min-height: 72px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -183,6 +188,19 @@
     font-size: 1rem;
     line-height: 0;
   }
+
+  .success,
+  .error:not(:empty) {
+    flex-direction: column;
+    min-height: 60px;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -213,6 +231,12 @@
     width: 100%;
     padding: 20px;
     line-height: 1.111;
+  }
+
+  .success,
+  .error:not(:empty) {
+    justify-content: center;
+    min-height: 138px;
   }
 }
 
