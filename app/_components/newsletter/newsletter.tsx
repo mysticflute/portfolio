@@ -58,7 +58,9 @@ export default function Newsletter() {
         </div>
 
         <Box type="flat" className={styles.box}>
-          <span className="textHeadingXSmall">Subscribe to my newsletter</span>
+          <span className={`${styles.text} textHeadingXSmall`}>
+            Subscribe to my newsletter
+          </span>
 
           <div className={styles.form}>
             {!isSuccess && !isError && (
@@ -79,7 +81,7 @@ export default function Newsletter() {
                   />
 
                   <button disabled={isSubmitting} className={styles.submit}>
-                    {isSubmitting ? 'Please wait...' : 'Submit'}
+                    {isSubmitting ? 'Please wait...' : 'Subscribe'}
                   </button>
                 </div>
               </form>

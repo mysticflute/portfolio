@@ -12,7 +12,7 @@
   align-items: center;
   margin: var(--layout-margin);
   padding: 0 var(--layout-padding-x);
-  max-width: var(--layout-max-width);
+  max-width: max(var(--layout-max-width), 1300px);
 }
 
 .image {
@@ -30,6 +30,10 @@
   margin-left: -100px;
   padding: 30px 30px 30px 112px;
   gap: 24px;
+}
+
+.text {
+  text-wrap: balance;
 }
 
 .form {
@@ -115,4 +119,105 @@
 .icon {
   margin-right: 8px;
   font-size: 1.375rem;
+}
+
+@media screen and (max-width: 991px) {
+  .container .box {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 12px;
+    min-height: 188px;
+    padding-left: 135px;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .background {
+    background: linear-gradient(
+      to top,
+      var(--color-background-100),
+      black 50%,
+      transparent 50%
+    );
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    margin-bottom: -60px;
+  }
+
+  .container .box {
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 240px;
+    margin-left: 0;
+    padding-top: 80px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .form {
+    max-width: 470px;
+  }
+
+  .input {
+    min-height: 60px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .submit {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 14px;
+    font-size: 1rem;
+    line-height: 0;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .image {
+    margin-bottom: -70px;
+    width: 150px;
+    height: 150px;
+    min-width: 150px;
+    min-height: 150px;
+  }
+
+  .container .box {
+    min-height: 310px;
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .input {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 16px;
+  }
+
+  .submit {
+    position: static;
+    width: 100%;
+    padding: 20px;
+    line-height: 1.111;
+  }
+}
+
+@media screen and (max-width: 339px) {
+  .input::placeholder {
+    font-size: 0.875rem;
+  }
 }
