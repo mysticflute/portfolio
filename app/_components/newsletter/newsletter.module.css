@@ -72,7 +72,6 @@
   border: 2px solid var(--color-background-100);
   border-radius: 16px;
   background: var(--color-background-100);
-  cursor: pointer;
   color: var(--color-neutral-100);
   text-align: center;
   font-size: 1.125rem;
@@ -87,9 +86,33 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.submit:hover {
+.submit:not(:disabled) {
+  cursor: pointer;
+}
+
+.submit:hover:not(:disabled) {
   border-color: var(--color-background-highlight);
   background: var(--color-background-highlight);
   color: var(--color-neutral-100);
   transform: translate3d(0, -3px, 0.01px);
+}
+
+.submit:disabled {
+  opacity: 0.65;
+}
+
+.success,
+.error {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-accent);
+}
+
+.error {
+  color: var(--color-red-100);
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 1.375rem;
 }
