@@ -29,3 +29,11 @@
 .lineRounded.arrowRight::before {
   content: '\E805';
 }
+
+.lineRounded.success::before {
+  content: '\E813';
+}
+
+.lineRounded.error::before {
+  content: '\E80D';
+}
