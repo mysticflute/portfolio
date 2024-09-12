@@ -2,6 +2,7 @@
 
 import { useId, useState, FormEvent } from 'react';
 import Image from 'next/image';
+import { logger } from '@/lib/logger';
 import Box from '@/components/box/box';
 import Icon from '@/components/icon/icon';
 import subscribeImage from '@/public/images/illustrations/subscribe-large.svg';
@@ -11,8 +12,8 @@ const endpoint = 'https://app.convertkit.com/forms/';
 
 const formId = process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID;
 if (!formId) {
-  throw new Error(
-    'The environment variable NEXT_PUBLIC_NEWSLETTER_FORM_ID is not set.',
+  logger.error(
+    'The environment variable NEXT_PUBLIC_NEWSLETTER_FORM_ID is not set. Newsletter registration will NOT be successful.',
   );
 }
 
