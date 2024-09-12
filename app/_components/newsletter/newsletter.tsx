@@ -62,10 +62,10 @@ export default function Newsletter() {
 
           <div className={styles.form}>
             {!isSuccess && !isError && (
-              <form onSubmit={handleSubmit} aria-label="Newsletter signup">
+              <form onSubmit={handleSubmit} aria-label="Newsletter sign-up">
                 <div className={styles.formElement}>
                   <label htmlFor={`${id}-email`} className="assistiveText">
-                    Your email address
+                    Email
                   </label>
 
                   <input
