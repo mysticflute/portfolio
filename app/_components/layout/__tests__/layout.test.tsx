@@ -1,4 +1,11 @@
-import { beforeEach, afterEach, describe, expect, it } from '@jest/globals';
+import {
+  beforeEach,
+  afterEach,
+  describe,
+  expect,
+  it,
+  jest,
+} from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import {
   initializeObserverMocks,
@@ -9,10 +16,16 @@ import Layout from '../layout';
 describe('layout', () => {
   beforeEach(() => {
     initializeObserverMocks();
+
+    jest.replaceProperty(process, 'env', {
+      ...process.env,
+      NEXT_PUBLIC_NEWSLETTER_FORM_ID: '1234567',
+    });
   });
 
   afterEach(() => {
     resetObserverMocks();
+    jest.restoreAllMocks();
   });
 
   it('renders the header', () => {

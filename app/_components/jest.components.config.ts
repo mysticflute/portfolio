@@ -14,6 +14,9 @@ const createJestConfig = nextJest({
 const config: Config = {
   displayName: 'component tests',
 
+  // don't match helper files in __tests__ directories
+  testMatch: ['**/__tests__/**/*.(spec|test).[jt]s?(x)'],
+
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 
@@ -23,6 +26,9 @@ const config: Config = {
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/$1',
   },
+
+  // don't collect coverage on helper files in __tests__ directories.
+  coveragePathIgnorePatterns: ['/node_modules/', '__tests__'],
 };
 
 export default createJestConfig(config);

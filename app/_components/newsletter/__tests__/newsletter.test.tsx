@@ -1,6 +1,3 @@
-/**
- * @jest-environment ./newsletter/__tests__/jsdomWithFetch.ts
- */
 import {
   jest,
   describe,
@@ -10,84 +7,98 @@ import {
   expect,
 } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import userEvent, { type UserEvent } from '@testing-library/user-event';
+import { mockSuccessResponse, mock404Response } from './mockFetch';
 import Newsletter from '../newsletter';
+
+// Currently the jsdom environment doesn't support fetch:
+// https://github.com/jsdom/jsdom/issues/1724
+const originalFetch = global.fetch;
+
+const formId = '1234567';
+const endpoint = `https://app.convertkit.com/forms/${formId}/subscriptions`;
 
 describe('newsletter', () => {
   let mockResponse: Response;
-  let mockFetch: jest.Spied<typeof global.fetch>;
+  let mockFetch: jest.Mocked<typeof global.fetch>;
+
+  /** Type an email address into the input field and submit the form. */
+  async function typeAndSubmit(email: string, user: UserEvent) {
+    const input = screen.getByLabelText(/email/i);
+    expect(input).toBeInTheDocument();
+    await user.type(input, email);
+
+    const submit = screen.getByRole('button');
+    expect(submit).toBeInTheDocument();
+    await user.click(submit);
+  }
 
   beforeEach(() => {
     jest.replaceProperty(process, 'env', {
-      NODE_ENV: 'test',
-      NEXT_PUBLIC_NEWSLETTER_FORM_ID: '1234567',
+      ...process.env,
+      NEXT_PUBLIC_NEWSLETTER_FORM_ID: formId,
     });
 
-    mockResponse = {
-      headers: new Headers(),
-      ok: true,
-      status: 200,
-      statusText: 'OK',
-      type: 'cors',
-      url: '',
-      redirected: false,
-      body: null,
-      bodyUsed: false,
-      arrayBuffer: () => Promise.resolve(new ArrayBuffer(0)),
-      blob: () => Promise.resolve(new Blob()),
-      formData: () => Promise.resolve(new FormData()),
-      json: () => Promise.resolve([]),
-      text: () => Promise.resolve(''),
-      clone: () => ({}) as jest.Mocked<Response>,
-    };
+    mockResponse = mockSuccessResponse();
+    mockFetch = jest.fn(() => Promise.resolve(mockResponse));
 
-    mockFetch = jest
-      .spyOn(global, 'fetch')
-      .mockImplementation(() => Promise.resolve(mockResponse));
+    global.fetch = mockFetch;
   });
 
   afterEach(() => {
     jest.restoreAllMocks();
+    global.fetch = originalFetch;
   });
 
-  it('calls the fetch api with the email address from the input', async () => {
+  it('calls fetch with the email address from the input', async () => {
     const user = userEvent.setup();
 
     render(<Newsletter />);
 
-    const input = screen.getByLabelText(/email/i);
-    expect(input).toBeInTheDocument();
-
-    await user.type(input, 'testing@test.com');
-
-    const submit = screen.getByRole('button');
-    expect(submit).toBeInTheDocument();
-
-    await user.click(submit);
+    await typeAndSubmit('testing@test.com', user);
 
     expect(mockFetch).toHaveBeenCalledWith(
-      'https://app.convertkit.com/forms/1234567/subscriptions',
+      endpoint,
       expect.objectContaining({ method: 'POST', body: expect.any(FormData) }),
     );
 
-    const call = mockFetch.mock.calls[0][1];
-    const formData = Array.from((call?.body as FormData).entries()).reduce(
-      (acc, f) => ({ ...acc, [f[0]]: f[1] }),
-      {},
-    );
-    expect(formData).toMatchObject({ email_address: 'testing@test.com' });
+    const expected = new Set([['email_address', 'testing@test.com']]);
+    const actual = new Set(mockFetch.mock.calls[0][1]!.body as FormData);
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('shows a success message when fetch returns 200', async () => {
+    const user = userEvent.setup();
+
+    render(<Newsletter />);
+
+    await typeAndSubmit('testing@test.com', user);
+
+    expect(screen.getByText(/thanks for joining/i)).toBeInTheDocument();
+  });
+
+  it('shows a failure message when fetch returns 404', async () => {
+    jest.spyOn(console, 'error').mockImplementation(jest.fn());
+    mockResponse = mock404Response();
+    const user = userEvent.setup();
+
+    render(<Newsletter />);
+
+    await typeAndSubmit('testing@test.com', user);
+
+    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
+  });
+
+  it('handles fetch throwing an error', async () => {
+    jest.spyOn(console, 'error').mockImplementation(jest.fn());
+    global.fetch = jest.fn(() => Promise.reject('error'));
+    const user = userEvent.setup();
+
+    render(<Newsletter />);
+
+    await typeAndSubmit('testing@test.com', user);
+
+    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
   });
 });
-
-// TODO mock fetch api
-// TODO mock environment variable
-
-// test: calls fetch api with environment variable id
-// test: calls POST request to fetch
-// test: shows success message on 200
-// test: shows error message on 404
-// validates email address is email
-// validates email address is required
-// label id matches input id
-
-// disables button during submission
