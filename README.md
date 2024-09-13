@@ -10,7 +10,7 @@ components or Next.js code for your own website.
 
 Here are some of the tools and frameworks used in this project:
 
-- [React](https://react.dev/) - Frontend libray for the UI.
+- [React](https://react.dev/) - Frontend library for the UI.
 - [Next.js](https://nextjs.org) - React framework for Static Site Generation.
 - [Typescript](https://www.typescriptlang.org) - For more maintainable code.
 - [Normalize](https://necolas.github.io/normalize.css/) - Long live the king.
@@ -31,9 +31,36 @@ directory to switch to the recommended node version.
 
 1. Get started with `npm install` in the project root directory.
 2. Optionally create a `.env.local` file and specify local environment values
-   for the keys in `.env.development`.
+   for any of the keys in `.env`.
 3. `npm run dev` to start the server.
 4. Visit [localhost:3000](http://localhost:3000) in the browser.
+
+### Setting Environment Variables
+
+Creating an `.env.local` file is optional, but it allows customizing some behaviors of the app and enabling certain third-party integrations.
+
+To get started, create a new file named `.env.local` at the root of the project directory. This file is part of `.gitignore` so it won't be checked in.
+
+#### Logging
+
+You can override the `PINO_LOG_LEVEL` to get more or less verbose application logs.
+
+#### ConvertKit
+
+Without an `env.local` file, you'll see an error message about `NEXT_PUBLIC_NEWSLETTER_FORM_ID` not being set. This is ok, but it means trying to sign up for the newsletter will always throw an error.
+
+To set this value, go to the ConvertKit website and grab the id of a form for testing:
+
+1. In the site menu, go to "Landing Page & Forms".
+2. Click the name of the form to use for testing (or create a new one).
+3. Click "Publish".
+4. Select the "HTML" tab, and find the 7-digit id within the `action` attribute of the `form` element. For example, in `<form action="https://app.convertkit.com/forms/1234567/subscriptions ..."`, the id is `1234567`.
+
+Use this id to set the value for `NEXT_PUBLIC_NEWSLETTER_FORM_ID` in the `.env.local` file.
+
+#### Others
+
+Look at any of the other keys in the `.env` file, and override them in `.env.local` as necessary.
 
 ### Running Tests
 

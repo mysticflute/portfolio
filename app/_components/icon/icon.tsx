@@ -5,7 +5,14 @@ type BaseProps = {
   /**
    * Name of the icon to use.
    */
-  name: 'mail' | 'briefcase' | 'person' | 'arrowDiagonal' | 'arrowRight';
+  name:
+    | 'mail'
+    | 'briefcase'
+    | 'person'
+    | 'arrowDiagonal'
+    | 'arrowRight'
+    | 'success'
+    | 'error';
 
   /**
    * Whether there's text to the left of the icon.

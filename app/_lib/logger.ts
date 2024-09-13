@@ -1,7 +1,7 @@
 import pino from 'pino';
 
 /**
- * Server-side logger.
+ * Application logger.
  *
  * Override the level locally by setting `PINO_LEVEL_LEVEL="level"` in the
  * `.env.local` file.

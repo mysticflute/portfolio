@@ -1,0 +1,247 @@
+.background {
+  background: linear-gradient(
+    to top,
+    var(--color-background-100),
+    black 60%,
+    transparent 60%
+  );
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: var(--layout-margin);
+  padding: 0 var(--layout-padding-x);
+  max-width: max(var(--layout-max-width), 1300px);
+}
+
+.image {
+  position: relative;
+  min-width: 190px;
+  min-height: 189px;
+}
+
+.container .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 160px;
+  margin-left: -100px;
+  padding: 30px 30px 30px 112px;
+  gap: 24px;
+}
+
+.text {
+  text-wrap: balance;
+}
+
+.form {
+  width: 100%;
+  max-width: 470px;
+}
+
+.formElement {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  min-height: 72px;
+  padding: 16px 38% 16px 24px;
+  border: 3px solid var(--color-background-100);
+  border-radius: 16px;
+  font-weight: 700;
+  line-height: 1.111;
+  transition: box-shadow 0.3s;
+}
+
+.input:hover,
+.input:focus {
+  outline: 0;
+  box-shadow: 5px 5px 0 0 var(--color-background-100);
+}
+
+.input::placeholder {
+  color: var(--color-text-accent);
+  font-weight: 500;
+}
+
+.submit {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  padding: 16px 24px;
+  border: 2px solid var(--color-background-100);
+  border-radius: 16px;
+  background: var(--color-background-100);
+  color: var(--color-neutral-100);
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.111;
+  transition:
+    color 300ms,
+    border-color 300ms,
+    background-color 300ms,
+    transform 300ms;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.submit:not(:disabled) {
+  cursor: pointer;
+}
+
+.submit:hover:not(:disabled) {
+  border-color: var(--color-background-highlight);
+  background: var(--color-background-highlight);
+  color: var(--color-neutral-100);
+  transform: translate3d(0, -3px, 0.01px);
+}
+
+.submit:disabled {
+  opacity: 0.65;
+}
+
+.success,
+.error {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-accent);
+}
+
+.error {
+  color: var(--color-red-100);
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 1.375rem;
+}
+
+@media screen and (max-width: 991px) {
+  .container .box {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 12px;
+    min-height: 188px;
+    padding-left: 135px;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .success,
+  .error:not(:empty) {
+    min-height: 72px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .background {
+    background: linear-gradient(
+      to top,
+      var(--color-background-100),
+      black 50%,
+      transparent 50%
+    );
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    margin-bottom: -60px;
+  }
+
+  .container .box {
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 240px;
+    margin-left: 0;
+    padding-top: 80px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .form {
+    max-width: 470px;
+  }
+
+  .input {
+    min-height: 60px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .submit {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 14px;
+    font-size: 1rem;
+    line-height: 0;
+  }
+
+  .success,
+  .error:not(:empty) {
+    flex-direction: column;
+    min-height: 60px;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .image {
+    margin-bottom: -70px;
+    width: 150px;
+    height: 150px;
+    min-width: 150px;
+    min-height: 150px;
+  }
+
+  .container .box {
+    min-height: 310px;
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .input {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 16px;
+  }
+
+  .submit {
+    position: static;
+    width: 100%;
+    padding: 20px;
+    line-height: 1.111;
+  }
+
+  .success,
+  .error:not(:empty) {
+    justify-content: center;
+    min-height: 138px;
+  }
+}
+
+@media screen and (max-width: 339px) {
+  .input::placeholder {
+    font-size: 0.875rem;
+  }
+}
