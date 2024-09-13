@@ -26,10 +26,12 @@ describe('newsletter', () => {
   async function typeAndSubmit(email: string, user: UserEvent) {
     const input = screen.getByLabelText(/email/i);
     expect(input).toBeInTheDocument();
+
     await user.type(input, email);
 
     const submit = screen.getByRole('button');
     expect(submit).toBeInTheDocument();
+
     await user.click(submit);
   }
 

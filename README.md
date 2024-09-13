@@ -49,9 +49,9 @@ You can override the `PINO_LOG_LEVEL` to get more or less verbose application lo
 
 Without an `env.local` file, you'll see an error message about `NEXT_PUBLIC_NEWSLETTER_FORM_ID` not being set. This is ok, but it means trying to sign up for the newsletter will always throw an error.
 
-To set this value, go to the ConvertKit website and grab the id of a testing form:
+To set this value, go to the ConvertKit website and grab the id of a form for testing:
 
-1. In the site menu, go to Landing Page & Forms.
+1. In the site menu, go to "Landing Page & Forms".
 2. Click the name of the form to use for testing (or create a new one).
 3. Click "Publish".
 4. Select the "HTML" tab, and find the 7-digit id within the `action` attribute of the `form` element. For example, in `<form action="https://app.convertkit.com/forms/1234567/subscriptions ..."`, the id is `1234567`.
