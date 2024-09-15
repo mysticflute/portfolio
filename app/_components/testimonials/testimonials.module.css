@@ -1,0 +1,97 @@
+.container {
+  margin: var(--layout-margin);
+  padding: 0 var(--layout-padding-x) 240px;
+  max-width: var(--layout-max-width);
+}
+
+.heading {
+  max-width: 630px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.heading h2 {
+  margin-bottom: 32px;
+  color: var(--color-text-inverse);
+}
+
+.heading p {
+  text-wrap: pretty;
+}
+
+.slides {
+  padding-top: 32px;
+}
+
+.slidesContent {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.slides .slide {
+  margin-right: 100px;
+  padding: 45px 0 45px 45px;
+  position: relative;
+}
+
+.slideContent {
+  display: flex;
+  gap: 24px 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  max-width: 500px;
+}
+
+.quote {
+  position: absolute;
+  top: -35px;
+}
+
+.slideContent p {
+  margin: 24px 0 56px;
+}
+
+.name {
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: var(--color-text-accent);
+}
+
+.name,
+.client {
+  line-height: 1.111;
+}
+
+.image {
+  width: 47%;
+  margin-top: -100px;
+  margin-bottom: -100px;
+  margin-right: -100px;
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    max-width: 1300px;
+    padding-bottom: 200px;
+  }
+
+  .heading {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: var(--layout-max-width);
+    padding-bottom: 168px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    padding-bottom: 138px;
+  }
+}
