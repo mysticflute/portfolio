@@ -19,57 +19,8 @@
   text-wrap: pretty;
 }
 
-.slides {
+.carousel {
   padding-top: 32px;
-}
-
-.slidesContent {
-  max-width: 85%;
-  margin: 0 auto;
-}
-
-.slides .slide {
-  margin-right: 100px;
-  padding: 45px 0 45px 45px;
-  position: relative;
-}
-
-.slideContent {
-  display: flex;
-  gap: 24px 5px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.info {
-  max-width: 500px;
-}
-
-.quote {
-  position: absolute;
-  top: -35px;
-}
-
-.slideContent p {
-  margin: 24px 0 56px;
-}
-
-.name {
-  margin-bottom: 16px;
-  font-weight: 700;
-  color: var(--color-text-accent);
-}
-
-.name,
-.client {
-  line-height: 1.111;
-}
-
-.image {
-  width: 47%;
-  margin-top: -100px;
-  margin-bottom: -100px;
-  margin-right: -100px;
 }
 
 @media screen and (max-width: 991px) {
