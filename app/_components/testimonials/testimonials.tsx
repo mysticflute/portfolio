@@ -3,6 +3,7 @@ import Box from '@/components/box/box';
 import Carousel from '../carousel/carousel';
 import Testimonial from '../testimonial/testimonial';
 import avatar1 from '@/public/images/illustrations/avatar-tmp2.png';
+import avatar2 from '@/public/images/illustrations/avatar-tmp.png';
 import styles from './testimonials.module.css';
 
 export default function Testimonials() {
@@ -24,22 +25,36 @@ export default function Testimonials() {
       <Carousel
         label="Testimonials"
         className={styles.carousel}
-        items={[
+        slides={[
           {
             id: 'testimonial-1',
-            component: (
+            content: (
               <Testimonial
                 name="Krystal-Ann Melbourne"
                 client="Turning, Video Game"
-                image={
-                  <Image src={avatar1} alt="Avatar illustration of a person" />
-                }
+                image={<Image src={avatar1} alt="Avatar illustration" />}
               >
                 Nathan was great :&#x29; He was super professional and put a lot
                 more work and time into these songs than I expected. It&rsquo;s
                 also very important to him to make sure he has a good
                 understanding of the work the music is for in order to make the
                 best match.
+              </Testimonial>
+            ),
+          },
+          {
+            id: 'testimonial-2',
+            content: (
+              <Testimonial
+                name="Onemanarme"
+                client="Recidivia, Video Game"
+                image={<Image src={avatar2} alt="Avatar illustration" />}
+              >
+                Fantastic musician! Very pleased with the songs. I don&rsquo;t
+                think any directions that I gave really mattered in the end
+                because he had such incredible ideas of his own that he
+                presented and I loved everything. Definitely will work with him
+                again.
               </Testimonial>
             ),
           },
