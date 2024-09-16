@@ -10,6 +10,7 @@ type BaseProps = {
     | 'briefcase'
     | 'person'
     | 'arrowDiagonal'
+    | 'arrowLeft'
     | 'arrowRight'
     | 'success'
     | 'error';
