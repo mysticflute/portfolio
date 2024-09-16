@@ -26,6 +26,10 @@
   content: '\E803';
 }
 
+.lineRounded.arrowLeft::before {
+  content: '\E804';
+}
+
 .lineRounded.arrowRight::before {
   content: '\E805';
 }
