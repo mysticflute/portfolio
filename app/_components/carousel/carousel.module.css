@@ -1,4 +1,53 @@
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .inner {
   max-width: 85%;
   margin: 0 auto;
+}
+
+.control {
+  background: var(--color-neutral-300);
+  border: 0;
+  font-size: 1.625rem;
+  /* line-height: 1.667; */
+  padding: 0;
+  width: 64px;
+  min-width: 64px;
+  height: 64px;
+  min-height: 64px;
+  color: var(--color-text-accent);
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.control:hover,
+.control:focus-visible {
+  background: var(--color-background-100);
+  color: var(--color-neutral-100);
+  transform: scale3d(0.94, 0.94, 1.01);
+}
+
+.items {
+  min-height: 390px;
+}
+
+.previous {
+  order: 1;
+}
+
+.inner {
+  order: 2;
+}
+
+.next {
+  order: 3;
 }

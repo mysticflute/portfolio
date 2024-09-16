@@ -9,9 +9,9 @@ export default function Testimonials() {
   return (
     <section className={styles.container}>
       <div className={styles.heading}>
+        {/*prettier-ignore */}
         <h2 className="textHeadingMedium">
-          What my clients say about{' '}
-          <span className="textHighlight1">my work</span>
+          What my clients say about <span className="textHighlight1">my work</span>
         </h2>
         <Box type="text">
           <p>
@@ -22,6 +22,7 @@ export default function Testimonials() {
       </div>
 
       <Carousel
+        label="Testimonials"
         className={styles.carousel}
         items={[
           {
