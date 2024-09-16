@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Box from '@/components/box/box';
 import Carousel from '../carousel/carousel';
 import Testimonial from '../testimonial/testimonial';
-import avatar1 from '@/public/images/illustrations/msketch2.png';
+import avatar1 from '@/public/images/illustrations/avatar-tmp2.png';
 import styles from './testimonials.module.css';
 
 export default function Testimonials() {
@@ -29,8 +29,8 @@ export default function Testimonials() {
             id: 'testimonial-1',
             component: (
               <Testimonial
-                name="Lily Woods"
-                client="VP of Design at Google"
+                name="Krystal-Ann Melbourne"
+                client="Turning, Video Game"
                 image={
                   <Image src={avatar1} alt="Avatar illustration of a person" />
                 }
