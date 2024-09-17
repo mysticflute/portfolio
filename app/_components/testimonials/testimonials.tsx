@@ -63,7 +63,7 @@ export default function Testimonials() {
             content: (
               <Testimonial
                 name="Nephi"
-                client="D&D Campaign"
+                client="Custom Track, D&D Campaign"
                 image={<Image src={avatar1} alt="Avatar illustration" />}
               >
                 Absolutely worth the wait. NDM did a superlative job. I'm

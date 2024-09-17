@@ -73,7 +73,7 @@ export default function Carousel({ slides, label, className }: Props) {
             role="group"
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${slides.length}`}
-            aria-hidden={activeIndex !== index}
+            aria-hidden={index !== activeIndex}
           >
             {slide.content}
           </div>
