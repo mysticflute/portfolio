@@ -58,6 +58,19 @@ export default function Testimonials() {
               </Testimonial>
             ),
           },
+          {
+            id: 'testimonial-3',
+            content: (
+              <Testimonial
+                name="Nephi"
+                client="D&D Campaign"
+                image={<Image src={avatar1} alt="Avatar illustration" />}
+              >
+                Absolutely worth the wait. NDM did a superlative job. I'm
+                definitely going to be getting more music from them!
+              </Testimonial>
+            ),
+          },
         ]}
       ></Carousel>
     </section>
