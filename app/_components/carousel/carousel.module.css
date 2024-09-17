@@ -3,14 +3,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .slides {
-  max-width: 85%;
-  margin: 0 auto;
-  min-height: 390px;
-  white-space: nowrap;
   order: 2;
+  max-width: 85%;
+  min-height: 390px;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.previous {
+  order: 1;
+}
+
+.next {
+  order: 3;
 }
 
 .control {
@@ -39,29 +48,20 @@
   transform: scale3d(0.94, 0.94, 1.01);
 }
 
-.previous {
-  order: 1;
-}
-
-.next {
-  order: 3;
-}
-
 .slide {
   display: inline-block;
   white-space: normal;
   visibility: hidden;
+  opacity: 0;
   transition:
     opacity 500ms,
     visibility 500ms,
-    1s transform 500ms ease-in;
-  transition-behavior: allow-discrete;
-  opacity: 0;
+    1s transform 500ms;
   transform-style: preserve-3d;
 }
 
 .slide.active {
   visibility: visible;
   opacity: 1;
-  transition: opacity 300ms;
+  transition: opacity 800ms;
 }

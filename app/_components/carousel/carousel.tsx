@@ -26,12 +26,12 @@ export type Props = {
 };
 
 /**
- * Displays a slideshow that cycles through content with toggle controls.
+ * Displays a slideshow that cycles through content with button controls.
  */
 export default function Carousel({ slides, label, className }: Props) {
   // there must be at least one slide
   if (slides.length < 1) {
-    throw new Error('there must be at least one slide in the carousel');
+    throw new Error('There must be at least one slide in the carousel');
   }
 
   // ensure each slide id is unique
