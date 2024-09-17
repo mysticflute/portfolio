@@ -53,7 +53,7 @@
   border-radius: 16px;
   font-weight: 700;
   line-height: 1.111;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 300ms;
 }
 
 .input:hover,

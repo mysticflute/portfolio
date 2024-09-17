@@ -8,10 +8,10 @@
 
 .slides {
   order: 2;
+  display: flex;
   max-width: 85%;
   min-height: 390px;
   margin: 0 auto;
-  white-space: nowrap;
 }
 
 .previous {
@@ -23,22 +23,22 @@
 }
 
 .control {
-  background: var(--color-neutral-300);
-  border: 0;
-  font-size: 1.625rem;
-  line-height: normal;
-  padding: 0;
   width: 64px;
   min-width: 64px;
   height: 64px;
   min-height: 64px;
-  color: var(--color-text-accent);
-  transform-style: preserve-3d;
+  padding: 0;
+  border: 0;
   border-radius: 16px;
+  background: var(--color-neutral-300);
+  font-size: 1.625rem;
+  line-height: normal;
+  color: var(--color-text-accent);
   transition:
-    transform 0.3s,
-    background-color 0.3s,
-    color 0.3s;
+    background-color 300ms,
+    transform 300ms,
+    color 300ms;
+  transform-style: preserve-3d;
 }
 
 .control:hover,
@@ -49,8 +49,9 @@
 }
 
 .slide {
-  display: inline-block;
-  white-space: normal;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
   visibility: hidden;
   opacity: 0;
   transition:
