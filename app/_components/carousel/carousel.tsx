@@ -61,6 +61,24 @@ export default function Carousel({ slides, label, className }: Props) {
       aria-roledescription="carousel"
       aria-label={label}
     >
+      <button
+        type="button"
+        onClick={handlePrevious}
+        aria-label="Previous slide"
+        className={clsx(styles.control, styles.previous, 'flexCenter')}
+      >
+        <Icon name="arrowLeft" decorative />
+      </button>
+
+      <button
+        type="button"
+        onClick={handleNext}
+        aria-label="Next slide"
+        className={clsx(styles.control, styles.next, 'flexCenter')}
+      >
+        <Icon name="arrowRight" decorative />
+      </button>
+
       <div className={styles.slides}>
         {slides.map((slide, index) => (
           <div
@@ -79,24 +97,6 @@ export default function Carousel({ slides, label, className }: Props) {
           </div>
         ))}
       </div>
-
-      <button
-        type="button"
-        onClick={handlePrevious}
-        aria-label="Previous slide"
-        className={clsx(styles.control, styles.previous, 'flexCenter')}
-      >
-        <Icon name="arrowLeft" decorative />
-      </button>
-
-      <button
-        type="button"
-        onClick={handleNext}
-        aria-label="Next slide"
-        className={clsx(styles.control, styles.next, 'flexCenter')}
-      >
-        <Icon name="arrowRight" decorative />
-      </button>
     </div>
   );
 }
