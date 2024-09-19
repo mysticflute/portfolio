@@ -1,15 +1,14 @@
 .carousel {
-  position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
   align-items: center;
-  justify-content: space-between;
   overflow: hidden;
 }
 
 .slides {
   order: 2;
   display: flex;
-  max-width: 85%;
+  max-width: 94%;
   min-height: 390px;
   margin: 0 auto;
 }
@@ -65,4 +64,52 @@
   visibility: visible;
   opacity: 1;
   transition: opacity 800ms;
+}
+
+@media screen and (max-width: 991px) {
+  .carousel {
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 56px 20px;
+  }
+
+  .slides {
+    order: 1;
+    grid-column: span 2;
+    max-width: 600px;
+  }
+
+  .previous {
+    order: 2;
+    justify-self: end;
+  }
+
+  .next {
+    order: 3;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .carousel {
+    row-gap: 54px;
+  }
+
+  .slides {
+    max-width: 100%;
+  }
+
+  .control {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    border-radius: 12px;
+    font-size: 1.375rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .carousel {
+    row-gap: 44px;
+  }
 }
