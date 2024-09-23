@@ -15,9 +15,13 @@ export default function Testimonials() {
           What my clients say about <span className="textHighlight1">my work</span>
         </h2>
         <Box type="text">
-          <p>
+          {/* <p>
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol
             montes augue donec cras turpis ultrices nulla sed doler.
+          </p> */}
+          <p>
+            Fantastic relationships are all about communication. If we can
+            connect first as humans, we'll deliver our best work.
           </p>
         </Box>
       </div>
