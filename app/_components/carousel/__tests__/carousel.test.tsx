@@ -167,7 +167,7 @@ describe('carousel', () => {
       }),
     ).toHaveTextContent('slide 1');
 
-    // click the previous button, slide 2 is visible
+    // click the previous button, circles back to slide 3
 
     await act(async () => {
       await user.click(button);
@@ -179,7 +179,7 @@ describe('carousel', () => {
       }),
     ).toHaveTextContent('slide 3');
 
-    // click the next button, circles back to slide 1
+    // click the previous button, slide 2 is visible
 
     await act(async () => {
       await user.click(button);
