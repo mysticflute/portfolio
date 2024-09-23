@@ -1,4 +1,4 @@
-.testimonial {
+div.testimonial {
   position: relative;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@
 }
 
 @media screen and (max-width: 991px) {
-  .testimonial {
+  div.testimonial {
     flex-direction: column;
     margin-right: 0;
     padding: 45px 45px 57px;
@@ -68,7 +68,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .testimonial {
+  div.testimonial {
     padding-left: 30px;
     padding-right: 30px;
     row-gap: 53px;
@@ -84,7 +84,7 @@
 }
 
 @media screen and (max-width: 479px) {
-  .testimonial {
+  div.testimonial {
     padding-left: 24px;
     padding-right: 24px;
     row-gap: 44px;
