@@ -21,7 +21,7 @@ export default function Testimonials() {
           </p> */}
           <p>
             Fantastic relationships are all about communication. If we can
-            connect first as humans, we'll deliver our best work.
+            connect first as humans, we&rsquo;ll deliver our best work.
           </p>
         </Box>
       </div>
