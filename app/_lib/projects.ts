@@ -71,11 +71,11 @@ const projectSchema = object({
     /** The display name of the track. */
     name: string().min(1),
 
-    /** The URL to an audio file in mp3 format. */
-    mp3: url.min(1).optional(),
-
     /** The URL to an audio file in aac format. */
     aac: url.min(1).optional(),
+
+    /** The URL to an audio file in mp3 format. */
+    mp3: url.min(1).optional(),
 
     /** The URL to stream on Apple Music. */
     apple: url.min(1).optional(),

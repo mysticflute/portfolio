@@ -37,10 +37,10 @@ description: >
 # At least one embeddable url (mp3/aac) must be specified for each track.
 tracks:
   # Display name for the track.
-  - name: 'Track 1'
+  - name: "Track 1"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/id
-    # aac: https://feeds.soundcloud.com/stream/id
+    # aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k/123.aac
+    # mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k/123.mp3
     # soundcloud: https://soundcloud.com/nathan_david_mcwilliams/id
     # bandcamp: https://nathanmcwilliams.bandcamp.com/track/id
     # spotify: https://open.spotify.com/track/id

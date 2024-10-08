@@ -39,7 +39,8 @@ tracks:
   # Display name for the track.
   - name: "Blue River Road"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1272228361
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728256263/za0ws3bgdzhwug8vojgc.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728256263/za0ws3bgdzhwug8vojgc.mp3
 
   # Display name for the track.
   - name: "No Escape (Vulgari OST)"
