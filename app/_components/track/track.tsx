@@ -93,9 +93,9 @@ export default function Track({ track, isPlaying, onTrackEnd }: Props) {
           customVolumeControls={[]}
           customAdditionalControls={[]}
         >
-          {track.aac && <source src={track.aac} type="audio/aac" />}
+          {/* {track.aac && <source src={track.aac} type="audio/aac" />}
           {track.mp3 && <source src={track.mp3} type="audio/mpeg" />}
-          {track.mp3 && <a href={track.mp3}>Download the mp3 file here.</a>}
+          {track.mp3 && <a href={track.mp3}>Download the mp3 file here.</a>} */}
         </AudioPlayer>
       </div>
     </li>
