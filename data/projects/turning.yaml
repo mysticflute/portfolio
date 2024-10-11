@@ -39,52 +39,62 @@ tracks:
   # Display name for the track.
   - name: "Seeds of Life [Morning]"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661974287
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595851/nxlkskdf74gzjgxy32h7.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595851/nxlkskdf74gzjgxy32h7.mp3
 
   # Display name for the track.
   - name: "Sunny Shovel [Morning 2]"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661979261
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596042/fsd7rwnyadfvicwefgmt.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596042/fsd7rwnyadfvicwefgmt.mp3
 
   # Display name for the track.
   - name: "After the Clouds [Afternoon]"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661980971
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595779/vziix3j6vecxgup1fcja.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595779/vziix3j6vecxgup1fcja.mp3
 
   # Display name for the track.
   - name: "The Frog's Dream [Evening]"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661982381
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596043/x8e0evys2gthf0dw8irh.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596043/x8e0evys2gthf0dw8irh.mp3
 
   # Display name for the track.
   - name: "Fireflies [Night]"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661983896
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595781/vbjwnmuuswd03a3fhvks.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595781/vbjwnmuuswd03a3fhvks.mp3
 
   # Display name for the track.
   - name: "A Day's Work"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661985333
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595665/x27qavxemlquxjvokeyy.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595665/x27qavxemlquxjvokeyy.mp3
 
   # Display name for the track.
   - name: "Forest"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661991063
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595781/weju4sros9io3qcxg8fm.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595781/weju4sros9io3qcxg8fm.mp3
 
   # Display name for the track.
   - name: "Silent Awakening"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661999643
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595849/vne7g0q6thjvmwxsw3ow.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595849/vne7g0q6thjvmwxsw3ow.mp3
 
   # Display name for the track.
   - name: "Passage"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661987727
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595847/qdp5hxluvcsax54pomts.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595847/qdp5hxluvcsax54pomts.mp3
 
   # Display name for the track.
   - name: "Determination"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661989830
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595778/crushrlnax33s4b0wyee.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595778/crushrlnax33s4b0wyee.mp3
 
 # Project's accent color, in css hex format (optional).
 color: "#f49ac1"

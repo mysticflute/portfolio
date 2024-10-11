@@ -39,53 +39,62 @@ tracks:
   # Display name for the track.
   - name: "Blue River Road"
     # The urls to embed, externally stream or buy the track.
-    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728256263/za0ws3bgdzhwug8vojgc.aac
-    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728256263/za0ws3bgdzhwug8vojgc.mp3
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596806/nllm9byhtczirspi3fby.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596806/nllm9byhtczirspi3fby.mp3
 
   # Display name for the track.
   - name: "No Escape (Vulgari OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363178761
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596357/p2rsdhkbm31ry3ka9uho.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596357/p2rsdhkbm31ry3ka9uho.mp3
 
   # Display name for the track.
   - name: "Overworld (Vulgari OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1362994615
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596360/ojh2zkpswwkcxrlbc9g5.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596360/ojh2zkpswwkcxrlbc9g5.mp3
 
   # Display name for the track.
   - name: "Princess Aiysha"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1269487699
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596847/wzacz7jsudepjtkcjgdk.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596847/wzacz7jsudepjtkcjgdk.mp3
 
   # Display name for the track.
   - name: "Deep Dark Forest (Recidivia OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1468989199
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596519/buvaile7aovgcg9gv4sq.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596519/buvaile7aovgcg9gv4sq.mp3
 
   # Display name for the track.
   - name: "Fireflies (Turning OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1661983896
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595781/vbjwnmuuswd03a3fhvks.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728595781/vbjwnmuuswd03a3fhvks.mp3
 
   # Display name for the track.
   - name: "The Secret (Vulgari OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363203541
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596431/exxtuslqpvnfdd8fehvz.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596431/exxtuslqpvnfdd8fehvz.mp3
 
   # Display name for the track.
   - name: "Sarvarā's Gate  (Vulgari OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363214545
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596430/qrlmlpa5cpwwh2ksurrn.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596430/qrlmlpa5cpwwh2ksurrn.mp3
 
   # Display name for the track.
   - name: "Chasing Freedom (Vulgari OST)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363207933
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596236/pit7b1rj3ez4ftnijrhp.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596236/pit7b1rj3ez4ftnijrhp.mp3
 
   # Display name for the track.
   - name: "Overworld Map (D&D Campaign)"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1510431769
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596949/jzuj5ro4i2x4ue47st1b.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596949/jzuj5ro4i2x4ue47st1b.mp3
 
 # Project's accent color, in css hex format (optional).
 color: "#ffab91"
