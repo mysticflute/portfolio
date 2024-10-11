@@ -39,27 +39,32 @@ tracks:
   # Display name for the track.
   - name: "Deep Dark Forest"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1468989199
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596519/buvaile7aovgcg9gv4sq.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596519/buvaile7aovgcg9gv4sq.mp3
 
   # Display name for the track.
   - name: "Penca Plains"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1468987642
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596525/ivnzz0n6igpuytoemoei.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596525/ivnzz0n6igpuytoemoei.mp3
 
   # Display name for the track.
   - name: "Growing Suspicions"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1468969438
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596520/hbgxdwoxnhfofheruevx.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596520/hbgxdwoxnhfofheruevx.mp3
 
   # Display name for the track.
   - name: "Inn A"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1468955629
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596521/y80rwowykkd6h9cg2h4x.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596521/y80rwowykkd6h9cg2h4x.mp3
 
   # Display name for the track.
   - name: "Inn B"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1468955386
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596523/vq36ipv5wijxac7ftpbn.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596523/vq36ipv5wijxac7ftpbn.mp3
 
 # Project's accent color, in css hex format (optional).
 color: "#5c42fb"

@@ -6,15 +6,18 @@ This directory contains the data for music projects.
 
 1. Copy the `_template.yaml` file and rename it.
 2. Edit the copied yaml file with the relevant information.
-3. To find SoundCloud track URLs:
-   1. Ensure the track is enabled for the RSS feed. For each track:
-      1. Load the track page on soundcloud.com.
-      2. Click Edit > Permissions (tab) > Enable "Include in RSS Feed".
-   2. Load the profile's RSS feed:
-      1. Find the RSS URL under Profile Settings > Content (tab) > "RSS feed".
-         For example, https://feeds.soundcloud.com/users/soundcloud:users:394865898/sounds.rss.
-      2. View or download the feed contents (e.g., in Chrome).
-   3. For each track, find the `<enclosure>` field's url within the `<item>` tag for the track, and copy this url to the mp3 field of the yaml. Note that the author and title in the URL, after the soundcloud ID, does not seem necessary and can be stripped.
+3. Uploading tracks to Cloudinary:
+   1. Go to the [Cloudinary Media Library](https://console.cloudinary.com/console/media_library).
+   2. Optionally select the `Folders` tab, then open the `audio` folder.
+   3. Click the Upload button.
+   4. Select the `16bit 44khz wav` file from the local filesystem.
+   5. Choose the `audio_track` preset under `Advanced` dropdown.
+   6. After the upload finishes processing, find the track URLs under the Media Explorer:
+      1. Click on `Programmable Media` on the far left tab bar.
+      2. Click on `Media Explorer`.
+      3. Navigate to and select the uploaded file(s).
+      4. Click on the `Optimize and Deliver` tab.
+      5. The `mp3` and `aac` urls should have been eagerly generated based on the `audio_track` preset settings. Copy these urls to the yaml config file.
 
 ## Disabling a Project
 

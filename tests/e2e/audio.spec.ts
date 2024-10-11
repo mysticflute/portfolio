@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// XXX: Soundcloud response times seem to be flaky for Firefox. Should be able
-// to remove this once switching to a CDN.
-const timeout = 15000;
-
 test.describe('audio tracks', () => {
   test('load successfully', async ({ page }) => {
     await page.goto('/');
@@ -13,13 +9,13 @@ test.describe('audio tracks', () => {
     const audio = track.locator('audio');
 
     await track.scrollIntoViewIfNeeded();
-    await expect(audio).toHaveJSProperty('paused', true, { timeout });
+    await expect(audio).toHaveJSProperty('paused', true);
 
     await track.getByRole('button', { name: 'Play' }).click();
-    await expect(audio).toHaveJSProperty('paused', false, { timeout });
+    await expect(audio).toHaveJSProperty('paused', false);
 
     await track.getByRole('button', { name: 'Pause' }).click();
-    await expect(audio).toHaveJSProperty('paused', true, { timeout });
+    await expect(audio).toHaveJSProperty('paused', true);
   });
 
   test('only play one at a time', async ({ page }) => {
@@ -38,17 +34,17 @@ test.describe('audio tracks', () => {
 
     await track1.scrollIntoViewIfNeeded();
     await track1.getByRole('button', { name: 'Play' }).click();
-    await expect(audio1).toHaveJSProperty('paused', false, { timeout });
+    await expect(audio1).toHaveJSProperty('paused', false);
 
     await track2.scrollIntoViewIfNeeded();
     await track2.getByRole('button', { name: 'Play' }).click();
-    await expect(audio1).toHaveJSProperty('paused', true, { timeout });
-    await expect(audio2).toHaveJSProperty('paused', false, { timeout });
+    await expect(audio1).toHaveJSProperty('paused', true);
+    await expect(audio2).toHaveJSProperty('paused', false);
 
     await track3.scrollIntoViewIfNeeded();
     await track3.getByRole('button', { name: 'Play' }).click();
-    await expect(audio2).toHaveJSProperty('paused', true, { timeout });
-    await expect(audio3).toHaveJSProperty('paused', false, { timeout });
+    await expect(audio2).toHaveJSProperty('paused', true);
+    await expect(audio3).toHaveJSProperty('paused', false);
   });
 
   test('auto play the next track in the list', async ({ page }) => {
@@ -66,7 +62,7 @@ test.describe('audio tracks', () => {
     await track1.getByRole('button', { name: 'Play' }).click();
 
     // wait for metadata to load
-    await expect(audio1).toHaveJSProperty('readyState', 4, { timeout });
+    await expect(audio1).toHaveJSProperty('readyState', 4);
 
     // move to the end of the track
     await audio1.evaluate(
@@ -74,6 +70,6 @@ test.describe('audio tracks', () => {
     );
 
     await track2.scrollIntoViewIfNeeded();
-    await expect(audio2).toHaveJSProperty('paused', false, { timeout });
+    await expect(audio2).toHaveJSProperty('paused', false);
   });
 });

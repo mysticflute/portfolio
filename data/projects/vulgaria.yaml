@@ -39,42 +39,50 @@ tracks:
   # Display name for the track.
   - name: "Chasing Freedom"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363207933
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596236/pit7b1rj3ez4ftnijrhp.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596236/pit7b1rj3ez4ftnijrhp.mp3
 
   # Display name for the track.
   - name: "Overworld"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1362994615
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596360/ojh2zkpswwkcxrlbc9g5.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596360/ojh2zkpswwkcxrlbc9g5.mp3
 
   # Display name for the track.
   - name: "Dungeon"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363175623
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596240/ysnvryeuvenithehvidc.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596240/ysnvryeuvenithehvidc.mp3
 
   # Display name for the track.
   - name: "No Escape"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363178761
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596357/p2rsdhkbm31ry3ka9uho.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596357/p2rsdhkbm31ry3ka9uho.mp3
 
   # Display name for the track.
   - name: "Umbra"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363186105
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596434/ic06xohby58r0ggdkavx.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596434/ic06xohby58r0ggdkavx.mp3
 
   # Display name for the track.
   - name: "Windy Cave"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363189672
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596238/s02y1jm5lfzplkqs5pi9.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596238/s02y1jm5lfzplkqs5pi9.mp3
 
   # Display name for the track.
   - name: "Sarvarā's Gate [Final Stage]"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363214545
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596430/qrlmlpa5cpwwh2ksurrn.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596430/qrlmlpa5cpwwh2ksurrn.mp3
 
   # Display name for the track.
   - name: "The Secret"
     # The urls to embed, externally stream or buy the track.
-    mp3: https://feeds.soundcloud.com/stream/1363203541
+    aac: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596431/exxtuslqpvnfdd8fehvz.aac
+    mp3: https://res.cloudinary.com/deiecdwbk/video/private/br_192k:constant/v1728596431/exxtuslqpvnfdd8fehvz.mp3
 
 # Project's accent color, in css hex format (optional).
 color: "#4b914b"
