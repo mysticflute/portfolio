@@ -1,7 +1,7 @@
 import { describe, it, expect } from '@jest/globals';
 import { mainNavigation, allSocialLinks } from '../links';
 
-const SITE_LINK = /^\/.*/;
+const SITE_LINK = /(^\/.*)|^https:\/\/.+/;
 const SECURE_LINK = /^https:\/\/.+/;
 
 describe('links', () => {
@@ -14,7 +14,7 @@ describe('links', () => {
     });
 
     it.each(mainNavigation)(
-      '$label should be a valid link beginning with "/"',
+      '$label should be a valid link beginning with "/" or "https://"',
       link => {
         expect(link.path).toMatch(SITE_LINK);
       },

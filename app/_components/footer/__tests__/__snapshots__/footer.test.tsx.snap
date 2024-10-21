@@ -12,6 +12,7 @@ exports[`footer renders the expected set of links 1`] = `
   "http://localhost/about",
   "http://localhost/#portfolio",
   "http://localhost/contact",
+  "https://nathan-david-mcwilliams.ck.page/free-music-pack",
   "https://soundcloud.com/nathan_david_mcwilliams",
   "https://www.youtube.com/@nathandavidmcwilliams",
   "https://mysticflute.itch.io/",
