@@ -12,7 +12,7 @@ export default function Contact() {
       <Box type="text" className={styles.text}>
         <p>
           A contact form is coming soon. In the meantime, please send me an
-          email at the address below. I&apos;ll be in touch shortly.
+          email at the address below. I&rsquo;ll be in touch shortly.
         </p>
       </Box>
       <Box type="flat" className={styles.card}>

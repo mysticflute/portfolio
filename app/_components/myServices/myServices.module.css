@@ -86,6 +86,11 @@
     padding-bottom: 168px;
   }
 
+  .heading,
+  .heading h2 {
+    margin-bottom: 20px;
+  }
+
   .list {
     grid-template-columns: 1fr;
   }
