@@ -2,8 +2,9 @@ import Image from 'next/image';
 import Box from '@/components/box/box';
 import Carousel from '../carousel/carousel';
 import Testimonial from '../testimonial/testimonial';
-import avatarGirl from '@/public/images/illustrations/avatar-tmp2.png';
-import avatarBoy from '@/public/images/illustrations/avatar-tmp.png';
+import womanImage1 from '@/public/images/avatars/woman-2-square.png';
+import womanImage2 from '@/public/images/avatars/woman-4-square.png';
+import manImage1 from '@/public/images/avatars/man-1-square.png';
 import styles from './testimonials.module.css';
 
 export default function Testimonials() {
@@ -36,7 +37,7 @@ export default function Testimonials() {
               <Testimonial
                 name="Krystal-Ann Melbourne"
                 client="Turning, Video Game"
-                image={<Image src={avatarGirl} alt="Illustration of a girl" />}
+                image={<Image src={womanImage1} alt="Illustration of a girl" />}
               >
                 Nathan was great :&#x29; He was super professional and put a lot
                 more work and time into these songs than I expected. It&rsquo;s
@@ -52,7 +53,7 @@ export default function Testimonials() {
               <Testimonial
                 name="Onemanarme"
                 client="Recidivia, Video Game"
-                image={<Image src={avatarBoy} alt="Illustration of a boy" />}
+                image={<Image src={manImage1} alt="Illustration of a boy" />}
               >
                 Fantastic musician! Very pleased with the songs. I don&rsquo;t
                 think any directions that I gave really mattered in the end
@@ -68,7 +69,7 @@ export default function Testimonials() {
               <Testimonial
                 name="Nephi"
                 client="Custom Track, D&D Campaign"
-                image={<Image src={avatarGirl} alt="Illustration of a girl" />}
+                image={<Image src={womanImage2} alt="Illustration of a girl" />}
               >
                 Absolutely worth the wait. NDM did a superlative job. I&rsquo;m
                 definitely going to be getting more music from them!
