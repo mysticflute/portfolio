@@ -16,9 +16,8 @@ export default function Hero() {
         <p>
           I write music for games and{' '}
           <span className={styles.extra}>interactive</span> media. I specialize
-          in melodically-driven tracks, inspired by{' '}
-          <span className={styles.extra}>JRPG</span> classics such as Final
-          Fantasy, Suikoden and Octopath Traveler.
+          in melodically-driven tracks, inspired by instruments and sounds from
+          across the world.
         </p>
 
         <div className={`${styles.buttons} flexCenter`}>
