@@ -69,7 +69,9 @@ export default function Track({ track, isPlaying, onTrackEnd }: Props) {
   }
 
   function handleEnded() {
-    onTrackEnd && onTrackEnd(track.id);
+    if (onTrackEnd) {
+      onTrackEnd(track.id);
+    }
   }
 
   return (

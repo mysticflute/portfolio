@@ -18,7 +18,12 @@ type ObserverMetadata = {
 
 const allObservers = new Map<IntersectionObserver, ObserverMetadata>();
 
-let globalMock: jest.Mock<any> | null = null;
+let globalMock: jest.Mock<
+  (
+    callback: IntersectionObserverCallback,
+    options?: IntersectionObserverInit,
+  ) => IntersectionObserver
+> | null = null;
 
 /**
  * Mock the global/window `IntersectionObserver`.

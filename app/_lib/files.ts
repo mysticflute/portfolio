@@ -13,7 +13,7 @@ export async function exists(path?: string | null) {
 
   try {
     await fs.access(path);
-  } catch (e) {
+  } catch {
     return false;
   }
 

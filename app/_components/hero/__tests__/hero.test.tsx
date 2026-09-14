@@ -1,4 +1,4 @@
-import { describe, expect, it, beforeEach, jest } from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Hero from '../hero';
 
