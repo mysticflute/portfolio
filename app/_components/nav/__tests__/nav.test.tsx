@@ -1,3 +1,4 @@
+import type { Route } from 'next';
 import { lazy } from 'react';
 import {
   jest,
@@ -19,10 +20,10 @@ import { type InternalLink } from '../links';
 // replaced with `getBy*`.
 const Nav = lazy(() => import('../nav'));
 
-export const testNavLinks: InternalLink[] = [
+export const testNavLinks: InternalLink<Route>[] = [
   { key: 'home', label: 'Home', path: '/' },
   { key: 'about', label: 'About', path: '/about' },
-  { key: 'portfolio', label: 'Portfolio', path: '/portfolio' },
+  { key: 'portfolio', label: 'Portfolio', path: '/#portfolio' },
 ];
 
 describe('nav', () => {

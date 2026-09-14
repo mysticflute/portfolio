@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { spamEmail, encodedHumanEmail } from '@/lib/constants';
 import {
-  type SocialLink,
+  type ExternalLink,
   mainNavigation,
   allSocialLinks,
   twitter,
@@ -24,7 +24,7 @@ import soundcloudIcon from '@/public/images/icons/custom/soundcloud.svg';
 import linktreeIcon from '@/public/images/icons/pulsar/linktree.svg';
 import styles from './footer.module.css';
 
-type SocialLinkWithIcon = SocialLink & {
+type SocialLinkWithIcon = ExternalLink & {
   icon: StaticImageData | typeof twitterIcon;
 };
 

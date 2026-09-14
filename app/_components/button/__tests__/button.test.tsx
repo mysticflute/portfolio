@@ -1,3 +1,4 @@
+import type { Route } from 'next';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Button from '../button';
@@ -5,7 +6,7 @@ import Button from '../button';
 describe('button', () => {
   it('renders a link', () => {
     render(
-      <Button href="/foo" type="primary">
+      <Button href={'/foo' as Route} type="primary">
         foo
       </Button>,
     );
@@ -15,7 +16,7 @@ describe('button', () => {
 
   it('renders the link url', () => {
     render(
-      <Button href="/foo" type="primary">
+      <Button href={'/foo' as Route} type="primary">
         foo
       </Button>,
     );
@@ -25,7 +26,7 @@ describe('button', () => {
 
   it('renders the link text', () => {
     render(
-      <Button href="/foo" type="primary">
+      <Button href={'/foo' as Route} type="primary">
         foo
       </Button>,
     );
@@ -35,7 +36,7 @@ describe('button', () => {
 
   it('renders nested child content', () => {
     render(
-      <Button href="/foo" type="primary">
+      <Button href={'/foo' as Route} type="primary">
         <span className="icon"></span>
         foo
       </Button>,
@@ -46,7 +47,7 @@ describe('button', () => {
 
   it('adds the base class name', () => {
     render(
-      <Button href="/foo" type="primary">
+      <Button href={'/foo' as Route} type="primary">
         foo
       </Button>,
     );
@@ -56,7 +57,7 @@ describe('button', () => {
 
   it('renders the link with type=primary', () => {
     render(
-      <Button href="/foo" type="primary">
+      <Button href={'/foo' as Route} type="primary">
         foo
       </Button>,
     );
@@ -66,7 +67,7 @@ describe('button', () => {
 
   it('renders the link with type=secondary', () => {
     render(
-      <Button href="/foo" type="secondary">
+      <Button href={'/foo' as Route} type="secondary">
         foo
       </Button>,
     );
@@ -76,7 +77,7 @@ describe('button', () => {
 
   it('adds inverse class when inverse=true', () => {
     render(
-      <Button href="/foo" type="primary" inverse={true}>
+      <Button href={'/foo' as Route} type="primary" inverse={true}>
         foo
       </Button>,
     );
@@ -86,7 +87,7 @@ describe('button', () => {
 
   it('adds the custom class name', () => {
     render(
-      <Button href="/foo" type="primary" className="customclass">
+      <Button href={'/foo' as Route} type="primary" className="customclass">
         foo
       </Button>,
     );

@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  typedRoutes: true,
 
   images: {
     qualities: [50, 75, 80, 100],
