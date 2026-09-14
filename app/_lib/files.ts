@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import { access } from 'node:fs/promises';
 
 /**
  * Checks if the given file path exists and is accessible.
@@ -12,7 +12,7 @@ export async function exists(path?: string | null) {
   }
 
   try {
-    await fs.access(path);
+    await access(path);
   } catch {
     return false;
   }

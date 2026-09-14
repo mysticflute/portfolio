@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as fs from 'node:fs';
-import * as path from 'node:path';
+import path from 'node:path';
 
 // This script removes a specified prefix from all files in a given directory.
 

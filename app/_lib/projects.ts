@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { readdir, readFile } from 'node:fs/promises';
+import path from 'node:path';
 import yaml from 'js-yaml';
 import { nanoid as generateNanoId } from 'nanoid';
 import { logger } from '@/lib/logger';
@@ -122,7 +122,7 @@ export type ProjectMetadata = Infer<typeof projectSchema>;
  * Reads the project metadata from the yaml files in data/projects.
  */
 export async function getProjects(): Promise<ProjectMetadata[]> {
-  const filenames = await fs.readdir(projectsDirectory);
+  const filenames = await readdir(projectsDirectory);
 
   // files beginning with an underscore are disabled.
   const projectFilenames = filenames
@@ -134,7 +134,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
   const projectMetadata = await Promise.all(
     projectFilenames.map(async (filename): Promise<ProjectMetadata> => {
       const filepath = path.join(projectsDirectory, filename);
-      const contents = await fs.readFile(filepath, 'utf8');
+      const contents = await readFile(filepath, 'utf8');
       const metadata = yaml.load(contents, { filename: filepath });
 
       const finalProjectSchema = projectSchema.extend({

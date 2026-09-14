@@ -1,4 +1,6 @@
-module.exports = {
+import { type Config } from 'prettier';
+
+const config: Config = {
   singleQuote: true,
   arrowParens: 'avoid',
   overrides: [
@@ -11,3 +13,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
