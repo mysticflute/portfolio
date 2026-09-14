@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`colorSchemeImage matches the snapshot with additional props 1`] = `
 <div>
@@ -13,6 +13,7 @@ exports[`colorSchemeImage matches the snapshot with additional props 1`] = `
       decoding="async"
       fetchpriority="high"
       height="100"
+      loading="eager"
       sizes="(max-width: 500px) 100vw, 50vw"
       src="/_next/image?url=%2FsrcLight.png&w=3840&q=80"
       srcset="/_next/image?url=%2FsrcLight.png&w=384&q=80 384w, /_next/image?url=%2FsrcLight.png&w=640&q=80 640w, /_next/image?url=%2FsrcLight.png&w=750&q=80 750w, /_next/image?url=%2FsrcLight.png&w=828&q=80 828w, /_next/image?url=%2FsrcLight.png&w=1080&q=80 1080w, /_next/image?url=%2FsrcLight.png&w=1200&q=80 1200w, /_next/image?url=%2FsrcLight.png&w=1920&q=80 1920w, /_next/image?url=%2FsrcLight.png&w=2048&q=80 2048w, /_next/image?url=%2FsrcLight.png&w=3840&q=80 3840w"

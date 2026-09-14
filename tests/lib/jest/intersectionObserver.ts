@@ -43,7 +43,8 @@ export function initializeObserverMocks() {
 
       const mockObserver: IntersectionObserver = {
         root: options.root || null,
-        rootMargin: options.rootMargin || '',
+        rootMargin: options.rootMargin || '0px 0px 0px 0px',
+        scrollMargin: options.scrollMargin || '0px 0px 0px 0px',
         thresholds: Array.isArray(options.threshold)
           ? options.threshold
           : [options.threshold ?? 0],

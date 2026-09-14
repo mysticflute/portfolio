@@ -66,7 +66,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /missing required property(.*)name/i,
+      /expected string, received undefined[\s\S]*name/i,
     );
   });
 
@@ -82,7 +82,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /missing required property(.*)description/i,
+      /expected string, received undefined[\s\S]*description/i,
     );
   });
 
@@ -98,7 +98,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /missing required property(.*)role/i,
+      /expected string, received undefined[\s\S]*role/i,
     );
   });
 
@@ -324,7 +324,7 @@ describe('getProjects', () => {
     });
 
     await expect(getProjects()).rejects.toThrow(
-      /missing required property(.*)name/i,
+      /expected string, received undefined[\s\S]*name/i,
     );
   });
 

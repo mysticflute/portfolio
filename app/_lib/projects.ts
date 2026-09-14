@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-import { nanoid } from 'nanoid';
+import { nanoid as generateNanoId } from 'nanoid';
 import { logger } from '@/lib/logger';
 import { exists } from '@/lib/files';
 import {
@@ -9,8 +9,9 @@ import {
   object,
   string,
   number,
+  nanoid,
   ZodError,
-  ZodIssueCode,
+  prettifyError,
 } from 'zod';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
@@ -55,7 +56,15 @@ const projectSchema = object({
   // OPTIONAL FIELDS
 
   /** The path to an icon representing the game type. */
-  icon: string().min(1).optional(),
+  icon: string()
+    .min(1)
+    .refine(async icon => {
+      // the icon must exist at the expected path
+      return (
+        icon === undefined || (await exists(path.join(iconsDirectory, icon)))
+      );
+    }, `Icon does not exist under '${iconsDirectory}', or is inaccessible`)
+    .optional(),
 
   /** A link to the project's external website.  */
   link: url.min(1).optional(),
@@ -66,7 +75,7 @@ const projectSchema = object({
   /** The audio tracks for the project. */
   tracks: object({
     /** a unique identifier for the track. */
-    id: string().nanoid().default(nanoid),
+    id: nanoid().default(generateNanoId),
 
     /** The display name of the track. */
     name: string().min(1),
@@ -130,50 +139,23 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
 
       const finalProjectSchema = projectSchema.extend({
         // default value of the slug is the filename
-        slug: projectSchema.shape.slug.default(path.parse(filename).name),
-
-        // the icon must exist at the expected path
-        icon: projectSchema.shape.icon.refine(
-          async icon =>
-            icon === undefined ||
-            (await exists(path.join(iconsDirectory, icon))),
-          `Icon does not exist under '${iconsDirectory}', or is inaccessible`,
-        ),
+        slug: projectSchema.shape.slug.prefault(path.parse(filename).name),
       });
 
-      let validated: ProjectMetadata;
-
       try {
-        validated = await finalProjectSchema.parseAsync(metadata);
+        const validated = await finalProjectSchema.parseAsync(metadata);
+        logger.trace(validated, 'successfully parsed project metadata');
+        return validated;
       } catch (e) {
         if (e instanceof ZodError) {
-          const errors = e.issues.map(issue => {
-            logger.trace(issue, 'error details for %s', filename);
-
-            const location = issue.path
-              .map(i => (typeof i === 'number' ? `item ${i + 1}` : i))
-              .join(' > ');
-
-            if (
-              issue.code === ZodIssueCode.invalid_type &&
-              issue.received === 'undefined'
-            ) {
-              return `Missing required property "${location}".`;
-            }
-
-            return `${issue.message}, for property "${location}".`;
-          });
-
           throw new Error(
-            `Invalid data in project YAML file ${filepath}:\n${errors.join('\n\n')}`,
+            `Invalid data in project YAML file ${filepath}:\n` +
+              prettifyError(e),
           );
         } else {
           throw e;
         }
       }
-
-      logger.trace(validated, 'successfully parsed project metadata');
-      return validated;
     }),
   );
 

@@ -14,7 +14,7 @@ export default function MyStory() {
       <div className={styles.overflowHidden}>
         <div className={`${styles.container} ${styles.intro}`}>
           <div className={styles.image}>
-            <Image src={teaImage} alt="" priority />
+            <Image src={teaImage} alt="" fetchPriority="high" />
           </div>
           <div className={styles.content}>
             <h1 className="textHeadingLarge">
@@ -38,7 +38,7 @@ export default function MyStory() {
             </Box>
           </div>
           <div className={styles.image}>
-            <Image src={swordImage} alt="" priority />
+            <Image src={swordImage} alt="" fetchPriority="high" />
           </div>
         </div>
       </div>

@@ -34,7 +34,8 @@ describe('colorSchemeImage', () => {
       <ColorSchemeImage
         srcDark={srcDark}
         srcLight={srcLight}
-        priority
+        loading="eager"
+        fetchPriority="high"
         quality={80}
         alt="alt text"
         sizes="(max-width: 500px) 100vw, 50vw"

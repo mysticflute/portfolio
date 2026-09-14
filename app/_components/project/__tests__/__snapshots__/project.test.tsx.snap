@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`project matches snapshot 1`] = `
 <article
-  aria-describedby=":r0:-description"
-  aria-labelledby=":r0:-heading"
+  aria-describedby="_r_0_-description"
+  aria-labelledby="_r_0_-heading"
   class="box hover container"
   style="--color-project: #fffeee;"
 >
@@ -33,12 +33,12 @@ exports[`project matches snapshot 1`] = `
   </div>
   <h3
     class="textHeadingSmall"
-    id=":r0:-heading"
+    id="_r_0_-heading"
   >
     Test Project
   </h3>
   <p
-    id=":r0:-description"
+    id="_r_0_-description"
   >
     A test project.
   </p>

@@ -102,7 +102,7 @@ export default function Nav({ links }: Props) {
             alt="Nathan David McWilliams"
             width={24}
             height={24}
-            priority
+            fetchPriority="high"
           />
         </Link>
 

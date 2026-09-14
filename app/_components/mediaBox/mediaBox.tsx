@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import * as React from 'react';
 import Box, { Props as BoxProps } from '@/components/box/box';
 import styles from './mediaBox.module.css';
 
@@ -58,7 +59,7 @@ export default function MediaBox({
   children,
   ...rest
 }: Props) {
-  const HeadingTag: keyof JSX.IntrinsicElements = `h${headingLevel}`;
+  const HeadingTag: keyof React.JSX.IntrinsicElements = `h${headingLevel}`;
 
   return (
     <Box

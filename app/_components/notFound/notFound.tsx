@@ -10,7 +10,7 @@ export default function NotFound() {
       <div className={styles.statusCode}>404</div>
 
       <div className={`${styles.topLayer} ${styles.warningIcon} flexCenter`}>
-        <Image src={warningIcon} alt="Page error" priority />
+        <Image src={warningIcon} alt="Page error" fetchPriority="high" />
       </div>
 
       <div className={styles.topLayer}>
