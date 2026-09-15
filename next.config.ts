@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // the playwright tests have issues with http://localhost:3000 as the base
+  // url, and it seems http://127.0.0.1:3000 as the base url requires this
+  // setting when running in dev mode.
+  allowedDevOrigins: ['127.0.0.1'],
 };
 
 export default nextConfig;
