@@ -47,10 +47,6 @@ You can override the `PINO_LOG_LEVEL` to get more or less verbose application lo
 
 For example, I typically set `PINO_LOG_LEVEL="debug"`. If you then want to change this to a different value for `next start`, create `.env.production.local` and set the desired log level there as well, such as `PINO_LOG_LEVEL="info"`.
 
-#### Audio Preloading
-
-I typically set `NEXT_PUBLIC_AUDIO_PRELOAD="none"` for faster loads when developing and running tests locally.
-
 #### ConvertKit
 
 Without an `env.local` file, you'll see an error message about `NEXT_PUBLIC_NEWSLETTER_FORM_ID` not being set. This is ok, but it means trying to sign up for the newsletter will always throw an error.
@@ -63,6 +59,16 @@ To set this value, go to the ConvertKit website and grab the id of a form for te
 4. Select the "HTML" tab, and find the 7-digit id within the `action` attribute of the `form` element. For example, in `<form action="https://app.convertkit.com/forms/1234567/subscriptions ..."`, the id is `1234567`.
 
 Use this id to set the value for `NEXT_PUBLIC_NEWSLETTER_FORM_ID` in the `.env.local` file.
+
+#### Audio Preloading
+
+I typically set `NEXT_PUBLIC_AUDIO_PRELOAD="none"` for faster loads when developing and running tests locally.
+
+#### Allowed Dev Origins
+
+When running the server with `npm run dev`, you can allow additional local hostnames to properly load all of the dev assets and endpoints by setting `ALLOWED_DEV_ORIGINS`.
+
+For example, when running the server on my Mac and allowing connections from my phone, I typically set `ALLOWED_DEV_ORIGINS="localhost, 127.0.0.1, computername.local"` (replacing the value of "computername").
 
 #### Others
 
