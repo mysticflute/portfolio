@@ -2,11 +2,13 @@
 
 import { useRef, useEffect } from 'react';
 import { type ProjectMetadata } from '@/lib/projects';
-import AudioPlayer from 'react-h5-audio-player';
 import {
   useMediaContext,
   useMediaDispatch,
 } from '@/components/mediaContext/mediaContext';
+import AudioPlayer from 'react-h5-audio-player';
+// import { Icon } from '@iconify-icon/react';
+
 import 'react-h5-audio-player/lib/styles.css';
 import styles from './track.module.css';
 
@@ -94,6 +96,10 @@ export default function Track({ track, isPlaying, onTrackEnd }: Props) {
           showJumpControls={false}
           customVolumeControls={[]}
           customAdditionalControls={[]}
+          // customIcons={{
+          //   play: <Icon icon="fa7-solid:play-circle" />,
+          //   pause: <Icon icon="fa7-solid:pause-circle" />,
+          // }}
         >
           {/* {track.aac && <source src={track.aac} type="audio/aac" />}
           {track.mp3 && <source src={track.mp3} type="audio/mpeg" />}
