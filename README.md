@@ -45,6 +45,12 @@ To get started, create a new file named `.env.local` at the root of the project 
 
 You can override the `PINO_LOG_LEVEL` to get more or less verbose application logs.
 
+For example, I typically set `PINO_LOG_LEVEL="debug"`. If you then want to change this to a different value for `next start`, create `.env.production.local` and set the desired log level there as well, such as `PINO_LOG_LEVEL="info"`.
+
+#### Audio Preloading
+
+I typically set `NEXT_PUBLIC_AUDIO_PRELOAD="none"` for faster loads when developing and running tests locally.
+
 #### ConvertKit
 
 Without an `env.local` file, you'll see an error message about `NEXT_PUBLIC_NEWSLETTER_FORM_ID` not being set. This is ok, but it means trying to sign up for the newsletter will always throw an error.
