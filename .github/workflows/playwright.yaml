@@ -16,7 +16,7 @@ env:
   NODE_ENV: "test"
 
 jobs:
-  e2e-test-all:
+  test-all:
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
