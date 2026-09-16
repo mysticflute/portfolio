@@ -1,6 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import yaml from 'js-yaml';
+import { load } from 'js-yaml';
 import { nanoid as generateNanoId } from 'nanoid';
 import { logger } from '@/lib/logger';
 import { exists } from '@/lib/files';
@@ -135,7 +135,7 @@ export async function getProjects(): Promise<ProjectMetadata[]> {
     projectFilenames.map(async (filename): Promise<ProjectMetadata> => {
       const filepath = path.join(projectsDirectory, filename);
       const contents = await readFile(filepath, 'utf8');
-      const metadata = yaml.load(contents, { filename: filepath });
+      const metadata = load(contents, { filename: filepath });
 
       const finalProjectSchema = projectSchema.extend({
         // default value of the slug is the filename
