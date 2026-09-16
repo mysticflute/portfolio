@@ -1,6 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
+import type { Route } from 'next';
 import {
   useRef,
   useState,
@@ -11,7 +12,7 @@ import {
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { type InternalLink } from '@/components/nav/links';
+import type { InternalLink } from '@/components/nav/links';
 import Icon from '@/components/icon/icon';
 import logoImage from '@/public/images/logo/letter-n.svg';
 import styles from './nav.module.css';
@@ -20,7 +21,7 @@ type Props = {
   /**
    * The links to display.
    */
-  links: readonly InternalLink[];
+  links: readonly InternalLink<Route>[];
 };
 
 export default function Nav({ links }: Props) {
@@ -102,7 +103,7 @@ export default function Nav({ links }: Props) {
             alt="Nathan David McWilliams"
             width={24}
             height={24}
-            priority
+            fetchPriority="high"
           />
         </Link>
 
@@ -153,7 +154,7 @@ export default function Nav({ links }: Props) {
   );
 }
 
-function createNavList(links: readonly InternalLink[], current: string) {
+function createNavList(links: readonly InternalLink<Route>[], current: string) {
   return (
     <ul className={`${styles.list} flexCenter`}>
       {links.map(link => (

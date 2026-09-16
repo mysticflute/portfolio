@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   jest,
   describe,
@@ -74,7 +75,11 @@ describe('audio playlist', () => {
 
     const ContextConsumer = () => {
       const context = useMediaContext();
-      contextTrackId = context.currentTrackId;
+
+      useEffect(() => {
+        contextTrackId = context.currentTrackId;
+      });
+
       return <></>;
     };
 
@@ -111,7 +116,11 @@ describe('audio playlist', () => {
 
     const ContextConsumer = () => {
       const context = useMediaContext();
-      contextTrackId = context.currentTrackId;
+
+      useEffect(() => {
+        contextTrackId = context.currentTrackId;
+      });
+
       return <></>;
     };
 

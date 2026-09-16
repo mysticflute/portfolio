@@ -9,7 +9,9 @@
   width: 1px !important;
   height: 1px !important;
   overflow: hidden !important;
+  /* stylelint-disable-next-line property-no-deprecated */
   clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
   text-transform: none !important;
   white-space: nowrap !important;
 }

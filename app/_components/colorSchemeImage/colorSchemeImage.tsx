@@ -14,7 +14,7 @@ import {
  * along with `getImageProps`, because it would not be removed when the image
  * loads. So it's removed here as a param option.
  */
-type Props = Omit<ImageProps, 'src' | 'placeholder'> & {
+type Props = Omit<ImageProps, 'src' | 'placeholder' | 'preload'> & {
   /**
    * The image source for dark mode.
    */

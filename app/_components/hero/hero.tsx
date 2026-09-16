@@ -32,7 +32,8 @@ export default function Hero() {
       </Box>
       <div className={styles.image} title="Art by @mechibaz.">
         <ColorSchemeImage
-          priority
+          loading="eager"
+          fetchPriority="high"
           quality={80}
           srcDark={profileImageDark}
           srcLight={profileImageLight}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   jest,
   describe,
@@ -144,7 +145,11 @@ describe('track', () => {
 
     const ContextConsumer = () => {
       const context = useMediaContext();
-      contextTrackId = context.currentTrackId;
+
+      useEffect(() => {
+        contextTrackId = context.currentTrackId;
+      });
+
       return <></>;
     };
 

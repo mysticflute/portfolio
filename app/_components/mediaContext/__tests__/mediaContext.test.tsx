@@ -17,7 +17,11 @@ describe('media context provider', () => {
 
     const ContextConsumer = () => {
       const context = useMediaContext();
-      contextTrackId = context.currentTrackId;
+
+      useEffect(() => {
+        contextTrackId = context.currentTrackId;
+      });
+
       return <></>;
     };
 
@@ -32,15 +36,21 @@ describe('media context provider', () => {
 
     const ContextConsumer = () => {
       const context = useMediaContext();
-      contextTrackId = context.currentTrackId;
+
+      useEffect(() => {
+        contextTrackId = context.currentTrackId;
+      });
+
       return <></>;
     };
 
     const ContextUpdater = () => {
       const dispatch = useMediaDispatch();
+
       useEffect(() => {
         dispatch({ type: 'playing', id: testId });
       });
+
       return <></>;
     };
 

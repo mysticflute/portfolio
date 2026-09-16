@@ -3,7 +3,7 @@ import Button, { Props as ButtonProps } from '@/components/button/button';
 import Icon, { Props as IconProps } from '@/components/icon/icon';
 import styles from './iconButton.module.css';
 
-type Props = ButtonProps & {
+type Props<T extends string> = ButtonProps<T> & {
   /**
    * Name of the icon to use.
    */
@@ -18,14 +18,14 @@ type Props = ButtonProps & {
 /**
  * Displays a Button component with an Icon to the left.
  */
-export default function IconButton({
+export default function IconButton<T extends string>({
   type,
   href,
   inverse,
   children,
   iconName,
   className,
-}: Props) {
+}: Props<T>) {
   return (
     <Button
       type={type}
