@@ -78,7 +78,9 @@ exports[`track matches snapshot 1`] = `
                 class="rhap_button-clear rhap_main-controls-button rhap_play-pause-button"
                 type="button"
               >
-                <span />
+                <iconify-icon
+                  icon="fa7-solid:play-circle"
+                />
               </button>
             </div>
             <div

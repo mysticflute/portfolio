@@ -3,7 +3,7 @@ import Box from '@/components/box/box';
 import Carousel from '../carousel/carousel';
 import Testimonial from '../testimonial/testimonial';
 import avatarWoman1 from '@/public/images/avatars/woman-2-square.png';
-import avatarWoman2 from '@/public/images/avatars/woman-4-square.png';
+import avatarWoman2 from '@/public/images/avatars/woman-1-square.png';
 import avatarMan1 from '@/public/images/avatars/man-1-square.png';
 import styles from './testimonials.module.css';
 
@@ -24,8 +24,8 @@ export default function Testimonials() {
             montes augue donec cras turpis ultrices nulla sed doler.
           </p> */}
           <p>
-            Fantastic relationships are all about communication. If we can
-            connect first as humans, we&rsquo;ll deliver our best work.
+            Meaningful relationships all start with good communication. If we
+            can connect first as humans, we&rsquo;ll deliver our best work.
           </p>
         </Box>
       </div>

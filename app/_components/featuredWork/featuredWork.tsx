@@ -1,9 +1,10 @@
 import Featured from '@/components/featured/featured';
 
 const featured = [
-  'Turning (Game - In Dev)',
-  'Recidivia (Game - In Dev)',
-  'Vulgaria (Game - In Dev)',
+  'Unannounced Game (2026)',
+  'Seasons Turning (TBD)',
+  'Recidivia',
+  'Vulgaria',
   'D&D Commissions',
   'Unity Asset Packs',
   'Unreal Engine Asset Packs',
