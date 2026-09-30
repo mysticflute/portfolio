@@ -2,7 +2,7 @@ import Featured from '@/components/featured/featured';
 
 const featured = [
   'Unannounced Game (2026)',
-  'Seasons Turning (TBD)',
+  'Seasons Turning (2027)',
   'Recidivia',
   'Vulgaria',
   'D&D Commissions',
