@@ -39,7 +39,7 @@ export default function Testimonials() {
             content: (
               <Testimonial
                 name="Krystal-Ann Melbourne"
-                client="Turning, Video Game"
+                client="Seasons Turning, Video Game"
                 image={
                   <Image
                     src={avatarWoman1}
